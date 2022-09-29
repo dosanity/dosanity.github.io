@@ -2,9 +2,9 @@
 layout: default
 ---
 
-Text can be **bold**, _italic_, or ~~strikethrough~~.
+# Portfolio
 
-[Link to another page](./another-page.html).
+## [Salt Lake City Real Estate](/slc-real-estate-analysis.md).
 
 There should be whitespace between paragraphs.
 
