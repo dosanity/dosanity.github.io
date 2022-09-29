@@ -18,17 +18,14 @@ We are tasked to analyze and examine weather trends for the months of June and D
 
 First we looked at yearly precipitation and temperature frequency on the island of Oahu.
 
-| Yearly Precipitation      |  Temperature Frequency    |   
-|:-------------------------:|:-------------------------:|
-| <img src="https://user-images.githubusercontent.com/29410712/189555029-49840a18-deda-458c-994d-7236dd84e500.png"  width=100% height=100%> | <img src="https://user-images.githubusercontent.com/29410712/189555031-a1fbdb88-f4c4-4482-af55-10def03b72fd.png"  width=100% height=100%> |
+<img src="https://user-images.githubusercontent.com/29410712/189555029-49840a18-deda-458c-994d-7236dd84e500.png"  width=100% height=100%> 
+<img src="https://user-images.githubusercontent.com/29410712/189555031-a1fbdb88-f4c4-4482-af55-10def03b72fd.png"  width=100% height=100%> 
 
 Based on these results, we can see that the average rainfall happens year-round and most of the temperature obsersvations ranged between 70 to 80 degrees. These are ideal conditions for having an ice cream shop business year-round on the island.
 
 ### Summer vs Winter Analysis
 
-|                           |                           |   
-|:-------------------------:|:-------------------------:|
-| <img src="https://user-images.githubusercontent.com/29410712/189557489-30b3114f-e1c3-4490-b860-1933cc29665c.png"  width=80% height=80%> | <img src="https://user-images.githubusercontent.com/29410712/189557525-8116d78a-c593-4348-900e-de2a08c09c1b.png"  width=80% height=80%> |
+<img src="https://user-images.githubusercontent.com/29410712/189557489-30b3114f-e1c3-4490-b860-1933cc29665c.png"  width=80% height=80%> <img src="https://user-images.githubusercontent.com/29410712/189557525-8116d78a-c593-4348-900e-de2a08c09c1b.png"  width=80% height=80%> 
 
 The summer and winter average temperatures differ by around 3.9. The average temperature in June is 74.94 degrees Fahrenheit while the average temperature in December is 71.04 degrees Fahrenheit. As a result, the average temperature doesn't fluctuate as much.
 
