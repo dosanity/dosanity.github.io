@@ -4,6 +4,10 @@ layout: default
 
 # Portfolio
 
-## [Salt Lake City Real Estate](/slc-real-estate-analysis.md).
+---
+
+## [Salt Lake City Real Estate](/slc-real-estate-analysis.md)
+
+
 
 
