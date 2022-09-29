@@ -24,6 +24,6 @@ We compared different classification tools such as K-NN, SVM, and Decision Trees
 
 ## [MNIST Handwritten Digits](/MNIST-digits-analysis.md){: .und}
 
-[Source Code](https://github.com/dosanity/MNIST-digits-analysis/blob/main/MNIST-digits.ipynb)
+[Source Code](https://github.com/dosanity/MNIST-digits-analysis/blob/main/MNIST-digits.ipynb){: .btn}
 
 The MNIST handwritten digit dataset consists of images of handwritten digits, together with labels indicating which digit is in each image. We can see that images are just matrices with scalar values so we can apply the different classification algorithms on them. Because both the features and the labels are present in this dataset (and labels for large datasets are generally difficult/expensive to obtain), this dataset is frequently used as a benchmark to compare various classification methods. For example, this webpage gives a comparison of a variety of different classification methods on MNIST. Our goal is to use scikit-learn machine learning to compare classification methods on the MNIST dataset.
