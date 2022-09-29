@@ -28,7 +28,7 @@
 
 .btn {
   background-color: white;
-  color: black;
+  color: #267CB9;
   border: 2px solid #267CB9;
   text-align: center;
   text-decoration: none;
@@ -39,11 +39,11 @@
   cursor: pointer;
 }
 
-// .btn:hover {
-//   background-color: white;
-//   color: black;
-//   border: 2px solid #267CB9;
-// }
+.btn:hover {
+  background-color: white;
+  color: #267CB9;
+  border: 2px solid #267CB9;
+}
 
 body {
   background-color: #fff;
