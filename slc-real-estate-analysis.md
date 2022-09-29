@@ -1,6 +1,6 @@
 # Salt Lake City Real Estate
 
-**Project description:** We will be analyzing SLC real estate data. The dataset contains multiple listing service (MLS) real estate transactions for houses sold in 2015-16 in zip code 84103 ([SLC avenues neighborhood](https://www.google.com/maps/place/Salt+Lake+City,+UT+84103/@40.8030372,-111.8957957,12z/data=!3m1!4b1!4m5!3m4!1s0x87525f672006dded:0x311e638d9a1a2de5!8m2!3d40.810506!4d-111.8449346)). We are primarily interested in regressing the SoldPrice on the house attributes (property size, house size, number of bedrooms, etc...).
+We will be analyzing SLC real estate data. The dataset contains multiple listing service (MLS) real estate transactions for houses sold in 2015-16 in zip code 84103 ([SLC avenues neighborhood](https://www.google.com/maps/place/Salt+Lake+City,+UT+84103/@40.8030372,-111.8957957,12z/data=!3m1!4b1!4m5!3m4!1s0x87525f672006dded:0x311e638d9a1a2de5!8m2!3d40.810506!4d-111.8449346)). We are primarily interested in regressing the SoldPrice on the house attributes (property size, house size, number of bedrooms, etc...).
 
 ## The Data
 
@@ -87,6 +87,7 @@ Warnings:
 [2] The condition number is large, 1.27e+06. This might indicate that there are
 strong multicollinearity or other numerical problems.
 ```
+
 ![lstprice-soldprice-scatter](https://user-images.githubusercontent.com/29410712/180321828-91fe8634-1248-40b3-bfc7-f84d38117121.png)
 
 Based on the OLS Regression, the R-squared is 0.988. This is saying that the 98.8% of the variation is explained in the model. The Beta one of LstPrice is 0.9019. In other words, as LstPrice goes up by 1, SoldPrice increases by 0.9019 points.

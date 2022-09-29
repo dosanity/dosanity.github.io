@@ -2,7 +2,7 @@
 
 ---
 
-### [Salt Lake City Real Estate](/slc-real-estate-analysis)
+### [Salt Lake City Real Estate](https://github.com/dosanity/SLC-real-estate-analysis/blob/main/README.md)
 <img src="images/slc-real-estate-analysis.png"/>
 
 ---
