@@ -2,7 +2,7 @@
 layout: default
 ---
 
-# Portfolio
+# Projects
 
 ---
 
@@ -23,5 +23,7 @@ There are many GitHub repostories and some are more popular than others. A Git r
 We compared different classification tools such as K-NN, SVM, and Decision Trees to predict the popularity of online news based on attributes such as the length of the article, the number of images, the day of the week that the article was published, and some variables related to the content of the article.
 
 ## [MNIST Handwritten Digits](/MNIST-digits-analysis.md){: .und}
+
+[Source Code](https://github.com/dosanity/MNIST-digits-analysis/blob/main/MNIST-digits.ipynb)
 
 The MNIST handwritten digit dataset consists of images of handwritten digits, together with labels indicating which digit is in each image. We can see that images are just matrices with scalar values so we can apply the different classification algorithms on them. Because both the features and the labels are present in this dataset (and labels for large datasets are generally difficult/expensive to obtain), this dataset is frequently used as a benchmark to compare various classification methods. For example, this webpage gives a comparison of a variety of different classification methods on MNIST. Our goal is to use scikit-learn machine learning to compare classification methods on the MNIST dataset.
