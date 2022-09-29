@@ -18,7 +18,7 @@ There are many crimes that happen in the United States. Some believe that bigger
 
 There are many GitHub repostories and some are more popular than others. A Git repository tracks and saves the history of all changes made to the files in a Git project. It saves this data in a directory called . git , also known as the repository folder. Git uses a version control system to track all changes made to the project and save them in the repository. In this project, we will be scraping GitHub repositories and organize the information in a Pandas dataframe. After that, we will use linear regressions to gain meaningful insights on the data we collected. Our goal is to identify properties that make a repository popular which will give insights on future uses of repositories.
 
-## [Online News Popularity](/online-news-analysis.md){: .und}
+## [Online News Popularity](/online-news-analysis.md){: .und} [Source Code](https://github.com/dosanity/online-news-analysis/blob/main/online-news-popularity.ipynb){: .btn}
 
 We compared different classification tools such as K-NN, SVM, and Decision Trees to predict the popularity of online news based on attributes such as the length of the article, the number of images, the day of the week that the article was published, and some variables related to the content of the article.
 
