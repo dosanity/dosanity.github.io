@@ -26,7 +26,9 @@ Based on these results, we can see that the average rainfall happens year-round 
 
 ### Summer vs Winter Analysis
 
-![Screenshot (333)](https://user-images.githubusercontent.com/29410712/192974729-32080fd5-8f4e-482e-8dc5-d923722c5d19.png) ![Screenshot (334)](https://user-images.githubusercontent.com/29410712/192974813-cdf57d58-ca57-4cd5-9295-bcb11a65ee5c.png)
+![Screenshot (333)](https://user-images.githubusercontent.com/29410712/192974729-32080fd5-8f4e-482e-8dc5-d923722c5d19.png){: .size}
+
+![Screenshot (334)](https://user-images.githubusercontent.com/29410712/192974813-cdf57d58-ca57-4cd5-9295-bcb11a65ee5c.png){: .size}
 
 The summer and winter average temperatures differ by around 3.9. The average temperature in June is 74.94 degrees Fahrenheit while the average temperature in December is 71.04 degrees Fahrenheit. As a result, the average temperature doesn't fluctuate as much.
 
