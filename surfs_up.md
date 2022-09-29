@@ -18,17 +18,17 @@ We are tasked to analyze and examine weather trends for the months of June and D
 
 First we looked at yearly precipitation and temperature frequency on the island of Oahu.
 
-<img src="https://user-images.githubusercontent.com/29410712/189555029-49840a18-deda-458c-994d-7236dd84e500.png"  width=100% height=100%>
+![precipitation](https://user-images.githubusercontent.com/29410712/192974538-6f65bb3c-7ded-4cb4-b7d7-e2e0f9d360da.png)
 
-<img src="https://user-images.githubusercontent.com/29410712/189555031-a1fbdb88-f4c4-4482-af55-10def03b72fd.png"  width=100% height=100%> 
+![temperature](https://user-images.githubusercontent.com/29410712/192974611-86b1279b-ecaa-4e0e-b07d-d8f886b2b47b.png)
 
 Based on these results, we can see that the average rainfall happens year-round and most of the temperature obsersvations ranged between 70 to 80 degrees. These are ideal conditions for having an ice cream shop business year-round on the island.
 
 ### Summer vs Winter Analysis
 
-<img src="https://user-images.githubusercontent.com/29410712/189557489-30b3114f-e1c3-4490-b860-1933cc29665c.png"  width=80% height=80%>
+![Screenshot (333)](https://user-images.githubusercontent.com/29410712/192974729-32080fd5-8f4e-482e-8dc5-d923722c5d19.png)
 
-<img src="https://user-images.githubusercontent.com/29410712/189557525-8116d78a-c593-4348-900e-de2a08c09c1b.png"  width=80% height=80%> 
+![Screenshot (334)](https://user-images.githubusercontent.com/29410712/192974813-cdf57d58-ca57-4cd5-9295-bcb11a65ee5c.png)
 
 The summer and winter average temperatures differ by around 3.9. The average temperature in June is 74.94 degrees Fahrenheit while the average temperature in December is 71.04 degrees Fahrenheit. As a result, the average temperature doesn't fluctuate as much.
 
