@@ -26,7 +26,7 @@ Pewlett-Packard (PH) is a large firm that currently employs 300,024 individuals.
 
 ## [UFO Sightings](/UFOs.md){: .und}
 
-[JavaScript Code](https://github.com/dosanity/UFOs/blob/main/static/js/app.js){: .btn}
+[JavaScript Code](https://github.com/dosanity/UFOs/blob/main/static/js/app.js){: .btn} [HTML Code](https://github.com/dosanity/UFOs/blob/main/index.html){: .btn}
 
 We are tasked to provide an in-depth analysis of UFO sightings by using JavaScript to establish data visualization through an encoded website. JavaScript is a front-end programming language designed to enhance websites to create dynamic web pages. It enables websites to be more visually appealing and interactive. By using this coding language with HTML and CSS, we organized data stored in a JavaScript array to created an interactive web page to allow users to filter for multiple criteria at the same time.
 
