@@ -7,13 +7,13 @@ description:
   Aspiring data scientist & mathematician knowledgeable in statistical analysis and programming visualizations to utilize the power of data.
 
   <br><br>
-  <div class="center">
+  <p class="center">
     <a href="/assets/pdf/AnthonyDo_Resume.pdf" class="button">Resume</a> 
-  </div>
+  </p>
   <br><br>
-  <div class="center">
+  <p class="center">
     <a href="https://www.linkedin.com/in/dosanity/" class="button">View My LinkedIn Profile</a> 
-  </div>
+  </p>
 google_analytics:
 theme: jekyll-theme-minimal
 
