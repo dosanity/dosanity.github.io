@@ -11,9 +11,9 @@ description:
   <a href="/assets/pdf/AnthonyDo_Resume.pdf" class="button">Resume</a> 
 
   <br><br>
-
-  <a href="https://www.linkedin.com/in/dosanity/" class="button">View My LinkedIn Profile</a> 
-
+  <div class="center">
+    <a href="https://www.linkedin.com/in/dosanity/" class="button">View My LinkedIn Profile</a> 
+  </div>
 google_analytics:
 theme: jekyll-theme-minimal
 
