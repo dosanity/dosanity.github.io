@@ -31,6 +31,12 @@ Pewlett-Packard (PH) is a large firm that currently employs 300,024 individuals.
 
 We are tasked to provide an in-depth analysis of UFO sightings by using JavaScript to establish data visualization through an encoded website. JavaScript is a front-end programming language designed to enhance websites to create dynamic web pages. It enables websites to be more visually appealing and interactive. By using this coding language with HTML and CSS, we organized data stored in a JavaScript array to created an interactive web page to allow users to filter for multiple criteria at the same time.
 
+## [Election Analysis](/election-analysis.md){: .und}
+
+[Python Code](https://github.com/dosanity/election-analysis/blob/main/PyPoll_Challenge.py){: .btn}
+
+We are tasked by a Colorado Board of Elections employee to complete the election audit of a recent local congressional election. We are reporting the total number of votes cast, the total number of votes for each candidate, the percentage of votes for each candidate, and the winner of the election based on popular vote. In this analysis, we will research three different voting methods: Mail-in ballots, punch cards, and Direct Recording Electronic (DRE) counting machines. The votes cast by these three methods will determine the final election results. We are generating a vote count report to certify the U.S. congressional race.
+
 ## [Salt Lake City Real Estate](/slc-real-estate-analysis.md){: .und}
 
 [Python Code](https://github.com/dosanity/SLC-real-estate-analysis/blob/main/SLC-real-estate.ipynb){: .btn}
