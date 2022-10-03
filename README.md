@@ -1,4 +1,3 @@
 # Portfolio Website
 
-[![portfolio](https://user-images.githubusercontent.com/29410712/193636722-b1a8a591-bdba-4461-86e0-11a6d1d089d8.png)](https://dosanity.github.io/)
-
+[<img src="https://user-images.githubusercontent.com/29410712/193637523-681f8b9c-b433-4106-a4b6-3fc257f51474.png" height=40% width=40%/>]([https://github.com/](https://dosanity.github.io/))
