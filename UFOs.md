@@ -11,6 +11,8 @@ We are tasked to provide an in-depth analysis of UFO sightings by using JavaScri
 
 ## Website Results
 
+#### The deployed webpage is accessible [here](https://dosanity.github.io/UFOs/).
+
 The webpage created is interactive and user-friendly. It displays all the UFO sightings and allows the user to filter the data with multiple criteria such as date of the sighting, the location of the sighting, and the shape of the unidentified object. 
 
 ![Screenshot (353)](https://user-images.githubusercontent.com/29410712/192915129-577a4ed3-e238-4567-90a1-9fef5ba95909.png)

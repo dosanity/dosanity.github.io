@@ -43,12 +43,12 @@ We analyzed the SLC real estate data. The dataset contains multiple listing serv
 
 There are many crimes that happen in the United States. Some believe that bigger cities and more populated states have more crime rates. In this project, we will be analyzing a dataset describing 1973 violent crime rates by US State. The crimes considered are assault, murder, and rape. Also included is the percent of the population living in urban areas. Our goal is to use unsupervised machine learning methods such as Cluster Heat Maps, Principle Component Analysis, K-Means Clustering, Hierarchical Clustering, and DBSCAN to understand how violent crimes differ between states.
 
-## [UFO Sightings](/UFOs.md){: .und}
+## [Mapping Earthquakes](/Mapping_Earthquakes.md){: .und}
 
-[JavaScript Code](https://github.com/dosanity/UFOs/blob/main/static/js/app.js){: .btn} 
-[HTML Code](https://github.com/dosanity/UFOs/blob/main/index.html){: .btn}
+[JavaScript Code](https://github.com/dosanity/Mapping_Earthquakes/blob/main/Earthquake_Challenge/static/js/challenge_logic.js){: .btn} 
+[HTML Code](https://github.com/dosanity/Mapping_Earthquakes/blob/main/index.html){: .btn}
 
-We are tasked to provide an in-depth analysis of UFO sightings by using JavaScript to establish data visualization through an encoded website. JavaScript is a front-end programming language designed to enhance websites to create dynamic web pages. It enables websites to be more visually appealing and interactive. By using this coding language with HTML and CSS, we organized data stored in a JavaScript array to created an interactive web page to allow users to filter for multiple criteria at the same time.
+The purpose of this project is to visually show the differences between the magnitudes of earthquakes all over the world for the last seven days. We used JavaScript and the D3.js library to retrieve the coordinates and magnitudes of the earthquakes from the GeoJSON earthquake data linked to the USGS website. To display our data, we used the Leaflet library to plot the data on a Mapbox map through an API request and create interactivity for the earthquake data.
 
 ## [Online News Popularity](/online-news-analysis.md){: .und} 
 
@@ -92,4 +92,11 @@ There are many different movies throughout the years that were successful, but a
 [Python Code](https://github.com/dosanity/surfs_up/blob/main/climate_analysis.ipynb){: .btn}
 
 We are tasked to analyze and examine weather trends for the months of June and December in Oahu, Hawaii in order to deterimine if a surf and ice cream shop business is sustainable on the island. We will be using Python and SQLAlchemy to do basic climate analysis and data exploration of the meteorological data in a SQLite database. From there we will write queries to examine the temperature data for the months of June and December.
+
+## [UFO Sightings](/UFOs.md){: .und}
+
+[JavaScript Code](https://github.com/dosanity/UFOs/blob/main/static/js/app.js){: .btn} 
+[HTML Code](https://github.com/dosanity/UFOs/blob/main/index.html){: .btn}
+
+We are tasked to provide an in-depth analysis of UFO sightings by using JavaScript to establish data visualization through an encoded website. JavaScript is a front-end programming language designed to enhance websites to create dynamic web pages. It enables websites to be more visually appealing and interactive. By using this coding language with HTML and CSS, we organized data stored in a JavaScript array to created an interactive web page to allow users to filter for multiple criteria at the same time.
 
