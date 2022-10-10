@@ -98,7 +98,7 @@ We now develop a multilinear regression model for house prices in this neighborh
 
 <MATH>
   <p align="center">
-    Sold Price = β_0 + β_1x_1 + β_2x_2 + \cdots + β_nx_n
+  $$ Sold Price = β_0 + β_1x_1 + β_2x_2 + \cdots + β_nx_n $$
   </p>
 </MATH>
 
