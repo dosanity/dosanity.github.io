@@ -96,9 +96,11 @@ Based on the OLS Regression, the R-squared is 0.988. This is saying that the 98.
 
 We now develop a multilinear regression model for house prices in this neighborhood. We could use this to come up with a list price for houses coming on the market, so will not be including the list price in our model and also ignore the categorical variable Prop_Type. Our model is now in the form:
 
-<p align="center">
-  Sold Price = $β_0 + β_1x_1 + β_2x_2 + \cdots + β_nx_n$
-</p>
+<MATH>
+  <p align="center">
+    Sold Price = β_0 + β_1x_1 + β_2x_2 + \cdots + β_nx_n
+  </p>
+</MATH>
 
 where $x_i$ are predictive variables.
 
