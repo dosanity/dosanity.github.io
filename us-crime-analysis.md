@@ -62,7 +62,7 @@ By using this we can determine the intra-cluster distance so that we can interpr
 
 ![intra-cluster-distance](https://user-images.githubusercontent.com/29410712/179429395-d7ad781a-01ac-493c-8cbf-34d56bd2892a.png)
 
-We can see that the total intra-cluster distance is large for $k = 1$ and decreases as we increase $k$, until $k=4$, after which it tapers off and gets only marginally smaller. The slope becomes constant after $k = 4$. This indicates that $k=4$ is a good choice.
+We can see that the total intra-cluster distance is large for *k = 1* and decreases as we increase *k*, until *k = 4*, after which it tapers off and gets only marginally smaller. The slope becomes constant after *k = 4*. This indicates that *k = 4* is a good choice.
 
 ![kmean-pca](https://user-images.githubusercontent.com/29410712/179429447-e53a4fcb-47c3-4abd-ba4d-a2207156af06.png)
 
