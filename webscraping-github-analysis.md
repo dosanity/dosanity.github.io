@@ -13,7 +13,9 @@ We will be scraping data from [this repository list](https://github.com/search?o
 
 Before we can start to scrape any website we should go through the terms of service and policy documents of the website. Almost all websites post conditions to use their data. Here is the terms of [https://github.com/](https://github.com/). In our case, we are allowed to scrape the repository, but all use of GitHub data gathered through scraping must comply with the GitHub Privacy Statement.
 
-We avoided any problems with GitHub blocking us from downloading the data by saving all the html files in the data folder. The path to data folder is stored in `DATA_PATH` variable. Additionally, the data folder contains highly starred repositories saved as `searchPage1.html`,`searchPage2.html`,`searchPage3.html` ... `searchPage10.html`
+We avoided any problems with GitHub blocking us from downloading the data by saving all the html files in the data folder. The path to data folder is stored in `DATA_PATH` variable. Additionally, the data folder contains highly starred repositories saved as:
+
+ `searchPage1.html`, `searchPage2.html`, `searchPage3.html` ... `searchPage10.html`
 
 ### Extract Data
 
