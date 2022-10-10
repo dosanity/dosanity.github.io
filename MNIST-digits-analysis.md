@@ -1,5 +1,3 @@
-<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
-
 # MNIST Handwritten Digits
 
 The MNIST handwritten digit dataset consists of images of handwritten digits, together with labels indicating which digit is in each image. We can see that images are just matrices with scalar values so we can apply the different classification algorithms on them.
@@ -12,11 +10,11 @@ There are several versions of the MNIST dataset. We used the one that is built-i
 
 * Classes: 10 (one for each digit)
 * Samples total: 1797
-* Samples per class: $\approx$ 180
+* Samples per class: *approx* 180
 * Dimensionality: 64 (8 pixels by 8 pixels)
 * Features: integers 0-16 (grayscale value; 0 is white, 16 is black)
 
-Here are some examples of the images. Note that the digits have been size-normalized and centered in a fixed-size ($8\times8$ pixels) image.
+Here are some examples of the images. Note that the digits have been size-normalized and centered in a fixed-size (8 x 8 pixels) image.
 
 <img src="http://scikit-learn.org/stable/_images/sphx_glr_plot_digits_classification_001.png" width="500">
 
