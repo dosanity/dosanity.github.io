@@ -1,5 +1,7 @@
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
+[Back to Portfolio](https://dosanity.github.io/){: .center}{: .btn}
+
 # Inflation Analysis
 
 Our current economic climate is unique with the rise of the coronavirus. In the economy, we are seeing unique factors such as a high inflation rate paired with a low uneomployment rate. Historically, stagflation or recession-inflation occurs which is a situation where the inflation rate is high and unemployment remains high as well. We are particularly interested to see how these changes in the unemployment rate are potentially impacting the increase in inflation rate. By using Python, we will analyze the impact of unemployment on inflation, but also other factors that could potentially impact inflation.
