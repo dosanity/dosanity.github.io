@@ -56,7 +56,7 @@ $$
   Sold Price = β_0 + β_1x
 $$
 
-where $x$ is one of the other variables. 
+where x is one of the other variables. 
 
 After we run the regression, we will make a scatterplot of list price vs sold price and overlay the prediction with the regression model. 
 
@@ -107,7 +107,7 @@ $$
 
 
 
-where $x_i$ are predictive variables.
+where x's are predictive variables.
 
 Next we look at the difference between list price and sold price explicitly and calculate two new columns for our dataset. `DiffPriceAbsolute` and `DiffPriceRelative`.
 
