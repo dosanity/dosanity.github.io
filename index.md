@@ -14,7 +14,7 @@ A Git repository tracks and saves the history of all changes made to the files i
 
 ## [Unemployment on Inflation Analysis](/webpages/unemployment-inflation-analysis.md){: .und}
 
-[Python Code](https://github.com/dosanity/unemployment-inflation-analysis/blob/main/unemployment-inflation.py){: .btn}
+[Python Code](https://github.com/dosanity/unemployment-inflation-analysis/blob/main/Inflation.ipynb){: .btn}
 [Research Paper](/assets/pdf/Inflation-and-Monetary-Policy.pdf){: .btn}
 
 Our current economic climate is unique with the rise of the coronavirus. In the economy, we are seeing unique factors such as a high inflation rate paired with a low uneomployment rate. Historically, stagflation or recession-inflation occurs which is a situation where the inflation rate is high and unemployment remains high as well. We are particularly interested to see how these changes in the unemployment rate are potentially impacting the increase in inflation rate.
