@@ -41,7 +41,7 @@ Given the large time frame of data, we parsed the unemployment and inflation int
 We then calculated the Inflation Rate by subtracting the past date CPI from the current date CPI and divide the answer by the past date CPI. From there, we multiplied the results by 100.
 
 $$
-Inflation\ Rate = (CPI_{x+1} - CPI_x) / CPI_x * 100
+  Inflation\ Rate = (CPI_{x+1} - CPI_x) / CPI_x * 100
 $$
 
 #### Ordinary Least Squares Assumptions:
@@ -56,7 +56,7 @@ $$
 
 #### Period 1 (1948 - 1966) results.
 
-![period 1](https://user-images.githubusercontent.com/29410712/196335047-1dfbc943-9a49-4ef1-bebf-1f8e476ec41a.png){: .size}
+![period 1](https://user-images.githubusercontent.com/29410712/196335047-1dfbc943-9a49-4ef1-bebf-1f8e476ec41a.png)
 
 ```
                             OLS Regression Results                            
@@ -86,7 +86,7 @@ In Period 1, the intercept of the regression is 2.2862 and the R-squared is 0.01
 
 #### Period 2 (1967 - 1984) results.
 
-![period 2](https://user-images.githubusercontent.com/29410712/196335940-bd5a3c95-b27c-434a-ace4-20855a61594d.png){: .size}
+![period 2](https://user-images.githubusercontent.com/29410712/196335940-bd5a3c95-b27c-434a-ace4-20855a61594d.png)
 
 ```
                             OLS Regression Results                            
@@ -116,7 +116,7 @@ In Period 2, the intercept of the regression is 5.0465 and the R-squared is 0.02
 
 #### Period 3 (1985 - 2002) results.
 
-![period 3](https://user-images.githubusercontent.com/29410712/196336460-fd761db6-3e6c-4dc8-af94-33d2d7d6ce45.png){: .size}
+![period 3](https://user-images.githubusercontent.com/29410712/196336460-fd761db6-3e6c-4dc8-af94-33d2d7d6ce45.png)
 
 ```
                             OLS Regression Results                            
@@ -146,7 +146,7 @@ In Period 3, the intercept of the regression is 2.4887 and the R-squared is 0.01
 
 #### Period 4 (2003 - 2022) results.
 
-![period 4](https://user-images.githubusercontent.com/29410712/196337079-2b0bf44f-3fe4-418a-9329-91e1bdf036d8.png){: .size}
+![period 4](https://user-images.githubusercontent.com/29410712/196337079-2b0bf44f-3fe4-418a-9329-91e1bdf036d8.png)
 
 ```
                             OLS Regression Results                            
@@ -176,7 +176,7 @@ In Period 4, the intercept of the regression is 4.5071 and the R-squared is 0.14
 
 #### Overall (1948 - 2022) results.
 
-![overall](https://user-images.githubusercontent.com/29410712/196337627-b6f3fccc-51ce-477a-9ac6-cb302b8afd37.png){: .size}
+![overall](https://user-images.githubusercontent.com/29410712/196337627-b6f3fccc-51ce-477a-9ac6-cb302b8afd37.png)
 
 ```
                             OLS Regression Results                            
