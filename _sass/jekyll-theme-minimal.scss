@@ -2,9 +2,9 @@
 @import "rouge-github";
 
 .button {
-  background-color: white;
-  border: 2px solid #267CB9;
-  color: #267CB9;
+  background-color: #4b93c7;
+  border: none;
+  color: white;
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
@@ -18,7 +18,7 @@
 
 .button:hover {
   background-color: white;
-  color: #267CB9;
+  color: black;
   border: 2px solid #267CB9;
 }
 
