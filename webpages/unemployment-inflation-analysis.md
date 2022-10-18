@@ -10,6 +10,12 @@ Our current economic climate is unique with the rise of the coronavirus. In the 
 
 For more information on the research on inflation, I have written a paper on the current state and impacts on inflation for the year 2022: [Inflation & Monetary Policy](/assets/pdf/Inflation-and-Monetary-Policy.pdf)
 
+## Resources
+
++ Software: Python 3.10, Jupyter Lab 3.4.4
+
++ Dependencies: Matplotlib, Pandas
+
 ## Data
 
 Our data is from the Federal Reserve Bank of St. Louis. The Federal Bank is central to the nation's economy and provides economic resources and data for US economic statistical analysis. We also used Yahoo Finance which is data source to access stock market data.
