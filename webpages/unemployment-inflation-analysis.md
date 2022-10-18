@@ -1,6 +1,6 @@
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
-[Back to Portfolio](https://dosanity.github.io/){: .center}{: .btn}
+[Back](https://dosanity.github.io/){: .btn}
 
 # Inflation Analysis
 

@@ -1,3 +1,5 @@
+[Back](https://dosanity.github.io/){: .btn}
+
 # Mapping Earthquakes
 
 ## Project Overview

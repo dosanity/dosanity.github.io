@@ -1,3 +1,5 @@
+[Back](https://dosanity.github.io/){: .btn}
+
 # MNIST Handwritten Digits
 
 The MNIST handwritten digit dataset consists of images of handwritten digits, together with labels indicating which digit is in each image. We can see that images are just matrices with scalar values so we can apply the different classification algorithms on them.
