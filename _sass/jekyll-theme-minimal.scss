@@ -2,7 +2,7 @@
 @import "rouge-github";
 
 .button {
-  background-color: #4b93c7;
+  background-color: #267CB9;
   border: none;
   color: white;
   padding: 15px 32px;
@@ -19,6 +19,24 @@
 .button:hover {
   background-color: white;
   color: black;
+  border: 2px solid #267CB9;
+}
+
+.backbutton {
+  background-color: 267CB9;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 1px 1px;
+  transition-duration: 0.4s;
+  width: 130px;
+  cursor: pointer;
+}
+
+.backbutton:hover {
+  background-color: white;
+  color: #267CB9;
   border: 2px solid #267CB9;
 }
 
