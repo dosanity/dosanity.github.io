@@ -67,7 +67,9 @@ The analysis of the election show that:
 
         print(county_results)
 ```
+
 > Python Output:
+
 ```
 -------------------------
 Jefferson: 10.5% (38,855)
@@ -77,7 +79,9 @@ Denver: 82.8% (306,055)
 Arapahoe: 6.7% (24,801)
 -------------------------
 ```
+
 **Determine the county with the highest turnout.**
+
 ```
         # Write an if statement to determine the winning county and get its vote count.
         if (c_votes > largest_county_count):
@@ -85,7 +89,9 @@ Arapahoe: 6.7% (24,801)
             largest_county = county_name
             largest_county_percentage = c_votes_percentage
 ```
+
 > Python Output:
+
 ```
 -------------------------
 Largest County Turnout: Denver
@@ -93,7 +99,9 @@ Largest County Vote Count: 306055
 Largest County Percentage: 82.8%       
 -------------------------
 ```
+
 **Calculate the total number of votes cast.**
+
 ```
 # Initialize a total vote counter.
 total_votes = 0
@@ -104,13 +112,17 @@ total_votes = 0
         # Add to the total vote count
         total_votes = total_votes + 1
 ```
+
 > Python Output:
+
 ```
 -------------------------
 Total Votes: 369,711
 -------------------------
 ```
+
 **Calculate the total number of votes each candidate received and the percentage of votes each candidate won.**
+
 ```
     # Write a for loop to get the candidate name from dictionary.
     for candidate_name in candidate_votes:
@@ -125,7 +137,9 @@ Total Votes: 369,711
         # Print each candidate's voter count and percentage to the terminal.
         print(candidate_results)
 ```
+
 > Python Output:
+
 ```
 -------------------------
 Charles Casper Stockham: 23.0% (85,213)
@@ -133,7 +147,9 @@ Diana DeGette: 73.8% (272,892)
 Raymon Anthony Doane: 3.1% (11,606)
 -------------------------
 ```
+
 **Determine the winner of the election based on popular vote.**
+
 ```
         # Determine winning vote count, winning percentage, and candidate.
         if (votes > winning_count) and (vote_percentage > winning_percentage):
@@ -141,7 +157,9 @@ Raymon Anthony Doane: 3.1% (11,606)
             winning_candidate = candidate_name
             winning_percentage = vote_percentage
 ```
+
 > Python Output:
+
 ```
 -------------------------
 Winner: Diana DeGette
