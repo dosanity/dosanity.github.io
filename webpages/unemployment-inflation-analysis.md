@@ -64,6 +64,10 @@ $$
 4. There is a random sampling of observations.
 5. There is homoscedasticity and no autocorrelation.
 
+$$
+  Y_i = β_0 + β_1x_1 + β_2x_2 + β_3x_3\ ... β_ix_i + ε
+$$
+
 ## Unemployment Analysis
 
 #### Period 1 (1948 - 1966) results.
