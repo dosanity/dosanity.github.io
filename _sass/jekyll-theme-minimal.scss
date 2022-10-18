@@ -23,16 +23,17 @@
 }
 
 .backbutton {
-  background-color: #267CB9;
-  color: white;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  margin: 1px 1px;
-  transition-duration: 0.4s;
-  width: 130px;
-  cursor: pointer;
-}
+    background-color: white;
+    color: #267CB9;
+    border: 2px solid #267CB9;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 1px 1px;
+    transition-duration: 0.4s;
+    width: 130px;
+    cursor: pointer;
+  }
 
 .backbutton:hover {
   background-color: white;
