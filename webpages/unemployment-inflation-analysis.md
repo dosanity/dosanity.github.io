@@ -18,7 +18,7 @@ For more information on the research on inflation, I have written a paper on the
 
 ## Data
 
-Our data is from the Federal Reserve Bank of St. Louis. The Federal Bank is central to the nation's economy and provides economic resources and data for US economic statistical analysis. We also used Yahoo Finance which is data source to access stock market data.
+Our data is from the Federal Reserve Bank of St. Louis. The Federal Bank is central to the nation's economy and provides economic resources and data for US economic statistical analysis. We also used Yahoo Finance which is a data source to access stock market data.
 
 For our X variables, we chose to look at the monthly unemployment rate (`UNRATE`), Federal Funds Effective Rate (`DFF`), and the S&P 500 Index (`SPY`). 
 
