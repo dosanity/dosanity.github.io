@@ -1,5 +1,7 @@
 [Back to Portfolio](https://dosanity.github.io/){: .backbutton}
 
+---
+
 # Movie Analysis with Python
 
 ## Overview of Project
