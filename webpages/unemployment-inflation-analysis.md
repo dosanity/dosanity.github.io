@@ -65,7 +65,7 @@ $$
 5. There is homoscedasticity and no autocorrelation.
 
 $$
-  Y_i = β_0 + β_1x_1 + β_2x_2 + β_3x_3\ ... β_ix_i + ε
+  Y = β_0 + β_1x_1 + β_2x_2 + β_3x_3\ ... β_nx_n + ε
 $$
 
 ## Unemployment Analysis
