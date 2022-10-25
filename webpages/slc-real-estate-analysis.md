@@ -17,7 +17,7 @@ We will be analyzing SLC real estate data. The dataset contains multiple listing
 + We will be keeping these variables: 
 `['Acres', 'Deck', 'GaragCap', 'Latitude', 'Longitude', 'LstPrice', 'Patio', 'PkgSpacs', 'PropType', 'SoldPrice', 'Taxes', 'TotBed', 'TotBth', 'TotSqf', 'YearBlt']` 
 
-+ We will check the datatypes and convert any numbers that were read as strings to numerical values. In particular, we converted 'TotSqf' to an integer and add a column titled `Prop_Type_num` that is 
++ We will check the datatypes and convert any numbers that were read as strings to numerical values. In particular, we converted `TotSqf` to an integer and add a column titled `Prop_Type_num` that is 
 
 ![Equation1](https://user-images.githubusercontent.com/29410712/180324387-574ecc63-5a19-4cec-805a-2d57ebd2901e.png)
 
