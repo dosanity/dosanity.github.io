@@ -51,7 +51,7 @@ ON (e.emp_no = ti.emp_no)
 WHERE (e.birth_date BETWEEN '1952-01-01' AND '1955-12-31')
 ORDER BY e.emp_no ASC;
 ```
-Next we created a table to hold all the current titles of employees who were born between Jaunary 1, 1952 and December 31, 1955 which is stored in the `unique_titles.csv`. 
+Next, we created a table to hold all the current titles of employees who were born between Jaunary 1, 1952 and December 31, 1955 which is stored in the `unique_titles.csv`. 
 
 ```
 SELECT DISTINCT ON (emp_no) emp_no,
@@ -63,7 +63,7 @@ FROM retirement_titles
 WHERE (to_date = ('9999-01-01'))
 ORDER BY emp_no, to_date DESC;
 ```
-Finally we counted the number of retiring individuals by their current titles which is stored in the `retiring_titles.csv`.
+Finally, we counted the number of retiring individuals by their current titles which are stored in the `retiring_titles.csv`.
 ```
 SELECT COUNT(title), title
 INTO retiring_titles
@@ -115,4 +115,4 @@ As stated before, Pewlett Hackard would need to increase the number of trainers 
 
 ### Are there enough qualified, retirement-ready employees in the departments to mentor the next generation of Pewlett Hackard employees?
 
-There are not enough qualified, retirement-ready employees in the departments to mentor the next generation of Pewlett Hackard employees. Each mentor would need to train about 46 new employees. Depending on how many employees each mentor can train, Pewlett Hackard would need to increase the amount of mentors to make the program effective.
+There are not enough qualified, retirement-ready employees in the departments to mentor the next generation of Pewlett Hackard employees. Each mentor would need to train about 46 new employees. Depending on how many employees each mentor can train, Pewlett Hackard would need to increase the number of mentors to make the program effective.

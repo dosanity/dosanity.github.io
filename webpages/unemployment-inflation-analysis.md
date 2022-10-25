@@ -6,7 +6,7 @@
 
 # Inflation Analysis
 
-Our current economic climate is unique with the rise of the coronavirus. In the economy, we are seeing unique factors such as a high inflation rate paired with a low uneomployment rate. Historically, stagflation or recession-inflation occurs which is a situation where the inflation rate is high and unemployment remains high as well. We are particularly interested to see how these changes in the unemployment rate are potentially impacting the increase in inflation rate. By using Python, we will analyze the impact of unemployment on inflation, but also other factors that could potentially impact inflation.
+Our current economic climate is unique with the rise of the coronavirus. In the economy, we are seeing unique factors such as a high inflation rate paired with a low unemployment rate. Historically, stagflation or recession-inflation occurs which is a situation where the inflation rate is high and unemployment remains high as well. We are particularly interested to see how these changes in the unemployment rate are potentially impacting the increase in inflation rate. By using Python, we will analyze the impact of unemployment on inflation, but also other factors that could potentially impact inflation.
 
 For more information on the research on inflation, I have written a paper on the current state and impacts on inflation for the year 2022: [Inflation & Monetary Policy](/assets/pdf/Inflation-and-Monetary-Policy.pdf)
 
@@ -50,7 +50,7 @@ Given the large time frame of data, we parsed the unemployment and inflation int
 | Period 4     | 2003 - 2022      |
 | Overall      | 1948 - 2022      |
 
-We then calculated the Inflation Rate by subtracting the past date CPI from the current date CPI and divide the answer by the past date CPI. From there, we multiplied the results by 100.
+We then calculated the Inflation Rate by subtracting the past-date CPI from the current-date CPI and dividing the answer by the past-date CPI. From there, we multiplied the results by 100.
 
 $$
   Inflation\ Rate = (CPI_{x+1} - CPI_x) / CPI_x * 100
@@ -98,7 +98,7 @@ Skew:                           0.091   Prob(JB):                        0.829
 Kurtosis:                       2.835   Cond. No.                         29.4
 ==============================================================================
 ```
-In Period 1, the intercept of the regression is 2.2862 and the R-squared is 0.017. The R-squared is the proportion of the variation in the dependent variable that is predictable from the independent variable. Due to the R-squared being small, it is not the total determinant of inflation. This means that around 1.7% of the variability observed in the target variable is explained by this regression model. Additionally, unemployment is not statistically significant and as unemployment increases by 1%, inflation rate decreases by 0.1472 percentage points. 
+In Period 1, the intercept of the regression is 2.2862 and the R-squared is 0.017. The R-squared is the proportion of the variation in the dependent variable that is predictable from the independent variable. Due to the R-squared being small, it is not the total determinant of inflation. This means that around 1.7% of the variability observed in the target variable is explained by this regression model. Additionally, unemployment is not statistically significant and as unemployment increases by 1%, the inflation rate decreases by 0.1472 percentage points. 
 
 #### Period 2 (1967 - 1984) results.
 
@@ -158,7 +158,7 @@ Skew:                           0.529   Prob(JB):                      0.00655
 Kurtosis:                       2.942   Cond. No.                         33.4
 ==============================================================================
 ```
-In Period 3, the intercept of the regression is 2.4887 and the R-squared is 0.010. The R-squared is the proportion of the variation in the dependent variable that is predictable from the independent variable. Due to the R-squared being small, it is not the total determinant of inflation. This means that around 1% of the variability observed in the target variable is explained by this regression model. Additionally, unemployment is not statistically significant and as unemployment increases by 1%, inflation rate increase by 0.1064 percentage points.  
+In Period 3, the intercept of the regression is 2.4887 and the R-squared is 0.010. The R-squared is the proportion of the variation in the dependent variable that is predictable from the independent variable. Due to the R-squared being small, it is not the total determinant of inflation. This means that around 1% of the variability observed in the target variable is explained by this regression model. Additionally, unemployment is not statistically significant and as unemployment increases by 1%, the inflation rate increases by 0.1064 percentage points.  
 
 #### Period 4 (2003 - 2022) results.
 
@@ -219,7 +219,7 @@ Kurtosis:                       5.340   Cond. No.                         23.2
 ==============================================================================
 ```
 
-Overall, the intercept of the regression is 2.5340 and the R-squared is 0.011. The R-squared is the proportion of the variation in the dependent variable that is predictable from the independent variable. In this case, unemployment does have and impact on inflation, but due to the R-squared being small, it is not the total determinant of inflation. This means that 1.1% of the variability observed in the target variable is explained by this regression model. Additionally, unemployment is statistically significant and as unemployment increases by 1%, inflation increases by 0.1759 percentage points.
+Overall, the intercept of the regression is 2.5340 and the R-squared is 0.011. The R-squared is the proportion of the variation in the dependent variable that is predictable from the independent variable. In this case, unemployment does have an impact on inflation, but due to the R-squared being small, it is not the total determinant of inflation. This means that 1.1% of the variability observed in the target variable is explained by this regression model. Additionally, unemployment is statistically significant and as unemployment increases by 1%, inflation increases by 0.1759 percentage points.
 
 ### Other Variables
 
@@ -252,7 +252,7 @@ Kurtosis:                       4.165   Cond. No.                     1.22e+03
 ==============================================================================
 ```
 
-From this analysis, we can see that the intercept of the regression is 1.2686 and the R-squared is 0.234. This means that 23.4% of the variability observed in the target variable is explained by this regression model. From our independent variables, we can see that the unemployment rate is not statistically significant while the federal funds rate and S&P 500 are statistically significant. Thus, as the federal funds rate increases by 1%, inflation increases by 0.2578 percentage points. This makes sense because the Federal Reserve increases the rate to combat inflation. High fed funds rate is correlated to high inflation etc. Additionally, as the the price of the S&P 500 Index increase by 1 percentage point, inflation increases by 0.007 percentage points. It shows that there is some impact from the S&P 500, but it isn't large.
+From this analysis, we can see that the intercept of the regression is 1.2686 and the R-squared is 0.234. This means that 23.4% of the variability observed in the target variable is explained by this regression model. From our independent variables, we can see that the unemployment rate is not statistically significant while the federal funds rate and S&P 500 are statistically significant. Thus, as the federal funds rate increases by 1%, inflation increases by 0.2578 percentage points. This makes sense because the Federal Reserve increases the rate to combat inflation. High fed funds rate is correlated to high inflation etc. Additionally, as the price of the S&P 500 Index increase by 1 percentage point, inflation increases by 0.007 percentage points. It shows that there is some impact from the S&P 500, but it isn't large.
 
 
 ### Possible Explanations
@@ -262,4 +262,4 @@ Why are we seeing low unemployment with high inflation?
 + Job Availability
   + Anyone who wants a job can get one, as there is a large group of people that simply do not want to work.
 + Global Pandemic
-  + Despite an intitial short increase in job loss, many companies have now transitioned to a work-from-home model, limiting job cuts. 
+  + Despite an initial short increase in job loss, many companies have now transitioned to a work-from-home model, limiting job cuts. 

@@ -6,7 +6,7 @@
 
 ## Project Overview
 
-We will be analyzing, visualizing, and using statistical skills on weather data and google maps data retrieved through API. An application programming interface is a way for two or more computer programs to communicate with each other. It is a type of software interface, offering a service to other pieces of software. An API call is very similar to navigating to a website. An API points to a URL and collects some data from the webpage or server. We will be using API to analyze data to supoport the hotel and lodging industry. We are tasked to collect and present data for customers via the search, which they will then filter based on their preferred travel criteria in order to find their ideal hotel anywhere in the world. 
+We will be analyzing, visualizing, and using statistical skills on weather data and google maps data retrieved through API. An application programming interface is a way for two or more computer programs to communicate with each other. It is a type of software interface, that offers a service to other pieces of software. An API call is very similar to navigating to a website. An API points to a URL and collects some data from the webpage or server. We will be using API to analyze data to support the hotel and lodging industry. We are tasked to collect and present data for customers via the search, which they will then filter based on their preferred travel criteria to find their ideal hotel anywhere in the world. 
 
 ## Resources
 
@@ -34,7 +34,7 @@ Using randomly generated latitudes and longitudes, we did a preliminary analysis
 
 ## Results
 
-From the list of potential travel destinations, we tested our application with beta testers. These testers will choose four cities to createa travel itinerary. Finally, using the Google Maps Directions API, we created a travel route between the four cities as well as a marker layer map. 
+From the list of potential travel destinations, we tested our application with beta testers. These testers will choose four cities to create a travel itinerary. Finally, using the Google Maps Directions API, we created a travel route between the four cities as well as a marker layer map. 
 
 In our test, we chose Albany, Broome, Palmer, and Bethel. All of these cities reside in the United States in the state of New York. 
 

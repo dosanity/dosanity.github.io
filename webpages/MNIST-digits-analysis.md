@@ -4,7 +4,7 @@
 
 # MNIST Handwritten Digits
 
-The MNIST handwritten digit dataset consists of images of handwritten digits, together with labels indicating which digit is in each image. We can see that images are just matrices with scalar values so we can apply the different classification algorithms on them.
+The MNIST handwritten digit dataset consists of images of handwritten digits, together with labels indicating which digit is in each image. We can see that images are just matrices with scalar values so we can apply the different classification algorithms to them.
 
 Because both the features and the labels are present in this dataset (and labels for large datasets are generally difficult/expensive to obtain), this dataset is frequently used as a benchmark to compare various classification methods. For example, [this webpage](http://yann.lecun.com/exdb/mnist/) gives a comparison of a variety of different classification methods on MNIST.
 
@@ -38,7 +38,7 @@ Number of Features: 64
 
 ### Classification with Support Vector Machines (SVM)
 
-We develop a support-vector machine classification model for the data. In machine learning, support-vector machines (SVMs, also support-vector networks) are supervised learning models with associated learning algorithms that analyze data for classification and regression analysis. It uses the support-vector classifier which splits the data with a soft margin (the distance between the observations and the threshold) and some misclassifications.
+We develop a support-vector machine classification model for the data. In machine learning, support vector machines (SVMs, also support-vector networks) are supervised learning models with associated learning algorithms that analyze data for classification and regression analysis. It uses the support-vector classifier which splits the data with a soft margin (the distance between the observations and the threshold) and some misclassifications.
 
 1. Using Train Test Split validation procedure, we split the data into a training and test set. 
 2. We use SVM to build a classifier using the *training dataset*.
@@ -93,7 +93,7 @@ Now we look at the raw data and calculate the best C value for the SVM classific
 
 ![SVM-Accuracy](https://user-images.githubusercontent.com/29410712/180265137-b223cfd3-dc44-47c5-9351-9ec87b5b5320.png)
 
-Using this code we calculate the accuracy of the raw data.
+Using this code, we calculate the accuracy of the raw data.
 
 ```
 Xraw = digits.data
@@ -117,9 +117,9 @@ Using the SVM classifier with C = 100, the accuracy score is 0.95 with the scale
 
 ### Prediction with K-Nearest Neighbors (K-NN)
 
-The K-nearest neighbors (K-NN) algorithm is a simple, easy-to-implement supervised machine learning algorithm that can be used to solve both classification and regression problems. It categories unknown variables into different clusters. In our study, we will try out different values to choose the value of K. Low values of K can be noisy and subject the effects of outliers. Large values of K smooth over things, but you don't want K to be so large that a category with only a few samples in it will always be out voted by other categories. We will be using training data, data used for initial clustering (data where we know the categories in advance) to calculate the accuracy of the data.
+The K-nearest neighbors (K-NN) algorithm is a simple, easy-to-implement supervised machine learning algorithm that can be used to solve both classification and regression problems. It categorizes unknown variables into different clusters. In our study, we will try out different values to choose the value of K. Low values of K can be noisy and subject to the effects of outliers. Large values of K smooth over things, but you don't want K to be so large that a category with only a few samples in it will always be outvoted by other categories. We will be using training data, data used for initial clustering (data where we know the categories in advance) to calculate the accuracy of the data.
 
-We develop a K-NN classification model for the data and use cross validation to choose the best value of K. First we will look at K = 10 and like before, we split the data into test and training sets.
+We develop a K-NN classification model for the data and use cross-validation to choose the best value of K. First we will look at K = 10 and like before, we split the data into test and training sets.
 
 ```
 k = 10
