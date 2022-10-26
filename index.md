@@ -6,18 +6,24 @@ layout: default
 
 ---
 
-## [Webscrape GitHub Repositories](/webpages/webscraping-github-analysis.md){: .und}
-
-[Python Code](https://github.com/dosanity/webscraping-github-analysis/blob/main/webscraping-github-analysis.py){: .btn}
-
-A Git repository tracks and saves the history of all changes made to the files in a Git project. It saves this data in a directory called . git, also known as the repository folder. Git uses a version control system to track all changes made to the project and save them in the repository. In this project, we will be scraping GitHub repositories and organize the information in a Pandas dataframe. After that, we will use linear regressions to gain meaningful insights on the data we collected. Our goal is to identify properties that make a repository popular which will give insights on future uses of repositories.
-
 ## [Unemployment on Inflation Analysis](/webpages/unemployment-inflation-analysis.md){: .und}
 
 [Python Code](https://github.com/dosanity/unemployment-inflation-analysis/blob/main/Inflation.ipynb){: .btn}
 [Research Paper](/assets/pdf/Inflation-and-Monetary-Policy.pdf){: .btn}
 
 Our current economic climate is unique with the rise of the coronavirus. In the economy, we are seeing unique factors such as a high inflation rate paired with a low uneomployment rate. Historically, stagflation or recession-inflation occurs which is a situation where the inflation rate is high and unemployment remains high as well. We are particularly interested to see how these changes in the unemployment rate are potentially impacting the increase in inflation rate.
+
+## [Salt Lake City Real Estate](/webpages/slc-real-estate-analysis.md){: .und}
+
+[Python Code](https://github.com/dosanity/SLC-real-estate-analysis/blob/main/SLC-real-estate.ipynb){: .btn}
+
+We analyzed the SLC real estate data. The dataset contains multiple listing service (MLS) real estate transactions for houses sold in 2015-16 in zip code 84103 (SLC avenues neighborhood). We were primarily interested in regressing the SoldPrice on the house attributes (property size, house size, number of bedrooms, etc...).
+
+## [Webscrape GitHub Repositories](/webpages/webscraping-github-analysis.md){: .und}
+
+[Python Code](https://github.com/dosanity/webscraping-github-analysis/blob/main/webscraping-github-analysis.py){: .btn}
+
+A Git repository tracks and saves the history of all changes made to the files in a Git project. It saves this data in a directory called . git, also known as the repository folder. Git uses a version control system to track all changes made to the project and save them in the repository. In this project, we will be scraping GitHub repositories and organize the information in a Pandas dataframe. After that, we will use linear regressions to gain meaningful insights on the data we collected. Our goal is to identify properties that make a repository popular which will give insights on future uses of repositories.
 
 ## [Pewlett Hackard Analysis](/webpages/Pewlett-Hackard-Analysis.md){: .und}
 
@@ -30,12 +36,6 @@ Pewlett-Packard (PH) is a large firm that currently employs 300,024 individuals.
 [Python Code](https://github.com/dosanity/election-analysis/blob/main/PyPoll_Challenge.py){: .btn}
 
 We are tasked by a Colorado Board of Elections employee to complete the election audit of a recent local congressional election. We are reporting the total number of votes cast, the total number of votes for each candidate, the percentage of votes for each candidate, and the winner of the election based on popular vote. In this analysis, we will research three different voting methods: Mail-in ballots, punch cards, and Direct Recording Electronic (DRE) counting machines. The votes cast by these three methods will determine the final election results. We are generating a vote count report to certify the U.S. congressional race.
-
-## [Salt Lake City Real Estate](/webpages/slc-real-estate-analysis.md){: .und}
-
-[Python Code](https://github.com/dosanity/SLC-real-estate-analysis/blob/main/SLC-real-estate.ipynb){: .btn}
-
-We analyzed the SLC real estate data. The dataset contains multiple listing service (MLS) real estate transactions for houses sold in 2015-16 in zip code 84103 (SLC avenues neighborhood). We were primarily interested in regressing the SoldPrice on the house attributes (property size, house size, number of bedrooms, etc...).
 
 ## [US Crime Analysis](/webpages/us-crime-analysis.md){: .und}
 
