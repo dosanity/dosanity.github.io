@@ -20,7 +20,7 @@ We will be analyzing SLC real estate data. The dataset contains multiple listing
 + We will check the datatypes and convert any numbers that were read as strings to numerical values. In particular, we converted `TotSqf` to an integer and add a column titled `Prop_Type_num` that is 
 
 $$
-  Prop\_Type\_num =
+  Prop\_Type\_num_i =
   \begin{cases}
   0,  & \text{if i-th listing is a condo or townhouse} \\
   1, & \text{if i-th listing is a single family house}
