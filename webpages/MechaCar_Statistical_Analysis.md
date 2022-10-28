@@ -1,3 +1,5 @@
+<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
 [Back to Portfolio](https://dosanity.github.io/){: .backbutton}
 
 ---
@@ -71,11 +73,11 @@ In the summary of the entire suspension coil dataset, we can see that the mean P
 lot_summary <- suspension %>% group_by(Manufacturing_Lot) %>% summarize(Mean=mean(PSI),Median=median(PSI),Variance=var(PSI),SD=sd(PSI), .groups = 'keep')
 ```
 
-| Lot               | Mean    | Median   | Variance    | SD          |
-| ----------------- | ------- | -------- | ----------- | ----------- |
-| Lot1              | 1500.00 | 1500.00  | 0.9795918   | 0.9897433   |
-| Lot2              | 1500.20 | 1500.00  | 7.4693878   | 2.7330181   |
-| Lot3              | 1496.14 | 1498.50  | 170.2861224 | 13.0493725  |
+| Lot               | Mean    | Median   | Variance    |
+| ----------------- | ------- | -------- | ----------- |
+| Lot1              | 1500.00 | 1500.00  | 0.9795918   |
+| Lot2              | 1500.20 | 1500.00  | 7.4693878   |
+| Lot3              | 1496.14 | 1498.50  | 170.2861224 |
 
 In the summary of the individual lots, we can see that the mean and median between the lots are similar. The variance for Lot 1 is 0.98, Lot 2 is 7.47, and Lot 3 is 170.29. Since the variance of the suspension coils for Lot 1 and Lot 2 are below 100 pounds per square inch, it meets the design specifications for the MechaCar suspension coils. However, the Lot 3 variance exceeds the 100 pounds per square inch, so it does not meet the design specifications.
 
