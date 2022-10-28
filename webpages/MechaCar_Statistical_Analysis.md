@@ -19,8 +19,8 @@ The `MechaCar_mpg.csv` dataset contains mpg test results for 50 prototype MechaC
 + Vehicle Length: `vehicle_length`
 
 #### Hypothesis
-+ $H_0$: The slope of the linear model is zero, or m = 0.
-+ $H_a$: The slope of the linear model is not zero, or m ≠ 0.
++ H0: The slope of the linear model is zero, or m = 0.
++ Ha: The slope of the linear model is not zero, or m ≠ 0.
 
 #### Multiple Linear Regression Model
 ```
@@ -62,9 +62,13 @@ The MechaCar `Suspension_Coil.csv` dataset contains the results from multiple pr
 total_summary <- suspension %>% summarize(Mean=mean(PSI),Median=median(PSI),Variance=var(PSI),SD=sd(PSI), .groups = 'keep')
 ```
 
-| Mean    | Median | Variance | SD       |
-| ------- | ------ | -------- | -------- |
-| 1498.78 | 1500   | 62.29356 | 7.892627 |
+| Mean    | Median |
+| ------- | ------ |
+| 1498.78 | 1500   |
+
+| Variance | SD       |
+| -------- | -------- |
+| 62.29356 | 7.892627 |
 
 In the summary of the entire suspension coil dataset, we can see that the mean PSI is 1498.78 and the median PSI is 1500. Additionally, the variance is 62.29356 and the standard deviation is 7.892627. Overall, since the variance of the suspension coils does not exceed 100 pounds per square inch, it meets the design specifications for the MechaCar suspension coils. 
 
@@ -73,11 +77,17 @@ In the summary of the entire suspension coil dataset, we can see that the mean P
 lot_summary <- suspension %>% group_by(Manufacturing_Lot) %>% summarize(Mean=mean(PSI),Median=median(PSI),Variance=var(PSI),SD=sd(PSI), .groups = 'keep')
 ```
 
-| Manufacturing_Lot | Mean    | Median   | Variance    | SD          |
-| ----------------- | ------- | -------- | ----------- | ----------- |
-| Lot1              | 1500.00 | 1500.00  | 0.9795918   | 0.9897433   |
-| Lot2              | 1500.20 | 1500.00  | 7.4693878   | 2.7330181   |
-| Lot3              | 1496.14 | 1498.50  | 170.2861224 | 13.0493725  |
+| Manufacturing_Lot | Mean    | Median   |
+| ----------------- | ------- | -------- |
+| Lot1              | 1500.00 | 1500.00  |
+| Lot2              | 1500.20 | 1500.00  |
+| Lot3              | 1496.14 | 1498.50  |
+
+| Manufacturing_Lot | Variance    | SD          |
+| ----------------- | ----------- | ----------- |
+| Lot1              | 0.9795918   | 0.9897433   |
+| Lot2              | 7.4693878   | 2.7330181   |
+| Lot3              | 170.2861224 | 13.0493725  |
 
 In the summary of the individual lots, we can see that the mean and median between the lots are similar. The variance for Lot 1 is 0.98, Lot 2 is 7.47, and Lot 3 is 170.29. Since the variance of the suspension coils for Lot 1 and Lot 2 are below 100 pounds per square inch, it meets the design specifications for the MechaCar suspension coils. However, the Lot 3 variance exceeds the 100 pounds per square inch, so it does not meet the design specifications.
 
@@ -85,8 +95,8 @@ In the summary of the individual lots, we can see that the mean and median betwe
 To further our analysis, we will perform t-tests to determine if all manufacturing lots and each lot individually are statistically different from the population mean of 1,500 pounds per square inch.
 
 #### Hypothesis
-+ $H_0$: There is no statistical difference between the observed sample mean and its presumed population mean.
-+ $H_a$: There is a statistical difference between the observed sample mean and its presumed population mean.
++ H0: There is no statistical difference between the observed sample mean and its presumed population mean.
++ Ha: There is a statistical difference between the observed sample mean and its presumed population mean.
 
 #### Total T-Test Summary
 ```
@@ -172,8 +182,8 @@ To further our analysis, we will design a statistical study to compare vehicle p
 + Vehicle Price: The price of vehicle sold in the market.
 
 #### Hypothesis
-+ $H_0$: There is no statistical difference between the observed mean of fuel efficiency and price with the observed mean of its competitors.
-+ $H_a$: There is a statistical difference between the observed mean of fuel efficiency and price with the observed mean of its competitors.
++ H0: There is no statistical difference between the observed mean of fuel efficiency and price with the observed mean of its competitors.
++ Ha: There is a statistical difference between the observed mean of fuel efficiency and price with the observed mean of its competitors.
 
 #### Statistical Test
 Since we are determining whether the means of two-samples (MechaCar vs Competitors) are statistically different, we will be utilizing the two-sample t-test to perform this analysis. The two dependent variables in the two analyses would be fuel efficiency and vehicle price.
