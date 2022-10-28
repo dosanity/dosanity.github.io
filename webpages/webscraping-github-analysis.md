@@ -40,15 +40,9 @@ We extracted the following data:
 
 ### Describing the Data
 
-We will get an overview of the data and compute the correlation matrix.
-
-![Correlation-Matrix](https://user-images.githubusercontent.com/29410712/179305275-7e920928-9b40-4255-9cf7-23c51cba7181.png){: .size}
-
-Additionally, we will visualize it with a heat map and create a scatterplot matrix.
-
 ![seaborn](https://user-images.githubusercontent.com/29410712/179307109-0614e5ce-c5cc-4add-9ec7-345fdf7eb59a.png)
 
-From these charts, we can see that there is a positive correlation between commits and contributions with the correlation being 0.933. Additionally, there is a positive correlation between the number of forks and the number of watches with the correlation being 0.71. This number is approximately similar to the correlation between the number of watches and the number of stars. All other variables don't have much of a correlation with one another.
+From these chart, we can see that there is a positive correlation between commits and contributions with the correlation being 0.933. Additionally, there is a positive correlation between the number of forks and the number of watches with the correlation being 0.71. This number is approximately similar to the correlation between the number of watches and the number of stars. All other variables don't have much of a correlation with one another.
 
 ### Linear Regression Models
 
