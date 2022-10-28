@@ -19,6 +19,14 @@ We will be analyzing SLC real estate data. The dataset contains multiple listing
 
 + We will check the datatypes and convert any numbers that were read as strings to numerical values. In particular, we converted `TotSqf` to an integer and add a column titled `Prop_Type_num` that is 
 
+$$
+  Prop\_Type\_num =
+  \begin{cases}
+  0,  & \text{if i^{th} is even} \\
+  3n+1, & \text{if $n$ is odd}
+  \end{cases}
+$$
+
 ![Equation1](https://user-images.githubusercontent.com/29410712/180324387-574ecc63-5a19-4cec-805a-2d57ebd2901e.png)
 
 + We removed the listings with erroneous `Longitude` (one has Longitude = 0) and `Taxes` values (two have unreasonably large values).
