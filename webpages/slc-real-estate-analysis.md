@@ -1,4 +1,4 @@
-<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+<script src="/assets/js/load-mathjax.js" async></script>
 
 [Back to Portfolio](https://dosanity.github.io/){: .backbutton}
 
