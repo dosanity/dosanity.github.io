@@ -1,16 +1,4 @@
-<script>
-MathJax = {
-  tex: {
-    inlineMath: [['$', '$'], ['\\(', '\\)']]
-  },
-  svg: {
-    fontCache: 'global'
-  }
-};
-</script>
-<script type="text/javascript" id="MathJax-script" async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
-</script>
+<script src="/assets/js/load-mathjax.js" async></script>
 
 [Back to Portfolio](https://dosanity.github.io/){: .backbutton}
 
@@ -31,8 +19,8 @@ The `MechaCar_mpg.csv` dataset contains mpg test results for 50 prototype MechaC
 + Vehicle Length: `vehicle_length`
 
 #### Hypothesis
-+ $H_0$ : The slope of the linear model is zero, or m = 0.
-+ $H_a$ : The slope of the linear model is not zero, or m ≠ 0.
++ $H_0$: The slope of the linear model is zero, or m = 0.
++ $H_a$: The slope of the linear model is not zero, or m ≠ 0.
 
 #### Multiple Linear Regression Model
 ```
