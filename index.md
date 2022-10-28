@@ -19,12 +19,6 @@ Our current economic climate is unique with the rise of the coronavirus. In the 
 
 We analyzed the SLC real estate data. The dataset contains multiple listing service (MLS) real estate transactions for houses sold in 2015-16 in zip code 84103 (SLC avenues neighborhood). We were primarily interested in regressing the SoldPrice on the house attributes (property size, house size, number of bedrooms, etc...).
 
-## [MechaCar Statistical Analysis](/webpages/MechaCar_Statistical_Analysis.md){: .und}
-
-[R Code](https://github.com/dosanity/MechaCar_Statistical_Analysis/blob/main/MechaCarChallenge.R){: .btn}
-
-The purpose of this project is to analyze data for a new prototype car, the MechaCar. There are production issues that are blocking the manufacturing team's progress and we are tasked to review the production data for insights. Using the programming language R, we will perform multiple linear regressions, summary statistics, and t-tests to produce statistical interpretations.
-
 ## [Webscrape GitHub Repositories](/webpages/webscraping-github-analysis.md){: .und}
 
 [Python Code](https://github.com/dosanity/webscraping-github-analysis/blob/main/webscraping-github-analysis.py){: .btn}
