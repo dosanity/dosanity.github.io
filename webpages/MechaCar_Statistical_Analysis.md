@@ -1,3 +1,9 @@
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
+[Back to Portfolio](https://dosanity.github.io/){: .backbutton}
+
+---
+
 # MechaCar Statistical Analysis
 
 ## Project Overview
@@ -55,6 +61,7 @@ The MechaCar `Suspension_Coil.csv` dataset contains the results from multiple pr
 ```
 total_summary <- suspension %>% summarize(Mean=mean(PSI),Median=median(PSI),Variance=var(PSI),SD=sd(PSI), .groups = 'keep')
 ```
+
 | Mean    | Median | Variance | SD       |
 | ------- | ------ | -------- | -------- |
 | 1498.78 | 1500   | 62.29356 | 7.892627 |
@@ -65,6 +72,7 @@ In the summary of the entire suspension coil dataset, we can see that the mean P
 ```
 lot_summary <- suspension %>% group_by(Manufacturing_Lot) %>% summarize(Mean=mean(PSI),Median=median(PSI),Variance=var(PSI),SD=sd(PSI), .groups = 'keep')
 ```
+
 | Manufacturing_Lot | Mean    | Median   | Variance    | SD          |
 | ----------------- | ------- | -------- | ----------- | ----------- |
 | Lot1              | 1500.00 | 1500.00  | 0.9795918   | 0.9897433   |
@@ -85,6 +93,7 @@ To further our analysis, we will perform t-tests to determine if all manufacturi
 t.test((suspension$PSI),mu=1500)
 ```
 ```
+
 	One Sample t-test
 
 data:  (suspension$PSI)
@@ -96,6 +105,7 @@ sample estimates:
 mean of x 
   1498.78 
 ```
+
 Based on our results for the t-test that compares all manufacturing lots against the mean PSI of the population, we can interpret that there is no statistical difference between the observed sample mean and its presumed population mean since the p-value is 0.06. It is not statistically significant as the p-value is greater than our significance level of 0.05. 
 
 #### Lot 1 T-Test Summary
