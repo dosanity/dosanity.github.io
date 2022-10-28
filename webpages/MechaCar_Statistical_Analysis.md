@@ -24,8 +24,8 @@ The `MechaCar_mpg.csv` dataset contains mpg test results for 50 prototype MechaC
 + Vehicle Length: `vehicle_length`
 
 #### Hypothesis
-+ $H_0$: The slope of the linear model is zero, or m = 0.
-+ $H_a$: The slope of the linear model is not zero, or m ≠ 0.
++ $H_0$ : The slope of the linear model is zero, or m = 0.
++ $H_a$ : The slope of the linear model is not zero, or m ≠ 0.
 
 #### Multiple Linear Regression Model
 ```
