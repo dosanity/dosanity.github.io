@@ -20,10 +20,8 @@ The `MechaCar_mpg.csv` dataset contains mpg test results for 50 prototype MechaC
 
 #### Hypothesis
 
-$$
-    H_0:\ The\ slope\ of\ the\ linear\ model\ is\ zero,\ or\ m = 0.
-    H_a:\ The\ slope of the linear model is not zero, or m ≠ 0.
-$$
++ Null: The slope of the linear model is zero, or m = 0.
++ Alternative: The slope of the linear model is not zero, or m ≠ 0.
 
 #### Multiple Linear Regression Model
 ```
@@ -88,8 +86,8 @@ In the summary of the individual lots, we can see that the mean and median betwe
 To further our analysis, we will perform t-tests to determine if all manufacturing lots and each lot individually are statistically different from the population mean of 1,500 pounds per square inch.
 
 #### Hypothesis
-+ $H_0$: There is no statistical difference between the observed sample mean and its presumed population mean.
-+ $H_a$: There is a statistical difference between the observed sample mean and its presumed population mean.
++ Null: There is no statistical difference between the observed sample mean and its presumed population mean.
++ Alternative: There is a statistical difference between the observed sample mean and its presumed population mean.
 
 #### Total T-Test Summary
 ```
@@ -175,8 +173,8 @@ To further our analysis, we will design a statistical study to compare vehicle p
 + Vehicle Price: The price of vehicle sold in the market.
 
 #### Hypothesis
-+ $H_0$: There is no statistical difference between the observed mean of fuel efficiency and price with the observed mean of its competitors.
-+ $H_a$: There is a statistical difference between the observed mean of fuel efficiency and price with the observed mean of its competitors.
++ Null: There is no statistical difference between the observed mean of fuel efficiency and price with the observed mean of its competitors.
++ Alternative: There is a statistical difference between the observed mean of fuel efficiency and price with the observed mean of its competitors.
 
 #### Statistical Test
 Since we are determining whether the means of two-samples (MechaCar vs Competitors) are statistically different, we will be utilizing the two-sample t-test to perform this analysis. The two dependent variables in the two analyses would be fuel efficiency and vehicle price.
