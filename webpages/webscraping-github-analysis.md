@@ -42,7 +42,7 @@ We extracted the following data:
 
 We will get an overview of the data and compute the correlation matrix.
 
-![Correlation-Matrix](https://user-images.githubusercontent.com/29410712/179305275-7e920928-9b40-4255-9cf7-23c51cba7181.png)
+![Correlation-Matrix](https://user-images.githubusercontent.com/29410712/179305275-7e920928-9b40-4255-9cf7-23c51cba7181.png){: .size}
 
 Additionally, we will visualize it with a heat map and create a scatterplot matrix.
 
