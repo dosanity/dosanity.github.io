@@ -42,15 +42,23 @@ In the school district summary, we analyzed general information about all school
 
 #### Original Summary
 
-| Total Schools | Total Students | Total Budget   | Average Math Score | Average Reading Score | % Passing Math | % Passing Reading | % Overall Passing |
-| :-----------: | :------------: | :------------: | :----------------: | :-------------------: | :------------: | :---------------: | :---------------: |
-| 15            | 39,170         | $24,649,428.00 | 79.0               | 81.9                  | 75.0           | 85.8              | 65.2              |
+| Total Schools | Total Students | Total Budget   | Average Math Score |
+| :-----------: | :------------: | :------------: | :----------------: |
+| 15            | 39,170         | $24,649,428.00 | 79.0               |
+
+| Average Reading Score | % Passing Math | % Passing Reading | % Overall Passing |
+| :-------------------: | :------------: | :---------------: | :---------------: |
+| 81.9                  | 75.0           | 85.8              | 65.2              |
 
 #### Updated Summary
 
-| Total Schools | Total Students | Total Budget   | Average Math Score | Average Reading Score | % Passing Math | % Passing Reading | % Overall Passing |
-| :-----------: | :------------: | :------------: | :----------------: | :-------------------: | :------------: | :---------------: | :---------------: |
-| 15            | 39,170         | $24,649,428.00 | 78.9               | 81.9                  | 74.8           | 85.7              | 64.9              |
+| Total Schools | Total Students | Total Budget   | Average Math Score |
+| :-----------: | :------------: | :------------: | :----------------: |
+| 15            | 39,170         | $24,649,428.00 | 78.9               |
+
+| Average Reading Score | % Passing Math | % Passing Reading | % Overall Passing |
+| :-------------------: | :------------: | :---------------: | :---------------: |
+| 81.9                  | 74.8           | 85.7              | 64.9              |
 
 As we can see, removing the data for academic dishonesty did not impact the school district summary. This is due to the analysis not focusing on one particular student and is accounting for the overall school district. There were slight changes in the `Average Math Score`, `% Passing Math`, `% Passing Reading`, and `% Overall Passing`. 
 
