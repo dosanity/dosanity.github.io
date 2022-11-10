@@ -98,6 +98,12 @@ t = \frac{\bar{x} - \mu}{\frac{s}{\sqrt{n}}}
 
 $$
 
++ $\bar{x}$: Sample mean
++ $\mu$: Population mean
++ $s$: Sample standard deviation
++ $n$: Number of observations
+
+
 #### Hypothesis
 + $H_0$: There is no statistical difference between the observed sample mean and its presumed population mean.
 + $H_a$: There is a statistical difference between the observed sample mean and its presumed population mean.
