@@ -10,8 +10,8 @@ Credit risk is the possibility of a loss resulting from a borrower's failure to 
 
 ## Resources
 
-+ Analysis Software: `Python 3.10`, `Jupyter Notebook 6.4.12`
-+ Data Source: `LoanStats_2019Q1.csv`
++ Analysis Software: Python 3.10, Jupyter Notebook 6.4.12
++ Data Source: LoanStats_2019Q1.csv
 
 ## Results
 
@@ -29,6 +29,7 @@ Balanced Accuracy Score:
 ```
 
 Confusion Matrix:
+
 |                      | Predicted High Risk | Predicted Low Risk |
 | -------------------- | ------------------- | ------------------ |
 | **Actual High Risk** | 76                  | 25                 |
@@ -56,6 +57,7 @@ Balanced Accuracy Score:
 ```
 
 Confusion Matrix:
+
 |                      | Predicted High Risk | Predicted Low Risk |
 | -------------------- | ------------------- | ------------------ |
 | **Actual High Risk** | 64                  | 37                 |
@@ -83,6 +85,7 @@ Balanced Accuracy Score:
 ```
 
 Confusion Matrix:
+
 |                      | Predicted High Risk | Predicted Low Risk |
 | -------------------- | ------------------- | ------------------ |
 | **Actual High Risk** | 70                  | 31                 |
@@ -110,6 +113,7 @@ Balanced Accuracy Score:
 ```
 
 Confusion Matrix:
+
 |                      | Predicted High Risk | Predicted Low Risk |
 | -------------------- | ------------------- | ------------------ |
 | **Actual High Risk** | 73                  | 28                 |
@@ -141,6 +145,7 @@ Balanced Accuracy Score:
 ```
 
 Confusion Matrix:
+
 |                      | Predicted High Risk | Predicted Low Risk |
 | -------------------- | ------------------- | ------------------ |
 | **Actual High Risk** | 71                  | 30                 |
@@ -168,6 +173,7 @@ Balanced Accuracy Score:
 ```
 
 Confusion Matrix:
+
 |                      | Predicted High Risk | Predicted Low Risk |
 | -------------------- | ------------------- | ------------------ |
 | **Actual High Risk** | 93                  | 8                  |
