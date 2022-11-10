@@ -98,10 +98,10 @@ t = \frac{\bar{x} - \mu}{\frac{s}{\sqrt{n}}}
 
 $$
 
-+ $\bar{x}$: Sample mean
-+ $\mu$: Population mean
-+ $s$: Sample standard deviation
-+ $n$: Number of observations
++ $\bar{x}$ - Sample mean
++ $\mu$ - Population mean
++ $s$ - Sample standard deviation
++ $n$ - Number of observations
 
 
 #### Hypothesis
@@ -201,6 +201,11 @@ $$
 t = \frac{(\bar{x}_1 - \bar{x}_2) - (\mu_1 - \mu_2)}{\sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}}
 
 $$
+
++ $\bar{x}$ - Sample mean
++ $\mu$ - Population mean
++ $s$ - Sample standard deviation
++ $n$ - Number of observations
 
 #### Data Source
 Since data would be difficult to obtain before the release of competitor cars, we can collect or scrape the data from outside sources on previous car models in the same class as the MechaCar. The data could potentially be found through competitor webpages since the information is public after the car's release. We would need the fuel efficiency and vehicle price data from the competitors. 
