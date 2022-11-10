@@ -21,8 +21,6 @@ We will be analyzing SLC real estate data. The dataset contains multiple listing
 
 $$
   Prop\_Type\_num_i =
-$$
-$$
   \begin{cases}
   0,  & \text{if i-th listing is a condo or townhouse} \\
   1, & \text{if i-th listing is a single family house}
@@ -238,12 +236,13 @@ Sold Price = β_0 + β_1 (Prop\_Type\_num)
 
 $$
 
-
+```
 $$
 
 Sold Price = β_0 + β_1 (Prop\_Type\_num) + β_2 (TotSqf)
 
 $$
+```
 
 From the first model, property type is significant in predicting the sold price. On the other hand, the second model indicates that when we consider total square footage, property type is no longer predictive. 
 
