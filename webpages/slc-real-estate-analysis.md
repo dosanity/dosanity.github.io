@@ -17,17 +17,15 @@ We will be analyzing SLC real estate data. The dataset contains multiple listing
 + We will be keeping these variables: 
 `['Acres', 'Deck', 'GaragCap', 'Latitude', 'Longitude', 'LstPrice', 'Patio', 'PkgSpacs', 'PropType', 'SoldPrice', 'Taxes', 'TotBed', 'TotBth', 'TotSqf', 'YearBlt']` 
 
-+ We will check the datatypes and convert any numbers that were read as strings to numerical values. In particular, we converted `TotSqf` to an integer and add a column titled `Prop_Type_num` that is 
++ We will check the datatypes and convert any numbers that were read as strings to numerical values. In particular, we converted `TotSqf` to an integer and add a column titled `Prop_Type_num` (Prop) that is 
 
 $$
-  Prop\_Type\_num_i =
+  Prop_i =
   \begin{cases}
-  0,  & \text{if i-th listing is a condo or townhouse} \\
-  1, & \text{if i-th listing is a single family house}
+  0,  & \text{if condo or townhouse} \\
+  1, & \text{if single family house}
   \end{cases}
 $$
-
-![Screenshot (409)](https://user-images.githubusercontent.com/29410712/201017678-2c3b9112-d065-48d8-9292-647926eae8bd.png)
 
 + We removed the listings with erroneous `Longitude` (one has Longitude = 0) and `Taxes` values (two have unreasonably large values).
 
@@ -234,13 +232,13 @@ We will now distinguish the difference between houses, townhouses, and condos. C
 
 $$
 
-Sold Price = β_0 + β_1 (Prop\_Type\_num)
+Sold Price = β_0 + β_1 (Prop)
 
 $$
 
 $$
 
-Sold Price = β_0 + β_1 (Prop\_Type\_num) + β_2 (TotSqf)
+Sold Price = β_0 + β_1 (Prop) + β_2 (TotSqf)
 
 $$
 
