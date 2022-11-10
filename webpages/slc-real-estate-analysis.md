@@ -22,8 +22,8 @@ We will be analyzing SLC real estate data. The dataset contains multiple listing
 $$
   Prop\_Type\_num_i =
   \begin{cases}
-  0,  & \text{if i-th listing is a condo or townhouse} \\
-  1, & \text{if i-th listing is a single family house}
+  0,  & \text{condo or townhouse} \\
+  1, & \text{single family house}
   \end{cases}
 $$
 
