@@ -13,6 +13,13 @@ layout: default
 
 Our current economic climate is unique with the rise of the coronavirus. In the economy, we are seeing unique factors such as a high inflation rate paired with a low uneomployment rate. Historically, stagflation or recession-inflation occurs which is a situation where the inflation rate is high and unemployment remains high as well. We are particularly interested to see how these changes in the unemployment rate are potentially impacting the increase in inflation rate.
 
+## [Credit Risk Analysis](/webpages/Credit_Risk_Analysis.md){: .und}
+
+[Python Code 1](https://github.com/dosanity/Credit_Risk_Analysis/blob/main/credit_risk_resampling.ipynb){: .btn} 
+[Python Code 2](https://github.com/dosanity/Credit_Risk_Analysis/blob/main/credit_risk_ensemble.ipynb){: .btn} 
+
+Credit risk is the possibility of a loss resulting from a borrower's failure to repay a loan or meet contractual obligations. To determine credit risk, it requires the creditors to evaluate customers based on their credit score. As a result of this, there are classification imbalances with credit risk because good loans outnumber riskier loans. We are tasked to build a classification model using machine learning statistical algorithms to make predictions on the credit risk of a client. In our analysis, we will be using the credit card credit dataset from [LendingClub](https://www.lendingclub.com/), a peer-to-peer lending services company.
+
 ## [Salt Lake City Real Estate](/webpages/slc-real-estate-analysis.md){: .und}
 
 [Python Code](https://github.com/dosanity/SLC-real-estate-analysis/blob/main/SLC-real-estate.ipynb){: .btn}
@@ -49,13 +56,6 @@ We are tasked by a Colorado Board of Elections employee to complete the election
 [Python Code](https://github.com/dosanity/us-crime-analysis/blob/main/US-crime-analysis.ipynb){: .btn}
 
 There are many crimes that happen in the United States. Some believe that bigger cities and more populated states have more crime rates. In this project, we will be analyzing a dataset describing 1973 violent crime rates by US State. The crimes considered are assault, murder, and rape. Also included is the percent of the population living in urban areas. Our goal is to use unsupervised machine learning methods such as Cluster Heat Maps, Principle Component Analysis, K-Means Clustering, Hierarchical Clustering, and DBSCAN to understand how violent crimes differ between states.
-
-## [Mapping Earthquakes](/webpages/Mapping_Earthquakes.md){: .und}
-
-[JavaScript Code](https://github.com/dosanity/Mapping_Earthquakes/blob/main/Earthquake_Challenge/static/js/challenge_logic.js){: .btn} 
-[HTML Code](https://github.com/dosanity/Mapping_Earthquakes/blob/main/index.html){: .btn}
-
-The purpose of this project is to visually show the differences between the magnitudes of earthquakes all over the world for the last seven days. We used JavaScript and the D3.js library to retrieve the coordinates and magnitudes of the earthquakes from the GeoJSON earthquake data linked to the USGS website. To display our data, we used the Leaflet library to plot the data on a Mapbox map through an API request and create interactivity for the earthquake data.
 
 ## [Online News Popularity](/webpages/online-news-analysis.md){: .und} 
 
