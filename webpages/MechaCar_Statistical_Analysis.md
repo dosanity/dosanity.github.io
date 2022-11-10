@@ -94,7 +94,7 @@ To further our analysis, we will perform t-tests to determine if all manufacturi
 
 $$
 
-t = \frac{m - \mu}{\frac{s}{\sqrt{n}}}
+t = \frac{\bar{x} - \mu}{\frac{s}{\sqrt{n}}}
 
 $$
 
@@ -189,6 +189,12 @@ To further our analysis, we will design a statistical study to compare vehicle p
 
 #### Statistical Test
 Since we are determining whether the means of two-samples (MechaCar vs Competitors) are statistically different, we will be utilizing the two-sample t-test to perform this analysis. The two dependent variables in the two analyses would be fuel efficiency and vehicle price.
+
+$$
+
+t = \frac{(\bar{x}_1 - \bar{x}_2) - (\mu_1 - \mu_2)}{\sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}}
+
+$$
 
 #### Data Source
 Since data would be difficult to obtain before the release of competitor cars, we can collect or scrape the data from outside sources on previous car models in the same class as the MechaCar. The data could potentially be found through competitor webpages since the information is public after the car's release. We would need the fuel efficiency and vehicle price data from the competitors. 
