@@ -8,7 +8,7 @@
 
 ## Project Overview
 
-The purpose of this project is to analyze data for a new prototype car, the MechaCar. There are production issues that are blocking the manufacturing team's progress and we are tasked to review the production data for insights. Using the programming language R, we will perform multiple linear regressions, summary statistics, and t-tests to produce statistical interpretations.
+The purpose of this project is to analyze data for a prototype car. We are tasked to review the production data for insights in vehicle performance. Using the programming language R, we will perform multiple linear regressions, summary statistics, and t-tests to produce statistical interpretations.
 
 ## Linear Regression to Predict MPG
 The `MechaCar_mpg.csv` dataset contains mpg test results for 50 prototype MechaCars. The MechaCar prototypes were produced using multiple design specifications to identify ideal vehicle performance. We will perform a multiple linear regression model to predict the `mpg` of MechaCar prototypes. In our analysis we will use:
@@ -23,6 +23,14 @@ The `MechaCar_mpg.csv` dataset contains mpg test results for 50 prototype MechaC
 + $H_a$: The slope of the linear model is not zero, or m ≠ 0.
 
 #### Multiple Linear Regression Model
+Multiple linear regression is a regression model that estimates the relationship between a quantitative dependent variable and two or more independent variables using a straight line. The mathematical equation we will be using is represented below:
+
+$$ 
+  
+  mpg = β_0 + β_1x_1 + β_2x_2 + \cdots + β_nx_n 
+  
+$$
+
 ```
 lm(mpg ~ AWD + ground_clearance + spoiler_angle + vehicle_weight + vehicle_length,data=mecha)
 summary(lm(mpg ~ AWD + ground_clearance + spoiler_angle + vehicle_weight + vehicle_length,data=mecha)) 
@@ -82,7 +90,13 @@ lot_summary <- suspension %>% group_by(Manufacturing_Lot) %>% summarize(Mean=mea
 In the summary of the individual lots, we can see that the mean and median between the lots are similar. The variance for Lot 1 is 0.98, Lot 2 is 7.47, and Lot 3 is 170.29. Since the variance of the suspension coils for Lot 1 and Lot 2 are below 100 pounds per square inch, it meets the design specifications for the MechaCar suspension coils. However, the Lot 3 variance exceeds the 100 pounds per square inch, so it does not meet the design specifications.
 
 ## T-Tests on Suspension Coils
-To further our analysis, we will perform t-tests to determine if all manufacturing lots and each lot individually are statistically different from the population mean of 1,500 pounds per square inch.
+To further our analysis, we will perform t-tests to determine if all manufacturing lots and each lot individually are statistically different from the population mean of 1,500 pounds per square inch. The mathematical equation is represented below:
+
+$$
+
+t = \frac{m - \mu}{\frac{s}{\sqrt{n}}}
+
+$$
 
 #### Hypothesis
 + $H_0$: There is no statistical difference between the observed sample mean and its presumed population mean.
