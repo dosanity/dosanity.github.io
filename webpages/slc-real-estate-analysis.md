@@ -27,7 +27,7 @@ $$
   \end{cases}
 $$
 
-![Screenshot (409)](https://user-images.githubusercontent.com/29410712/201017678-2c3b9112-d065-48d8-9292-647926eae8bd.png){: .size}
+![Screenshot (409)](https://user-images.githubusercontent.com/29410712/201017678-2c3b9112-d065-48d8-9292-647926eae8bd.png)
 
 + We removed the listings with erroneous `Longitude` (one has Longitude = 0) and `Taxes` values (two have unreasonably large values).
 
