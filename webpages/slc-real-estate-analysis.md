@@ -27,6 +27,8 @@ $$
   \end{cases}
 $$
 
+![Screenshot (409)](https://user-images.githubusercontent.com/29410712/201017678-2c3b9112-d065-48d8-9292-647926eae8bd.png){: .size}
+
 + We removed the listings with erroneous `Longitude` (one has Longitude = 0) and `Taxes` values (two have unreasonably large values).
 
 ## Exploratory Data Analysis 
@@ -236,13 +238,11 @@ Sold Price = β_0 + β_1 (Prop\_Type\_num)
 
 $$
 
-```
 $$
 
 Sold Price = β_0 + β_1 (Prop\_Type\_num) + β_2 (TotSqf)
 
 $$
-```
 
 From the first model, property type is significant in predicting the sold price. On the other hand, the second model indicates that when we consider total square footage, property type is no longer predictive. 
 
