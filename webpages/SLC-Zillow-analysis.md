@@ -150,6 +150,7 @@ For this analysis, we will be using Principle Component Analysis, K-Means Cluste
 Principal Component Analysis (PCA) is one of the most used unsupervised machine learning algorithms across a variety of applications: exploratory data analysis, dimensionality reduction, information compression, and data de-noising. PCA is a dimensionality reduction technique that transforms a set of features in a dataset into a smaller number of features called principal components while at the same time trying to retain as much information in the original dataset as possible. Since we have 3 different variables, we have a three-dimensional data set. PCA can take 4 or more variables and make a two-dimensional PCA plot. PCA can also tell us which variable is the most valuable for clustering the data. It also can tell us how accurate the two-dimensional graph is.
 
 > Python Code:
+
 ```
 from sklearn.decomposition import PCA
 
