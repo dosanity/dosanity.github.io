@@ -14,7 +14,7 @@ After gathering the data, we will create different visualizations with geospatia
 
 ## Resources
 
-+ Software: Python 3.10, Jupyter Notebook 6.4.12
++ Software: Python 3.10, Jupyter Lab 3.4.4
 + Data Source: ZillowData.csv - [Zillow.com](https://www.zillow.com)
 
 ## Webscraping Process
