@@ -194,8 +194,10 @@ $$
 $$
   
 $$
+\begin{aligned}
   w_{(k)} = \text{arg } \displaystyle{\max_{||w|| = 1}} \left( ||\hat X_{k}w||^2 \right) \\
   &= \text{arg max} \left( \frac{w^T\hat X_k^T\hat X_kw}{w^Tw} \right)
+\end{aligned}
 $$
 
 The sum of squared distances for the best fit line is the eigenvalue for PC1. The second component (PC2) is orthogonal to the first, and it explains the greatest amount of variance left after the first principal component. Then we find PC3 which is perpendicular to PC1 and PC2 that goes through the origin. The number of PCs is either the number of variables or the number of samples, whichever is smaller.
@@ -246,6 +248,7 @@ Similar to K-means clustering, hierarchical clustering, also known as agglomerat
 Additionally, we created a dendogram to know how many clusters to make. A dendrogram is a graph that keeps the values of the points on the x-axis, then connects all the points as they are clustered. This is similar to the elbow curve, as it gives us a better idea of the ideal amount of clusters we want to use. Based on the dendogram above, we will now use hierarchical clustering with complete linkage and Euclidean distance to sort the zipcodes into six clusters. 
 
 > Python Code:
+
 ```
 from sklearn.cluster import AgglomerativeClustering
 
