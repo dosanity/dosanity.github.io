@@ -75,12 +75,12 @@ The MNIST handwritten digit dataset consists of images of handwritten digits, to
 
 We are tasked to analyze data on student funding and student standardized test scores. We will be aggregating the data to showcase trends and school performance. In this analysis, we will assist the school board and superintendent in making decisions regarding the school budgets and priorities. Additionally, we are aware of the Family Educational Rights and Privacy Act of 1974 (FERPA) which protects the privacy of student education records. This law applies to all schools that receive funds under an applicable program of the U.S. Department of Education. Therefore, we will be data mining using general education data to predict trends and performances.
 
-## [World Weather Analysis](/webpages/World_Weather_Analysis.md){: .und}
+## [Salt Lake County Real Estate Analysis](/webpages/SLC-Zillow-analysis.md){: .und}
 
-[Python Code 1](https://github.com/dosanity/World_Weather_Analysis/blob/main/Weather_Database.ipynb){: .btn}
-[Python Code 2](https://github.com/dosanity/World_Weather_Analysis/blob/main/Vacation_Search.ipynb){: .btn}
+[Python Code 1](https://github.com/dosanity/SLC-Zillow-analysis/blob/main/ZillowUT_Data.ipynb){: .btn}
+[Python Code 2](https://github.com/dosanity/SLC-Zillow-analysis/blob/main/ZillowUT_Analysis.ipynb){: .btn}
 
-We will be analyzing, visualizing, and using statistical skills on weather data and google maps data retrieved through API. An application programming interface is a way for two or more computer programs to communicate with each other. It is a type of software interface, offering a service to other pieces of software. An API call is very similar to navigating to a website. An API points to a URL and collects some data from the webpage or server. We will be using API to analyze data to supoport the hotel and lodging industry. We are tasked to collect and present data for customers via the search, which they will then filter based on their preferred travel criteria in order to find their ideal hotel anywhere in the world.
+We will be analyzing real estate data from different cities in the Salt Lake County listed as of November, 2022. In this project, we will be scraping Zillow, an American tech real-estate marketplace company. Zillow is one of the most popular real estate sites because offers the most robust suite of tools for home professionals and it sources postings from both the MLS (Multiple Listing Services) and non-MLS sources. Non-MLS sources include for sale by owner, non-MLS foreclosures, and auctions. Additionally, Zillow has the largest database of over 135 million properties. After gathering the data, we will create different visualizations with geospatial analysis and charts to uncover preliminary trends between different variables. We will also be using linear regressions and different unsupervised machine learning algorithms such as Principle Component Analysis and K-Means Clustering to gain meaningful insights in the data we collected.
 
 ## [PyBer Analysis](/webpages/PyBer_Analysis.md){: .und}
 
