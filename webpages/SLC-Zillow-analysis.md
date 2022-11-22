@@ -234,6 +234,8 @@ Using the "elbow" or "knee of a curve" as a cutoff point is a common heuristic i
 
 ![Parallel-Centroids](https://user-images.githubusercontent.com/29410712/203230763-3f7b53a7-0beb-4a16-b3a3-b30b769d4041.png)
 
+From the Parallel Coordinates Centroids plot, we can see the variation across the variables for each of the clusters found by the K-means algorithm. We can identify that the real estate properties located in the Cluster 4 zip codes have relatively low average sqft but high cost per sqft and the Cluster 2 zip codes have high average prices and high average sqft.
+
 ### K-Means Clustering with Principal Component Analysis
 
 Applying the K-means to the Principal Component Analysis projection data produces an additional categorical constraint to validate the clustering algorithm. In other words, we can use dimensionality reduction as a feature extractor and reveal the different clusters. Based on the updated PCA plot with the clustering, it is consistent with the clustering with the points split into six sections:
