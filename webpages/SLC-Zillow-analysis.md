@@ -195,7 +195,7 @@ $$
   
 $$
 \begin{aligned}
-  w_{(k)} = \text{arg } \displaystyle{\max_{||w|| = 1}} \left( ||\hat X_{k}w||^2 \right) \\
+  w_{(k)} &= \text{arg } \displaystyle{\max_{||w|| = 1}} \left( ||\hat X_{k}w||^2 \right) \\
   &= \text{arg max} \left( \frac{w^T\hat X_k^T\hat X_kw}{w^Tw} \right)
 \end{aligned}
 $$
