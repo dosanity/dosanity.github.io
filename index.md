@@ -6,6 +6,13 @@ layout: default
 
 ---
 
+## [Salt Lake County Real Estate Analysis](/webpages/SLC-Zillow-analysis.md){: .und}
+
+[Python Code 1](https://github.com/dosanity/SLC-Zillow-analysis/blob/main/ZillowUT_Data.ipynb){: .btn}
+[Python Code 2](https://github.com/dosanity/SLC-Zillow-analysis/blob/main/ZillowUT_Analysis.ipynb){: .btn}
+
+We will be analyzing real estate data from different cities in the Salt Lake County listed as of November, 2022. In this project, we will be scraping Zillow, an American tech real-estate marketplace company. Zillow is one of the most popular real estate sites because offers the most robust suite of tools for home professionals and it sources postings from both the MLS (Multiple Listing Services) and non-MLS sources. Non-MLS sources include for sale by owner, non-MLS foreclosures, and auctions. Additionally, Zillow has the largest database of over 135 million properties. After gathering the data, we will create different visualizations with geospatial analysis and charts to uncover preliminary trends between different variables. We will also be using linear regressions and different unsupervised machine learning algorithms such as Principle Component Analysis and K-Means Clustering to gain meaningful insights in the data we collected.
+
 ## [Unemployment on Inflation Analysis](/webpages/unemployment-inflation-analysis.md){: .und}
 
 [Python Code](https://github.com/dosanity/unemployment-inflation-analysis/blob/main/Inflation.ipynb){: .btn}
@@ -74,13 +81,6 @@ The MNIST handwritten digit dataset consists of images of handwritten digits, to
 [Python Code](https://github.com/dosanity/school_district_analysis/blob/main/PyCitySchools_Challenge.ipynb){: .btn}
 
 We are tasked to analyze data on student funding and student standardized test scores. We will be aggregating the data to showcase trends and school performance. In this analysis, we will assist the school board and superintendent in making decisions regarding the school budgets and priorities. Additionally, we are aware of the Family Educational Rights and Privacy Act of 1974 (FERPA) which protects the privacy of student education records. This law applies to all schools that receive funds under an applicable program of the U.S. Department of Education. Therefore, we will be data mining using general education data to predict trends and performances.
-
-## [Salt Lake County Real Estate Analysis](/webpages/SLC-Zillow-analysis.md){: .und}
-
-[Python Code 1](https://github.com/dosanity/SLC-Zillow-analysis/blob/main/ZillowUT_Data.ipynb){: .btn}
-[Python Code 2](https://github.com/dosanity/SLC-Zillow-analysis/blob/main/ZillowUT_Analysis.ipynb){: .btn}
-
-We will be analyzing real estate data from different cities in the Salt Lake County listed as of November, 2022. In this project, we will be scraping Zillow, an American tech real-estate marketplace company. Zillow is one of the most popular real estate sites because offers the most robust suite of tools for home professionals and it sources postings from both the MLS (Multiple Listing Services) and non-MLS sources. Non-MLS sources include for sale by owner, non-MLS foreclosures, and auctions. Additionally, Zillow has the largest database of over 135 million properties. After gathering the data, we will create different visualizations with geospatial analysis and charts to uncover preliminary trends between different variables. We will also be using linear regressions and different unsupervised machine learning algorithms such as Principle Component Analysis and K-Means Clustering to gain meaningful insights in the data we collected.
 
 ## [PyBer Analysis](/webpages/PyBer_Analysis.md){: .und}
 
