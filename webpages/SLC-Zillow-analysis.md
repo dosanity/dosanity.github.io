@@ -21,7 +21,7 @@ After gathering the data, we will create different visualizations with geospatia
 
 #### Scrape Zillow using BeautifulSoup
 
-BeautifulSoup is a Python package for parsing HTML and XML documents. It creates a parse tree for parsed pages that can be used to extract data from HTML, which is useful for web scraping. We will be scraping data from different cities in the Salt Lake County from Zillow. We avoided any problems with Zillow blocking us from downloading the data by saving all the HTML files in the data folder. The path to the data folder is stored in the `DATA_PATH` variable. Furthermore , the `ZillowData` folder contains the HTML source code for the different cities. The file name contains the city name with the corresponding page number from Zillow:
+BeautifulSoup is a Python package for parsing HTML and XML documents. It creates a parse tree for parsed pages that can be used to extract data from HTML, which is useful for web scraping. We will be scraping data from different cities in the Salt Lake County from Zillow. We avoided any problems with Zillow blocking us from downloading the data by saving all the HTML files in the data folder. The path to the data folder is stored in the `DATA_PATH` variable. Furthermore, the `ZillowData` folder contains the HTML source code for the different cities. The file name contains the city name with the corresponding page number from Zillow:
 
 |           |              |     |           |    
 |-----------|--------------|-----|-----------|  
@@ -172,11 +172,10 @@ Principal Component Analysis calculates the average of each variable and using t
 In order to maximize variance, the first weight vector $w_{(1)}$ thus has to satisfy:
 
 $$
-  w_{(1)} = \text{arg } \displaystyle{\max_{||w|| = 1}} \left( \sum_{i} {(t_1)}^2_{(i)} \right)
-$$
-
-$$
- = \text{arg } \displaystyle{\max_{||w|| = 1}} \left( \sum_{i} {(x_{(i)} * w)}^2 \right)
+\begin{aligned}
+  w_{(1)} &= \text{arg } \displaystyle{\max_{||w|| = 1}} \left( \sum_{i} {(t_1)}^2_{(i)} \right) \\
+  &= \text{arg } \displaystyle{\max_{||w|| = 1}} \left( \sum_{i} {(x_{(i)} * w)}^2 \right)
+\end{aligned}
 $$
 
 Since $w_{(1)}$ has been defined to be a unit vector, it equivalently also satisfies:
@@ -216,11 +215,11 @@ K-means cluster identifies initial clusters and calculates the variances between
 
 ![Different K-Means](https://user-images.githubusercontent.com/29410712/203158939-fde4b778-24a9-4949-b8a5-51a517d1fded.png)
 
-First we need to determine the best K value. An easy method for determining the best number for K is the elbow curve. To create an elbow curve, we'll plot the clusters on the x-axis and the values of a selected objective function on the y-axis. The intra-cluster distance is one of the most common objective functions to use when creating an elbow curve. The intra-cluster distance objective function is measuring the amount of variation in the dataset. For our elbow curve, we will plot the number of clusters (also known as the values of K) on the x-axis and the total intra-cluster distance values on the y-axis.
+First, we need to determine the best K value. An easy method for determining the best number for K is the elbow curve. To create an elbow curve, we'll plot the clusters on the x-axis and the values of a selected objective function on the y-axis. The intra-cluster distance is one of the most common objective functions to use when creating an elbow curve. The intra-cluster distance objective function is measuring the amount of variation in the dataset. For our elbow curve, we will plot the number of clusters (also known as the values of K) on the x-axis and the total intra-cluster distance values on the y-axis.
 
 ![Intra-Cluster-Distance](https://user-images.githubusercontent.com/29410712/203158951-caf2a648-746a-4908-9cd1-a423b225d669.png)
 
-Using the "elbow" or "knee of a curve" as a cutoff point is a common heuristic in mathematical optimization to choose a point where diminishing returns are no longer worth the additional cost. In clustering, this means one should choose a number of clusters so that adding another cluster doesn't give much better modeling of the data. The intuition is that increasing the number of clusters will naturally improve the fit (explain more of the variation), since there are more parameters (more clusters) to use, but that at some point this is over-fitting, and the elbow reflects this. We can see that the total intra-cluster distance is large for k = 1 and decreases as we increase k, until k = 6, after which it tapers off and gets only marginally smaller. The slope becomes constant after k = 6. This indicates that k = 6 is a good choice. Therefore, will now cluster the states into six clusters using K-means. 
+Using the "elbow" or "knee of a curve" as a cutoff point is a common heuristic in mathematical optimization to choose a point where diminishing returns are no longer worth the additional cost. In clustering, this means one should choose a number of clusters so that adding another cluster doesn't give a much better modeling of the data. The intuition is that increasing the number of clusters will naturally improve the fit (explain more of the variation), since there are more parameters (more clusters) to use, but that at some point this is over-fitting, and the elbow reflects this. We can see that the total intra-cluster distance is large for k = 1 and decreases as we increase k, until k = 6, after which it tapers off and gets only marginally smaller. The slope becomes constant after k = 6. This indicates that k = 6 is a good choice. Therefore, will now cluster the states into six clusters using K-means. 
 
 ![K-Mean](https://user-images.githubusercontent.com/29410712/203157630-3e2f35b9-9fe7-4717-bb06-4335d841c807.png)
 
@@ -235,7 +234,7 @@ Using the "elbow" or "knee of a curve" as a cutoff point is a common heuristic i
 
 ### K-Means Clustering with Principal Component Analysis
 
-By applying the K-means to the Principal Component Analysis projection data, this produces an additional categorical constraint to validate the clustering algorithm. In other words, we can use dimensionality reduction as a feature extractor and reveal the different clusters. Based on the updated PCA plot with the clustering, it is consistent with the clustering with the points split into six sections:
+Applying the K-means to the Principal Component Analysis projection data produces an additional categorical constraint to validate the clustering algorithm. In other words, we can use dimensionality reduction as a feature extractor and reveal the different clusters. Based on the updated PCA plot with the clustering, it is consistent with the clustering with the points split into six sections:
 
 ![K-Mean-PCA](https://user-images.githubusercontent.com/29410712/203165056-6b1c828b-6dcc-492f-b01e-61d6f91e2077.png)
 
@@ -274,6 +273,6 @@ for i,name in enumerate(summary['zipcode'].values):
 
 ### Hierarchical Clustering with Principal Component Analysis
 
-By applying the Hierarichical Clustering to the Principal Component Analysis projection data, this produces an additional categorical constraint to validate the clustering algorithm. In other words, we can use dimensionality reduction as a feature extractor and reveal the different clusters. Based on the updated PCA plot with the clustering, it is consistent with the clustering with the points split into six sections:
+Applying the Hierarchical Clustering to the Principal Component Analysis projection data produces an additional categorical constraint to validate the clustering algorithm. In other words, we can use dimensionality reduction as a feature extractor and reveal the different clusters. Based on the updated PCA plot with the clustering, it is consistent with the clustering with the points split into six sections:
 
 ![Hierarchical-PCA](https://user-images.githubusercontent.com/29410712/203176836-ca08d232-3bc9-4626-bfae-3cbb8d0ee762.png)
