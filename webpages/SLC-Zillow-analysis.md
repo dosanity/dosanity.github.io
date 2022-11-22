@@ -23,11 +23,11 @@ After gathering the data, we will create different visualizations with geospatia
 
 BeautifulSoup is a Python package for parsing HTML and XML documents. It creates a parse tree for parsed pages that can be used to extract data from HTML, which is useful for web scraping. We will be scraping data from different cities in the Salt Lake County from Zillow. We avoided any problems with Zillow blocking us from downloading the data by saving all the HTML files in the data folder. The path to the data folder is stored in the `DATA_PATH` variable. Furthermore , the `ZillowData` folder contains the HTML source code for the different cities. The file name contains the city name with the corresponding page number from Zillow:
 
-|                  |              |     |           |    
-|------------------|--------------|-----|-----------|  
-|`westjordan1.html`|`draper1.html`| ... |`slc1.html`|
-|`westjordan2.html`|`draper2.html`| ... |`slc2.html`|
-|`westjordan3.html`|`draper3.html`| ... |`slc3.html`|
+|           |              |     |           |    
+|-----------|--------------|-----|-----------|  
+|`wvc1.html`|`draper1.html`| ... |`slc1.html`|
+|`wvc2.html`|`draper2.html`| ... |`slc2.html`|
+|`wvc3.html`|`draper3.html`| ... |`slc3.html`|
 
 #### The Data
 
