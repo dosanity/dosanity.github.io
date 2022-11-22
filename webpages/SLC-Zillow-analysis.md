@@ -38,8 +38,8 @@ We also checked the data types and converted any numbers that were read as strin
 $$
   \text{proptype} =
   \begin{cases}
-  0,  & \text{if i-th listing is a condo/townhouse/lot} \\
-  1, & \text{if i-th listing is a single family house}
+  0,  & \text{condo/townhouse/lot} \\
+  1, & \text{single family house}
   \end{cases}
 $$
 
