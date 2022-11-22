@@ -143,7 +143,7 @@ In the multiple linear regression model, the intercept of the regression is 102,
 
 ## Machine Learning Algorithms (Deeper Analysis)
 
-For this analysis, we will be using Principle Component Analysis, K-Means Clustering, Hierarchical Clustering, and DBSCAN to understand how the prices, sqft, and cost per sqft differ between zipcodes.
+For this analysis, we will be using Principle Component Analysis, K-Means Clustering, and Hierarchical Clustering to understand how the prices, sqft, and cost per sqft differ between zipcodes.
 
 ### Principal Component Analysis (PCA)
 
