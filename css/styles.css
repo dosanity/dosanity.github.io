@@ -185,6 +185,8 @@ pre {
   overflow-x: auto;
 }
 
-resume {
-  max-width: 100%;
+.portfolio-body {
+  margin-top: 10pt;
+  height: 20pt;
+  text-align: center;
 }
