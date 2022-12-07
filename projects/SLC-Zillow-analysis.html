@@ -241,35 +241,35 @@
 
             <p>where $x_n$ are predictive variables.</p>
 
-            <div class="hightlight">
-                <pre class="hightlight"><code>                            
-                                            OLS Regression Results                            
-                ==============================================================================
-                Dep. Variable:                  price   R-squared:                       0.640
-                Model:                            OLS   Adj. R-squared:                  0.639
-                Method:                 Least Squares   F-statistic:                     872.9
-                Date:                Mon, 21 Nov 2022   Prob (F-statistic):               0.00
-                <span class="hljs-keyword">Time:</span>                        02:36:54   Log-Likelihood:                <span class="hljs-string">-26554</span>.
-                No. Observations:                1972   AIC:                         5.312e<span class="hljs-string">+04</span>
-                Df Residuals:                    1967   BIC:                         5.315e<span class="hljs-string">+04</span>
-                Df Model:                           4                                         
-                Covariance Type:            nonrobust                                         
-                ==============================================================================
-                                coef    std err          t      P&gt;|t|      [0.025      0.975]
-                ------------------------------------------------------------------------------
-                Intercept   1.024e<span class="hljs-string">+05</span>   1.28e<span class="hljs-string">+04</span>      7.974      0.000    7.72e<span class="hljs-string">+04</span>    1.28e<span class="hljs-string">+05</span>
-                sqft         180.8805      5.669     31.907      0.000     169.763     191.998
-                beds       <span class="hljs-string">-8116</span>.8371   3965.622     <span class="hljs-string">-2</span>.047      0.041   <span class="hljs-string">-1</span>.59e<span class="hljs-string">+04</span>    <span class="hljs-string">-339</span>.575
-                baths       2.722e<span class="hljs-string">+04</span>   5920.118      4.598      0.000    1.56e<span class="hljs-string">+04</span>    3.88e<span class="hljs-string">+04</span>
-                proptype    4.042e<span class="hljs-string">+04</span>   9865.190      4.097      0.000    2.11e<span class="hljs-string">+04</span>    5.98e<span class="hljs-string">+04</span>
-                ==============================================================================
-                Omnibus:                      882.045   Durbin-Watson:                   1.447
-                Prob(Omnibus):                  0.000   Jarque-Bera (JB):             7474.571
-                Skew:                           1.898   Prob(JB):                         0.00
-                Kurtosis:                      11.750   Cond. No.                     9.78e<span class="hljs-string">+03</span>
-                ==============================================================================
-                </code></pre>
-            </div>
+            <pre>
+                <code>                            
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                  price   R-squared:                       0.640
+Model:                            OLS   Adj. R-squared:                  0.639
+Method:                 Least Squares   F-statistic:                     872.9
+Date:                Mon, 21 Nov 2022   Prob (F-statistic):               0.00
+<span class="hljs-keyword">Time:</span>                        02:36:54   Log-Likelihood:                <span class="hljs-string">-26554</span>.
+No. Observations:                1972   AIC:                         5.312e<span class="hljs-string">+04</span>
+Df Residuals:                    1967   BIC:                         5.315e<span class="hljs-string">+04</span>
+Df Model:                           4                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+Intercept   1.024e<span class="hljs-string">+05</span>   1.28e<span class="hljs-string">+04</span>      7.974      0.000    7.72e<span class="hljs-string">+04</span>    1.28e<span class="hljs-string">+05</span>
+sqft         180.8805      5.669     31.907      0.000     169.763     191.998
+beds       <span class="hljs-string">-8116</span>.8371   3965.622     <span class="hljs-string">-2</span>.047      0.041   <span class="hljs-string">-1</span>.59e<span class="hljs-string">+04</span>    <span class="hljs-string">-339</span>.575
+baths       2.722e<span class="hljs-string">+04</span>   5920.118      4.598      0.000    1.56e<span class="hljs-string">+04</span>    3.88e<span class="hljs-string">+04</span>
+proptype    4.042e<span class="hljs-string">+04</span>   9865.190      4.097      0.000    2.11e<span class="hljs-string">+04</span>    5.98e<span class="hljs-string">+04</span>
+==============================================================================
+Omnibus:                      882.045   Durbin-Watson:                   1.447
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):             7474.571
+Skew:                           1.898   Prob(JB):                         0.00
+Kurtosis:                      11.750   Cond. No.                     9.78e<span class="hljs-string">+03</span>
+==============================================================================
+                </code>
+            </pre>
 
             <p>In the multiple linear regression model, the intercept of the regression is 102,400 and the R-squared is 0.640. The R-squared is the proportion of the variation in the dependent variable that is predictable from the independent variable. This means that around 64.0% of the variability observed in the target variable is explained by this regression model. Additionally, all the variables are statistically significant at an alpha of 5% and can be used to predict the listed price of the real estate property. With further clarification, as the sqft of the real estate property and the number of baths increase by one, the price increases by 181 and 27220, respectively. Moreover, as the number of bedrooms increase by one, the price actually decreases by 8116. We can also see that if the real estate property is a Single Family Home, it increases the price of the property. </p>
 
@@ -293,25 +293,27 @@
             <p><b>Python Code:</b></p>
             </blockquote>
 
-            <pre><code>
-            ==============================================================================
-                
-            from sklearn<span class="hljs-selector-class">.decomposition</span> import PCA
+            <pre>
+                <code>
+==============================================================================
+    
+from sklearn<span class="hljs-selector-class">.decomposition</span> import PCA
 
-            pca_model = PCA(n_components=<span class="hljs-number">3</span>)
-            X_PCA = pca_model.fit_transform(X)
-            df_plot = pd.DataFrame(X_PCA, <span class="hljs-attribute">columns</span>=[<span class="hljs-string">'PC1'</span>, <span class="hljs-string">'PC2'</span>, <span class="hljs-string">'PC3'</span>])
-            df_plot.head()
-            fig,ax1 = plt.subplots(figsize=(<span class="hljs-number">10</span>, <span class="hljs-number">6</span>))
+pca_model = PCA(n_components=<span class="hljs-number">3</span>)
+X_PCA = pca_model.fit_transform(X)
+df_plot = pd.DataFrame(X_PCA, <span class="hljs-attribute">columns</span>=[<span class="hljs-string">'PC1'</span>, <span class="hljs-string">'PC2'</span>, <span class="hljs-string">'PC3'</span>])
+df_plot.head()
+fig,ax1 = plt.subplots(figsize=(<span class="hljs-number">10</span>, <span class="hljs-number">6</span>))
 
-            ax1.set_xlim(X_PCA[:,<span class="hljs-number">0</span>].min()-<span class="hljs-number">1</span>,X_PCA[:,<span class="hljs-number">0</span>].max()+<span class="hljs-number">1</span>)
-            ax1.set_ylim(X_PCA[:,<span class="hljs-number">1</span>].min()-<span class="hljs-number">1</span>,X_PCA[:,<span class="hljs-number">1</span>].max()+<span class="hljs-number">1</span>)
+ax1.set_xlim(X_PCA[:,<span class="hljs-number">0</span>].min()-<span class="hljs-number">1</span>,X_PCA[:,<span class="hljs-number">0</span>].max()+<span class="hljs-number">1</span>)
+ax1.set_ylim(X_PCA[:,<span class="hljs-number">1</span>].min()-<span class="hljs-number">1</span>,X_PCA[:,<span class="hljs-number">1</span>].max()+<span class="hljs-number">1</span>)
 
-            <span class="hljs-keyword">for</span> <span class="hljs-selector-tag">i</span>,name <span class="hljs-keyword">in</span> enumerate(<span class="hljs-selector-tag">summary</span>[<span class="hljs-string">'zipcode'</span>].values):
-                ax1.annotate(name, (X_PCA[<span class="hljs-selector-tag">i</span>,<span class="hljs-number">0</span>], X_PCA[<span class="hljs-selector-tag">i</span>,<span class="hljs-number">1</span>]), ha=<span class="hljs-string">'center'</span>,fontsize=<span class="hljs-number">10</span>)
+<span class="hljs-keyword">for</span> <span class="hljs-selector-tag">i</span>,name <span class="hljs-keyword">in</span> enumerate(<span class="hljs-selector-tag">summary</span>[<span class="hljs-string">'zipcode'</span>].values):
+    ax1.annotate(name, (X_PCA[<span class="hljs-selector-tag">i</span>,<span class="hljs-number">0</span>], X_PCA[<span class="hljs-selector-tag">i</span>,<span class="hljs-number">1</span>]), ha=<span class="hljs-string">'center'</span>,fontsize=<span class="hljs-number">10</span>)
 
-            ==============================================================================
-            </code></pre>
+==============================================================================
+                </code>
+            </pre>
 
 
             <p>Principal Component Analysis calculates the average of each variable and using this average, finds the center of the data. It then shifts the data so that the center of the data is at the origin. From here, we input principal components. The principal components are vectors, but they are not chosen at random. The first principal component (PC1) is computed so that it explains the greatest amount of variance in the original features. Thus, it minimizes the distance between each data point on the graph (Sum of Squared) so PC1 is a linear combination of variables. </p>
@@ -462,21 +464,23 @@
             <p><b>Python Code:</b></p>
             </blockquote>
 
-            <pre><code>
-            ==============================================================================
+            <pre>
+                <code>
+==============================================================================
 
-            from sklearn<span class="hljs-selector-class">.cluster</span> import AgglomerativeClustering
+from sklearn<span class="hljs-selector-class">.cluster</span> import AgglomerativeClustering
 
-            fig,ax1 = plt.subplots(figsize=(<span class="hljs-number">10</span>, <span class="hljs-number">6</span>))
-            agg_cluster_model = AgglomerativeClustering(linkage=<span class="hljs-string">"complete"</span>, affinity=<span class="hljs-string">'euclidean'</span>, n_clusters=<span class="hljs-number">6</span>)
-            y_pred = agg_cluster_model.fit_predict(X)
+fig,ax1 = plt.subplots(figsize=(<span class="hljs-number">10</span>, <span class="hljs-number">6</span>))
+agg_cluster_model = AgglomerativeClustering(linkage=<span class="hljs-string">"complete"</span>, affinity=<span class="hljs-string">'euclidean'</span>, n_clusters=<span class="hljs-number">6</span>)
+y_pred = agg_cluster_model.fit_predict(X)
 
-            plt.scatter(X[:, <span class="hljs-number">0</span>], X[:, <span class="hljs-number">1</span>], c=y_pred,  marker=<span class="hljs-string">"o"</span>)
-            <span class="hljs-keyword">for</span> <span class="hljs-selector-tag">i</span>,name <span class="hljs-keyword">in</span> enumerate(<span class="hljs-selector-tag">summary</span>[<span class="hljs-string">'zipcode'</span>].values):
-                ax1.annotate(name, (X[<span class="hljs-selector-tag">i</span>,<span class="hljs-number">0</span>], X[<span class="hljs-selector-tag">i</span>,<span class="hljs-number">1</span>]), ha=<span class="hljs-string">'center'</span>,fontsize=<span class="hljs-number">10</span>)
+plt.scatter(X[:, <span class="hljs-number">0</span>], X[:, <span class="hljs-number">1</span>], c=y_pred,  marker=<span class="hljs-string">"o"</span>)
+<span class="hljs-keyword">for</span> <span class="hljs-selector-tag">i</span>,name <span class="hljs-keyword">in</span> enumerate(<span class="hljs-selector-tag">summary</span>[<span class="hljs-string">'zipcode'</span>].values):
+    ax1.annotate(name, (X[<span class="hljs-selector-tag">i</span>,<span class="hljs-number">0</span>], X[<span class="hljs-selector-tag">i</span>,<span class="hljs-number">1</span>]), ha=<span class="hljs-string">'center'</span>,fontsize=<span class="hljs-number">10</span>)
 
-            ==============================================================================
-            </code></pre>
+==============================================================================
+                </code>
+            </pre>
 
             <center>
                 <img src="https://user-images.githubusercontent.com/29410712/203176736-5c797f25-067d-4624-b98f-dbac6299a9b9.png" alt="Hierarchical">

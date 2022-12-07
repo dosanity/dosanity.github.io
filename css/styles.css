@@ -172,11 +172,7 @@ img {
   max-width: 100%;
 }
 
-.highlight {
-  background-color: #f8f8f8;
-}
-
-pre, code {
+code {
   word-wrap: normal;
   color: #333;
 }
