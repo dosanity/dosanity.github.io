@@ -52,15 +52,17 @@ body {
 .card-title {
   color: black;
   margin: -15px 0.1px;
+  font-size: 20px;
+  
 }
 
 .card {
-  border: 0.5px solid black;
+  border: 1.5px solid black;
 }
 
 .card:hover {
-  color: white;
   background-color: #93caf7;
+  border: 3px solid black;
 }
 
 
@@ -97,14 +99,14 @@ body {
   text-decoration: none;
   display: inline-block;
   margin: 4px 1px;
-  transition-duration: 0.4s;
+  /* transition-duration: 0.4s; */
   width: 150px;
   cursor: pointer;
 }
 
 .btn:hover {
-  color: white;
-  background-color: #68afe8;
+  color: black;
+  background-color: #93caf7;
 }
 
 .btn-linkedin {
