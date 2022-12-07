@@ -1,0 +1,173 @@
+/* Add a black background color to the top navigation */
+.topnav {
+  background-color: #333;
+  overflow: hidden;
+  /* position: fixed; */
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 10px 14px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #68afe8;
+  color: white;
+}
+
+body {
+  padding-top: 54px;
+}
+
+@media (min-width: 992px) {
+  body {
+    padding-top: 56px;
+  }
+}
+
+.portfolio-item {
+  margin-bottom: 30px;
+}
+
+.pagination {
+  margin-bottom: 30px;
+}
+
+.navbar {
+    background-color: #081D2E;
+}
+
+.card-title {
+  color: black;
+  margin: -15px 0.1px;
+}
+
+
+.card-body {
+  height: 150pt;
+}
+.footer-margin {
+  height: 240pt;
+}
+.footer-bottom{
+	width: 100%;
+	padding: 25px 0;
+	text-align: center;
+    background-color:#0C1D2E;
+}
+
+.button {
+  background-color: white; 
+  /* border: 2px solid #081D2E; */
+  border-radius: 4px;
+  color: black;
+  padding: 1px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  width: 125px;
+}
+
+.btn {
+  background-color: white;
+  color: black;
+  border: 2px solid #68afe8;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 1px;
+  transition-duration: 0.4s;
+  width: 150px;
+  cursor: pointer;
+}
+
+.btn-linkedin {
+    background: #007bb6;
+    border-color: #007bb6;
+    color: white
+}
+
+.btn-github {
+    background: #23282D;
+    border-color: #23282D;
+    color: white
+}
+
+.btn-email {
+    background: #1DA1F2;
+    border-color: #1DA1F2;
+    color: white
+}
+
+.link_button {
+  position: absolute;
+  bottom: 15pt;
+  right: 0;
+  left: 0;
+  margin: auto;
+}
+
+.projectFilter a {
+  font-size: 20px;
+  margin-right: 5px;
+  margin-left: 5px;
+  color:#081D2E;
+  text-decoration:none;
+}
+
+.projectFilter a.current {
+    font-weight: bold;
+    border: 4px solid #68afe8;
+}
+
+.isotope-item {
+    z-index: 2;
+}
+.isotope-hidden.isotope-item {
+    pointer-events: none;
+    z-index: 1;
+}
+.isotope,
+.isotope .isotope-item {
+    -webkit-transition-duration: 0.8s;
+    -moz-transition-duration: 0.8s;
+    transition-duration: 0.8s;
+}
+.isotope {
+    -webkit-transition-property: height, width;
+    -moz-transition-property: height, width;
+    transition-property: height, width;
+}
+.isotope .isotope-item {
+    -webkit-transition-property: -webkit-transform, opacity;
+    -moz-transition-property: -moz-transform, opacity;
+    transition-property: transform, opacity;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 75%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+img {
+  max-width: 100%;
+}
