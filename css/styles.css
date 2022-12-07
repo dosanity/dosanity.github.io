@@ -184,3 +184,7 @@ pre {
   border: 1px solid #e5e5e5;
   overflow-x: auto;
 }
+
+resume {
+  max-width: 100%;
+}
