@@ -267,21 +267,9 @@ pre {
   border: 2px solid black;
 }
 
-.insta {
+/* .insta {
   position: relative;
   display: inline-block;
   margin: 50px;
-}
-
-.insta .img-top{
-  display: none;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 99;
-  }
-
-.insta:hover .img-top {
-  display: inline;
-}
+} */
 
