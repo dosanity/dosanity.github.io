@@ -41,14 +41,6 @@ body {
   }
 }
 
-@media only screen and (max-width: 480px) {
-  /* horizontal scrollbar for tables if mobile screen */
-  table {
-      overflow-x: auto;
-      display: block;
-  }
-}
-
 .portfolio-item {
   margin-bottom: 30px;
 }
@@ -214,9 +206,16 @@ body {
 
 /* Table CSS */
 
+@media only screen and (max-width: 480px) {
+  /* horizontal scrollbar for tables if mobile screen */
+  table {
+      overflow-x: auto;
+      display: block;
+  }
+}
+
 table {
   font-family: arial, sans-serif;
-  border-collapse: collapse;
   table-layout:fixed;
 }
 
@@ -231,6 +230,8 @@ td {
   text-overflow: ellipsis; 
   word-wrap: break-word;
 }
+
+/* Image CSS */
 
 img {
   max-width: 100%;
