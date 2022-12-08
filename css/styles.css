@@ -41,6 +41,14 @@ body {
   }
 }
 
+@media only screen and (max-width: 480px) {
+  /* horizontal scrollbar for tables if mobile screen */
+  table {
+      overflow-x: auto;
+      display: block;
+  }
+}
+
 .portfolio-item {
   margin-bottom: 30px;
 }
