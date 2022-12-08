@@ -82,15 +82,15 @@
             <p><code>['PropType', 'SoldPrice', 'Taxes', 'TotBed', 'TotBth', 'TotSqf', 'YearBlt']</code></p>
 
             </li>
-            <li><p>We will check the datatypes and convert any numbers that were read as strings to numerical values. In particular, we converted <code>TotSqf</code> to an integer and add a column titled <code>Prop_Type_num</code> that is:</p>
+            <li><p>We will check the datatypes and convert any numbers that were read as strings to numerical values. In particular, we converted <code>TotSqf</code> to an integer and add a column titled <code>Prop_Type_num</code> (Prop) that is:</p>
             </li>
             </ul>
 
             <p>$$
-            Prop\_Type\_num_i =
+            Prop_i =
             \begin{cases}
-            0,  &amp; \text{if condo or townhouse} \\
-            1, &amp; \text{if single family house}
+            0,  &amp; \text{condo or townhouse} \\
+            1, &amp; \text{single family house}
             \end{cases}
             $$</p>
             
@@ -313,11 +313,11 @@ Kurtosis:                      11.130   Cond. No.                     2.90e<span
             <p>Above, we considered houses, townhouses, and condos together. Now we will now distinguish the difference between houses, townhouses, and condos. Consider the two regression models: </p>
             
             $$
-                SoldPrice = β_0 + β_1 (Prop\_Type\_num)
+                SoldPrice = β_0 + β_1 (Prop)
             $$
 
             $$
-                SoldPrice = β_0 + β_1 (Prop\_Type\_num) + β_2 (TotSqf)
+                SoldPrice = β_0 + β_1 (Prop) + β_2 (TotSqf)
             $$
 
             <p>From the first model, property type is significant in predicting the sold price. On the other hand, the second model indicates that when we consider total square footage, property type is no longer predictive. </p>
