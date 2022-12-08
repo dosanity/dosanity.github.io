@@ -29,6 +29,7 @@
 
 body {
   padding-top: 54px;
+  overflow-y:scroll;
 }
 
 @media (min-width: 992px) {
@@ -261,3 +262,28 @@ pre {
   margin-left: auto;
   margin-right: auto;
 }
+
+.profile {
+  border: 2px solid black;
+}
+
+.insta {
+  width: 20%;
+  height: 20%;
+  position: relative;
+  display: inline-block;
+  margin: 50px;
+}
+
+.insta .img-top{
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  }
+
+.insta:hover .img-top {
+  display: inline;
+}
+
