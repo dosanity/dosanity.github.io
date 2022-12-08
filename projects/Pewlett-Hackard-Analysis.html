@@ -63,7 +63,7 @@
             <hr color="lightgray">
 
             <p>Pewlett-Packard (PH) is a large firm that currently employs 300,024 individuals. Many employees are approaching retirement age, which will result in a significant number of job openings in the organization. We will be conducting a database analysis for Pewlett Hackard with detailed information on the number of future retirees from all departments currently working at the company to be able to prepare a plan to hire new staff and also to prepare a mentorship initiative. </p>
-            <p>The goal of this study is to construct a list of employees approaching retirement age using Pewlett-Packard employee data. Employees born between January 1, 1952, and December 31, 1955 are included on the list. The company&#39;s management must be aware of the overall number of retirees, as well as the department in which they work and their title.</p>
+            <p>The goal of this study is to construct a list of employees approaching retirement age using Pewlett-Packard employee data. Employees born between January 1, 1952, and December 31, 1955 are included on the list. The company&#39;s management must be aware of the overall number of retirees, as well as the department in which they work and their titles.</p>
             <p>The database provided by Pewlett-Packard consisted of 6 CSV files:</p>
 
             <ul>
@@ -152,7 +152,7 @@ title
             <h5 id="the-number-of-employees-eligible-for-the-mentorship-program"><b>The Number of Employees Eligible for the Mentorship Program</b></h5>
 
             <p>Given the vast number of employees departing and the skillsets they possess, the firm decides to select a group of employees born in 1965 (i.e., they are 10 years younger than the retirees) and turn them into trainers for new hires and coworkers who will be promoted to fill future openings. The management at Pewlett Hackard wants to be prepared for this development, known as the &quot;Silver Tsunami&quot; by designating some of the retirees as mentors to train the future generation of workers who would run Pewlett Hackard&#39;s operations and day-to-day activities.</p>
-            <p>We created a table that holds all of the employees who were eligible for the mentorship program and we stored in the <code>mentorship_eligibility.csv</code>. </p>
+            <p>We created a table that holds all of the employees who were eligible for the mentorship program and we stored it in the <code>mentorship_eligibility.csv</code>. </p>
 
             <pre><code>
 <span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">DISTINCT</span> <span class="hljs-keyword">ON</span> (e.emp_no) e.emp_no,

@@ -1,0 +1,335 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link rel="icon" type="image/png" sizes="32x32" href="../favicons/database.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="../favicons/database.png">
+		<meta name="theme-color" content="#ffffff">
+
+		<script>
+			window.dataLayer = window.dataLayer || [];
+		  	function gtag(){dataLayer.push(arguments);}
+		  	gtag('js', new Date());
+		  	gtag('config', 'UA-110543961-1');
+		</script>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<meta name="description" content="Anthony Do - Portfolio; Machine Learning, Data Analysis">
+		<meta name="keywords" content="Machine Learning, Data Analysis">
+		<meta name="author" content="Anthony Do">
+
+		<title>Anthony Do</title>
+
+		<link href="../css/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/styles.css" rel="stylesheet">
+
+		<script src="https://code.jquery.com/jquery-latest.js" type="text/javascript"></script>
+		<script src="../js/jquery.isotope.js" type="text/javascript"></script>
+		<script src="../js/filter.js" type="text/javascript"></script>
+		<script src="../js/bootstrap.bundle.min.js"></script>
+		{% seo %}
+	</head>
+
+  	<body>
+		<div class="topnav">
+			<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+				<div class="container">
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="navbar-brand"><h3><b>Anthony Do</b></h3></div>
+					<div class="collapse navbar-collapse" id="navbarResponsive">
+						<ul class="navbar-nav ml-auto">
+							<a class="active" href="../index.html"><b>Projects</b></a>
+							<a href="../portfolio.html"><b>Portfolio</b></a>
+							<a href="../contact.html"><b>Contact</b></a>
+							<a href="../assets/pdf/Anthony_ResumeATS.pdf"><b>Resume</b></a>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</div>
+
+		<div class="container">
+
+			<br>
+			<br>
+			<br>
+
+            <script src="../js/load-mathjax.js" async></script>
+
+            <h1 id="salt-lake-city-real-estate"><b>Salt Lake City Real Estate</b></h1>
+
+            <hr color="lightgray">
+
+            <p>We will be analyzing SLC real estate data. The dataset contains multiple listing service (MLS) real estate transactions for houses sold in 2015-16 in zip code 84103 (<a href="https://www.google.com/maps/place/Salt+Lake+City,+UT+84103/@40.8030372,-111.8957957,12z/data=!3m1!4b1!4m5!3m4!1s0x87525f672006dded:0x311e638d9a1a2de5!8m2!3d40.810506!4d-111.8449346">SLC avenues neighborhood</a>). We are primarily interested in regressing the <code>SoldPrice</code> on the house attributes (property size, house size, number of bedrooms, etc...).</p>
+
+            <h2 id="the-data"><b>The Data</b></h2>
+
+            <hr color="lightgray">
+
+            <ul>
+            <li><p>There are 206 different variables associated with each of the 348 houses in this dataset. There is some information about real estate data on <a href="http://www.utahrealestate.com/">this</a> website to get a better sense of the meanings of the column headers in the dataset.  </p>
+            </li>
+            <li><p>We are only keeping houses with a list price between 200,000 and 1,000,000 dollars. This is an arbitrary choice, and we realize that some people are high rollers, but for our purposes, we will consider the others as outliers. </p>
+            </li>
+            <li><p>We will be keeping these variables:</p> 
+
+            <p><code>['Acres', 'Deck', 'GaragCap', 'Latitude', 'Longitude', 'LstPrice', 'Patio', 'PkgSpacs']</code></p>
+            
+            <p><code>['PropType', 'SoldPrice', 'Taxes', 'TotBed', 'TotBth', 'TotSqf', 'YearBlt']</code></p>
+
+            </li>
+            <li><p>We will check the datatypes and convert any numbers that were read as strings to numerical values. In particular, we converted <code>TotSqf</code> to an integer and add a column titled <code>Prop_Type_num</code> that is:</p>
+            </li>
+            </ul>
+
+            <p>$$
+            Prop\_Type\_num_i =
+            \begin{cases}
+            0,  &amp; \text{if condo or townhouse} \\
+            1, &amp; \text{if single family house}
+            \end{cases}
+            $$</p>
+            
+            <ul>
+            <li>We removed the listings with erroneous <code>Longitude</code> (one has Longitude = 0) and <code>Taxes</code> values (two have unreasonably large values).</li>
+            </ul>
+
+            <br>
+
+            <h2 id="exploratory-data-analysis"><b>Exploratory Data Analysis</b></h2>
+
+            <hr color="lightgray">
+
+            <img src="https://user-images.githubusercontent.com/29410712/180319003-85635773-b851-4135-a30c-a6680a8a892f.png" alt="real-estate-scatter" width=80% height=80% class="center">
+
+            <br>
+
+            <p>In our exploratory analysis, there are 260 observations and 18 variables in the training dataset. Based on the correlation scatterplot, the columns with the strongest correlation are the <code>LstPrice</code> and the <code>SoldPrice</code>. The plot is almost a linear line. Additionally, there are more than own a Single Family than any other Property Type.</p>
+            
+            <br>
+            
+            <h2 id="analysis-tools"><b>Geospatial Analysis</b></h2>
+
+            <hr color="lightgray">
+            
+            <p>Geospatial data defines specific geographical locations, either in the form of latitude and longitude coordinates or text fields with names of geographical areas, such as countries or states. Geospatial charts combine geospatial data with other forms of data to create map-based charts.</p>
+            <p>Two of the variables are the latitude and longitude of each listing. Salt Lake City is on a east-west, north-south grid, so even a simple plot of latitude and longitude makes sense. Thus, we will be creating a scatterplot of these two variables.</p>
+            
+            <img src="https://user-images.githubusercontent.com/29410712/180321451-3765f0f8-3f4f-4da2-9101-15a80d963031.png" alt="real-estate-geospatial" class="center">
+            
+            <p>As we can see from the chart, the bigger the longitude and latitude, the higher the price is for the house. Houses closer to (-111.91, 40.770) are cheaper in price.</p>
+            
+            <h2 id="linear-regression"><b>Linear Regression</b></h2>
+
+            <hr color="lightgray">
+
+            <h5 id="ordinary-least-squares-assumptions-"><b>Ordinary Least Squares Assumptions:</b></h5>
+
+            <ol>
+                <li>Standard Errors assume that the covariance matrix of the errors is correctly specified.</li>
+                <li>The condition number is large, 1.22e+03. This might indicate that there are strong multicollinearity or other numerical problems.</li>
+                <li>The linear regression model is “linear in parameters.”</li>
+                <li>There is a random sampling of observations.</li>
+                <li>There is homoscedasticity and no autocorrelation.</li>
+            </ol>
+
+            <p>We will now create a linear regression model to regress the Sold price on some of the other variables.</p>
+
+            $$
+                SoldPrice = β_0 + β_1x
+            $$
+
+            <p>where x is one of the other variables. </p>
+            <p>After we run the regression, we will make a scatterplot of list price vs sold price and overlay the prediction with the regression model.</p>
+
+            <pre><code><span class="hljs-section">
+                            OLS Regression Results                            
+==============================================================================</span>
+Dep. Variable:              SoldPrice   R-squared:                       0.990
+Model:                            OLS   Adj. R-squared:                  0.990
+Method:                 Least Squares   F-statistic:                 2.611e+04
+Date:                Thu, 21 Jul 2022   Prob (F-statistic):          2.97e-261
+Time:                        13:50:46   Log-Likelihood:                -2927.2
+No. Observations:                 260   AIC:                             5858.
+Df Residuals:                     258   BIC:                             5866.
+Df Model:                           1                                         
+<span class="hljs-section">Covariance Type:            nonrobust                                         
+==============================================================================</span>
+<span class="hljs-code">                 coef    std err          t      P&gt;|t|      [0.025      0.975]</span>
+<span class="hljs-code">------------------------------------------------------------------------------
+Intercept   1.317e+04   2948.953      4.465      0.000    7361.378     1.9e+04
+LstPrice       0.9441      0.006    161.593      0.000       0.933       0.956
+==============================================================================
+Omnibus:                      123.259   Durbin-Watson:                   2.015
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              881.446
+Skew:                          -1.750   Prob(JB):                    3.95e-192
+Kurtosis:                      11.313   Cond. No.                     1.27e+06
+==============================================================================</span>
+            </code></pre>
+
+            <p>Based on the OLS Regression, the R-squared is 0.988. This is saying that 98.8% of the variation is explained in the model. The Beta one of <code>LstPrice</code> is 0.9019. In other words, as <code>LstPrice</code> goes up by 1, <code>SoldPrice</code> increases by 0.9019 points.</p>
+            
+            <img src="https://user-images.githubusercontent.com/29410712/180321828-91fe8634-1248-40b3-bfc7-f84d38117121.png" alt="lstprice-soldprice-scatter" class="center">
+
+            <br>
+
+            <h2 id="multilinear-regression"><b>Multilinear Regression</b></h2>
+
+            <hr color="lightgray">
+
+            <p>We are now developing a multilinear regression model for house prices in this neighborhood. We could use this to come up with a list price for houses coming on the market, so will not be including the list price in our model and also ignore the categorical variable Prop_Type. Our model is now in the form:</p>
+            
+            $$
+                SoldPrice = β_0 + β_1x_1 + β_2x_2 + \cdots + β_nx_n
+            $$
+
+            <p>where the x's are predictive variables.</p>
+            <p>Next we look at the difference between list price and sold price explicitly and calculate two new columns for our dataset. <code>DiffPriceAbsolute</code> and <code>DiffPriceRelative</code>.</p>
+            
+            <ul>
+                <li><code>DiffPriceAbsolute</code> - This is difference between sold price and list price. If it is positive, that means the house sold for more than it was listed at.</li>
+                <li><code>DiffPriceRelative</code> - This is the relative difference between sold price and list price. A value of 1.1 here means that the house sold for 110% of the asking price, and 0.9 means the house sold for 90% of the asking price.</li>
+            </ul>
+
+            <p>After that, we created two new models. One to predict <code>DiffPriceAbsolute</code>, and one to predict <code>DiffPriceRelative</code> and use the same predictive variables as in the last model. From there, we compare which of the two new models makes better predictions.</p>
+            <p>From the two models, we will train two models to predict <code>DiffPriceAbsolute</code> and <code>DiffPriceRelative</code> based on just <code>SoldPrice</code> and create a scatterplot for each model.</p>
+            
+            <br>
+
+            <h5><b>SoldPrice Regression</b></h5>
+
+            <pre><code>
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:              SoldPrice   R-squared:                       0.838
+Model:                            OLS   Adj. R-squared:                  0.835
+Method:                 Least Squares   F-statistic:                     218.7
+Date:                Thu, 21 Jul 2022   Prob (F-statistic):           4.45e<span class="hljs-string">-97</span>
+<span class="hljs-keyword">Time:</span>                        13:51:02   Log-Likelihood:                <span class="hljs-string">-3291</span>.9
+No. Observations:                 260   AIC:                             6598.
+Df Residuals:                     253   BIC:                             6623.
+Df Model:                           6                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+Intercept   2.765e<span class="hljs-string">+05</span>   2.94e<span class="hljs-string">+05</span>      0.942      0.347   <span class="hljs-string">-3</span>.02e<span class="hljs-string">+05</span>    8.55e<span class="hljs-string">+05</span>
+Acres       1.169e<span class="hljs-string">+05</span>   6.15e<span class="hljs-string">+04</span>      1.900      0.059   <span class="hljs-string">-4276</span>.513    2.38e<span class="hljs-string">+05</span>
+Taxes         58.6029      5.466     10.721      0.000      47.838      69.368
+TotBed      1.286e<span class="hljs-string">+04</span>   6045.229      2.127      0.034     951.492    2.48e<span class="hljs-string">+04</span>
+TotBth      6050.4777   8140.361      0.743      0.458   <span class="hljs-string">-9981</span>.025    2.21e<span class="hljs-string">+04</span>
+TotSqf        45.5661      9.878      4.613      0.000      26.113      65.019
+YearBlt      <span class="hljs-string">-96</span>.9146    151.794     <span class="hljs-string">-0</span>.638      0.524    <span class="hljs-string">-395</span>.855     202.025
+==============================================================================
+Omnibus:                       30.768   Durbin-Watson:                   2.174
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               43.356
+Skew:                           0.759   Prob(JB):                     3.85e<span class="hljs-string">-10</span>
+Kurtosis:                       4.302   Cond. No.                     2.90e<span class="hljs-string">+05</span>
+==============================================================================
+            </code></pre>
+
+            <br>
+
+            <h5><b>DiffPriceAbsolute Regression</b></h5>
+
+            <pre><code>
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:      DiffPriceAbsolute   R-squared:                       0.261
+Model:                            OLS   Adj. R-squared:                  0.244
+Method:                 Least Squares   F-statistic:                     14.92
+Date:                Thu, 21 Jul 2022   Prob (F-statistic):           1.32e<span class="hljs-string">-14</span>
+<span class="hljs-keyword">Time:</span>                        13:51:02   Log-Likelihood:                <span class="hljs-string">-2927</span>.3
+No. Observations:                 260   AIC:                             5869.
+Df Residuals:                     253   BIC:                             5894.
+Df Model:                           6                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+Intercept   2.867e<span class="hljs-string">+04</span>   7.22e<span class="hljs-string">+04</span>      0.397      0.692   <span class="hljs-string">-1</span>.14e<span class="hljs-string">+05</span>    1.71e<span class="hljs-string">+05</span>
+Acres      <span class="hljs-string">-1</span>.235e<span class="hljs-string">+04</span>   1.51e<span class="hljs-string">+04</span>     <span class="hljs-string">-0</span>.815      0.416   <span class="hljs-string">-4</span>.22e<span class="hljs-string">+04</span>    1.75e<span class="hljs-string">+04</span>
+Taxes         <span class="hljs-string">-1</span>.1223      1.345     <span class="hljs-string">-0</span>.834      0.405      <span class="hljs-string">-3</span>.771       1.527
+TotBed       528.3073   1487.544      0.355      0.723   <span class="hljs-string">-2401</span>.240    3457.854
+TotBth     <span class="hljs-string">-2969</span>.8850   2003.091     <span class="hljs-string">-1</span>.483      0.139   <span class="hljs-string">-6914</span>.743     974.973
+TotSqf        <span class="hljs-string">-4</span>.9697      2.431     <span class="hljs-string">-2</span>.045      0.042      <span class="hljs-string">-9</span>.756      <span class="hljs-string">-0</span>.183
+YearBlt       <span class="hljs-string">-9</span>.4079     37.352     <span class="hljs-string">-0</span>.252      0.801     <span class="hljs-string">-82</span>.968      64.152
+==============================================================================
+Omnibus:                       98.703   Durbin-Watson:                   2.026
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              618.218
+Skew:                          <span class="hljs-string">-1</span>.371   Prob(JB):                    5.70e<span class="hljs-string">-135</span>
+Kurtosis:                      10.039   Cond. No.                     2.90e<span class="hljs-string">+05</span>
+==============================================================================
+            </code></pre>
+
+            <br>
+
+            <h5><b>DiffPriceRelative Regression</b></h5>
+
+            <pre><code>
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:      DiffPriceRelative   R-squared:                       0.079
+Model:                            OLS   Adj. R-squared:                  0.057
+Method:                 Least Squares   F-statistic:                     3.618
+Date:                Thu, 21 Jul 2022   Prob (F-statistic):            0.00184
+<span class="hljs-keyword">Time:</span>                        13:51:02   Log-Likelihood:                 486.61
+No. Observations:                 260   AIC:                            <span class="hljs-string">-959</span>.2
+Df Residuals:                     253   BIC:                            <span class="hljs-string">-934</span>.3
+Df Model:                           6                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+Intercept      1.0221      0.143      7.131      0.000       0.740       1.304
+Acres         <span class="hljs-string">-0</span>.0145      0.030     <span class="hljs-string">-0</span>.483      0.629      <span class="hljs-string">-0</span>.074       0.045
+Taxes       9.371e<span class="hljs-string">-07</span>   2.67e<span class="hljs-string">-06</span>      0.351      0.726   <span class="hljs-string">-4</span>.32e<span class="hljs-string">-06</span>    6.19e<span class="hljs-string">-06</span>
+TotBed         0.0025      0.003      0.838      0.403      <span class="hljs-string">-0</span>.003       0.008
+TotBth        <span class="hljs-string">-0</span>.0080      0.004     <span class="hljs-string">-2</span>.022      0.044      <span class="hljs-string">-0</span>.016      <span class="hljs-string">-0</span>.000
+TotSqf     <span class="hljs-string">-3</span>.941e<span class="hljs-string">-06</span>   4.82e<span class="hljs-string">-06</span>     <span class="hljs-string">-0</span>.817      0.415   <span class="hljs-string">-1</span>.34e<span class="hljs-string">-05</span>    5.56e<span class="hljs-string">-06</span>
+YearBlt    <span class="hljs-string">-1</span>.261e<span class="hljs-string">-05</span>   7.41e<span class="hljs-string">-05</span>     <span class="hljs-string">-0</span>.170      0.865      <span class="hljs-string">-0</span>.000       0.000
+==============================================================================
+Omnibus:                      119.899   Durbin-Watson:                   2.053
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              840.861
+Skew:                          <span class="hljs-string">-1</span>.697   Prob(JB):                    2.57e<span class="hljs-string">-183</span>
+Kurtosis:                      11.130   Cond. No.                     2.90e<span class="hljs-string">+05</span>
+==============================================================================
+            </code></pre>
+
+            <p>The multilinear regression model has a lower R squared than the simple linear regression model including the List Price. Therefore, there is more variation explained by the simple regression model. Additionally, based on the two models, the model that predicts the <code>DiffPriceAbsolute</code> is better than the model that predicts the <code>DiffPriceRelative</code> because the R squared is greater. Furthermore, from the different trained plots, the plot for the <code>DiffPriceAbsolute</code> has more plots closer to the linear line, thus showing why more of the variation is explained. Although <code>DiffPriceAbsolute</code> is better, it still doesn't have a high R squared.</p>
+            
+            <img src="https://user-images.githubusercontent.com/29410712/180322332-5916c8b9-ce6c-42ff-ac7e-08d0a55a058e.png" alt="DiffPriceAbsolute" class="center">
+
+            <img src="https://user-images.githubusercontent.com/29410712/180322345-9225101e-d08e-45b7-a23d-96319290064c.png" alt="DiffPriceRelative" class="center">
+
+            <br>
+
+            <h5 id="incorporating-a-categorical-variable"><b>Incorporating a Categorical Variable</b></h5>
+
+            <p>Above, we considered houses, townhouses, and condos together. Now we will now distinguish the difference between houses, townhouses, and condos. Consider the two regression models: </p>
+            
+            $$
+                SoldPrice = β_0 + β_1 (Prop\_Type\_num)
+            $$
+
+            $$
+                SoldPrice = β_0 + β_1 (Prop\_Type\_num) + β_2 (TotSqf)
+            $$
+
+            <p>From the first model, property type is significant in predicting the sold price. On the other hand, the second model indicates that when we consider total square footage, property type is no longer predictive. </p>
+            
+            <p>We will also make a scatterplot of <code>TotSqf</code> vs. <code>SoldPrice</code> where the house types are colored differently to illustrate your explanation. </p>
+
+            <img src="https://user-images.githubusercontent.com/29410712/180322473-26098837-49d0-4681-899f-77414775db27.png" alt="TotSqf-SoldPrice-Scatter" class="center">
+
+        </div>
+    </body>
+	<div class="footer-margin"></div>
+	<div class="footer-bottom">
+		<p class="m-0 text-center text-white"><a>© </a><script>document.write(new Date().getFullYear())</script></p>
+	</div>
+</html>
