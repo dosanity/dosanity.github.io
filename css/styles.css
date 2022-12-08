@@ -35,6 +35,10 @@ body {
   body {
     padding-top: 56px;
   }
+  .image{
+    width: 70%;
+    height: 70%
+  }
 }
 
 .portfolio-item {
