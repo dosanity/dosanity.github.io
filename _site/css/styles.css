@@ -46,6 +46,7 @@ hr {
 
 .portfolio-item {
   margin-bottom: 30px;
+  margin-top: 10px;
 }
 
 .pagination {
@@ -80,12 +81,13 @@ hr {
 
 .card {
   border: 3px solid transparent;
-  background-color: rgb(29, 161, 242, 0.3);
+  background-color: rgba(0, 0, 0, 0.08);
 }
 
 .card:hover {
   background-color: rgb(29, 161, 242, 0.3);
   border: 3px solid black;
+  box-shadow: 2px 2px 8px;
 }
 
 
@@ -305,7 +307,7 @@ pre {
 .background {
   background-image: url("../assets/images/photos/background.jpg");
   background-repeat: no-repeat; 
-  background-position-y: 30%;
+  background-position-y: top;
   background-position-x: center;
   background-attachment: fixed;       
   -webkit-background-size: cover;
