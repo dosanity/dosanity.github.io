@@ -49,13 +49,13 @@
 
             <h1 id="salt-lake-city-real-estate"><b>Salt Lake City Real Estate</b></h1>
 
-            <hr color="lightgray">
+            <hr>
 
             <p>We will be analyzing SLC real estate data. The dataset contains multiple listing service (MLS) real estate transactions for houses sold in 2015-16 in zip code 84103 (<a href="https://www.google.com/maps/place/Salt+Lake+City,+UT+84103/@40.8030372,-111.8957957,12z/data=!3m1!4b1!4m5!3m4!1s0x87525f672006dded:0x311e638d9a1a2de5!8m2!3d40.810506!4d-111.8449346">SLC avenues neighborhood</a>). We are primarily interested in regressing the <code>SoldPrice</code> on the house attributes (property size, house size, number of bedrooms, etc...).</p>
 
             <h2 id="the-data"><b>The Data</b></h2>
 
-            <hr color="lightgray">
+            <hr>
 
             <ul>
             <li><p>There are 206 different variables associated with each of the 348 houses in this dataset. There is some information about real estate data on <a href="http://www.utahrealestate.com/">this</a> website to get a better sense of the meanings of the column headers in the dataset.  </p>
@@ -89,7 +89,7 @@
 
             <h2 id="exploratory-data-analysis"><b>Exploratory Data Analysis</b></h2>
 
-            <hr color="lightgray">
+            <hr>
 
             <img src="https://user-images.githubusercontent.com/29410712/180319003-85635773-b851-4135-a30c-a6680a8a892f.png" alt="real-estate-scatter" width=80% height=80% class="center">
 
@@ -101,7 +101,7 @@
             
             <h2 id="analysis-tools"><b>Geospatial Analysis</b></h2>
 
-            <hr color="lightgray">
+            <hr>
             
             <p>Geospatial data defines specific geographical locations, either in the form of latitude and longitude coordinates or text fields with names of geographical areas, such as countries or states. Geospatial charts combine geospatial data with other forms of data to create map-based charts.</p>
             <p>Two of the variables are the latitude and longitude of each listing. Salt Lake City is on a east-west, north-south grid, so even a simple plot of latitude and longitude makes sense. Thus, we will be creating a scatterplot of these two variables.</p>
@@ -112,7 +112,7 @@
             
             <h2 id="linear-regression"><b>Linear Regression</b></h2>
 
-            <hr color="lightgray">
+            <hr>
 
             <h5 id="ordinary-least-squares-assumptions-"><b>Ordinary Least Squares Assumptions:</b></h5>
 
@@ -166,7 +166,7 @@ Kurtosis:                      11.313   Cond. No.                     1.27e+06
 
             <h2 id="multilinear-regression"><b>Multilinear Regression</b></h2>
 
-            <hr color="lightgray">
+            <hr>
 
             <p>We are now developing a multilinear regression model for house prices in this neighborhood. We could use this to come up with a list price for houses coming on the market, so will not be including the list price in our model and also ignore the categorical variable Prop_Type. Our model is now in the form:</p>
             

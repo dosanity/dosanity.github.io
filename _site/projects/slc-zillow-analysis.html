@@ -63,7 +63,7 @@
 
             <h1 id="salt-lake-county-real-estate-analysis"><b>Salt Lake County Real Estate Analysis</b></h1>
 
-            <hr color="lightgray">
+            <hr>
 
             <p>We will be analyzing real estate data from different cities in the Salt Lake County listed as of November 2022. In this project, we will be scraping <a href="https://www.zillow.com">Zillow</a>, an American tech real-estate marketplace company. Zillow is one of the most popular real estate sites because offers the most robust suite of tools for home professionals and it sources postings from both the MLS (Multiple Listing Services) and non-MLS sources. Non-MLS sources include for sale by owner, non-MLS foreclosures, and auctions. Additionally, Zillow has the largest database of over 135 million properties. </p>
             <p>After gathering the data, we will create different visualizations with geospatial analysis and charts to uncover preliminary trends between different variables. We will also be using linear regressions and different unsupervised machine learning algorithms such as Principal Component Analysis and K-Means Clustering to gain meaningful insights in the data we collected.</p>
@@ -81,7 +81,7 @@
 
             <h2 id="webscraping-process"><b>Webscraping Process</b></h2>
 
-            <hr color="lightgray">
+            <hr>
 
             <h5><b>Scrape Zillow using BeautifulSoup</b></h5>
 
@@ -156,7 +156,7 @@
 
             <h2 id="preliminary-analysis"><b>Preliminary Analysis</b></h2>
 
-            <hr color="lightgray">
+            <hr>
 
             <img src="https://user-images.githubusercontent.com/29410712/203438049-2fc3e8a7-fe2e-4c4c-8921-d3230ef28a60.png" alt="Average Home Price" class="center">
 
@@ -176,7 +176,7 @@
 
             <h2 id="geospatial-analysis"><b>GeoSpatial Analysis</b></h2>
 
-            <hr color="lightgray">
+            <hr>
 
             <img src="https://user-images.githubusercontent.com/29410712/203144090-4bd1d62c-f755-4d2d-8b90-1aa00e17cedc.png" alt="saltlake" class="center image">
 
@@ -198,7 +198,7 @@
 
             <h2 id="linear-regression"><b>Linear Regression</b></h2>
 
-            <hr color="lightgray">
+            <hr>
 
             <h5 id="ordinary-least-squares-assumptions-"><b>Ordinary Least Squares Assumptions:</b></h5>
 
@@ -254,7 +254,7 @@ Kurtosis:                      11.750   Cond. No.                     9.78e<span
 
             <h2 id="machine-learning-algorithms-deeper-analysis-"><b>Machine Learning Algorithms (Deeper Analysis)</b></h2>
 
-            <hr color="lightgray">
+            <hr>
 
             <p>For this analysis, we will be using Principal Component Analysis, K-Means Clustering, and Hierarchical Clustering to understand how the prices, sqft, and cost per sqft differ between zipcodes.</p>
 
@@ -410,6 +410,8 @@ ax1.set_ylim(X_PCA[:,<span class="hljs-number">1</span>].min()-<span class="hljs
             <p>Similar to K-means clustering, hierarchical clustering, also known as agglomerative clustering, works with groups (clusters) of data points. The algorithm starts by declaring each point with its own cluster, then merges the two most similar clusters until a declared stopping point has been reached. Hierarchical clustering is often associated with heatmaps and organizes the rows and columns based on similarity. This makes it easy to see correlations in the data.</p>
 
             <img src="https://user-images.githubusercontent.com/29410712/203176302-a42e2a89-f66e-4ade-809a-0b36ba9f99f4.png" alt="dendogram" class="center">
+
+            <br>
 
             <p>Additionally, we created a dendogram to know how many clusters to make. A dendrogram is a graph that keeps the values of the points on the x-axis, then connects all the points as they are clustered. This is similar to the elbow curve, as it gives us a better idea of the ideal amount of clusters we want to use. Based on the dendogram above, we will now use hierarchical clustering with complete linkage and Euclidean distance to sort the zipcodes into six clusters. </p>
 
