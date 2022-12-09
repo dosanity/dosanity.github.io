@@ -46,7 +46,6 @@ hr {
 
 .portfolio-item {
   margin-bottom: 30px;
-  margin-top: 10px;
 }
 
 .pagination {
@@ -87,7 +86,6 @@ hr {
 .card:hover {
   background-color: rgb(29, 161, 242, 0.3);
   border: 3px solid black;
-  box-shadow: 2px 2px 8px;
 }
 
 
@@ -249,6 +247,10 @@ hr {
   table {
       overflow-x: auto;
       display: block;
+  }
+  
+  .background {
+    background-position-y: top;
   }
 }
 
