@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link rel="icon" type="image/png" sizes="32x32" href="../favicons/database.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="../favicons/database.png">
+		<meta name="theme-color" content="#ffffff">
+
+		<script>
+			window.dataLayer = window.dataLayer || [];
+		  	function gtag(){dataLayer.push(arguments);}
+		  	gtag('js', new Date());
+		  	gtag('config', 'UA-110543961-1');
+		</script>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<meta name="description" content="Anthony Do - Portfolio; Machine Learning, Data Analysis">
+		<meta name="keywords" content="Machine Learning, Data Analysis">
+		<meta name="author" content="Anthony Do">
+
+		<title>Anthony Do</title>
+
+		<link href="../css/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/styles.css" rel="stylesheet">
+
+		<script src="https://code.jquery.com/jquery-latest.js" type="text/javascript"></script>
+		<script src="../js/jquery.isotope.js" type="text/javascript"></script>
+		<script src="../js/filter.js" type="text/javascript"></script>
+		<script src="../js/bootstrap.bundle.min.js"></script>
+        <script src="../js/template.js" type="text/javascript" defer></script>
+		<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Anthony Do | Data scientist &amp; mathematician knowledgeable in statistical analysis and visualizations to utilize the power of data. &lt;div class=&quot;center&quot;&gt; Resume LinkedIn Profile &lt;/div&gt;</title>
+<meta name="generator" content="Jekyll v4.3.1" />
+<meta property="og:title" content="Anthony Do" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Data scientist &amp; mathematician knowledgeable in statistical analysis and visualizations to utilize the power of data. &lt;div class=&quot;center&quot;&gt; Resume LinkedIn Profile &lt;/div&gt;" />
+<meta property="og:description" content="Data scientist &amp; mathematician knowledgeable in statistical analysis and visualizations to utilize the power of data. &lt;div class=&quot;center&quot;&gt; Resume LinkedIn Profile &lt;/div&gt;" />
+<link rel="canonical" href="http://localhost:4000/projects/slc-zillow-analysis.html" />
+<meta property="og:url" content="http://localhost:4000/projects/slc-zillow-analysis.html" />
+<meta property="og:site_name" content="Anthony Do" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Anthony Do" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Data scientist &amp; mathematician knowledgeable in statistical analysis and visualizations to utilize the power of data. &lt;div class=&quot;center&quot;&gt; Resume LinkedIn Profile &lt;/div&gt;","headline":"Anthony Do","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/img/profile2.jpg"}},"url":"http://localhost:4000/projects/slc-zillow-analysis.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+	</head>
+
+  	<body>
+
+        <div class="topnav">
+			<project-nav></project-nav>
+		</div>
+
+		<div class="container">
+
+			<br>
+			<br>
+			<br>
+
+            <script src="../js/load-mathjax.js" async></script>
+
+            <h1 id="salt-lake-county-real-estate-analysis"><b>Salt Lake County Real Estate Analysis</b></h1>
+
+            <hr color="lightgray">
+
+            <p>We will be analyzing real estate data from different cities in the Salt Lake County listed as of November 2022. In this project, we will be scraping <a href="https://www.zillow.com">Zillow</a>, an American tech real-estate marketplace company. Zillow is one of the most popular real estate sites because offers the most robust suite of tools for home professionals and it sources postings from both the MLS (Multiple Listing Services) and non-MLS sources. Non-MLS sources include for sale by owner, non-MLS foreclosures, and auctions. Additionally, Zillow has the largest database of over 135 million properties. </p>
+            <p>After gathering the data, we will create different visualizations with geospatial analysis and charts to uncover preliminary trends between different variables. We will also be using linear regressions and different unsupervised machine learning algorithms such as Principal Component Analysis and K-Means Clustering to gain meaningful insights in the data we collected.</p>
+
+            <br>
+
+            <h4 id="resources"><b>Resources</b></h4>
+
+            <ul>
+                <li>Software: Python 3.10, Jupyter Lab 3.4.4</li>
+                <li>Data Source: ZillowData.csv - <a href="https://www.zillow.com">Zillow.com</a></li>
+            </ul>
+
+            <br>
+
+            <h2 id="webscraping-process"><b>Webscraping Process</b></h2>
+
+            <hr color="lightgray">
+
+            <h5><b>Scrape Zillow using BeautifulSoup</b></h5>
+
+            <p>BeautifulSoup is a Python package for parsing HTML and XML documents. It creates a parse tree for parsed pages that can be used to extract data from HTML, which is useful for web scraping. We will be scraping data from different cities in the Salt Lake County from Zillow. We avoided any problems with Zillow blocking us from downloading the data by saving all the HTML files in the data folder. The path to the data folder is stored in the <code>DATA_PATH</code> variable. Furthermore, the <code>ZillowData</code> folder contains the HTML source code for the different cities. The file name contains the city name with the corresponding page number from Zillow:</p>
+
+            <center>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td><code>wvc1.html</code></td>
+                            <td><code>draper1.html</code></td>
+                            <td> ... </td>
+                            <td><code>slc1.html</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>wvc2.html</code></td>
+                            <td><code>draper2.html</code></td>
+                            <td> ... </td>
+                            <td><code>slc2.html</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>wvc3.html</code></td>
+                            <td><code>draper3.html</code></td>
+                            <td> ... </td>
+                            <td><code>slc3.html</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </center>
+
+            <br>
+
+            <h5><b>The Data</b></h5>
+
+            <p>We were able to scrape 14 different variables associated with each of the 2,107 properties in this dataset. The data selection, processing, and transformation Python code can be viewed in the <code>ZillowUT_Data.ipnb</code> file and the cleaned data can be viewed in the <code>ZillowData.csv</code> file.</p>
+            <p>We also checked the data types and converted any numbers that were read as strings to numerical values. In particular, we converted <code>type</code> into a piecewise function where <code>proptype</code> takes a binary form of 0 or 1. That is:</p>
+
+            $$
+            \text{proptype} =
+            \begin{cases}
+                0,  &amp; \text{condo/townhouse/lot} \\
+                1, &amp; \text{single family house}
+            \end{cases}
+            $$
+
+
+            <p>Finally, we replaced all null values in <code>beds</code> and <code>baths</code> with 0 and removed all listings with erroneous <code>longitude</code> and <code>latitude</code> missing values.</p>
+
+            <br>
+
+            <h5 id="removing-outliers"><b>Removing Outliers</b></h5>
+
+            <p>From the scatterplot below, we can see that the cities: Holladay, Salt Lake City, Sandy, South Jordan, West Jordan, and Draper have problematic outliers.</p>
+
+            <br>
+
+            <img src="https://user-images.githubusercontent.com/29410712/203437983-866847a3-791b-495d-a30c-2f6f8eb177c2.png" alt="BC Home Price Scatter" class="center">
+
+            <br>
+
+                <p>To remove these outliers, we calculated the interquartile range to decipher the outlier cutoff. </p>
+
+            $$
+            IQR = Q_3 - Q_1
+            $$
+
+            <p>The outlier cutoff is the interquartile range times by 1.5 and subtracted from the lower and upper bounds. The data points that are above the upper bound and below the lower bound this cutoff will be removed to get a more precise analysis without outliers. The second scatterplot illustrates the data without the outliers:</p>
+
+            <img src="https://user-images.githubusercontent.com/29410712/203438013-477acca7-14af-401b-9a20-12426841631b.png" alt="AC Home Price Scatter" class="center">
+
+            <br>
+
+            <h2 id="preliminary-analysis"><b>Preliminary Analysis</b></h2>
+
+            <hr color="lightgray">
+
+            <img src="https://user-images.githubusercontent.com/29410712/203438049-2fc3e8a7-fe2e-4c4c-8921-d3230ef28a60.png" alt="Average Home Price" class="center">
+
+            <p>From the chart above, the cities with the highest average home prices are Draper and Holladay. The cities with the lowest average home prices are Kearns and Millcreek. Additionally, the chart remains relatively the same with the average home sqft. The cities with the highest average home sqft are Draper and Herriman and the cities with the lowest average home sqft are still Kearns and Millcreek. This could potentially be explained by the locations of the cities which is explained later in the analysis.</p>
+
+            <img src="https://user-images.githubusercontent.com/29410712/203438068-30c12759-5a14-41c8-b1fb-6ea28cf2b017.png" alt="Average Home Sqft" class="center">
+
+            <p>However, the order of the cities change dramatically based on the average cost per sqft. From the chart below, we can see that the cities with the highest average cost per sqft are Millcreek and Holladay and the cities with the lowest average cost per sqft are West Valley City and Bluffdale.</p>
+
+            <img src="https://user-images.githubusercontent.com/29410712/203438080-9312a3ef-892d-4ed4-8ad2-20b6e3e62d98.png" alt="Average Cost per Sqft" class="center">
+            
+            <p>We also looked into the correlation between the list price of the homes and the sqft. Based on the scatterplot generated, we can visualize the positive correlation between price and sqft. This means that as the sqft of the homes increase, the prices also increase.</p>
+
+            <img src="https://user-images.githubusercontent.com/29410712/203019394-f2f98c0b-1106-4eb8-9ff6-4a7f75567acb.png" alt="Price vs Sqft Scatterplot" class="center">
+
+            <br>
+
+            <h2 id="geospatial-analysis"><b>GeoSpatial Analysis</b></h2>
+
+            <hr color="lightgray">
+
+            <img src="https://user-images.githubusercontent.com/29410712/203144090-4bd1d62c-f755-4d2d-8b90-1aa00e17cedc.png" alt="saltlake" class="center image">
+
+            <br>
+
+            <p>Geospatial data defines specific geographical locations, either in the form of latitude and longitude coordinates or text fields with names of geographical areas, such as countries or states. Geospatial charts combine geospatial data with other forms of data to create map-based charts. Our geodata contains (x, y) coordinates of geographical locations. The geometric shapes in a GeoSeries or GeoDataFrame object are simply a collection of coordinates in an arbitrary space. The Coordinate Reference System (CRS) tells Python how those coordinates relate to places on the Earth and is used to project the location coordinates onto a map for visualization. We will use the WGS84 latitude-longitude projection. </p>
+            <p>We will use two of the variables, latitude and longitude, of each listing to visualize the data of Salt Lake County with GeoPandas, a high-level interface Python library for making maps. This can be referred by using the authority code <code>EPSG:4326</code>.</p>
+            <p>We then created heat maps showcasing the distribution of property prices and sqft:</p>
+
+            <img src="https://user-images.githubusercontent.com/29410712/203021376-8a353e56-80d3-4256-b7b1-59b43c6901c6.png" alt="Price Heat Map" class="center">
+
+            <p>From the price heat map of Salt Lake County, we can see that a majority of the higher priced real estate properties are located on the east side of the Salt Lake valley. This corresponds with our previous analysis since Draper and Holladay are located in this area. Additionally, lower priced homes are located on the west side of Salt Lake City.</p>
+
+            <img src="https://user-images.githubusercontent.com/29410712/203021397-f9a790c7-c4cd-484c-9062-64cfc847c19e.png" alt="Sqft Heat Map" class="center">
+
+            <p>In the sqft heat map of Salt Lake County, we can see that the real estate properties with more square feet are located on the east and south-west sides of the Salt Lake Valley which is understandable since the locations are further away from the city center.</p>
+
+            <br>
+
+            <h2 id="linear-regression"><b>Linear Regression</b></h2>
+
+            <hr color="lightgray">
+
+            <h5 id="ordinary-least-squares-assumptions-"><b>Ordinary Least Squares Assumptions:</b></h5>
+
+            <ol>
+                <li>Standard Errors assume that the covariance matrix of the errors is correctly specified.</li>
+                <li>The condition number is large, 1.22e+03. This might indicate that there are strong multicollinearity or other numerical problems.</li>
+                <li>The linear regression model is “linear in parameters.”</li>
+                <li>There is a random sampling of observations.</li>
+                <li>There is homoscedasticity and no autocorrelation.</li>
+            </ol>
+
+            <p>We now develop a multilinear regression model for real estate property prices in the Salt Lake County. We could use this to come up with a price for properties coming on the market. Our model is now in the form:</p>
+
+            $$
+            Y = β_0 + β_1x_1 + β_2x_2 + \cdots + β_nx_n + ε
+            $$
+
+            <p>where $x_n$ are predictive variables.</p>
+
+            <pre>
+                <code>                            
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                  price   R-squared:                       0.640
+Model:                            OLS   Adj. R-squared:                  0.639
+Method:                 Least Squares   F-statistic:                     872.9
+Date:                Mon, 21 Nov 2022   Prob (F-statistic):               0.00
+<span class="hljs-keyword">Time:</span>                        02:36:54   Log-Likelihood:                <span class="hljs-string">-26554</span>.
+No. Observations:                1972   AIC:                         5.312e<span class="hljs-string">+04</span>
+Df Residuals:                    1967   BIC:                         5.315e<span class="hljs-string">+04</span>
+Df Model:                           4                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+Intercept   1.024e<span class="hljs-string">+05</span>   1.28e<span class="hljs-string">+04</span>      7.974      0.000    7.72e<span class="hljs-string">+04</span>    1.28e<span class="hljs-string">+05</span>
+sqft         180.8805      5.669     31.907      0.000     169.763     191.998
+beds       <span class="hljs-string">-8116</span>.8371   3965.622     <span class="hljs-string">-2</span>.047      0.041   <span class="hljs-string">-1</span>.59e<span class="hljs-string">+04</span>    <span class="hljs-string">-339</span>.575
+baths       2.722e<span class="hljs-string">+04</span>   5920.118      4.598      0.000    1.56e<span class="hljs-string">+04</span>    3.88e<span class="hljs-string">+04</span>
+proptype    4.042e<span class="hljs-string">+04</span>   9865.190      4.097      0.000    2.11e<span class="hljs-string">+04</span>    5.98e<span class="hljs-string">+04</span>
+==============================================================================
+Omnibus:                      882.045   Durbin-Watson:                   1.447
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):             7474.571
+Skew:                           1.898   Prob(JB):                         0.00
+Kurtosis:                      11.750   Cond. No.                     9.78e<span class="hljs-string">+03</span>
+==============================================================================
+                </code>
+            </pre>
+
+            <p>In the multiple linear regression model, the intercept of the regression is 102,400 and the R-squared is 0.640. The R-squared is the proportion of the variation in the dependent variable that is predictable from the independent variable. This means that around 64.0% of the variability observed in the target variable is explained by this regression model. Additionally, all the variables are statistically significant at an alpha of 5% and can be used to predict the listed price of the real estate property. With further clarification, as the sqft of the real estate property and the number of baths increase by one, the price increases by 181 and 27220, respectively. Moreover, as the number of bedrooms increase by one, the price actually decreases by 8116. We can also see that if the real estate property is a Single Family Home, it increases the price of the property. </p>
+
+            <br> 
+
+            <h2 id="machine-learning-algorithms-deeper-analysis-"><b>Machine Learning Algorithms (Deeper Analysis)</b></h2>
+
+            <hr color="lightgray">
+
+            <p>For this analysis, we will be using Principal Component Analysis, K-Means Clustering, and Hierarchical Clustering to understand how the prices, sqft, and cost per sqft differ between zipcodes.</p>
+
+            <br>
+
+            <h4 id="principal-component-analysis-pca-"><b>Principal Component Analysis (PCA)</b></h4>
+
+            <p>Principal Component Analysis (PCA) is one of the most used unsupervised machine learning algorithms across a variety of applications: exploratory data analysis, dimensionality reduction, information compression, and data de-noising. PCA is a dimensionality reduction technique that transforms a set of features in a dataset into a smaller number of features called principal components while at the same time trying to retain as much information in the original dataset as possible. Since we have 3 different variables, we have a three-dimensional data set. PCA can take 4 or more variables and make a two-dimensional PCA plot. PCA can also tell us which variable is the most valuable for clustering the data. It also can tell us how accurate the two-dimensional graph is.</p>
+
+            <blockquote>
+            <p><b>Python Code:</b></p>
+            </blockquote>
+
+            <pre>
+                <code>
+==============================================================================
+    
+from sklearn<span class="hljs-selector-class">.decomposition</span> import PCA
+
+pca_model = PCA(n_components=<span class="hljs-number">3</span>)
+X_PCA = pca_model.fit_transform(X)
+df_plot = pd.DataFrame(X_PCA, <span class="hljs-attribute">columns</span>=[<span class="hljs-string">'PC1'</span>, <span class="hljs-string">'PC2'</span>, <span class="hljs-string">'PC3'</span>])
+df_plot.head()
+fig,ax1 = plt.subplots(figsize=(<span class="hljs-number">10</span>, <span class="hljs-number">6</span>))
+
+ax1.set_xlim(X_PCA[:,<span class="hljs-number">0</span>].min()-<span class="hljs-number">1</span>,X_PCA[:,<span class="hljs-number">0</span>].max()+<span class="hljs-number">1</span>)
+ax1.set_ylim(X_PCA[:,<span class="hljs-number">1</span>].min()-<span class="hljs-number">1</span>,X_PCA[:,<span class="hljs-number">1</span>].max()+<span class="hljs-number">1</span>)
+
+<span class="hljs-keyword">for</span> <span class="hljs-selector-tag">i</span>,name <span class="hljs-keyword">in</span> enumerate(<span class="hljs-selector-tag">summary</span>[<span class="hljs-string">'zipcode'</span>].values):
+    ax1.annotate(name, (X_PCA[<span class="hljs-selector-tag">i</span>,<span class="hljs-number">0</span>], X_PCA[<span class="hljs-selector-tag">i</span>,<span class="hljs-number">1</span>]), ha=<span class="hljs-string">'center'</span>,fontsize=<span class="hljs-number">10</span>)
+
+==============================================================================
+                </code>
+            </pre>
+
+
+            <p>Principal Component Analysis calculates the average of each variable and using this average, finds the center of the data. It then shifts the data so that the center of the data is at the origin. From here, we input principal components. The principal components are vectors, but they are not chosen at random. The first principal component (PC1) is computed so that it explains the greatest amount of variance in the original features. Thus, it minimizes the distance between each data point on the graph (Sum of Squared) so PC1 is a linear combination of variables. </p>
+            <p>In order to maximize variance, the first weight vector $w_{(1)}$ thus has to satisfy:</p>
+
+            $$
+                
+            \begin{aligned}
+            w_{(1)} &= \text{arg } \displaystyle{\max_{||w|| = 1}} \left( \sum_{i} {(t_1)}^2_{(i)} \right) \\
+            &= \text{arg } \displaystyle{\max_{||w|| = 1}} \left( \sum_{i} {(x_{(i)} * w)}^2 \right)
+            \end{aligned}
+                
+            $$
+
+            <p>Since $w_{(1)}$ has been defined to be a unit vector, it equivalently also satisfies:</p>
+
+            $$
+            w_{(1)} = \text{arg max} \left( \frac{w^TX^TXw}{w^Tw} \right)
+            $$
+
+            <p>The quantity to be maximised can be recognised as a Rayleigh quotient. A standard result for a positive semidefinite matrix such as $X^TX$ is that the quotient&#39;s maximum possible value is the largest eigenvalue of the matrix, which occurs when $w$ is the corresponding eigenvector.</p>
+            <p>In our analysis, we require more than one component. The $k^{th}$ component can be found by subtracting the first $k − 1$ principal components from $X$ and then finding the weight vector which extracts the maximum variance from this new data matrix:</p>
+
+            $$
+            \hat X_k = X - \sum_{s=1}^{k-1}{Xw_{(s)}w_{(s)}^T}
+            $$
+
+            $$
+                \begin{aligned}
+                w_{(k)} &= \text{arg } \displaystyle{\max_{||w|| = 1}} \left( ||\hat X_{k}w||^2 \right) \\
+                &= \text{arg max} \left( \frac{w^T\hat X_k^T\hat X_kw}{w^Tw} \right)
+            \end{aligned}
+            $$
+
+            <p>The sum of squared distances for the best fit line is the eigenvalue for PC1. The second component (PC2) is orthogonal to the first, and it explains the greatest amount of variance left after the first principal component. Then we find PC3 which is perpendicular to PC1 and PC2 that goes through the origin. The number of PCs is either the number of variables or the number of samples, whichever is smaller.</p>
+
+            <img src="https://user-images.githubusercontent.com/29410712/203155568-68b4015c-9f68-4087-bbb6-0a44f0228fe0.png" alt="PCA" class="center">
+
+            <p>Once all the principal components are figured out, you can use the eigenvalues to determine the proportion of variation that each PC accounts for. Then you can create a scree plot which is a graphical representation of the percentages of variation that each PC accounts for.</p>
+
+            <img src="https://user-images.githubusercontent.com/29410712/203187782-514206c0-9198-4339-8c68-f7837bd136a8.png" alt="scree-plot" class="center">
+
+            <p>In this scree plot, we can see that PC1 and PC2 account for the vast majority of the variation. This means that a two-dimensional graph, using just PC1 and PC2 would be a good approximation of this three-dimensional graph since it would account for 99.22% of the variation in the data. Also, a one-dimensional graph would account for 59.98% of the variation in the data.</p>
+
+            <br>
+
+            <h4 id="k-means-cluster-analysis"><b>K-Means Cluster Analysis</b></h4>
+
+            <p>K-means cluster identifies initial clusters and calculates the variances between each cluster or the Euclidean distance. It clusters all the remaining points, calculates the mean of each cluster, and then reclusters based on the new means. It repeats until the clusters no longer change. It restarts the cluster until it finds the best overall cluster. It does as much reclustering as we tell it to do. It then comes back and returns to the optimal one.</p>
+
+            <img src="https://user-images.githubusercontent.com/29410712/203158939-fde4b778-24a9-4949-b8a5-51a517d1fded.png" alt="Different K-Means" class="center image">
+
+            <br>
+
+            <p>First, we need to determine the best K value. An easy method for determining the best number for K is the elbow curve. To create an elbow curve, we&#39;ll plot the clusters on the x-axis and the values of a selected objective function on the y-axis. The intra-cluster distance is one of the most common objective functions to use when creating an elbow curve. The intra-cluster distance objective function is measuring the amount of variation in the dataset. For our elbow curve, we will plot the number of clusters (also known as the values of K) on the x-axis and the total intra-cluster distance values on the y-axis.</p>
+
+            <img src="https://user-images.githubusercontent.com/29410712/203158951-caf2a648-746a-4908-9cd1-a423b225d669.png" alt="Intra-Cluster-Distance" class="center">
+
+            <p>Using the "elbow" or "knee of a curve" as a cutoff point is a common heuristic in mathematical optimization to choose a point where diminishing returns are no longer worth the additional cost. In clustering, this means one should choose a number of clusters so that adding another cluster doesn&#39;t give a much better modeling of the data. The intuition is that increasing the number of clusters will naturally improve the fit (explain more of the variation), since there are more parameters (more clusters) to use, but that at some point this is over-fitting, and the elbow reflects this. We can see that the total intra-cluster distance is large for k = 1 and decreases as we increase k, until k = 6, after which it tapers off and gets only marginally smaller. The slope becomes constant after k = 6. This indicates that k = 6 is a good choice. Therefore, will now cluster the states into six clusters using K-means. </p>
+
+            <img src="https://user-images.githubusercontent.com/29410712/203157630-3e2f35b9-9fe7-4717-bb06-4335d841c807.png" alt="K-Mean" class="center">
+
+            <br>
+            <center>
+                <table>
+                <thead>
+                <tr>
+                <th>Clusters</th>
+                <th>Zipcodes</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                <td>1</td>
+                <td>84107, 84116, 84118, 84104, 84119, 84123</td>
+                </tr>
+                <tr>
+                <td>2</td>
+                <td>84020, 84092, 84121, 84093, 84095, 84065, 84096</td>
+                </tr>
+                <tr>
+                <td>3</td>
+                <td>84009, 84094, 84088, 84081, 84084, 84047, 84128, 84120, 84070, 84044, 84129</td>
+                </tr>
+                <tr>
+                <td>4</td>
+                <td>84101, 84111</td>
+                </tr>
+                <tr>
+                <td>5</td>
+                <td>84105, 84108, 84117, 84109, 84124, 84103</td>
+                </tr>
+                <tr>
+                <td>6</td>
+                <td>84106, 84102, 84115</td>
+                </tr>
+                </tbody>
+                </table>
+            </center>
+
+            <br>
+
+            <img src="https://user-images.githubusercontent.com/29410712/203230763-3f7b53a7-0beb-4a16-b3a3-b30b769d4041.png" alt="Parallel-Centroids" class="center">
+
+            <p>From the Parallel Coordinates Centroids plot, we can see the variation across the variables for each of the clusters found by the K-means algorithm. We can identify that the real estate properties located in the Cluster 4 zip codes have relatively low average sqft but high cost per sqft and the Cluster 2 zip codes have high average prices and high average sqft.</p>
+
+            <br>
+
+            <h4 id="k-means-clustering-with-principal-component-analysis"><b>K-Means Clustering with Principal Component Analysis</b></h4>
+
+            <p>Applying the K-means to the Principal Component Analysis projection data produces an additional categorical constraint to validate the clustering algorithm. In other words, we can use dimensionality reduction as a feature extractor and reveal the different clusters. Based on the updated PCA plot with the clustering, it is consistent with the clustering with the points split into six sections:</p>
+
+            <img src="https://user-images.githubusercontent.com/29410712/203165056-6b1c828b-6dcc-492f-b01e-61d6f91e2077.png" alt="K-Mean-PCA" class="center">
+
+            <br>
+
+            <h4 id="hierarchical-cluster-analysis"><b>Hierarchical Cluster Analysis</b></h4>
+
+            <p>Similar to K-means clustering, hierarchical clustering, also known as agglomerative clustering, works with groups (clusters) of data points. The algorithm starts by declaring each point with its own cluster, then merges the two most similar clusters until a declared stopping point has been reached. Hierarchical clustering is often associated with heatmaps and organizes the rows and columns based on similarity. This makes it easy to see correlations in the data.</p>
+
+            <img src="https://user-images.githubusercontent.com/29410712/203176302-a42e2a89-f66e-4ade-809a-0b36ba9f99f4.png" alt="dendogram" class="center">
+
+            <p>Additionally, we created a dendogram to know how many clusters to make. A dendrogram is a graph that keeps the values of the points on the x-axis, then connects all the points as they are clustered. This is similar to the elbow curve, as it gives us a better idea of the ideal amount of clusters we want to use. Based on the dendogram above, we will now use hierarchical clustering with complete linkage and Euclidean distance to sort the zipcodes into six clusters. </p>
+
+            <blockquote>
+            <p><b>Python Code:</b></p>
+            </blockquote>
+
+            <pre>
+                <code>
+==============================================================================
+
+from sklearn<span class="hljs-selector-class">.cluster</span> import AgglomerativeClustering
+
+fig,ax1 = plt.subplots(figsize=(<span class="hljs-number">10</span>, <span class="hljs-number">6</span>))
+agg_cluster_model = AgglomerativeClustering(linkage=<span class="hljs-string">"complete"</span>, affinity=<span class="hljs-string">'euclidean'</span>, n_clusters=<span class="hljs-number">6</span>)
+y_pred = agg_cluster_model.fit_predict(X)
+
+plt.scatter(X[:, <span class="hljs-number">0</span>], X[:, <span class="hljs-number">1</span>], c=y_pred,  marker=<span class="hljs-string">"o"</span>)
+<span class="hljs-keyword">for</span> <span class="hljs-selector-tag">i</span>,name <span class="hljs-keyword">in</span> enumerate(<span class="hljs-selector-tag">summary</span>[<span class="hljs-string">'zipcode'</span>].values):
+    ax1.annotate(name, (X[<span class="hljs-selector-tag">i</span>,<span class="hljs-number">0</span>], X[<span class="hljs-selector-tag">i</span>,<span class="hljs-number">1</span>]), ha=<span class="hljs-string">'center'</span>,fontsize=<span class="hljs-number">10</span>)
+
+==============================================================================
+                </code>
+            </pre>
+
+            <img src="https://user-images.githubusercontent.com/29410712/203176736-5c797f25-067d-4624-b98f-dbac6299a9b9.png" alt="Hierarchical" class="center">
+
+            <center>
+                <table>
+                    <thead>
+                        <tr>
+                        <th>Clusters</th>
+                        <th>Zipcodes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <td>1</td>
+                        <td>84020, 84092, 84121, 84093, 84095, 84065, 84109, 84096</td>
+                        </tr>
+                        <tr>
+                        <td>2</td>
+                        <td>84009, 84094, 84088, 84081, 84084, 84047, 84128, 84120, 84070, 84044, 84129</td>
+                        </tr>
+                        <tr>
+                        <td>3</td>
+                        <td>84106, 84102, 84115</td>
+                        </tr>
+                        <tr>
+                        <td>4</td>
+                        <td>84101, 84111</td>
+                        </tr>
+                        <tr>
+                        <td>5</td>
+                        <td>84105, 84108, 84117, 84124, 84103</td>
+                        </tr>
+                        <tr>
+                        <td>6</td>
+                        <td>84107, 84116, 84118, 84104, 84119, 84123</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </center>
+
+            <br>
+
+            <h4 id="hierarchical-clustering-with-principal-component-analysis"><b>Hierarchical Clustering with Principal Component Analysis</b></h4>
+
+            <p>Applying the Hierarchical Clustering to the Principal Component Analysis projection data produces an additional categorical constraint to validate the clustering algorithm. In other words, we can use dimensionality reduction as a feature extractor and reveal the different clusters. Based on the updated PCA plot with the clustering, it is consistent with the clustering with the points split into six sections:</p>
+
+            <img src="https://user-images.githubusercontent.com/29410712/203176836-ca08d232-3bc9-4626-bfae-3cbb8d0ee762.png" alt="Hierarchical-PCA" class="center">
+        </div>
+    </body>
+
+    <footer-component></footer-component>
+    
+</html>

@@ -1,0 +1,17 @@
+title: Anthony Do
+logo: "/assets/img/profile2.jpg"
+description: 
+
+  <p></p>
+
+  Data scientist & mathematician knowledgeable in statistical analysis and visualizations to utilize the power of data.
+
+  <br><br>
+  <div class="center">
+    <a href="/assets/pdf/Anthony_Resume.pdf" class="button">Resume</a> 
+    <br><br>
+    <a href="https://www.linkedin.com/in/dosanity/" class="button">LinkedIn Profile</a> 
+  </div>
+google_analytics:
+theme: jekyll-theme-minimal
+

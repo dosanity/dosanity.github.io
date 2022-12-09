@@ -1,0 +1,404 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link rel="icon" type="image/png" sizes="32x32" href="../favicons/database.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="../favicons/database.png">
+		<meta name="theme-color" content="#ffffff">
+
+		<script>
+			window.dataLayer = window.dataLayer || [];
+		  	function gtag(){dataLayer.push(arguments);}
+		  	gtag('js', new Date());
+		  	gtag('config', 'UA-110543961-1');
+		</script>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<meta name="description" content="Anthony Do - Portfolio; Machine Learning, Data Analysis">
+		<meta name="keywords" content="Machine Learning, Data Analysis">
+		<meta name="author" content="Anthony Do">
+
+		<title>Anthony Do</title>
+
+		<link href="../css/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/styles.css" rel="stylesheet">
+
+		<script src="https://code.jquery.com/jquery-latest.js" type="text/javascript"></script>
+		<script src="../js/jquery.isotope.js" type="text/javascript"></script>
+		<script src="../js/filter.js" type="text/javascript"></script>
+		<script src="../js/bootstrap.bundle.min.js"></script>
+        <script src="../js/template.js" type="text/javascript" defer></script>
+		{% seo %}
+	</head>
+
+  	<body>
+
+        <div class="topnav">
+			<project-nav></project-nav>
+		</div>
+
+		<div class="container">
+
+			<br>
+			<br>
+			<br>
+
+            <h1 id="credit-risk-analysis"><b>Credit Risk Analysis</b></h1>
+
+            <hr color="lightgray">
+
+            <p>Credit risk is the possibility of a loss resulting from a borrower's failure to repay a loan or meet contractual obligations. Determining credit risk requires creditors to evaluate customers based on their credit scores. As a result of this, there are classification imbalances with credit risk because good loans outnumber riskier loans. We are tasked to build a classification model using machine learning statistical algorithms to make predictions on the credit risk of a client. In our analysis, we will be using the credit card credit dataset from <a href="https://www.lendingclub.com/">LendingClub</a>, a peer-to-peer lending services company. We will utilize different machine learning techniques such as <code>RandomOverSampler</code>, <code>SMOTE</code>, <code>ClusterCentroids</code>, <code>SMOTEENN</code>, <code>BalancedRandomForestClassifier</code>, and <code>EasyEnsembleClassifier</code> to train and evaluate data to build a recommendation for the best machine learning model to use for credit risk predictions.</p>
+            
+            <h4 id="resources"><b>Resources</b></h4>
+
+            <ul>
+                <li>Analysis Software: Python 3.10, Jupyter Notebook 6.4.12</li>
+                <li>Data Source: LoanStats_2019Q1.csv</li>
+            </ul>
+
+            <br>
+
+            <h2 id="resampling"><b>Resampling</b></h2>
+
+            <hr color="lightgray">
+
+            <p>In each analysis with the resampling models, we used the resampled data to train a logistic regression model and calculated the balanced accuracy score from <code>sklearn.metrics</code>, printed the confusion matrix, and generated a classification report from <code>imbalanced-learn</code>.</p>
+            
+            <br>
+
+            <h5 id="naive-random-oversampling"><b>Naive Random Oversampling</b></h5>
+
+            <p>In random oversampling, instances of the minority class are randomly selected and added to the training set until the majority and minority classes are balanced. Oversampling addresses class imbalance by duplicating or mimicking existing data. </p>
+            
+            <p><b>Balanced Accuracy Score:</b></p>
+            
+            <pre><code>0<span class="hljs-selector-class">.663188044716539</span></code></pre>
+
+            <br>
+            
+            <p><b>Confusion Matrix:</b></p>
+
+            <table>
+            <thead>
+            <tr>
+                <th></th>
+                <th><b>Predicted High Risk</b></th>
+                <th><b>Predicted Low Risk</b></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><b>Actual High Risk</b></td>
+                <td>76</td>
+                <td>25</td>
+            </tr>
+            <tr>
+                <td><b>Actual Low Risk</b></td>
+                <td>7288</td>
+                <td>9816</td>
+            </tr>
+            </tbody>
+            </table>
+
+            <br>
+
+            <p><b>Classification Report:</b></p>
+
+            <pre><code>                   
+                   pre       rec       spe        f1       geo       iba       sup
+            
+  high_risk       <span class="hljs-number">0.01</span>      <span class="hljs-number">0.75</span>      <span class="hljs-number">0.57</span>      <span class="hljs-number">0.02</span>      <span class="hljs-number">0.66</span>      <span class="hljs-number">0.44</span>       <span class="hljs-number">101</span>
+   low_risk       <span class="hljs-number">1.00</span>      <span class="hljs-number">0.57</span>      <span class="hljs-number">0.75</span>      <span class="hljs-number">0.73</span>      <span class="hljs-number">0.66</span>      <span class="hljs-number">0.42</span>     <span class="hljs-number">17104</span>
+            
+avg / total       <span class="hljs-number">0.99</span>      <span class="hljs-number">0.57</span>      <span class="hljs-number">0.75</span>      <span class="hljs-number">0.72</span>      <span class="hljs-number">0.66</span>      <span class="hljs-number">0.42</span>     <span class="hljs-number">17205</span>
+            </code></pre>
+            
+            <p>The Naive Random Oversampling model accurately predicts credit risk 66.3% of the time. Additionally, the precision of the model for high risk is 0.01 and low risk is 1.00. In other words, when it predicts that a client is high risk, it is correct 1% of the time and when it predicts that a client is low risk, it is correct 100% of the time. The recall in our model 0.75 for high risk and 0.57 for low risk. This means that it correctly identifies 75% of all high risk and 57% for all low risk.</p>
+            
+            <br>
+
+            <h5 id="smote-oversampling"><b>SMOTE Oversampling</b></h5>
+
+            <p>The synthetic minority oversampling technique (SMOTE) is another oversampling approach to deal with unbalanced datasets. In SMOTE, like random oversampling, the size of the minority is increased. The key difference between the two lies in how the minority class is increased in size. As we have seen, in random oversampling, instances from the minority class are randomly selected and added to the minority class. In SMOTE, by contrast, new instances are interpolated. That is, for an instance from the minority class, a number of its closest neighbors is chosen. Based on the values of these neighbors, new values are created.</p>
+            
+            <p><b>Balanced Accuracy Score:</b></p>
+
+            <pre><code>0<span class="hljs-selector-class">.6621894942066704</span></code></pre>
+            
+            <br>
+            
+            <p><b>Confusion Matrix:</b></p>
+
+            <table>
+            <thead>
+            <tr>
+                <th></th>
+                <th><b>Predicted High Risk</b></th>
+                <th><b>Predicted Low Risk</b></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><b>Actual High Risk</b></td>
+                <td>64</td>
+                <td>37</td>
+            </tr>
+            <tr>
+                <td><b>Actual Low Risk</b></td>
+                <td>5290</td>
+                <td>11814</td>
+            </tr>
+            </tbody>
+            </table>
+
+            <br>
+
+            <p><b>Classification Report:</b></p>
+
+            <pre><code>                  
+                   pre       rec       spe        f1       geo       iba       sup
+            
+  high_risk       <span class="hljs-number">0.01</span>      <span class="hljs-number">0.63</span>      <span class="hljs-number">0.69</span>      <span class="hljs-number">0.02</span>      <span class="hljs-number">0.66</span>      <span class="hljs-number">0.44</span>       <span class="hljs-number">101</span>
+   low_risk       <span class="hljs-number">1.00</span>      <span class="hljs-number">0.69</span>      <span class="hljs-number">0.63</span>      <span class="hljs-number">0.82</span>      <span class="hljs-number">0.66</span>      <span class="hljs-number">0.44</span>     <span class="hljs-number">17104</span>
+
+avg / total       <span class="hljs-number">0.99</span>      <span class="hljs-number">0.69</span>      <span class="hljs-number">0.63</span>      <span class="hljs-number">0.81</span>      <span class="hljs-number">0.66</span>      <span class="hljs-number">0.44</span>     <span class="hljs-number">17205</span>
+            </code></pre>
+            
+            <p>The SMOTE Oversampling model accurately predicts credit risk 66.2% of the time. Additionally, the precision of the model for high risk is 0.01 and low risk is 1.00. In other words, when it predicts that a client is high risk, it is correct 1% of the time and when it predicts that a client is low risk, it is correct 100% of the time. The recall in our model 0.63 for high risk and 0.69 for low risk. This means that it correctly identifies 63% of all high risk and 69% for all low risk.</p>
+            
+            <br>
+            
+            <h5 id="cluster-centroids-undersampling-"><b>Cluster Centroids (Undersampling)</b></h5>
+
+            <p>Cluster centroid undersampling is akin to SMOTE. The algorithm identifies clusters of the majority class, then generates synthetic data points, called centroids, that are representative of the clusters. The majority class is then undersampled down to the size of the minority class.</p>
+            
+            <p><b>Balanced Accuracy Score:</b></p>
+
+            <pre><code>0<span class="hljs-selector-class">.5447339051023905</span></code></pre>
+            
+            <br>
+            
+            <p><b>Confusion Matrix:</b></p>
+
+            <table>
+            <thead>
+            <tr>
+                <th></th>
+                <th><b>Predicted High Risk</b></th>
+                <th><b>Predicted Low Risk</b></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><b>Actual High Risk</b></td>
+                <td>70</td>
+                <td>31</td>
+            </tr>
+            <tr>
+                <td><b>Actual Low Risk</b></td>
+                <td>10324</td>
+                <td>6780</td>
+            </tr>
+            </tbody>
+            </table>
+
+            <br>
+
+            <p><b>Classification Report:</b></p>
+
+            <pre><code>                   
+                   pre       rec       spe        f1       geo       iba       sup
+            
+  high_risk       <span class="hljs-number">0.01</span>      <span class="hljs-number">0.69</span>      <span class="hljs-number">0.40</span>      <span class="hljs-number">0.01</span>      <span class="hljs-number">0.52</span>      <span class="hljs-number">0.28</span>       <span class="hljs-number">101</span>
+   low_risk       <span class="hljs-number">1.00</span>      <span class="hljs-number">0.40</span>      <span class="hljs-number">0.69</span>      <span class="hljs-number">0.57</span>      <span class="hljs-number">0.52</span>      <span class="hljs-number">0.27</span>     <span class="hljs-number">17104</span>
+
+avg / total       <span class="hljs-number">0.99</span>      <span class="hljs-number">0.40</span>      <span class="hljs-number">0.69</span>      <span class="hljs-number">0.56</span>      <span class="hljs-number">0.52</span>      <span class="hljs-number">0.27</span>     <span class="hljs-number">17205</span>
+            </code></pre>
+            
+            <p>The Cluster Centroids model accurately predicts credit risk 54.4% of the time. Additionally, the precision of the model for high risk is 0.01 and low risk is 1.00. In other words, when it predicts that a client is high risk, it is correct 1% of the time and when it predicts that a client is low risk, it is correct 100% of the time. The recall in our model 0.69 for high risk and 0.40 for low risk. This means that it correctly identifies 69% of all high risk and 40% for all low risk.</p>
+            
+            <br>
+
+            <h5 id="smoteenn-combination-sampling-"><b>SMOTEENN (Combination Sampling)</b></h5>
+
+            <p>SMOTEENN is an approach to resampling that combines aspects of both oversampling and undersampling.</p>
+            
+            <p><b>Balanced Accuracy Score:</b></p>
+
+            <pre><code>0<span class="hljs-selector-class">.644711676499736</span></code></pre>
+            
+            <br>
+            
+            <p><b>Confusion Matrix:</b></p>
+
+            <table>
+            <thead>
+            <tr>
+                <th></th>
+                <th><b>Predicted High Risk</b></th>
+                <th><b>Predicted Low Risk</b></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><b>Actual High Risk</b></td>
+                <td>73</td>
+                <td>28</td>
+            </tr>
+            <tr>
+                <td><b>Actual Low Risk</b></td>
+                <td>7412</td>
+                <td>9692</td>
+            </tr>
+            </tbody>
+            </table>
+
+            <br>
+
+            <p><b>Classification Report:</b></p>
+
+            <pre><code>                  
+                   pre       rec       spe        f1       geo       iba       sup
+            
+  high_risk       <span class="hljs-number">0.01</span>      <span class="hljs-number">0.72</span>      <span class="hljs-number">0.57</span>      <span class="hljs-number">0.02</span>      <span class="hljs-number">0.64</span>      <span class="hljs-number">0.42</span>       <span class="hljs-number">101</span>
+   low_risk       <span class="hljs-number">1.00</span>      <span class="hljs-number">0.57</span>      <span class="hljs-number">0.72</span>      <span class="hljs-number">0.72</span>      <span class="hljs-number">0.64</span>      <span class="hljs-number">0.40</span>     <span class="hljs-number">17104</span>
+            
+avg / total       <span class="hljs-number">0.99</span>      <span class="hljs-number">0.57</span>      <span class="hljs-number">0.72</span>      <span class="hljs-number">0.72</span>      <span class="hljs-number">0.64</span>      <span class="hljs-number">0.40</span>     <span class="hljs-number">17205</span>
+            </code></pre>
+            
+            <p>The SMOTEENN model accurately predicts credit risk 64.5% of the time. Additionally, the precision of the model for high risk is 0.01 and low risk is 1.00. In other words, when it predicts that a client is high risk, it is correct 1% of the time and when it predicts that a client is low risk, it is correct 100% of the time. The recall in our model 0.72 for high risk and 0.57 for low risk. This means that it correctly identifies 72% of all high risk and 57% for all low risk.</p>
+            
+            <br>
+
+            <h2 id="ensemble-learners"><b>Ensemble Learners</b></h2>
+
+            <hr color="lightgray">
+
+            <p>In each analysis with the ensemble models, we trained the model using training data and calculated the balanced accuracy score from <code>sklearn.metrics</code>, printed the confusion matrix, and generated a classification report from <code>imbalanced-learn</code>.</p>
+            
+            <h5 id="balanced-random-forest-classifier"><b>Balanced Random Forest Classifier</b></h5>
+
+            <p>Instead of having a single, complex tree like the ones created by decision trees, a random forest algorithm will sample the data and build several smaller, simpler decision trees. Each tree is simpler because it is built from a random subset of features.</p>
+            
+            <p><b>Balanced Accuracy Score:</b></p>
+
+            <pre><code>0<span class="hljs-selector-class">.7885466545953005</span></code></pre>
+            
+            <br>
+            
+            <p><b>Confusion Matrix:</b></p>
+
+            <table>
+            <thead>
+            <tr>
+                <th></th>
+                <th><b>Predicted High Risk</b></th>
+                <th><b>Predicted Low Risk</b></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><b>Actual High Risk</b></td>
+                <td>71</td>
+                <td>30</td>
+            </tr>
+            <tr>
+                <td><b>Actual Low Risk</b></td>
+                <td>2153</td>
+                <td>14951</td>
+            </tr>
+            </tbody>
+            </table>
+
+            <br>
+
+            <p><b>Classification Report:</b></p>
+
+            <pre><code>                   
+                   pre       rec       spe        f1       geo       iba       sup
+            
+  high_risk       <span class="hljs-number">0.03</span>      <span class="hljs-number">0.70</span>      <span class="hljs-number">0.87</span>      <span class="hljs-number">0.06</span>      <span class="hljs-number">0.78</span>      <span class="hljs-number">0.60</span>       <span class="hljs-number">101</span>
+   low_risk       <span class="hljs-number">1.00</span>      <span class="hljs-number">0.87</span>      <span class="hljs-number">0.70</span>      <span class="hljs-number">0.93</span>      <span class="hljs-number">0.78</span>      <span class="hljs-number">0.62</span>     <span class="hljs-number">17104</span>
+            
+avg / total       <span class="hljs-number">0.99</span>      <span class="hljs-number">0.87</span>      <span class="hljs-number">0.70</span>      <span class="hljs-number">0.93</span>      <span class="hljs-number">0.78</span>      <span class="hljs-number">0.62</span>     <span class="hljs-number">17205</span>
+            </code></pre>
+            
+            <p>The SMOTEENN model accurately predicts credit risk 78.9% of the time. Additionally, the precision of the model for high risk is 0.03 and low risk is 1.00. In other words, when it predicts that a client is high risk, it is correct 3% of the time and when it predicts that a client is low risk, it is correct 100% of the time. The recall in our model 0.70 for high risk and 0.87 for low risk. This means that it correctly identifies 70% of all high risk and 87% for all low risk.</p>
+            
+            <br>
+
+            <h5 id="adaboost-classifier"><b>AdaBoost Classifier</b></h5>
+
+            <p>In AdaBoost, a model is trained and then evaluated. After evaluating the errors of the first model, another model is trained. This time, however, the model gives extra weight to the errors from the previous model. The purpose of this weighting is to minimize similar errors in subsequent models. Then, the errors from the second model are given extra weight for the third model. This process is repeated until the error rate is minimized.</p>
+            
+            <p><b>Balanced Accuracy Score:</b></p>
+
+            <pre><code>0<span class="hljs-selector-class">.9316600714093861</span></code></pre>
+            
+            <br>
+            
+            <p><b>Confusion Matrix:</b></p>
+
+            <table>
+            <thead>
+            <tr>
+                <th></th>
+                <th><b>Predicted High Risk</b></th>
+                <th><b>Predicted Low Risk</b></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><b>Actual High Risk</b></td>
+                <td>93</td>
+                <td>8</td>
+            </tr>
+            <tr>
+                <td><b>Actual Low Risk</b></td>
+                <td>983</td>
+                <td>16121</td>
+            </tr>
+            </tbody>
+            </table>
+
+            <br>
+
+            <p><b>Classification Report:</b></p>
+
+            <pre><code>                   
+                   pre       rec       spe        f1       geo       iba       sup
+            
+  high_risk       <span class="hljs-number">0.09</span>      <span class="hljs-number">0.92</span>      <span class="hljs-number">0.94</span>      <span class="hljs-number">0.16</span>      <span class="hljs-number">0.93</span>      <span class="hljs-number">0.87</span>       <span class="hljs-number">101</span>
+   low_risk       <span class="hljs-number">1.00</span>      <span class="hljs-number">0.94</span>      <span class="hljs-number">0.92</span>      <span class="hljs-number">0.97</span>      <span class="hljs-number">0.93</span>      <span class="hljs-number">0.87</span>     <span class="hljs-number">17104</span>
+
+avg / total       <span class="hljs-number">0.99</span>      <span class="hljs-number">0.94</span>      <span class="hljs-number">0.92</span>      <span class="hljs-number">0.97</span>      <span class="hljs-number">0.93</span>      <span class="hljs-number">0.87</span>     <span class="hljs-number">17205</span>
+            </code></pre>
+            
+            <p>The SMOTEENN model accurately predicts credit risk 93.2% of the time. Additionally, the precision of the model for high risk is 0.09 and low risk is 1.00. In other words, when it predicts that a client is high risk, it is correct 9% of the time and when it predicts that a client is low risk, it is correct 100% of the time. The recall in our model is 0.92 for high risk and 0.94 for low risk. This means that it correctly identifies 92% of all high risk and 94% of all low risk.</p>
+            
+            <br>
+
+            <h2 id="summary"><b>Summary</b></h2>
+
+            <hr color="lightgray">
+
+            <ul>
+                <li><code>EasyEnsembleClassifer</code>: 93.2% accuracy, 9% precision, and 92% recall</li>
+                <li><code>BalancedRandomForestClassifer</code>: 78.9% accuracy, 3% precision, and 70% recall</li>
+                <li><code>SMOTE</code>: 66.2% accuracy, 1% precision, and 63% recall</li>
+                <li><code>RandomOverSampler</code>: 66.3% accuracy, 1% precision, and 75% recall</li>
+                <li><code>SMOTEENN</code>: 64.5% accuracy, 1% precision, and 72% recall </li>
+                <li><code>ClusterCentroids</code>: 54.4% accuracy, 1% precision, and 69% recall</li>
+            </ul>
+            
+            <p>Based on the results, the best overall model is the AdaBoost Classifier or <code>EasyEnsembleClassifer</code>. This model has a 93.2% balanced accuracy score, a precision rate of 9%, and a sensitivity rate of 92% for high risk. The overall results were highest compared to the other models we tested in our analysis therefore this is the model we recommend using.</p>
+            <p>Although this model is the best compared to the other models in our test, it still has a low precision. Since the precision for high risk is only 0.09, when it predicts that a client is high risk, it is correct 9% of the time. As a result, the classifier returns a lot of false positives. This will benefit the credit card companies since it is better to reject predicted high risk individuals to avoid risky loans. </p>
+        
+        </div>
+    </body>
+
+    <footer-component></footer-component>
+    
+</html>

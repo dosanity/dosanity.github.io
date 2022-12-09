@@ -25,8 +25,7 @@ class Header1 extends HTMLElement {
                     </ul>
                 </div>
             </div>
-        </nav>
-        `;
+        </nav>`;
     }
 }
   

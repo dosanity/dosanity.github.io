@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link rel="icon" type="image/png" sizes="32x32" href="../favicons/database.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="../favicons/database.png">
+		<meta name="theme-color" content="#ffffff">
+
+		<script>
+			window.dataLayer = window.dataLayer || [];
+		  	function gtag(){dataLayer.push(arguments);}
+		  	gtag('js', new Date());
+		  	gtag('config', 'UA-110543961-1');
+		</script>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<meta name="description" content="Anthony Do - Portfolio; Machine Learning, Data Analysis">
+		<meta name="keywords" content="Machine Learning, Data Analysis">
+		<meta name="author" content="Anthony Do">
+
+		<title>Anthony Do</title>
+
+		<link href="../css/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/styles.css" rel="stylesheet">
+
+		<script src="https://code.jquery.com/jquery-latest.js" type="text/javascript"></script>
+		<script src="../js/jquery.isotope.js" type="text/javascript"></script>
+		<script src="../js/filter.js" type="text/javascript"></script>
+		<script src="../js/bootstrap.bundle.min.js"></script>
+        <script src="../js/template.js" type="text/javascript" defer></script>
+		<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Anthony Do | Data scientist &amp; mathematician knowledgeable in statistical analysis and visualizations to utilize the power of data. &lt;div class=&quot;center&quot;&gt; Resume LinkedIn Profile &lt;/div&gt;</title>
+<meta name="generator" content="Jekyll v4.3.1" />
+<meta property="og:title" content="Anthony Do" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Data scientist &amp; mathematician knowledgeable in statistical analysis and visualizations to utilize the power of data. &lt;div class=&quot;center&quot;&gt; Resume LinkedIn Profile &lt;/div&gt;" />
+<meta property="og:description" content="Data scientist &amp; mathematician knowledgeable in statistical analysis and visualizations to utilize the power of data. &lt;div class=&quot;center&quot;&gt; Resume LinkedIn Profile &lt;/div&gt;" />
+<link rel="canonical" href="http://localhost:4000/projects/us-crime-analysis.html" />
+<meta property="og:url" content="http://localhost:4000/projects/us-crime-analysis.html" />
+<meta property="og:site_name" content="Anthony Do" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Anthony Do" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Data scientist &amp; mathematician knowledgeable in statistical analysis and visualizations to utilize the power of data. &lt;div class=&quot;center&quot;&gt; Resume LinkedIn Profile &lt;/div&gt;","headline":"Anthony Do","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/img/profile2.jpg"}},"url":"http://localhost:4000/projects/us-crime-analysis.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+	</head>
+
+  	<body>
+
+        <div class="topnav">
+			<project-nav></project-nav>
+		</div>
+
+		<div class="container">
+
+			<br>
+			<br>
+			<br>
+
+            <h1 id="us-crime-analysis"><b>US Crime Analysis</b></h1>
+
+            <hr color="lightgray">
+
+            <p>There are many crimes that happen in the United States. Some believe that bigger cities and more populated states have more crime rates. In this project, we will be analyzing a dataset describing 1973 violent crime rates by US State. The crimes considered are assault, murder, and rape. Also included is the percentage of the population living in urban areas. Our goal is to use unsupervised machine learning methods such as Cluster Heat Maps, Principal Component Analysis, K-Means Clustering, Hierarchical Clustering, and DBSCAN to understand how violent crimes differ between states. </p>
+            
+            <br>
+
+            <h4 id="resources"><b>Resources</b></h4>
+
+            <ul>
+                <li>Software: Python 3.10, Jupyter Lab 3.4.4</li>
+                <li>Data Source: USArrests.csv
+            </ul>
+
+            <br>
+
+            <h2 id="preliminary-exploratory-analysis"><b>Exploratory Analysis</b></h2>
+
+            <hr color="lightgray">
+
+            <h5 id="data"><b>The Data</b></h5>
+
+            <p>The dataset is available as <em>USarrests.csv</em>. The dataset has 50 observations (corresponding to each state) on 4 variables: </p>
+
+            <ol>
+                <li>Murder: Murder arrests (per 100,000 residents)</li>
+                <li>Assault: Assault arrests (per 100,000 residents)</li>
+                <li>UrbanPop: Percent urban population</li>
+                <li>Rape: Rape arrests (per 100,000 residents)</li>
+            </ol>
+
+            <p>You can read more about the dataset <a href="https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/USArrests.html">here</a>. </p>
+
+            <br>
+
+            <img src="https://user-images.githubusercontent.com/29410712/179429045-7476b1c1-fe80-45de-92e9-4531dd56e933.png" alt="us-crime-scatter" class="center">
+
+            <br>
+
+            <p>In our preliminary analysis, we can see that Murder and Assault are highly positively correlated with a correlation of 0.8. There are some correlations between Rape + Assault and Rape + Murder but not as strong. There is almost no correlation between the Urban Population with Murder and Assault.</p>
+            
+            <br>
+            
+            <h5 id="analysis-with-cluster-heat-map"><b>Analysis with Cluster Heat Map</b></h5>
+
+            <img src="https://user-images.githubusercontent.com/29410712/179429129-f9b3fb27-773f-4f4b-b320-ffd95f49144c.png" alt="us-crime-heat">
+
+            <p>In our cluster heat map analysis, we can visualize that Urban Population does not necessarily correlate with Murder and Assault. This means that states with a higher population do not determine murders or assaults. There is some relationship between the number of Rapes, Murders, and Assaults. We can also see that Murder and Assault are similar within the states.</p>
+            
+            <br>
+            
+            <h2 id="deeper-analysis"><b>Deeper Analysis</b></h2>
+
+            <hr color="lightgray">
+
+            <h4 id="visualizing-data-using-principal-component-analysis-pca-"><b>Principal Component Analysis (PCA)</b></h4>
+
+            <p>Principal Component Analysis (PCA) is one of the most used unsupervised machine learning algorithms across a variety of applications: exploratory data analysis, dimensionality reduction, information compression, and data de-noising. PCA is a dimensionality reduction technique that transforms a set of features in a dataset into a smaller number of features called principal components while at the same time trying to retain as much information in the original dataset as possible. Since we have 4 different variables, we have a fourth-dimensional data set. PCA can take 4 or more variables and make a two-dimensional PCA plot. PCA can also tell us which variable is the most valuable for clustering the data. It also can tell us how accurate the two-dimensional graph is. </p>
+            <p>Principal Component Analysis calculates the average of each variable and using this average, finds the center of the data. It then shifts the data so that the center of the data is at the origin. From here, we input principal components. The principal components are vectors, but they are not chosen at random. The first principal component (PC1) is computed so that it explains the greatest amount of variance in the original features. Thus, it minimizes the distance between each data point on the graph (Sum of Squared) so PC1 is a linear combination of variables. It uses a scaled vector called the &quot;Eigenvector&quot; or &quot;Singular Vector&quot; for PC1. The sum of squared distances for the best fit line is the Eigenvalue for PC1. The second component (PC2) is orthogonal to the first, and it explains the greatest amount of variance left after the first principal component. Then we find PC3 and PC4 which are perpendicular to PC1 and PC2 that goes through the origin. The number of PCs is either the number of variables or the number of samples, whichever is smaller. </p>
+            <p>Once all the principal components are figured out, you can use the eigenvalues to determine the proportion of variation that each PC accounts for. Then you can create a scree plot which is a graphical representation of the percentages of variation that each PC accounts for.</p>
+            
+            <img src="https://user-images.githubusercontent.com/29410712/179429289-cff10be1-9fed-4382-9dda-fd1a933c8f3c.png" alt="pca" class="center">
+
+            <img src="https://user-images.githubusercontent.com/29410712/179429298-ec5602ad-dd69-4ee8-bedc-c08b68909080.png" alt="scree-plot" class="center">
+
+            <p>In this scree plot, we can see that PC1, PC2, and PC3 account for the vast majority of the variation. This means that a three-dimensional graph, using just PC1, PC2, and PC3 would be a good approximation of this four-dimensional graph since it would account for 95.66% of the variation in the data. Also, a two-dimensional graph would account for 86.76% of the variation in the data.</p>
+            
+            <br>
+            
+            <h4 id="k-means-cluster-analysis"><b>K-Means Cluster Analysis</b></b></h4>
+
+            <p>We will now cluster the states into four clusters using k-means. K-means cluster identifies initial clusters and calculates the variances between each cluster or the Euclidean distance. It clusters all the remaining points, calculates the mean of each cluster, and then reclusters based on the new means. It repeats until the clusters no longer change. It restarts the cluster until it finds the best overall cluster. It does as much reclustering as we tell it to do. It then comes back and returns to the optimal one.</p>
+            
+            <img src="https://user-images.githubusercontent.com/29410712/179429344-1f50a179-1cc5-4ba7-8a28-5eecb1b6b436.png" alt="k-mean-cluster" class="center">
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Clusters</th>
+                        <th>States</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Connecticut, Delaware, Hawaii, Indiana, Kansas, Massachusetts, New Jersey, Ohio, Oklahoma, Oregon, Pennsylvania, Rhode Island, Utah, Virginia, Washington, Wyoming</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Alabama, Arkansas, Georgia, Louisiana, Mississippi, North Carolina, South Carolina, Tennessee</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Alaska, Arizona, California, Colorado, Florida, Illinois, Maryland, Michigan, Missouri, Nevada, New Mexico, New York, Texas</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Idaho, Iowa, Kentucky, Maine, Minnesota, Montana, Nebraska, New Hampshire, North Dakota, South Dakota, Vermont, West Virginia, Wisconsin</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <br>
+            <br>
+
+            <img src="https://user-images.githubusercontent.com/29410712/179429370-8d082b0d-4f10-47bf-8953-4f33f2a54cd2.png" alt="different-k-mean" class="center">
+
+            <p>By using this we can determine the intra-cluster distance so that we can interpret the best k value.</p>
+
+            <img src="https://user-images.githubusercontent.com/29410712/179429395-d7ad781a-01ac-493c-8cbf-34d56bd2892a.png" alt="intra-cluster-distance" class="center">
+
+            <p>We can see that the total intra-cluster distance is large for <em>k = 1</em> and decreases as we increase <em>k</em>, until <em>k = 4</em>, after which it tapers off and gets only marginally smaller. The slope becomes constant after <em>k = 4</em>. This indicates that <em>k = 4</em> is a good choice.</p>
+            
+            <img src="https://user-images.githubusercontent.com/29410712/179429447-e53a4fcb-47c3-4abd-ba4d-a2207156af06.png" alt="kmean-pca" class="center">
+
+            <p>Based on the updated PCA plot with the clustering, it is consistent with the clustering with the points split into four sections.</p>
+
+            <br>
+
+            <h4 id="hierarchical-cluster-analysis"><b>Hierarchical Cluster Analysis</b></h4>
+
+            <p>We will now use hierarchical clustering with complete linkage and Euclidean distance, cluster the states into four clusters. Then we will visualize the cluster results on top of the first two components.</p>
+            <p>Hierarchical clustering is often associated with heatmaps. It organizes the rows and columns based on similarity. This makes it easy to see correlations in the data.</p>
+            
+            <img src="https://user-images.githubusercontent.com/29410712/179429472-2ebf40af-88b6-4f0e-9be7-b01f7e946e4f.png" alt="hierarchical-cluster" class="center">
+         
+            <table>
+                <thead>
+                    <tr>
+                    <th>Clusters</th>
+                    <th>States</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <td>1</td>
+                    <td>Alabama, Alaska, Georgia, Louisiana, Mississippi, North Carolina, South Carolina, Tennessee</td>
+                    </tr>
+                    <tr>
+                    <td>2</td>
+                    <td>Arkansas, Connecticut, Delaware, Hawaii, Indiana, Kansas, Kentucky, Massachusetts, Minnesota, Missouri, New Jersey, Ohio, Oklahoma, Oregon, Pennsylvania, Rhode Island, Utah, Virginia, Washington, Wisconsin, Wyoming</td>
+                    </tr>
+                    <tr>
+                    <td>3</td>
+                    <td>Arizona, California, Colorado, Florida, Illinois, Maryland, Michigan, Nevada, New Mexico, New York, Texas</td>
+                    </tr>
+                    <tr>
+                    <td>4</td>
+                    <td>Idaho, Iowa, Maine, Montana, Nebraska, New Hampshire, North Dakota, South Dakota, Vermont, West Virginia</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <img src="https://user-images.githubusercontent.com/29410712/179429715-5d38e3f6-3d55-480e-be84-0bec4bbf24c3.png" alt="hierarchical-cluster-pca" class="center">
+
+            <p>The results are slightly different from the k-means. The data now is still split into four sections, but some of the states belong in different clusters.</p>
+            
+            <br>
+
+            <h4 id="dbscan"><b>DBSCAN</b></h4>
+
+            <p>Density-based spatial clustering of applications with noise (DBSCAN) is a data clustering algorithm proposed by Martin Ester, Hans-Peter Kriegel, Jörg Sander, and Xiaowei Xu in 1996. It is a density-based clustering non-parametric algorithm: given a set of points in some space, it groups together points that are closely packed together (points with many nearby neighbors), marking as outlier points that lie alone in low-density regions (whose nearest neighbors are too far away).</p>
+            
+            <img src="https://user-images.githubusercontent.com/29410712/179429780-cd167133-32a9-4987-b9b0-2ff7eaf1098a.png" alt="dbscan" class="center">
+            
+            <table>
+                <thead>
+                    <tr>
+                    <th>Clusters</th>
+                    <th>States</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <td>1</td>
+                    <td>Alabama, Georgia, Louisiana, Mississippi, South Carolina, Tennessee</td>
+                    </tr>
+                    <tr>
+                    <td>2</td>
+                    <td>Connecticut, Idaho, Indiana, Iowa, Kansas, Kentucky, Maine, Massachusetts, Minnesota, Missouri, Montana, Nebraska, New Hampshire, New Jersey, North Dakota, Ohio, Oklahoma, Oregon, Pennsylvania, Rhode Island, South Dakota, Utah, Vermont, Virginia, Washington, West Virginia, Wisconsin, Wyoming</td>
+                    </tr>
+                    <tr>
+                    <td>3</td>
+                    <td>Illinois, New York, Texas</td>
+                    </tr>
+                    <tr>
+                    <td>4</td>
+                    <td>Maryland, Michigan, New Mexico</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <img src="https://user-images.githubusercontent.com/29410712/179429796-7dfa95b8-8554-44a6-8259-c27eee4dbeee.png" alt="dbscan-pca" class="center">
+
+            <p>These results on the PCA plot are a lot different than before. The DBSCAN is extremely sensitive to the changes in epsilon in the dataset.</p>
+            
+        </div>
+    </body>
+
+    <footer-component></footer-component>
+
+</html>
