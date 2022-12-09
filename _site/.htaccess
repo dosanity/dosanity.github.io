@@ -1,5 +1,4 @@
 RewriteEngine on
-RewriteRule ^projects/(.*)$ /$1 [L,R=301]
 #1) redirect file.html to file
 RewriteCond %{THE_REQUEST} /([^.]+).html [NC]
 RewriteRule .+ /%1 [L,R=301]
