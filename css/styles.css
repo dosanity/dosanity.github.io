@@ -333,19 +333,20 @@ pre {
 .home-title {
   font-family: 'Hurricane', sans-serif;
   font-size: 120px;
+  margin-top: 5%;
 }
 
-.home-position {
+/* .home-position {
   position: absolute;
   bottom: 160px;
   left: 0;
   right: 0
-}
+} */
 
 .home-btn {
   font-family: 'Hurricane', sans-serif;
   /* font-weight: 600; */
-  font-size: 50px;
+  font-size: 30px;
   background-color: white;
   border: 3px solid black;
   border-radius: 4px;
@@ -354,7 +355,7 @@ pre {
   margin: 20px;
   text-align: center;
   text-decoration: none;
-  width: 300px;
+  width: 200px;
 }
 
 .home-btn:hover {
@@ -365,5 +366,4 @@ pre {
   /* text-align: center; */
   text-decoration: none;
   /* display: inline-block; */
-  width: 300px;
 }
