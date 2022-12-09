@@ -253,6 +253,13 @@ hr {
       overflow-x: auto;
       display: block;
   }
+
+  .home-position {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0
+  }
   
 }
 
