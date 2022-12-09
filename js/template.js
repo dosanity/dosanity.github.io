@@ -17,10 +17,10 @@ class Header1 extends HTMLElement {
                 <div class="navbar-brand"><h3><b>Anthony Do</b></h3></div>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
-                        <a class="active" href="../index.html"><b>Projects</b></a>
-                        <a href="../portfolio.html"><b>Gallery</b></a>
-                        <a href="../about.html"><b>About</b></a>
-                        <a href="../contact.html"><b>Contact</b></a>
+                        <a class="active" href="../"><b>Projects</b></a>
+                        <a href="../portfolio"><b>Gallery</b></a>
+                        <a href="../about"><b>About</b></a>
+                        <a href="../contact"><b>Contact</b></a>
                         <a href="../assets/pdf/Anthony_ResumeATS.pdf"><b>Resume</b></a>
                     </ul>
                 </div>
