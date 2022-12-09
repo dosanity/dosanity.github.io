@@ -142,8 +142,8 @@ class Footer extends HTMLElement {
     connectedCallback() {
       this.innerHTML = `
 
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/styles.css" rel="stylesheet">
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/styles.css" rel="stylesheet">
 
         <footer>
             <div class="footer-margin"></div>
