@@ -169,17 +169,16 @@ hr {
   margin: 4px 1px;
   /* transition-duration: 0.4s; */
   width: 150px;
-  cursor: pointer;
 }
 
 .btn:hover {
-  color: black;
-  background-color: white;
+  color: white;
+  background-color: black;
   border: 2px solid black;
 }
 
 .pdfbtn {
-  background-color: rgba(255, 255, 255, 0.4); 
+  background-color: white; 
   border: 3px solid black;
   border-radius: 4px;
   color: black;
@@ -192,10 +191,10 @@ hr {
 }
 
 .pdfbtn:hover {
-  background-color: white;
-  border: 3px solid black;
+  background-color: #1DA1F2;
+  border: 3px solid #1DA1F2;
   border-radius: 4px;
-  color: black;
+  color: white;
   padding: 5px 10px;
   margin-top: 4px;
   /* text-align: center; */
