@@ -187,10 +187,10 @@ class Footer extends HTMLElement {
         <footer>
             <div class="footer-margin"></div>
             
-            <a href="https://www.instagram.com/dosanity/?hl=en"><img class="contacts-btn" src="assets/images/icons/insta.png"></a>
-            <a href="mailto:anthonydo888@gmail.com"><img class="contacts-btn" src="assets/images/icons/email.png"></a>
-            <a href="https://www.linkedin.com/in/dosanity/"><img class="contacts-btn" src="assets/images/icons/linkedin.png"></a>
-            <a href="https://github.com/dosanity"><img class="contacts-btn" src="assets/images/icons/github.png"></a>
+            <a href="https://www.instagram.com/dosanity/?hl=en"><img class="contacts-btn" src="../assets/images/icons/insta.png"></a>
+            <a href="mailto:anthonydo888@gmail.com"><img class="contacts-btn" src="../assets/images/icons/email.png"></a>
+            <a href="https://www.linkedin.com/in/dosanity/"><img class="contacts-btn" src="../assets/images/icons/linkedin.png"></a>
+            <a href="https://github.com/dosanity"><img class="contacts-btn" src="../assets/images/icons/github.png"></a>
 
             <div class="footer-bottom">
                 <p class='m-0 text-center text-white' id='copyright'>&copy; ` + new Date().getFullYear() + ` ANTHONY DO, ALL RIGHTS RESERVED</p>
@@ -201,3 +201,26 @@ class Footer extends HTMLElement {
   }
   
 customElements.define('footer-component', Footer);
+
+class Footer2 extends HTMLElement {
+  constructor() {
+    super();
+  }
+
+  connectedCallback() {
+    this.innerHTML = `
+
+      <link href="../css/bootstrap.min.css" rel="stylesheet">
+      <link href="../css/styles.css" rel="stylesheet">
+
+      <footer>
+
+          <div class="footer-bottom footer-position"> 
+              <p class='m-0 text-center text-white' id='copyright'>&copy; ` + new Date().getFullYear() + ` ANTHONY DO, ALL RIGHTS RESERVED</p>
+          </div>
+      </footer>
+    `;
+  }
+}
+
+customElements.define('footer-component2', Footer2);

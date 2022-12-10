@@ -109,6 +109,10 @@ hr {
   background-color: black;
   color: white;
 }
+.footer-position{
+  position: absolute;
+  bottom: 0;
+}
 
 .button {
   background-color: transparent; 
