@@ -105,9 +105,9 @@
                 <p>R Code:</p>
             </blockquote>
 
-            <pre><code>
-lm(<span class="hljs-name">mpg</span> ~ AWD + ground_clearance + spoiler_angle + vehicle_weight + vehicle_length,data=mecha)
-summary(<span class="hljs-name">lm</span>(<span class="hljs-name">mpg</span> ~ AWD + ground_clearance + spoiler_angle + vehicle_weight + vehicle_length,data=mecha))
+            <pre><code class="language-r">
+lm(mpg ~ AWD + ground_clearance + spoiler_angle + vehicle_weight + vehicle_length,data=mecha)
+summary(lm(mpg ~ AWD + ground_clearance + spoiler_angle + vehicle_weight + vehicle_length,data=mecha))                 
             </code></pre>
             
             <blockquote>
@@ -116,26 +116,27 @@ summary(<span class="hljs-name">lm</span>(<span class="hljs-name">mpg</span> ~ A
 
             <pre><code>
 Call:
-lm(formula = mpg ~ AWD + ground_clearance + spoiler_angle + vehicle_weight + vehicle_length, data = mecha)
+lm(formula = mpg ~ AWD + ground_clearance + spoiler_angle + vehicle_weight + 
+    vehicle_length, data = mecha)
 
 Residuals:
-        Min       1Q   Median       3Q      Max 
-<span class="hljs-string">-19</span>.4701  <span class="hljs-string">-4</span>.4994  <span class="hljs-string">-0</span>.0692   5.4433  18.5849 
+     Min       1Q   Median       3Q      Max 
+-19.4701  -4.4994  -0.0692   5.4433  18.5849 
 
 Coefficients:
-                    Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)      <span class="hljs-string">-1</span>.040e<span class="hljs-string">+02</span>  1.585e<span class="hljs-string">+01</span>  <span class="hljs-string">-6</span>.559 5.08e<span class="hljs-string">-08</span> ***
-AWD              <span class="hljs-string">-3</span>.411e<span class="hljs-string">+00</span>  2.535e<span class="hljs-string">+00</span>  <span class="hljs-string">-1</span>.346   0.1852    
-ground_clearance  3.546e<span class="hljs-string">+00</span>  5.412e<span class="hljs-string">-01</span>   6.551 5.21e<span class="hljs-string">-08</span> ***
-spoiler_angle     6.877e<span class="hljs-string">-02</span>  6.653e<span class="hljs-string">-02</span>   1.034   0.3069    
-vehicle_weight    1.245e<span class="hljs-string">-03</span>  6.890e<span class="hljs-string">-04</span>   1.807   0.0776 .  
-vehicle_length    6.267e<span class="hljs-string">+00</span>  6.553e<span class="hljs-string">-01</span>   9.563 2.60e<span class="hljs-string">-12</span> ***
+                   Estimate Std. Error t value Pr(>|t|)    
+(Intercept)      -1.040e+02  1.585e+01  -6.559 5.08e-08 ***
+AWD              -3.411e+00  2.535e+00  -1.346   0.1852    
+ground_clearance  3.546e+00  5.412e-01   6.551 5.21e-08 ***
+spoiler_angle     6.877e-02  6.653e-02   1.034   0.3069    
+vehicle_weight    1.245e-03  6.890e-04   1.807   0.0776 .  
+vehicle_length    6.267e+00  6.553e-01   9.563 2.60e-12 ***
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 Residual standard error: 8.774 on 44 degrees of freedom
-Multiple R-squared:  0.7149,    Adjusted R-squared:  0.6825 
-F-statistic: 22.07 on 5 and 44 DF,  p-value: 5.35e<span class="hljs-string">-11</span>
+Multiple R-squared:  0.7149,	Adjusted R-squared:  0.6825 
+F-statistic: 22.07 on 5 and 44 DF,  p-value: 5.35e-11
             </code></pre>
             
             <p>In our analysis, we can see that <code>ground_clearance</code> and <code>vehicle_length</code> have a p-value of 5.21e-08 and 2.60e-12, respectively. Since both values are smaller than the significance level of 0.05, therefore both variables are statistically significant resulting in rejecting the null hypothesis. In other words, the slope of the linear model is not zero and these coefficients provided a non-random amount of variance to the mpg values in the dataset. Additionally, the R-Squared value of this multiple linear regression model is 0.71. The coefficient of determination represents how well the regression model approximates real-world data points. In our case, we have a strong likelihood that the model can be used to approximate the <code>mpg</code> values in the dataset.</p>
@@ -156,8 +157,8 @@ F-statistic: 22.07 on 5 and 44 DF,  p-value: 5.35e<span class="hljs-string">-11<
                 <p>R Code:</p>
             </blockquote>
 
-            <pre><code>
-total_summary &lt;- suspension %&gt;% <span class="hljs-keyword">summarize</span>(<span class="hljs-keyword">Mean</span>=<span class="hljs-keyword">mean</span>(PSI),<span class="hljs-keyword">Median</span>=<span class="hljs-keyword">median</span>(PSI),Variance=<span class="hljs-keyword">var</span>(PSI),SD=sd(PSI), .groups = '<span class="hljs-keyword">keep</span>')
+            <pre><code class="language-r">
+total_summary <- suspension %>% summarize(Mean=mean(PSI),Median=median(PSI),Variance=var(PSI),SD=sd(PSI), .groups = 'keep')
             </code></pre>
 
             <br>
@@ -195,8 +196,8 @@ total_summary &lt;- suspension %&gt;% <span class="hljs-keyword">summarize</span
                 <p>R Code:</p>
             </blockquote>
 
-            <pre><code>
-lot_summary &lt;- suspension %&gt;% group_by(Manufacturing_Lot) %&gt;% <span class="hljs-keyword">summarize</span>(<span class="hljs-keyword">Mean</span>=<span class="hljs-keyword">mean</span>(PSI),<span class="hljs-keyword">Median</span>=<span class="hljs-keyword">median</span>(PSI),Variance=<span class="hljs-keyword">var</span>(PSI),SD=sd(PSI), .groups = '<span class="hljs-keyword">keep</span>')
+            <pre><code class="language-r">
+lot_summary <- suspension %>% group_by(Manufacturing_Lot) %>% summarize(Mean=mean(PSI),Median=median(PSI),Variance=var(PSI),SD=sd(PSI), .groups = 'keep')
             </code></pre>
             
             <br>
@@ -274,8 +275,8 @@ lot_summary &lt;- suspension %&gt;% group_by(Manufacturing_Lot) %&gt;% <span cla
                 <p>R Code:</p>
             </blockquote>
 
-            <pre><code>
-t.<span class="hljs-keyword">test</span>((suspension<span class="hljs-variable">$PSI</span>),mu=1500)
+            <pre><code class="language-r">
+t.test((suspension$PSI),mu=1500)
             </code></pre>
 
             <blockquote>
@@ -283,16 +284,16 @@ t.<span class="hljs-keyword">test</span>((suspension<span class="hljs-variable">
             </blockquote>
             
             <pre><code>    
-        <span class="hljs-keyword">One</span> <span class="hljs-keyword">Sample</span> t-<span class="hljs-keyword">test</span>
-            
-data:  (suspension<span class="hljs-variable">$PSI</span>)
+	One Sample t-test
+
+data:  (suspension$PSI)
 t = -1.8931, df = 149, p-value = 0.06028
-alternative hypothesis: true <span class="hljs-keyword">mean</span> is not equal to 1500
+alternative hypothesis: true mean is not equal to 1500
 95 percent confidence interval:
-    1497.507 1500.053
-<span class="hljs-keyword">sample</span> <span class="hljs-keyword">estimates</span>:
-<span class="hljs-keyword">mean</span> of x 
-    1498.78
+ 1497.507 1500.053
+sample estimates:
+mean of x 
+  1498.78 
             </code></pre>
             
             <p>Based on our results for the t-test that compares all manufacturing lots against the mean PSI of the population, we can interpret that there is no statistical difference between the observed sample mean and its presumed population mean since the p-value is 0.06. It is not statistically significant as the p-value is greater than our significance level of 0.05. </p>
@@ -305,8 +306,8 @@ alternative hypothesis: true <span class="hljs-keyword">mean</span> is not equal
                 <p>R Code:</p>
             </blockquote>
 
-            <pre><code>
-t.test(subset(suspension, <span class="hljs-attr">Manufacturing_Lot</span> == <span class="hljs-string">"Lot1"</span>)$PSI, <span class="hljs-attr">mu=1500)</span>
+            <pre><code class="language-r">
+t.test(subset(suspension, Manufacturing_Lot == "Lot1")$PSI, mu=1500)
             </code></pre>
 
             <blockquote>
@@ -314,16 +315,16 @@ t.test(subset(suspension, <span class="hljs-attr">Manufacturing_Lot</span> == <s
             </blockquote>
             
             <pre><code>
-        <span class="hljs-keyword">One</span> <span class="hljs-keyword">Sample</span> t-<span class="hljs-keyword">test</span>
-            
-data:  subset(suspension, Manufacturing_Lot == <span class="hljs-string">"Lot1"</span>)<span class="hljs-variable">$PSI</span>
+	One Sample t-test
+
+data:  subset(suspension, Manufacturing_Lot == "Lot1")$PSI
 t = 0, df = 49, p-value = 1
-alternative hypothesis: true <span class="hljs-keyword">mean</span> is not equal to 1500
+alternative hypothesis: true mean is not equal to 1500
 95 percent confidence interval:
-    1499.719 1500.281
-<span class="hljs-keyword">sample</span> <span class="hljs-keyword">estimates</span>:
-<span class="hljs-keyword">mean</span> of x 
-        1500
+ 1499.719 1500.281
+sample estimates:
+mean of x 
+     1500 
 </code></pre>
             
             <p>Based on our results for the t-test that compares manufacturing lot 1 against the mean PSI of the population, we can interpret that there is no statistical difference between the observed sample mean and its presumed population mean since the p-value is 1. It is not statistically significant as the p-value is greater than our significance level of 0.05.</p>
@@ -336,8 +337,8 @@ alternative hypothesis: true <span class="hljs-keyword">mean</span> is not equal
                 <p>R Code:</p>
             </blockquote>
 
-            <pre><code>
-t.test(subset(suspension, <span class="hljs-attr">Manufacturing_Lot</span> == <span class="hljs-string">"Lot2"</span>)$PSI, <span class="hljs-attr">mu=1500)</span>
+            <pre><code class="language-r">
+t.test(subset(suspension, Manufacturing_Lot == "Lot2")$PSI, mu=1500)
             </code></pre>
 
             <blockquote>
@@ -345,16 +346,16 @@ t.test(subset(suspension, <span class="hljs-attr">Manufacturing_Lot</span> == <s
             </blockquote>
             
             <pre><code>
-        <span class="hljs-keyword">One</span> <span class="hljs-keyword">Sample</span> t-<span class="hljs-keyword">test</span>
-            
-data:  subset(suspension, Manufacturing_Lot == <span class="hljs-string">"Lot2"</span>)<span class="hljs-variable">$PSI</span>
+	One Sample t-test
+
+data:  subset(suspension, Manufacturing_Lot == "Lot2")$PSI
 t = 0.51745, df = 49, p-value = 0.6072
-alternative hypothesis: true <span class="hljs-keyword">mean</span> is not equal to 1500
+alternative hypothesis: true mean is not equal to 1500
 95 percent confidence interval:
-    1499.423 1500.977
-<span class="hljs-keyword">sample</span> <span class="hljs-keyword">estimates</span>:
-<span class="hljs-keyword">mean</span> of x 
-    1500.2
+ 1499.423 1500.977
+sample estimates:
+mean of x 
+   1500.2 
             </code></pre>
             
             <p>Based on our results for the t-test that compares manufacturing lot 2 against the mean PSI of the population, we can interpret that there is no statistical difference between the observed sample mean and its presumed population mean since the p-value is 0.6. It is not statistically significant as the p-value is greater than our significance level of 0.05.</p>
@@ -367,25 +368,25 @@ alternative hypothesis: true <span class="hljs-keyword">mean</span> is not equal
                 <p>R Code:</p>
             </blockquote>
 
-            <pre><code>
-t.test(subset(suspension, <span class="hljs-attr">Manufacturing_Lot</span> == <span class="hljs-string">"Lot3"</span>)$PSI, <span class="hljs-attr">mu=1500)</span>
+            <pre><code class="language-r">
+t.test(subset(suspension, Manufacturing_Lot == "Lot3")$PSI, mu=1500)
             </code></pre>
 
             <blockquote>
                 <p>Output:</p>
             </blockquote>
             
-            <pre><code>
-        <span class="hljs-keyword">One</span> <span class="hljs-keyword">Sample</span> t-<span class="hljs-keyword">test</span>
-            
-data:  subset(suspension, Manufacturing_Lot == <span class="hljs-string">"Lot3"</span>)<span class="hljs-variable">$PSI</span>
+            <pre><code>     
+	One Sample t-test
+
+data:  subset(suspension, Manufacturing_Lot == "Lot3")$PSI
 t = -2.0916, df = 49, p-value = 0.04168
-alternative hypothesis: true <span class="hljs-keyword">mean</span> is not equal to 1500
+alternative hypothesis: true mean is not equal to 1500
 95 percent confidence interval:
-    1492.431 1499.849
-<span class="hljs-keyword">sample</span> <span class="hljs-keyword">estimates</span>:
-<span class="hljs-keyword">mean</span> of x 
-    1496.14
+ 1492.431 1499.849
+sample estimates:
+mean of x 
+  1496.14 
             </code></pre>
             
             <p>Based on our results for the t-test that compares manufacturing lot 3 against the mean PSI of the population, we can interpret that there is a statistical difference between the observed sample mean and its presumed population mean since the p-value is 0.04. It is statistically significant as the p-value is smaller than our significance level of 0.05.</p>

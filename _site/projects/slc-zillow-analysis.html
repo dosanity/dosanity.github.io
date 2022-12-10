@@ -28,6 +28,10 @@
 		<script src="../js/filter.js" type="text/javascript"></script>
 		<script src="../js/bootstrap.bundle.min.js"></script>
         <script src="../js/template.js" type="text/javascript" defer></script>
+
+        <link rel="stylesheet" href="../css/code-highlight.css">
+        <script src="../js/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
 		<!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Anthony Do | Data scientist &amp; mathematician knowledgeable in statistical analysis and visualizations to utilize the power of data. &lt;div class=&quot;center&quot;&gt; Resume LinkedIn Profile &lt;/div&gt;</title>
 <meta name="generator" content="Jekyll v4.3.1" />
@@ -157,7 +161,7 @@
                 <p>Python Code:</p>
             </blockquote>
 
-            <pre><code>
+            <pre><code class="language-python">
 # # Salt Lake City Box Plot
 outlier = df.loc[df["city"] == "Salt Lake City"]
 outlier = outlier['price']
@@ -220,7 +224,7 @@ df = df.drop(df[(df['city'] == 'Salt Lake City') & (df['price'] > upper)].index)
                 <p>Python Code:</p>
             </blockquote>
 
-            <pre><code>
+            <pre><code class="language-python">
 crs = 'EPSG:4326'
 geometry = [Point(xy) for xy in zip(df['longitude'], df['latitude'])]
 geo_df = gpd.GeoDataFrame(df, crs = crs, geometry = geometry)
@@ -232,7 +236,7 @@ geo_df = gpd.GeoDataFrame(df, crs = crs, geometry = geometry)
                 <p>Python Code:</p>
             </blockquote>
 
-            <pre><code>
+            <pre><code class="language-python">
 geo_df['price_log'] = np.log(geo_df['price'])
 fig, ax = plt.subplots(figsize = (10,10))
 utah_map.to_crs(epsg=4326).plot(ax=ax, color='lightgrey')
@@ -248,7 +252,7 @@ geo_df.plot(column = 'price_log', ax=ax, cmap = 'inferno',
                 <p>Python Code:</p>
             </blockquote>
 
-            <pre><code>
+            <pre><code class="language-python">
 geo_df['sqft_log'] = np.log(geo_df['sqft'])
 fig, ax = plt.subplots(figsize = (10,10))
 utah_map.to_crs(epsg=4326).plot(ax=ax, color='lightgrey')
@@ -289,7 +293,7 @@ geo_df.plot(column = 'sqft_log', ax=ax, cmap = 'inferno',
                 <p>Python Code:</p>
             </blockquote>
 
-            <pre><code>
+            <pre><code class="language-python">
 mod = sm.ols(formula="price ~ sqft + beds + baths + proptype", data = df)
 res = mod.fit()
             </code></pre>
@@ -298,31 +302,31 @@ res = mod.fit()
                 <p>Output:</p>
             </blockquote>
 
-            <pre><code>                            
+            <pre><code class="nohighlight">                            
                             OLS Regression Results                            
 ==============================================================================
 Dep. Variable:                  price   R-squared:                       0.640
 Model:                            OLS   Adj. R-squared:                  0.639
 Method:                 Least Squares   F-statistic:                     872.9
 Date:                Mon, 21 Nov 2022   Prob (F-statistic):               0.00
-<span class="hljs-keyword">Time:</span>                        02:36:54   Log-Likelihood:                <span class="hljs-string">-26554</span>.
-No. Observations:                1972   AIC:                         5.312e<span class="hljs-string">+04</span>
-Df Residuals:                    1967   BIC:                         5.315e<span class="hljs-string">+04</span>
+Time:                        02:36:54   Log-Likelihood:                -26554.
+No. Observations:                1972   AIC:                         5.312e+04
+Df Residuals:                    1967   BIC:                         5.315e+04
 Df Model:                           4                                         
 Covariance Type:            nonrobust                                         
 ==============================================================================
-                coef    std err          t      P&gt;|t|      [0.025      0.975]
+                coef    std err          t      P>t|      [0.025      0.975]
 ------------------------------------------------------------------------------
-Intercept   1.024e<span class="hljs-string">+05</span>   1.28e<span class="hljs-string">+04</span>      7.974      0.000    7.72e<span class="hljs-string">+04</span>    1.28e<span class="hljs-string">+05</span>
+Intercept   1.024e+05   1.28e+04     7.974      0.000    7.72e+04    1.28e+05
 sqft         180.8805      5.669     31.907      0.000     169.763     191.998
-beds       <span class="hljs-string">-8116</span>.8371   3965.622     <span class="hljs-string">-2</span>.047      0.041   <span class="hljs-string">-1</span>.59e<span class="hljs-string">+04</span>    <span class="hljs-string">-339</span>.575
-baths       2.722e<span class="hljs-string">+04</span>   5920.118      4.598      0.000    1.56e<span class="hljs-string">+04</span>    3.88e<span class="hljs-string">+04</span>
-proptype    4.042e<span class="hljs-string">+04</span>   9865.190      4.097      0.000    2.11e<span class="hljs-string">+04</span>    5.98e<span class="hljs-string">+04</span>
+beds       -8116.8371   3965.622     -2.047      0.041   -1.59e+04    -339.575
+baths       2.722e+04   5920.118      4.598      0.000    1.56e+04   3.88e+04
+proptype    4.042e+04   9865.190      4.097      0.000    2.11e+04    5.98e+04
 ==============================================================================
 Omnibus:                      882.045   Durbin-Watson:                   1.447
 Prob(Omnibus):                  0.000   Jarque-Bera (JB):             7474.571
 Skew:                           1.898   Prob(JB):                         0.00
-Kurtosis:                      11.750   Cond. No.                     9.78e<span class="hljs-string">+03</span>
+Kurtosis:                      11.750   Cond. No.                     9.78e+03
 ==============================================================================
             </code></pre>
 
@@ -346,20 +350,20 @@ Kurtosis:                      11.750   Cond. No.                     9.78e<span
                 <p>Python Code:</p>
             </blockquote>
 
-            <pre><code>  
-from sklearn<span class="hljs-selector-class">.decomposition</span> import PCA
+            <pre><code class="language-python">  
+from sklearn.decomposition import PCA
 
-pca_model = PCA(n_components=<span class="hljs-number">3</span>)
+pca_model = PCA(n_components=3)
 X_PCA = pca_model.fit_transform(X)
-df_plot = pd.DataFrame(X_PCA, <span class="hljs-attribute">columns</span>=[<span class="hljs-string">'PC1'</span>, <span class="hljs-string">'PC2'</span>, <span class="hljs-string">'PC3'</span>])
+df_plot = pd.DataFrame(X_PCA, columns=['PC1', 'PC2', 'PC3'])
 df_plot.head()
-fig,ax1 = plt.subplots(figsize=(<span class="hljs-number">10</span>, <span class="hljs-number">6</span>))
+fig,ax1 = plt.subplots(figsize=(10, 6))
 
-ax1.set_xlim(X_PCA[:,<span class="hljs-number">0</span>].min()-<span class="hljs-number">1</span>,X_PCA[:,<span class="hljs-number">0</span>].max()+<span class="hljs-number">1</span>)
-ax1.set_ylim(X_PCA[:,<span class="hljs-number">1</span>].min()-<span class="hljs-number">1</span>,X_PCA[:,<span class="hljs-number">1</span>].max()+<span class="hljs-number">1</span>)
+ax1.set_xlim(X_PCA[:,0].min()-1,X_PCA[:,0].max()+1)
+ax1.set_ylim(X_PCA[:,1].min()-1,X_PCA[:,1].max()+1)
 
-<span class="hljs-keyword">for</span> <span class="hljs-selector-tag">i</span>,name <span class="hljs-keyword">in</span> enumerate(<span class="hljs-selector-tag">summary</span>[<span class="hljs-string">'zipcode'</span>].values):
-    ax1.annotate(name, (X_PCA[<span class="hljs-selector-tag">i</span>,<span class="hljs-number">0</span>], X_PCA[<span class="hljs-selector-tag">i</span>,<span class="hljs-number">1</span>]), ha=<span class="hljs-string">'center'</span>,fontsize=<span class="hljs-number">10</span>)
+for i,name in enumerate(summary['zipcode'].values):
+    ax1.annotate(name, (X_PCA[i,0], X_PCA[i,1]), ha='center',fontsize=10)
             </code></pre>
 
 
@@ -405,7 +409,7 @@ ax1.set_ylim(X_PCA[:,<span class="hljs-number">1</span>].min()-<span class="hljs
                 <p>Python Code:</p>
             </blockquote>
 
-            <pre><code>
+            <pre><code class="language-python">
 var_ratio = pca_model.explained_variance_ratio_
 
 fig,ax1 = plt.subplots(figsize=(10, 6))
@@ -420,7 +424,7 @@ plt.plot([1,2,3], var_ratio, '-o')
                 <p>Output:</p>
             </blockquote>
 
-            <pre><code>
+            <pre><code class="nohighlight">
 Explained Variance Ratios of the PCA: [0.59977592 0.39255202 0.00767206]
             </code></pre>
 
@@ -444,7 +448,7 @@ Explained Variance Ratios of the PCA: [0.59977592 0.39255202 0.00767206]
                 <p>Python Code:</p>
             </blockquote>
 
-            <pre><code>
+            <pre><code class="language-python">
 kmeans = KMeans(n_clusters=6)
 kmeans.fit(X)
 y_kmeans = kmeans.predict(X)
@@ -462,7 +466,7 @@ for i,name in enumerate(summary['zipcode'].values):
                 <p>Python Code:</p>
             </blockquote>
 
-            <pre><code>
+            <pre><code class="language-python">
 df2 = summary['zipcode'].values
 cluster1 = df2[kmeans.labels_==i].tolist()
             </code></pre>
@@ -510,7 +514,7 @@ cluster1 = df2[kmeans.labels_==i].tolist()
                 <p>Python Code:</p>
             </blockquote>
 
-            <pre><code>
+            <pre><code class="language-python">
 from pandas.plotting import parallel_coordinates
 
 palette = sns.color_palette("Set1", 10)
@@ -534,7 +538,7 @@ def display_parallel_coordinates_centroids(df, num_clusters):
                 <p>Python Code:</p>
             </blockquote>
 
-            <pre><code>
+            <pre><code class="language-python">
 fig,ax1 = plt.subplots(figsize=(10, 6))
 
 ax1.set_xlim(X_PCA[:,0].min()-1,X_PCA[:,0].max()+1)
@@ -558,7 +562,7 @@ for i,name in enumerate(summary['zipcode'].values):
                 <p>Python Code:</p>
             </blockquote>
 
-            <pre><code>
+            <pre><code class="language-python">
 ff.create_dendrogram(X_PCA, color_threshold=0, labels=summary['zipcode'].values)
             </code></pre>
             
@@ -572,16 +576,16 @@ ff.create_dendrogram(X_PCA, color_threshold=0, labels=summary['zipcode'].values)
                 <p>Python Code:</p>
             </blockquote>
 
-            <pre><code>
-from sklearn<span class="hljs-selector-class">.cluster</span> import AgglomerativeClustering
+            <pre><code class="language-python">
+from sklearn.cluster import AgglomerativeClustering
 
-fig,ax1 = plt.subplots(figsize=(<span class="hljs-number">10</span>, <span class="hljs-number">6</span>))
-agg_cluster_model = AgglomerativeClustering(linkage=<span class="hljs-string">"complete"</span>, affinity=<span class="hljs-string">'euclidean'</span>, n_clusters=<span class="hljs-number">6</span>)
+fig,ax1 = plt.subplots(figsize=(10, 6))
+agg_cluster_model = AgglomerativeClustering(linkage="complete", affinity='euclidean', n_clusters=6)
 y_pred = agg_cluster_model.fit_predict(X)
 
-plt.scatter(X[:, <span class="hljs-number">0</span>], X[:, <span class="hljs-number">1</span>], c=y_pred,  marker=<span class="hljs-string">"o"</span>)
-<span class="hljs-keyword">for</span> <span class="hljs-selector-tag">i</span>,name <span class="hljs-keyword">in</span> enumerate(<span class="hljs-selector-tag">summary</span>[<span class="hljs-string">'zipcode'</span>].values):
-    ax1.annotate(name, (X[<span class="hljs-selector-tag">i</span>,<span class="hljs-number">0</span>], X[<span class="hljs-selector-tag">i</span>,<span class="hljs-number">1</span>]), ha=<span class="hljs-string">'center'</span>,fontsize=<span class="hljs-number">10</span>)
+plt.scatter(X[:, 0], X[:, 1], c=y_pred,  marker="o")
+for i,name in enumerate(summary['zipcode'].values):
+    ax1.annotate(name, (X[i,0], X[i,1]), ha='center',fontsize=10)
             </code></pre>
 
             <img src="https://user-images.githubusercontent.com/29410712/203176736-5c797f25-067d-4624-b98f-dbac6299a9b9.png" alt="Hierarchical" class="center">
@@ -590,7 +594,7 @@ plt.scatter(X[:, <span class="hljs-number">0</span>], X[:, <span class="hljs-num
                 <p>Python Code:</p>
             </blockquote>
 
-            <pre><code>
+            <pre><code class="language-python">
 df2 = summary['zipcode'].values
 cluster1 = df2[agg_cluster_model.labels_==i].tolist()
             </code></pre>
@@ -644,7 +648,7 @@ cluster1 = df2[agg_cluster_model.labels_==i].tolist()
                 <p>Python Code:</p>
             </blockquote>
 
-            <pre><code>
+            <pre><code class="language-python">
 fig,ax1 = plt.subplots(figsize=(10, 6))
 
 ax1.set_xlim(X_PCA[:,0].min()-1,X_PCA[:,0].max()+1)

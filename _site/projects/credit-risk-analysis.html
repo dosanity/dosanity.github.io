@@ -28,6 +28,10 @@
 		<script src="../js/filter.js" type="text/javascript"></script>
 		<script src="../js/bootstrap.bundle.min.js"></script>
         <script src="../js/template.js" type="text/javascript" defer></script>
+
+        <link rel="stylesheet" href="../css/code-highlight.css">
+        <script src="../js/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
 		<!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Anthony Do | Data scientist &amp; mathematician knowledgeable in statistical analysis and visualizations to utilize the power of data. &lt;div class=&quot;center&quot;&gt; Resume LinkedIn Profile &lt;/div&gt;</title>
 <meta name="generator" content="Jekyll v4.3.1" />
@@ -90,7 +94,7 @@
                 <p>Python Code:</p>
             </blockquote>
 
-            <pre><code>
+            <pre><code class="language-python">
 from imblearn.over_sampling import RandomOverSampler
 ros = RandomOverSampler(random_state=1)
 X_resampled, y_resampled = ros.fit_resample(X_train, y_train)
@@ -98,7 +102,7 @@ X_resampled, y_resampled = ros.fit_resample(X_train, y_train)
 
             <p><b>Balanced Accuracy Score:</b></p>
             
-            <pre><code>0<span class="hljs-selector-class">.663188044716539</span></code></pre>
+            <pre><code>0.663188044716539</code></pre>
 
             <br>
             
@@ -151,7 +155,7 @@ avg / total       <span class="hljs-number">0.99</span>      <span class="hljs-n
                 <p>Python Code:</p>
             </blockquote>
 
-            <pre><code>
+            <pre><code class="language-python">
 from imblearn.over_sampling import SMOTE
 X_resampled, y_resampled = SMOTE(random_state=1,
 sampling_strategy='auto').fit_resample(X_train, y_train)
@@ -159,7 +163,7 @@ sampling_strategy='auto').fit_resample(X_train, y_train)
 
             <p><b>Balanced Accuracy Score:</b></p>
 
-            <pre><code>0<span class="hljs-selector-class">.6621894942066704</span></code></pre>
+            <pre><code>0.6621894942066704</code></pre>
             
             <br>
             
@@ -212,15 +216,15 @@ avg / total       <span class="hljs-number">0.99</span>      <span class="hljs-n
                 <p>Python Code:</p>
             </blockquote>
 
-            <pre><code>
+            <pre><code class="language-python">
 from imblearn.under_sampling import ClusterCentroids
 cc = ClusterCentroids(random_state=1)
 X_resampled, y_resampled = cc.fit_resample(X_train, y_train)
             </code></pre>
-            
+
             <p><b>Balanced Accuracy Score:</b></p>
 
-            <pre><code>0<span class="hljs-selector-class">.5447339051023905</span></code></pre>
+            <pre><code>0.5447339051023905</code></pre>
             
             <br>
             
@@ -273,7 +277,7 @@ avg / total       <span class="hljs-number">0.99</span>      <span class="hljs-n
                 <p>Python Code:</p>
             </blockquote>
 
-            <pre><code>
+            <pre><code class="language-python">
 from imblearn.combine import SMOTEENN
 smote_enn = SMOTEENN(random_state=0)
 X_resampled, y_resampled = smote_enn.fit_resample(X, y)
@@ -281,7 +285,7 @@ X_resampled, y_resampled = smote_enn.fit_resample(X, y)
             
             <p><b>Balanced Accuracy Score:</b></p>
 
-            <pre><code>0<span class="hljs-selector-class">.644711676499736</span></code></pre>
+            <pre><code>0.644711676499736</code></pre>
             
             <br>
             
@@ -340,7 +344,7 @@ avg / total       <span class="hljs-number">0.99</span>      <span class="hljs-n
                 <p>Python Code:</p>
             </blockquote>
 
-            <pre><code>
+            <pre><code class="language-python">
 from imblearn.ensemble import BalancedRandomForestClassifier
 rf_model = BalancedRandomForestClassifier(n_estimators=100, random_state=1)
 rf_model.fit(X_train, y_train)
@@ -348,7 +352,7 @@ rf_model.fit(X_train, y_train)
 
             <p><b>Balanced Accuracy Score:</b></p>
 
-            <pre><code>0<span class="hljs-selector-class">.7885466545953005</span></code></pre>
+            <pre><code>0.7885466545953005</code></pre>
             
             <br>
             
@@ -401,7 +405,7 @@ avg / total       <span class="hljs-number">0.99</span>      <span class="hljs-n
                 <p>Python Code:</p>
             </blockquote>
 
-            <pre><code>
+            <pre><code class="language-python">
 from imblearn.ensemble import EasyEnsembleClassifier
 EE_model = EasyEnsembleClassifier(n_estimators=100, random_state=1)
 EE_model.fit(X_train, y_train)
@@ -409,7 +413,7 @@ EE_model.fit(X_train, y_train)
 
             <p><b>Balanced Accuracy Score:</b></p>
 
-            <pre><code>0<span class="hljs-selector-class">.9316600714093861</span></code></pre>
+            <pre><code>0.9316600714093861</code></pre>
             
             <br>
             

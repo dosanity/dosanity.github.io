@@ -28,6 +28,10 @@
 		<script src="../js/filter.js" type="text/javascript"></script>
 		<script src="../js/bootstrap.bundle.min.js"></script>
         <script src="../js/template.js" type="text/javascript" defer></script>
+
+        <link rel="stylesheet" href="../css/code-highlight.css">
+        <script src="../js/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
 		<!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Anthony Do | Data scientist &amp; mathematician knowledgeable in statistical analysis and visualizations to utilize the power of data. &lt;div class=&quot;center&quot;&gt; Resume LinkedIn Profile &lt;/div&gt;</title>
 <meta name="generator" content="Jekyll v4.3.1" />
@@ -89,9 +93,9 @@
             <hr>
 
             <pre><code>
-<span class="hljs-built_in">Number</span> <span class="hljs-keyword">of</span> Digits: <span class="hljs-number">10</span>
-<span class="hljs-built_in">Number</span> <span class="hljs-keyword">of</span> Samples: <span class="hljs-number">1797</span>
-<span class="hljs-built_in">Number</span> <span class="hljs-keyword">of</span> Features: <span class="hljs-number">64</span>
+Number of Digits: 10
+Number of Samples: 1797
+Number of Features: 64
             </code></pre>
             
             <img src="https://user-images.githubusercontent.com/29410712/180262496-99c8c1a6-9e38-4d39-83fd-16ba2bbe3e2e.png" alt="ExampleNumbers" class="center">
@@ -118,23 +122,23 @@
                 <p>Python Code:</p>
             </blockquote>
 
-            <pre><code>
-X_train, X_test, y_train, <span class="hljs-attr">y_test</span> = train_test_split(X, y, <span class="hljs-attr">random_state=1,</span> <span class="hljs-attr">test_size=0.8)</span>
-<span class="hljs-attr">clf</span> = svm.SVC(<span class="hljs-attr">kernel='rbf',</span> <span class="hljs-attr">C=100)</span>
+            <pre><code class="language-python">
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=1, test_size=0.8)
+clf = svm.SVC(kernel='rbf', C=100)
 clf.fit(X_train, y_train)
 
-<span class="hljs-attr">y_pred</span> = clf.predict(X_test)
-<span class="hljs-attr">accuracy</span> = metrics.accuracy_score(<span class="hljs-attr">y_true=y_test,</span> <span class="hljs-attr">y_pred=y_pred)</span>
-<span class="hljs-attr">confusionmatrix</span> = metrics.confusion_matrix(<span class="hljs-attr">y_true=y_test,</span> <span class="hljs-attr">y_pred=y_pred)</span>
-print(<span class="hljs-string">"Accuracy of Model:"</span>, accuracy)
+y_pred = clf.predict(X_test)
+accuracy = metrics.accuracy_score(y_true=y_test, y_pred=y_pred)
+confusionmatrix = metrics.confusion_matrix(y_true=y_test, y_pred=y_pred)
+print("Accuracy of Model:", accuracy)
             </code></pre>
 
             <blockquote>
                 <p>Output:</p>
             </blockquote>
             
-            <pre><code>
-Accuracy <span class="hljs-keyword">of</span> Model: <span class="hljs-number">0.9534075104311543</span>
+            <pre><code class="nohighlight">
+Accuracy of Model: 0.9534075104311543
             </code></pre>
             
             <p>Since we are looking at the accuracy of the model predicting the digits, we will need to look at the misclassified digits. Using the code below, we find the index of each misclassified digit and then generate an image.</p>
@@ -143,21 +147,21 @@ Accuracy <span class="hljs-keyword">of</span> Model: <span class="hljs-number">0
                 <p>Python Code:</p>
             </blockquote>
 
-            <pre><code>
-<span class="hljs-keyword">index</span> = <span class="hljs-number">0</span>
+            <pre><code class="language-python">
+index = 0
 misclassified_images = []
-<span class="hljs-keyword">for</span> <span class="hljs-keyword">label</span>, predict <span class="hljs-keyword">in</span> zip(y_test, y_pred):
-    <span class="hljs-keyword">if</span> <span class="hljs-keyword">label</span> != predict: 
-        misclassified_images.append(<span class="hljs-keyword">index</span>)
-    <span class="hljs-keyword">index</span> +=<span class="hljs-number">1</span>
-
-plt.figure(figsize=(<span class="hljs-number">10</span>,<span class="hljs-number">10</span>))
-plt.suptitle(<span class="hljs-string">'SVM Misclassified Digits'</span>);
-<span class="hljs-keyword">for</span> plot_index, bad_index <span class="hljs-keyword">in</span> enumerate(misclassified_images[<span class="hljs-number">0</span>:]):
-    p = plt.subplot(<span class="hljs-number">8</span>, <span class="hljs-number">9</span>, plot_index+<span class="hljs-number">1</span>)
-
-    p.imshow(X_test[bad_index].reshape(<span class="hljs-number">8</span>,<span class="hljs-number">8</span>), cmap=<span class="hljs-string">'Greys'</span>,
-            interpolation=<span class="hljs-string">'nearest'</span>)
+for label, predict in zip(y_test, y_pred):
+    if label != predict: 
+        misclassified_images.append(index)
+    index +=1
+    
+plt.figure(figsize=(10,10))
+plt.suptitle('SVM Misclassified Digits');
+for plot_index, bad_index in enumerate(misclassified_images[0:]):
+    p = plt.subplot(8, 9, plot_index+1)
+    
+    p.imshow(X_test[bad_index].reshape(8,8), cmap='Greys',
+            interpolation='nearest')
     p.set_xticks(()); p.set_yticks(())
             </code></pre>
 
@@ -168,7 +172,7 @@ plt.suptitle(<span class="hljs-string">'SVM Misclassified Digits'</span>);
             <p>Using Cross Validation to find the accuracy of SVM we get: </p>
 
             <pre><code>
-                [<span class="hljs-number">0.93888889</span>, <span class="hljs-number">0.99444444</span>, <span class="hljs-number">0.98333333</span>, <span class="hljs-number">0.95</span>, <span class="hljs-number">0.98888889</span>, <span class="hljs-number">0.97777778</span>, <span class="hljs-number">0.97222222</span>, <span class="hljs-number">0.94972067</span>, <span class="hljs-number">0.96648045</span>, <span class="hljs-number">0.96089385</span>]
+[0.93888889, 0.99444444, 0.98333333, 0.95, 0.98888889, 0.97777778, 0.97222222, 0.94972067, 0.96648045, 0.96089385]
             </code></pre>
             
             <p>Thus, the highest accuracy using Cross Validation is 0.99.</p>
@@ -182,24 +186,24 @@ plt.suptitle(<span class="hljs-string">'SVM Misclassified Digits'</span>);
                 <p>Python Code:</p>
             </blockquote>
 
-            <pre><code>
-<span class="hljs-attr">Xraw</span> = digits.data
-<span class="hljs-attr">yraw</span> = digits.target
-Xraw_train, Xraw_test, yraw_train, <span class="hljs-attr">yraw_test</span> = train_test_split(Xraw, yraw, <span class="hljs-attr">random_state=1,</span> <span class="hljs-attr">test_size=0.8)</span>
-<span class="hljs-attr">clfraw</span> = svm.SVC(<span class="hljs-attr">kernel='rbf',</span> <span class="hljs-attr">C=10)</span>
+            <pre><code class="language-python">
+Xraw = digits.data
+yraw = digits.target
+Xraw_train, Xraw_test, yraw_train, yraw_test = train_test_split(Xraw, yraw, random_state=1, test_size=0.8)
+clfraw = svm.SVC(kernel='rbf', C=10)
 clfraw.fit(Xraw_train, yraw_train)
 
-<span class="hljs-attr">yraw_pred</span> = clfraw.predict(Xraw_test)
-<span class="hljs-attr">accuracyraw</span> = metrics.accuracy_score(<span class="hljs-attr">y_true=yraw_test,</span> <span class="hljs-attr">y_pred=yraw_pred)</span>
-print(<span class="hljs-string">"Accuracy of Raw Model:"</span>, accuracyraw)
+yraw_pred = clfraw.predict(Xraw_test)
+accuracyraw = metrics.accuracy_score(y_true=yraw_test, y_pred=yraw_pred)
+print("Accuracy of Raw Model:", accuracyraw)
             </code></pre>
             
             <blockquote>
                 <p>Output:</p>
             </blockquote>
 
-            <pre><code>
-<span class="hljs-keyword">Accuracy</span> of <span class="hljs-keyword">Raw</span> Model: <span class="hljs-number">0.9756606397774688</span>
+            <pre><code class="nohighlight">
+Accuracy of Raw Model: 0.9756606397774688
             </code></pre>
 
             <br>
@@ -217,24 +221,24 @@ print(<span class="hljs-string">"Accuracy of Raw Model:"</span>, accuracyraw)
                 <p>Python Code:</p>
             </blockquote>
 
-            <pre><code>
-            <span class="hljs-attr">k</span> = <span class="hljs-number">10</span>
-            X_traink, X_testk, y_traink, <span class="hljs-attr">y_testk</span> = train_test_split(X, y, <span class="hljs-attr">random_state=1,</span> <span class="hljs-attr">test_size=0.8)</span>
-            <span class="hljs-attr">clfk</span> = KNeighborsClassifier(<span class="hljs-attr">n_neighbors=k)</span>
-            clfk.fit(X_traink, y_traink)
-            
-            <span class="hljs-attr">y_predk</span> = clfk.predict(X_testk)
-            <span class="hljs-attr">accuracyk</span> = metrics.accuracy_score(<span class="hljs-attr">y_true=y_testk,</span> <span class="hljs-attr">y_pred=y_predk)</span>
-            <span class="hljs-attr">confusionmatrix</span> = metrics.confusion_matrix(<span class="hljs-attr">y_true=y_testk,</span> <span class="hljs-attr">y_pred=y_predk)</span>
-            print(<span class="hljs-string">"Accuracy of Model:"</span>, accuracyk)
+            <pre><code class="language-python">
+k = 10
+X_traink, X_testk, y_traink, y_testk = train_test_split(X, y, random_state=1, test_size=0.8)
+clfk = KNeighborsClassifier(n_neighbors=k)
+clfk.fit(X_traink, y_traink)
+
+y_predk = clfk.predict(X_testk)
+accuracyk = metrics.accuracy_score(y_true=y_testk, y_pred=y_predk)
+confusionmatrix = metrics.confusion_matrix(y_true=y_testk, y_pred=y_predk)
+print("Accuracy of Model:", accuracyk)
             </code></pre>
 
             <blockquote>
                 <p>Output:</p>
             </blockquote>
             
-            <pre><code>
-Accuracy <span class="hljs-keyword">of</span> Model: <span class="hljs-number">0.9123783031988874</span>
+            <pre><code class="nohighlight">
+Accuracy of Model: 0.9123783031988874
             </code></pre>
             
             <p>Since we are looking at the accuracy of the model predicting the digits, we will need to look at the misclassified digits. Using the code below, we find the index of each misclassified digit and then generate an image.</p>
@@ -243,21 +247,21 @@ Accuracy <span class="hljs-keyword">of</span> Model: <span class="hljs-number">0
                 <p>Python Code:</p>
             </blockquote>
 
-            <pre><code>
-<span class="hljs-keyword">index</span> = <span class="hljs-number">0</span>
+            <pre><code class="language-python">
+index = 0
 misclassified_imagesk = []
-<span class="hljs-keyword">for</span> <span class="hljs-keyword">label</span>, predict <span class="hljs-keyword">in</span> zip(y_testk, y_predk):
-    <span class="hljs-keyword">if</span> <span class="hljs-keyword">label</span> != predict: 
-        misclassified_imagesk.append(<span class="hljs-keyword">index</span>)
-    <span class="hljs-keyword">index</span> +=<span class="hljs-number">1</span>
-
-plt.figure(figsize=(<span class="hljs-number">10</span>,<span class="hljs-number">10</span>))
-plt.suptitle(<span class="hljs-string">'K-NN Misclassified Digits'</span>);
-<span class="hljs-keyword">for</span> plot_indexk, bad_indexk <span class="hljs-keyword">in</span> enumerate(misclassified_imagesk[<span class="hljs-number">0</span>:]):
-    p = plt.subplot(<span class="hljs-number">9</span>, <span class="hljs-number">14</span>, plot_indexk+<span class="hljs-number">1</span>)
-
-    p.imshow(X_test[bad_indexk].reshape(<span class="hljs-number">8</span>,<span class="hljs-number">8</span>), cmap=<span class="hljs-string">'Greys'</span>,
-            interpolation=<span class="hljs-string">'nearest'</span>)
+for label, predict in zip(y_testk, y_predk):
+    if label != predict: 
+        misclassified_imagesk.append(index)
+    index +=1
+    
+plt.figure(figsize=(10,10))
+plt.suptitle('K-NN Misclassified Digits');
+for plot_indexk, bad_indexk in enumerate(misclassified_imagesk[0:]):
+    p = plt.subplot(9, 14, plot_indexk+1)
+    
+    p.imshow(X_test[bad_indexk].reshape(8,8), cmap='Greys',
+            interpolation='nearest')
     p.set_xticks(()); p.set_yticks(())
             </code></pre>
 
@@ -268,7 +272,7 @@ plt.suptitle(<span class="hljs-string">'K-NN Misclassified Digits'</span>);
             <p>Using Cross Validation to find the accuracy of K-NN we get: </p>
 
             <pre><code>
-[<span class="hljs-number">0.91666667</span>, <span class="hljs-number">0.96111111</span>, <span class="hljs-number">0.96666667</span>, <span class="hljs-number">0.9</span>, <span class="hljs-number">0.95</span>, <span class="hljs-number">0.96666667</span>, <span class="hljs-number">0.97222222</span>, <span class="hljs-number">0.95530726</span>, <span class="hljs-number">0.95530726</span>, <span class="hljs-number">0.93854749</span>]
+[0.91666667, 0.96111111, 0.96666667, 0.9, 0.95, 0.96666667, 0.97222222, 0.95530726, 0.95530726, 0.93854749]
             </code></pre>
             
             <p>Thus, the highest accuracy using Cross Validation is 0.97.</p>
@@ -282,21 +286,21 @@ plt.suptitle(<span class="hljs-string">'K-NN Misclassified Digits'</span>);
                 <p>Python Code:</p>
             </blockquote>
 
-            <pre><code>
-<span class="hljs-attr">lfk</span> = KNeighborsClassifier(<span class="hljs-attr">n_neighbors=1)</span>
+            <pre><code class="language-python">
+lfk = KNeighborsClassifier(n_neighbors=1)
 clfk.fit(X_traink, y_traink)
 
-<span class="hljs-attr">y_predk</span> = clfk.predict(X_testk)
-<span class="hljs-attr">accuracyk</span> = metrics.accuracy_score(<span class="hljs-attr">y_true=y_testk,</span> <span class="hljs-attr">y_pred=y_predk)</span>
-print(<span class="hljs-string">"Accuracy of Raw Model:"</span>, accuracyk)
+y_predk = clfk.predict(X_testk)
+accuracyk = metrics.accuracy_score(y_true=y_testk, y_pred=y_predk)
+print("Accuracy of Raw Model:", accuracyk)
             </code></pre>
 
             <blockquote>
                 <p>Output:</p>
             </blockquote>
             
-            <pre><code>
-<span class="hljs-keyword">Accuracy</span> of <span class="hljs-keyword">Raw</span> Model: <span class="hljs-number">0.9666203059805285</span>
+            <pre><code class="nohighlight">
+Accuracy of Raw Model: 0.9666203059805285
             </code></pre>
             
             <br>
