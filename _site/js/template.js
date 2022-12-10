@@ -222,3 +222,5 @@ class Footer2 extends HTMLElement {
     `;
   }
 }
+
+customElements.define('footer-component2', Footer2);

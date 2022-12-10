@@ -168,13 +168,34 @@
 
             <hr>
 
+            <blockquote>
+                <p>Python Code:</p>
+            </blockquote>
+
+            <pre><code>
+start_date = "01/01/1948"
+end_date = "12/31/2022"
+df = dataframe[(dataframe['DATE'] > start_date) & (dataframe['DATE'] < end_date)]
+
+x_axis = df['DATE'].values
+y_axis1 = df['INFRATE'].values
+y_axis2 = df['UNRATE'].values
+
+# Create the plot.
+plt.plot(x_axis, y_axis1, label = "Inflation")
+plt.plot(x_axis, y_axis2, label = "Unemployement")
+
+uni_mod = smf.ols(formula="INFRATE ~ UNRATE", data = df)
+uni_result = uni_mod.fit()
+            </code></pre>
+
+            <p>We will use the same structure of Python code to display the graph and the linear regression from the different periods.</p>
+
             <h5 id="period-1-1948-1966-results-"><b>Period 1 (1948 - 1966) results:</b></h5>
 
-            <img src="https://user-images.githubusercontent.com/29410712/196335047-1dfbc943-9a49-4ef1-bebf-1f8e476ec41a.png"  class="image">
+            <img src="https://user-images.githubusercontent.com/29410712/196335047-1dfbc943-9a49-4ef1-bebf-1f8e476ec41a.png"  class="image50">
 
-            <pre>
-                <code>
-                    <span class="hljs-section">
+            <pre><code><span class="hljs-section">
                             OLS Regression Results                            
 ==============================================================================</span>
 Dep. Variable:                INFRATE   R-squared:                       0.017
@@ -196,10 +217,8 @@ Omnibus:                        0.263   Durbin-Watson:                   0.067
 Prob(Omnibus):                  0.877   Jarque-Bera (JB):                0.376
 Skew:                           0.091   Prob(JB):                        0.829
 Kurtosis:                       2.835   Cond. No.                         29.4
-==============================================================================
-                    </span>
-                </code>
-            </pre>
+==============================================================================</span>
+            </code></pre>
         
             <p>In Period 1, the intercept of the regression is 2.2862 and the R-squared is 0.017. The R-squared is the proportion of the variation in the dependent variable that is predictable from the independent variable. Due to the R-squared being small, it is not the total determinant of inflation. This means that around 1.7% of the variability observed in the target variable is explained by this regression model. Additionally, unemployment is not statistically significant and as unemployment increases by 1%, the inflation rate decreases by 0.1472 percentage points. </p>
             
@@ -207,11 +226,9 @@ Kurtosis:                       2.835   Cond. No.                         29.4
             
             <h5 id="period-2-1967-1984-results-"><b>Period 2 (1967 - 1984) results:</b></h5>
 
-            <img src="https://user-images.githubusercontent.com/29410712/196335940-bd5a3c95-b27c-434a-ace4-20855a61594d.png"  class="image">
+            <img src="https://user-images.githubusercontent.com/29410712/196335940-bd5a3c95-b27c-434a-ace4-20855a61594d.png"  class="image50">
 
-            <pre>
-                <code>
-                    <span class="hljs-section">
+            <pre><code><span class="hljs-section">
                             OLS Regression Results                            
 ==============================================================================</span>
 Dep. Variable:                INFRATE   R-squared:                       0.025
@@ -234,8 +251,7 @@ Prob(Omnibus):                  0.000   Jarque-Bera (JB):               18.012
 Skew:                           0.666   Prob(JB):                     0.000123
 Kurtosis:                       2.515   Cond. No.                         24.2
 ==============================================================================</span>
-                </code>
-            </pre>
+            </code></pre>
 
             <p>In Period 2, the intercept of the regression is 5.0465 and the R-squared is 0.025. The R-squared is the proportion of the variation in the dependent variable that is predictable from the independent variable. This means that 2.5% of the variability observed in the target variable is explained by this regression model. Additionally, unemployment is statistically significant and as unemployment increases by 1%, inflation increases by 0.2652 percentage points. </p>
             
@@ -243,11 +259,9 @@ Kurtosis:                       2.515   Cond. No.                         24.2
             
             <h5 id="period-3-1985-2002-results-"><b>Period 3 (1985 - 2002) results:</b></h5>
 
-            <img src="https://user-images.githubusercontent.com/29410712/196336460-fd761db6-3e6c-4dc8-af94-33d2d7d6ce45.png"  class="image">
+            <img src="https://user-images.githubusercontent.com/29410712/196336460-fd761db6-3e6c-4dc8-af94-33d2d7d6ce45.png"  class="image50">
 
-            <pre>
-                <code>
-                    <span class="hljs-section">
+            <pre><code><span class="hljs-section">
                                         OLS Regression Results                            
 ==============================================================================</span>
 Dep. Variable:                INFRATE   R-squared:                       0.010
@@ -270,8 +284,7 @@ Prob(Omnibus):                  0.008   Jarque-Bera (JB):               10.056
 Skew:                           0.529   Prob(JB):                      0.00655
 Kurtosis:                       2.942   Cond. No.                         33.4
 ==============================================================================</span>
-                </code>
-            </pre>
+            </code></pre>
 
             <p>In Period 3, the intercept of the regression is 2.4887 and the R-squared is 0.010. The R-squared is the proportion of the variation in the dependent variable that is predictable from the independent variable. Due to the R-squared being small, it is not the total determinant of inflation. This means that around 1% of the variability observed in the target variable is explained by this regression model. Additionally, unemployment is not statistically significant and as unemployment increases by 1%, the inflation rate increases by 0.1064 percentage points.  </p>
             
@@ -279,11 +292,9 @@ Kurtosis:                       2.942   Cond. No.                         33.4
             
             <h5 id="period-4-2003-2022-results-"><b>Period 4 (2003 - 2022) results:</b></h5>
 
-            <img src="https://user-images.githubusercontent.com/29410712/196337079-2b0bf44f-3fe4-418a-9329-91e1bdf036d8.png"  class="image">
+            <img src="https://user-images.githubusercontent.com/29410712/196337079-2b0bf44f-3fe4-418a-9329-91e1bdf036d8.png"  class="image50">
 
-            <pre>
-                <code>
-                    <span class="hljs-section">
+            <pre><code><span class="hljs-section">
                             OLS Regression Results                            
 ==============================================================================</span>
 Dep. Variable:                INFRATE   R-squared:                       0.147
@@ -306,8 +317,7 @@ Prob(Omnibus):                  0.000   Jarque-Bera (JB):               61.971
 Skew:                           1.038   Prob(JB):                     3.49e-14
 Kurtosis:                       4.412   Cond. No.                         20.5
 ==============================================================================</span>
-                </code>
-            </pre>
+            </code></pre>
             
             <p>In Period 4, the intercept of the regression is 4.5071 and the R-squared is 0.147. The R-squared is the proportion of the variation in the dependent variable that is predictable from the independent variable. This means that 14.7% of the variability observed in the target variable is explained by this regression model. Additionally, unemployment is statistically significant and as unemployment increases by 1%, inflation decreases by 0.3454 percentage points.   </p>
             
@@ -315,11 +325,9 @@ Kurtosis:                       4.412   Cond. No.                         20.5
             
             <h5 id="overall-1948-2022-results-"><b>Overall (1948 - 2022) results:</b></h5>
 
-            <img src="https://user-images.githubusercontent.com/29410712/196337627-b6f3fccc-51ce-477a-9ac6-cb302b8afd37.png"  class="image">
+            <img src="https://user-images.githubusercontent.com/29410712/196337627-b6f3fccc-51ce-477a-9ac6-cb302b8afd37.png"  class="image50">
 
-            <pre>
-                <code>
-                    <span class="hljs-section">
+            <pre><code><span class="hljs-section">
                             OLS Regression Results                            
 ==============================================================================</span>
 Dep. Variable:                INFRATE   R-squared:                       0.011
@@ -342,8 +350,7 @@ Prob(Omnibus):                  0.000   Jarque-Bera (JB):              469.262
 Skew:                           1.439   Prob(JB):                    1.26e-102
 Kurtosis:                       5.340   Cond. No.                         23.2
 ==============================================================================</span>
-                </code>
-            </pre>
+            </code></pre>
             
             <p>Overall, the intercept of the regression is 2.5340 and the R-squared is 0.011. The R-squared is the proportion of the variation in the dependent variable that is predictable from the independent variable. In this case, unemployment does have an impact on inflation, but due to the R-squared being small, it is not the total determinant of inflation. This means that 1.1% of the variability observed in the target variable is explained by this regression model. Additionally, unemployment is statistically significant and as unemployment increases by 1%, inflation increases by 0.1759 percentage points.</p>
             
@@ -354,10 +361,21 @@ Kurtosis:                       5.340   Cond. No.                         23.2
             <hr>
 
             <p>In our next analysis, we will only look at the years 1993 - 2022 since the data available for <code>SPY</code> is between this time period.</p>
+
+            <blockquote>
+                <p>Python Code:</p>
+            </blockquote>
+
+            <pre><code>
+uni_mod = smf.ols(formula="INFRATE ~ UNRATE + DFF + SPY", data = other_df)
+uni_result = uni_mod.fit()
+            </code></pre>
+
+            <blockquote>
+                <p>Output:</p>
+            </blockquote>
             
-            <pre>
-                <code>
-                    <span class="hljs-section">
+            <pre><code><span class="hljs-section">
                             OLS Regression Results                            
 ==============================================================================</span>
 Dep. Variable:                INFRATE   R-squared:                       0.234
@@ -382,8 +400,7 @@ Prob(Omnibus):                  0.000   Jarque-Bera (JB):               50.053
 Skew:                           0.710   Prob(JB):                     1.35e-11
 Kurtosis:                       4.165   Cond. No.                     1.22e+03
 ==============================================================================</span>
-                </code>
-            </pre>
+            </code></pre>
             
             <p>From this analysis, we can see that the intercept of the regression is 1.2686 and the R-squared is 0.234. This means that 23.4% of the variability observed in the target variable is explained by this regression model. From our independent variables, we can see that the unemployment rate is not statistically significant while the federal funds rate and S&amp;P 500 are statistically significant. Thus, as the federal funds rate increases by 1%, inflation increases by 0.2578 percentage points. This makes sense because the Federal Reserve increases the rate to combat inflation. High fed funds rate is correlated to high inflation etc. Additionally, as the price of the S&amp;P 500 Index increase by 1 percentage point, inflation increases by 0.007 percentage points. It shows that there is some impact from the S&amp;P 500, but it isn&#39;t large.</p>
             

@@ -134,7 +134,38 @@
             IQR = Q_3 - Q_1
             $$
 
-            <p>The outlier cutoff is the interquartile range times by 1.5 and subtracted from the lower and upper bounds. The data points that are above the upper bound and below the lower bound this cutoff will be removed to get a more precise analysis without outliers. The second scatterplot illustrates the data without the outliers:</p>
+            <p>
+                The outlier cutoff is the interquartile range times by 1.5 and subtracted from the lower and upper bounds. The data points that are above the upper bound and below the lower bound this cutoff will be removed to get a more precise analysis without outliers.
+                Here is an example of how we removed the outliers of each city.
+            </p>
+
+            <blockquote>
+                <p>Python Code:</p>
+            </blockquote>
+
+            <pre><code>
+# # Salt Lake City Box Plot
+outlier = df.loc[df["city"] == "Salt Lake City"]
+outlier = outlier['price']
+
+# Remove Salt Lake City Outliers
+# Calculate interquartile range
+q25, q75 = np.percentile(outlier, 25), np.percentile(outlier, 75)
+iqr = q75 - q25
+
+# Calculate the outlier cutoff
+cut_off = iqr * 1.5
+lower, upper = q25 - cut_off, q75 + cut_off
+
+# Identify outliers
+outliers = [x for x in outlier if x < lower or x > upper]
+
+# Remove outliers
+df = df.drop(df[(df['city'] == 'Salt Lake City') & (df['price'] < lower)].index)
+df = df.drop(df[(df['city'] == 'Salt Lake City') & (df['price'] > upper)].index)
+            </code></pre>
+
+            <p>The second scatterplot illustrates the data without the outliers:</p>
 
             <img src="https://user-images.githubusercontent.com/29410712/203438013-477acca7-14af-401b-9a20-12426841631b.png" alt="AC Home Price Scatter" class="center">
 
@@ -164,17 +195,53 @@
 
             <hr>
 
-            <img src="https://user-images.githubusercontent.com/29410712/203144090-4bd1d62c-f755-4d2d-8b90-1aa00e17cedc.png" alt="saltlake" class="center image">
+            <img src="https://user-images.githubusercontent.com/29410712/203144090-4bd1d62c-f755-4d2d-8b90-1aa00e17cedc.png" alt="saltlake" class="center image70">
 
             <br>
 
             <p>Geospatial data defines specific geographical locations, either in the form of latitude and longitude coordinates or text fields with names of geographical areas, such as countries or states. Geospatial charts combine geospatial data with other forms of data to create map-based charts. Our geodata contains (x, y) coordinates of geographical locations. The geometric shapes in a GeoSeries or GeoDataFrame object are simply a collection of coordinates in an arbitrary space. The Coordinate Reference System (CRS) tells Python how those coordinates relate to places on the Earth and is used to project the location coordinates onto a map for visualization. We will use the WGS84 latitude-longitude projection. </p>
             <p>We will use two of the variables, latitude and longitude, of each listing to visualize the data of Salt Lake County with GeoPandas, a high-level interface Python library for making maps. This can be referred by using the authority code <code>EPSG:4326</code>.</p>
+            
+            <blockquote>
+                <p>Python Code:</p>
+            </blockquote>
+
+            <pre><code>
+crs = 'EPSG:4326'
+geometry = [Point(xy) for xy in zip(df['longitude'], df['latitude'])]
+geo_df = gpd.GeoDataFrame(df, crs = crs, geometry = geometry)
+            </code></pre>
+
             <p>We then created heat maps showcasing the distribution of property prices and sqft:</p>
+
+            <blockquote>
+                <p>Python Code:</p>
+            </blockquote>
+
+            <pre><code>
+geo_df['price_log'] = np.log(geo_df['price'])
+fig, ax = plt.subplots(figsize = (10,10))
+utah_map.to_crs(epsg=4326).plot(ax=ax, color='lightgrey')
+geo_df.plot(column = 'price_log', ax=ax, cmap = 'inferno',
+            legend = True, legend_kwds={'shrink': 0.5}, markersize = 15)
+            </code></pre>
 
             <img src="https://user-images.githubusercontent.com/29410712/203021376-8a353e56-80d3-4256-b7b1-59b43c6901c6.png" alt="Price Heat Map" class="center">
 
             <p>From the price heat map of Salt Lake County, we can see that a majority of the higher priced real estate properties are located on the east side of the Salt Lake valley. This corresponds with our previous analysis since Draper and Holladay are located in this area. Additionally, lower priced homes are located on the west side of Salt Lake City.</p>
+
+            <blockquote>
+                <p>Python Code:</p>
+            </blockquote>
+
+            <pre><code>
+geo_df['sqft_log'] = np.log(geo_df['sqft'])
+fig, ax = plt.subplots(figsize = (10,10))
+utah_map.to_crs(epsg=4326).plot(ax=ax, color='lightgrey')
+geo_df.plot(column = 'sqft_log', ax=ax, cmap = 'inferno',
+            legend = True, legend_kwds={'shrink': 0.5},
+            alpha = .5)
+            </code></pre>
 
             <img src="https://user-images.githubusercontent.com/29410712/203021397-f9a790c7-c4cd-484c-9062-64cfc847c19e.png" alt="Sqft Heat Map" class="center">
 
@@ -204,8 +271,20 @@
 
             <p>where $x_n$ are predictive variables.</p>
 
-            <pre>
-                <code>                            
+            <blockquote>
+                <p>Python Code:</p>
+            </blockquote>
+
+            <pre><code>
+mod = sm.ols(formula="price ~ sqft + beds + baths + proptype", data = df)
+res = mod.fit()
+            </code></pre>
+
+            <blockquote>
+                <p>Output:</p>
+            </blockquote>
+
+            <pre><code>                            
                             OLS Regression Results                            
 ==============================================================================
 Dep. Variable:                  price   R-squared:                       0.640
@@ -231,8 +310,7 @@ Prob(Omnibus):                  0.000   Jarque-Bera (JB):             7474.571
 Skew:                           1.898   Prob(JB):                         0.00
 Kurtosis:                      11.750   Cond. No.                     9.78e<span class="hljs-string">+03</span>
 ==============================================================================
-                </code>
-            </pre>
+            </code></pre>
 
             <p>In the multiple linear regression model, the intercept of the regression is 102,400 and the R-squared is 0.640. The R-squared is the proportion of the variation in the dependent variable that is predictable from the independent variable. This means that around 64.0% of the variability observed in the target variable is explained by this regression model. Additionally, all the variables are statistically significant at an alpha of 5% and can be used to predict the listed price of the real estate property. With further clarification, as the sqft of the real estate property and the number of baths increase by one, the price increases by 181 and 27220, respectively. Moreover, as the number of bedrooms increase by one, the price actually decreases by 8116. We can also see that if the real estate property is a Single Family Home, it increases the price of the property. </p>
 
@@ -251,13 +329,10 @@ Kurtosis:                      11.750   Cond. No.                     9.78e<span
             <p>Principal Component Analysis (PCA) is one of the most used unsupervised machine learning algorithms across a variety of applications: exploratory data analysis, dimensionality reduction, information compression, and data de-noising. PCA is a dimensionality reduction technique that transforms a set of features in a dataset into a smaller number of features called principal components while at the same time trying to retain as much information in the original dataset as possible. Since we have 3 different variables, we have a three-dimensional data set. PCA can take 4 or more variables and make a two-dimensional PCA plot. PCA can also tell us which variable is the most valuable for clustering the data. It also can tell us how accurate the two-dimensional graph is.</p>
 
             <blockquote>
-            <p><b>Python Code:</b></p>
+                <p>Python Code:</p>
             </blockquote>
 
-            <pre>
-                <code>
-==============================================================================
-    
+            <pre><code>  
 from sklearn<span class="hljs-selector-class">.decomposition</span> import PCA
 
 pca_model = PCA(n_components=<span class="hljs-number">3</span>)
@@ -271,10 +346,7 @@ ax1.set_ylim(X_PCA[:,<span class="hljs-number">1</span>].min()-<span class="hljs
 
 <span class="hljs-keyword">for</span> <span class="hljs-selector-tag">i</span>,name <span class="hljs-keyword">in</span> enumerate(<span class="hljs-selector-tag">summary</span>[<span class="hljs-string">'zipcode'</span>].values):
     ax1.annotate(name, (X_PCA[<span class="hljs-selector-tag">i</span>,<span class="hljs-number">0</span>], X_PCA[<span class="hljs-selector-tag">i</span>,<span class="hljs-number">1</span>]), ha=<span class="hljs-string">'center'</span>,fontsize=<span class="hljs-number">10</span>)
-
-==============================================================================
-                </code>
-            </pre>
+            </code></pre>
 
 
             <p>Principal Component Analysis calculates the average of each variable and using this average, finds the center of the data. It then shifts the data so that the center of the data is at the origin. From here, we input principal components. The principal components are vectors, but they are not chosen at random. The first principal component (PC1) is computed so that it explains the greatest amount of variance in the original features. Thus, it minimizes the distance between each data point on the graph (Sum of Squared) so PC1 is a linear combination of variables. </p>
@@ -315,9 +387,28 @@ ax1.set_ylim(X_PCA[:,<span class="hljs-number">1</span>].min()-<span class="hljs
 
             <p>Once all the principal components are figured out, you can use the eigenvalues to determine the proportion of variation that each PC accounts for. Then you can create a scree plot which is a graphical representation of the percentages of variation that each PC accounts for.</p>
 
+            <blockquote>
+                <p>Python Code:</p>
+            </blockquote>
+
+            <pre><code>
+var_ratio = pca_model.explained_variance_ratio_
+
+fig,ax1 = plt.subplots(figsize=(10, 6))
+plt.plot([1,2,3], var_ratio, '-o')
+            </code></pre>
+
             <img src="https://user-images.githubusercontent.com/29410712/203187782-514206c0-9198-4339-8c68-f7837bd136a8.png" alt="scree-plot" class="center">
 
             <p>In this scree plot, we can see that PC1 and PC2 account for the vast majority of the variation. This means that a two-dimensional graph, using just PC1 and PC2 would be a good approximation of this three-dimensional graph since it would account for 99.22% of the variation in the data. Also, a one-dimensional graph would account for 59.98% of the variation in the data.</p>
+
+            <blockquote>
+                <p>Output:</p>
+            </blockquote>
+
+            <pre><code>
+Explained Variance Ratios of the PCA: [0.59977592 0.39255202 0.00767206]
+            </code></pre>
 
             <br>
 
@@ -335,9 +426,35 @@ ax1.set_ylim(X_PCA[:,<span class="hljs-number">1</span>].min()-<span class="hljs
 
             <p>Using the "elbow" or "knee of a curve" as a cutoff point is a common heuristic in mathematical optimization to choose a point where diminishing returns are no longer worth the additional cost. In clustering, this means one should choose a number of clusters so that adding another cluster doesn&#39;t give a much better modeling of the data. The intuition is that increasing the number of clusters will naturally improve the fit (explain more of the variation), since there are more parameters (more clusters) to use, but that at some point this is over-fitting, and the elbow reflects this. We can see that the total intra-cluster distance is large for k = 1 and decreases as we increase k, until k = 6, after which it tapers off and gets only marginally smaller. The slope becomes constant after k = 6. This indicates that k = 6 is a good choice. Therefore, will now cluster the states into six clusters using K-means. </p>
 
+            <blockquote>
+                <p>Python Code:</p>
+            </blockquote>
+
+            <pre><code>
+kmeans = KMeans(n_clusters=6)
+kmeans.fit(X)
+y_kmeans = kmeans.predict(X)
+fig,ax1 = plt.subplots(figsize=(10, 6))
+
+plt.scatter(X[:, 0], X[:, 1], c=y_kmeans, s=50)
+
+for i,name in enumerate(summary['zipcode'].values):
+    ax1.annotate(name, (X[i,0], X[i,1]), ha='center',fontsize=10)
+            </code></pre>
+
             <img src="https://user-images.githubusercontent.com/29410712/203157630-3e2f35b9-9fe7-4717-bb06-4335d841c807.png" alt="K-Mean" class="center">
 
-            <br>
+            <blockquote>
+                <p>Python Code:</p>
+            </blockquote>
+
+            <pre><code>
+df2 = summary['zipcode'].values
+cluster1 = df2[kmeans.labels_==i].tolist()
+            </code></pre>
+
+            <p>Where <code>i</code> is the index of the number of clusters.</p>
+
             <center>
                 <table>
                 <thead>
@@ -375,7 +492,19 @@ ax1.set_ylim(X_PCA[:,<span class="hljs-number">1</span>].min()-<span class="hljs
                 </table>
             </center>
 
-            <br>
+            <blockquote>
+                <p>Python Code:</p>
+            </blockquote>
+
+            <pre><code>
+from pandas.plotting import parallel_coordinates
+
+palette = sns.color_palette("Set1", 10)
+X_df = summary.drop(['zipcode'],axis=1)
+    
+def display_parallel_coordinates_centroids(df, num_clusters):
+    '''Display a parallel coordinates plot for the centroids in df'''
+            </code></pre>
 
             <img src="https://user-images.githubusercontent.com/29410712/203230763-3f7b53a7-0beb-4a16-b3a3-b30b769d4041.png" alt="Parallel-Centroids" class="center">
 
@@ -387,6 +516,22 @@ ax1.set_ylim(X_PCA[:,<span class="hljs-number">1</span>].min()-<span class="hljs
 
             <p>Applying the K-means to the Principal Component Analysis projection data produces an additional categorical constraint to validate the clustering algorithm. In other words, we can use dimensionality reduction as a feature extractor and reveal the different clusters. Based on the updated PCA plot with the clustering, it is consistent with the clustering with the points split into six sections:</p>
 
+            <blockquote>
+                <p>Python Code:</p>
+            </blockquote>
+
+            <pre><code>
+fig,ax1 = plt.subplots(figsize=(10, 6))
+
+ax1.set_xlim(X_PCA[:,0].min()-1,X_PCA[:,0].max()+1)
+ax1.set_ylim(X_PCA[:,1].min()-1,X_PCA[:,1].max()+1)
+
+plt.scatter(X_PCA[:, 0], X_PCA[:, 1], c=y_kmeans, s=50)
+
+for i,name in enumerate(summary['zipcode'].values):
+    ax1.annotate(name, (X_PCA[i,0], X_PCA[i,1]), ha='center',fontsize=10)
+            </code></pre>
+            
             <img src="https://user-images.githubusercontent.com/29410712/203165056-6b1c828b-6dcc-492f-b01e-61d6f91e2077.png" alt="K-Mean-PCA" class="center">
 
             <br>
@@ -395,6 +540,14 @@ ax1.set_ylim(X_PCA[:,<span class="hljs-number">1</span>].min()-<span class="hljs
 
             <p>Similar to K-means clustering, hierarchical clustering, also known as agglomerative clustering, works with groups (clusters) of data points. The algorithm starts by declaring each point with its own cluster, then merges the two most similar clusters until a declared stopping point has been reached. Hierarchical clustering is often associated with heatmaps and organizes the rows and columns based on similarity. This makes it easy to see correlations in the data.</p>
 
+            <blockquote>
+                <p>Python Code:</p>
+            </blockquote>
+
+            <pre><code>
+ff.create_dendrogram(X_PCA, color_threshold=0, labels=summary['zipcode'].values)
+            </code></pre>
+            
             <img src="https://user-images.githubusercontent.com/29410712/203176302-a42e2a89-f66e-4ade-809a-0b36ba9f99f4.png" alt="dendogram" class="center">
 
             <br>
@@ -402,13 +555,10 @@ ax1.set_ylim(X_PCA[:,<span class="hljs-number">1</span>].min()-<span class="hljs
             <p>Additionally, we created a dendogram to know how many clusters to make. A dendrogram is a graph that keeps the values of the points on the x-axis, then connects all the points as they are clustered. This is similar to the elbow curve, as it gives us a better idea of the ideal amount of clusters we want to use. Based on the dendogram above, we will now use hierarchical clustering with complete linkage and Euclidean distance to sort the zipcodes into six clusters. </p>
 
             <blockquote>
-            <p><b>Python Code:</b></p>
+                <p>Python Code:</p>
             </blockquote>
 
-            <pre>
-                <code>
-==============================================================================
-
+            <pre><code>
 from sklearn<span class="hljs-selector-class">.cluster</span> import AgglomerativeClustering
 
 fig,ax1 = plt.subplots(figsize=(<span class="hljs-number">10</span>, <span class="hljs-number">6</span>))
@@ -418,12 +568,20 @@ y_pred = agg_cluster_model.fit_predict(X)
 plt.scatter(X[:, <span class="hljs-number">0</span>], X[:, <span class="hljs-number">1</span>], c=y_pred,  marker=<span class="hljs-string">"o"</span>)
 <span class="hljs-keyword">for</span> <span class="hljs-selector-tag">i</span>,name <span class="hljs-keyword">in</span> enumerate(<span class="hljs-selector-tag">summary</span>[<span class="hljs-string">'zipcode'</span>].values):
     ax1.annotate(name, (X[<span class="hljs-selector-tag">i</span>,<span class="hljs-number">0</span>], X[<span class="hljs-selector-tag">i</span>,<span class="hljs-number">1</span>]), ha=<span class="hljs-string">'center'</span>,fontsize=<span class="hljs-number">10</span>)
-
-==============================================================================
-                </code>
-            </pre>
+            </code></pre>
 
             <img src="https://user-images.githubusercontent.com/29410712/203176736-5c797f25-067d-4624-b98f-dbac6299a9b9.png" alt="Hierarchical" class="center">
+
+            <blockquote>
+                <p>Python Code:</p>
+            </blockquote>
+
+            <pre><code>
+df2 = summary['zipcode'].values
+cluster1 = df2[agg_cluster_model.labels_==i].tolist()
+            </code></pre>
+
+            <p>Where <code>i</code> is the index of the number of clusters.</p>
 
             <center>
                 <table>
@@ -467,6 +625,22 @@ plt.scatter(X[:, <span class="hljs-number">0</span>], X[:, <span class="hljs-num
             <h4 id="hierarchical-clustering-with-principal-component-analysis"><b>Hierarchical Clustering with Principal Component Analysis</b></h4>
 
             <p>Applying the Hierarchical Clustering to the Principal Component Analysis projection data produces an additional categorical constraint to validate the clustering algorithm. In other words, we can use dimensionality reduction as a feature extractor and reveal the different clusters. Based on the updated PCA plot with the clustering, it is consistent with the clustering with the points split into six sections:</p>
+
+            <blockquote>
+                <p>Python Code:</p>
+            </blockquote>
+
+            <pre><code>
+fig,ax1 = plt.subplots(figsize=(10, 6))
+
+ax1.set_xlim(X_PCA[:,0].min()-1,X_PCA[:,0].max()+1)
+ax1.set_ylim(X_PCA[:,1].min()-1,X_PCA[:,1].max()+1)
+
+plt.scatter(X_PCA[:, 0], X_PCA[:, 1], c=y_pred, s=50)
+
+for i,name in enumerate(summary['zipcode'].values):
+    ax1.annotate(name, (X_PCA[i,0], X_PCA[i,1]), ha='center',fontsize=10)
+            </code></pre>
 
             <img src="https://user-images.githubusercontent.com/29410712/203176836-ca08d232-3bc9-4626-bfae-3cbb8d0ee762.png" alt="Hierarchical-PCA" class="center">
         </div>

@@ -72,6 +72,16 @@
 
             <p>In random oversampling, instances of the minority class are randomly selected and added to the training set until the majority and minority classes are balanced. Oversampling addresses class imbalance by duplicating or mimicking existing data. </p>
             
+            <blockquote>
+                <p>Python Code:</p>
+            </blockquote>
+
+            <pre><code>
+from imblearn.over_sampling import RandomOverSampler
+ros = RandomOverSampler(random_state=1)
+X_resampled, y_resampled = ros.fit_resample(X_train, y_train)
+            </code></pre>
+
             <p><b>Balanced Accuracy Score:</b></p>
             
             <pre><code>0<span class="hljs-selector-class">.663188044716539</span></code></pre>
@@ -123,6 +133,16 @@ avg / total       <span class="hljs-number">0.99</span>      <span class="hljs-n
 
             <p>The synthetic minority oversampling technique (SMOTE) is another oversampling approach to deal with unbalanced datasets. In SMOTE, like random oversampling, the size of the minority is increased. The key difference between the two lies in how the minority class is increased in size. As we have seen, in random oversampling, instances from the minority class are randomly selected and added to the minority class. In SMOTE, by contrast, new instances are interpolated. That is, for an instance from the minority class, a number of its closest neighbors is chosen. Based on the values of these neighbors, new values are created.</p>
             
+            <blockquote>
+                <p>Python Code:</p>
+            </blockquote>
+
+            <pre><code>
+from imblearn.over_sampling import SMOTE
+X_resampled, y_resampled = SMOTE(random_state=1,
+sampling_strategy='auto').fit_resample(X_train, y_train)
+            </code></pre>
+
             <p><b>Balanced Accuracy Score:</b></p>
 
             <pre><code>0<span class="hljs-selector-class">.6621894942066704</span></code></pre>
@@ -174,6 +194,16 @@ avg / total       <span class="hljs-number">0.99</span>      <span class="hljs-n
 
             <p>Cluster centroid undersampling is akin to SMOTE. The algorithm identifies clusters of the majority class, then generates synthetic data points, called centroids, that are representative of the clusters. The majority class is then undersampled down to the size of the minority class.</p>
             
+            <blockquote>
+                <p>Python Code:</p>
+            </blockquote>
+
+            <pre><code>
+from imblearn.under_sampling import ClusterCentroids
+cc = ClusterCentroids(random_state=1)
+X_resampled, y_resampled = cc.fit_resample(X_train, y_train)
+            </code></pre>
+            
             <p><b>Balanced Accuracy Score:</b></p>
 
             <pre><code>0<span class="hljs-selector-class">.5447339051023905</span></code></pre>
@@ -224,6 +254,16 @@ avg / total       <span class="hljs-number">0.99</span>      <span class="hljs-n
             <h5 id="smoteenn-combination-sampling-"><b>SMOTEENN (Combination Sampling)</b></h5>
 
             <p>SMOTEENN is an approach to resampling that combines aspects of both oversampling and undersampling.</p>
+
+            <blockquote>
+                <p>Python Code:</p>
+            </blockquote>
+
+            <pre><code>
+from imblearn.combine import SMOTEENN
+smote_enn = SMOTEENN(random_state=0)
+X_resampled, y_resampled = smote_enn.fit_resample(X, y)
+            </code></pre>
             
             <p><b>Balanced Accuracy Score:</b></p>
 
@@ -282,6 +322,16 @@ avg / total       <span class="hljs-number">0.99</span>      <span class="hljs-n
 
             <p>Instead of having a single, complex tree like the ones created by decision trees, a random forest algorithm will sample the data and build several smaller, simpler decision trees. Each tree is simpler because it is built from a random subset of features.</p>
             
+            <blockquote>
+                <p>Python Code:</p>
+            </blockquote>
+
+            <pre><code>
+from imblearn.ensemble import BalancedRandomForestClassifier
+rf_model = BalancedRandomForestClassifier(n_estimators=100, random_state=1)
+rf_model.fit(X_train, y_train)
+            </code></pre>
+
             <p><b>Balanced Accuracy Score:</b></p>
 
             <pre><code>0<span class="hljs-selector-class">.7885466545953005</span></code></pre>
@@ -333,6 +383,16 @@ avg / total       <span class="hljs-number">0.99</span>      <span class="hljs-n
 
             <p>In AdaBoost, a model is trained and then evaluated. After evaluating the errors of the first model, another model is trained. This time, however, the model gives extra weight to the errors from the previous model. The purpose of this weighting is to minimize similar errors in subsequent models. Then, the errors from the second model are given extra weight for the third model. This process is repeated until the error rate is minimized.</p>
             
+            <blockquote>
+                <p>Python Code:</p>
+            </blockquote>
+
+            <pre><code>
+from imblearn.ensemble import EasyEnsembleClassifier
+EE_model = EasyEnsembleClassifier(n_estimators=100, random_state=1)
+EE_model.fit(X_train, y_train)
+            </code></pre>
+
             <p><b>Balanced Accuracy Score:</b></p>
 
             <pre><code>0<span class="hljs-selector-class">.9316600714093861</span></code></pre>

@@ -102,7 +102,7 @@
             $$
 
             <blockquote>
-                <p><b>R Code:</b></p>
+                <p>R Code:</p>
             </blockquote>
 
             <pre><code>
@@ -111,7 +111,7 @@ summary(<span class="hljs-name">lm</span>(<span class="hljs-name">mpg</span> ~ A
             </code></pre>
             
             <blockquote>
-                <p><b>Output:</b></p>
+                <p>Output:</p>
             </blockquote>
 
             <pre><code>
@@ -152,6 +152,10 @@ F-statistic: 22.07 on 5 and 44 DF,  p-value: 5.35e<span class="hljs-string">-11<
             
             <h5 id="total-suspension-summary"><b>Total Suspension Summary</b></h5>
 
+            <blockquote>
+                <p>R Code:</p>
+            </blockquote>
+
             <pre><code>
 total_summary &lt;- suspension %&gt;% <span class="hljs-keyword">summarize</span>(<span class="hljs-keyword">Mean</span>=<span class="hljs-keyword">mean</span>(PSI),<span class="hljs-keyword">Median</span>=<span class="hljs-keyword">median</span>(PSI),Variance=<span class="hljs-keyword">var</span>(PSI),SD=sd(PSI), .groups = '<span class="hljs-keyword">keep</span>')
             </code></pre>
@@ -186,6 +190,10 @@ total_summary &lt;- suspension %&gt;% <span class="hljs-keyword">summarize</span
             <br>
             
             <h5 id="individual-lot-suspension-summary"><b>Individual Lot Suspension Summary</b></h5>
+
+            <blockquote>
+                <p>R Code:</p>
+            </blockquote>
 
             <pre><code>
 lot_summary &lt;- suspension %&gt;% group_by(Manufacturing_Lot) %&gt;% <span class="hljs-keyword">summarize</span>(<span class="hljs-keyword">Mean</span>=<span class="hljs-keyword">mean</span>(PSI),<span class="hljs-keyword">Median</span>=<span class="hljs-keyword">median</span>(PSI),Variance=<span class="hljs-keyword">var</span>(PSI),SD=sd(PSI), .groups = '<span class="hljs-keyword">keep</span>')
@@ -262,9 +270,17 @@ lot_summary &lt;- suspension %&gt;% group_by(Manufacturing_Lot) %&gt;% <span cla
 
             <h5 id="total-t-test-summary"><b>Total T-Test Summary</b></h5>
 
+            <blockquote>
+                <p>R Code:</p>
+            </blockquote>
+
             <pre><code>
 t.<span class="hljs-keyword">test</span>((suspension<span class="hljs-variable">$PSI</span>),mu=1500)
             </code></pre>
+
+            <blockquote>
+                <p>Output:</p>
+            </blockquote>
             
             <pre><code>    
         <span class="hljs-keyword">One</span> <span class="hljs-keyword">Sample</span> t-<span class="hljs-keyword">test</span>
@@ -285,9 +301,17 @@ alternative hypothesis: true <span class="hljs-keyword">mean</span> is not equal
             
             <h5 id="lot-1-t-test-summary"><b>Lot 1 T-Test Summary</b></h5>
 
+            <blockquote>
+                <p>R Code:</p>
+            </blockquote>
+
             <pre><code>
 t.test(subset(suspension, <span class="hljs-attr">Manufacturing_Lot</span> == <span class="hljs-string">"Lot1"</span>)$PSI, <span class="hljs-attr">mu=1500)</span>
             </code></pre>
+
+            <blockquote>
+                <p>Output:</p>
+            </blockquote>
             
             <pre><code>
         <span class="hljs-keyword">One</span> <span class="hljs-keyword">Sample</span> t-<span class="hljs-keyword">test</span>
@@ -308,9 +332,19 @@ alternative hypothesis: true <span class="hljs-keyword">mean</span> is not equal
             
             <h5 id="lot-2-t-test-summary"><b>Lot 2 T-Test Summary</b></h5>
 
+            <blockquote>
+                <p>R Code:</p>
+            </blockquote>
+
             <pre><code>
 t.test(subset(suspension, <span class="hljs-attr">Manufacturing_Lot</span> == <span class="hljs-string">"Lot2"</span>)$PSI, <span class="hljs-attr">mu=1500)</span>
-            </code></pre><pre><code>
+            </code></pre>
+
+            <blockquote>
+                <p>Output:</p>
+            </blockquote>
+            
+            <pre><code>
         <span class="hljs-keyword">One</span> <span class="hljs-keyword">Sample</span> t-<span class="hljs-keyword">test</span>
             
 data:  subset(suspension, Manufacturing_Lot == <span class="hljs-string">"Lot2"</span>)<span class="hljs-variable">$PSI</span>
@@ -329,9 +363,17 @@ alternative hypothesis: true <span class="hljs-keyword">mean</span> is not equal
 
             <h5 id="lot-3-t-test-summary"><b>Lot 3 T-Test Summary</b></h5>
 
+            <blockquote>
+                <p>R Code:</p>
+            </blockquote>
+
             <pre><code>
 t.test(subset(suspension, <span class="hljs-attr">Manufacturing_Lot</span> == <span class="hljs-string">"Lot3"</span>)$PSI, <span class="hljs-attr">mu=1500)</span>
             </code></pre>
+
+            <blockquote>
+                <p>Output:</p>
+            </blockquote>
             
             <pre><code>
         <span class="hljs-keyword">One</span> <span class="hljs-keyword">Sample</span> t-<span class="hljs-keyword">test</span>

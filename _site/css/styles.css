@@ -26,7 +26,7 @@
 body {
   padding-top: 54px;
   overflow-y:scroll;
-  font-family: 'Arial, Helvetica', sans-serif;
+  font-family:  -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto;
   height: 100%;
 }  
 
@@ -39,10 +39,21 @@ hr {
   body {
     padding-top: 56px;
   }
-  .image{
-    width: 70%;
-    height: 70%
+  .image50{
+    width: 50%;
+    height: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
   }
+  .image70{
+    width: 70%;
+    height: 70%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
 }
 
 .portfolio-item {
@@ -290,7 +301,7 @@ table {
 }
 
 td, th {
-  border: 2px solid black;
+  border: 1px solid black;
   text-align: center;
   padding: 8px;
 }
@@ -309,15 +320,37 @@ img {
 
 code {
   word-wrap: normal;
-  color: #333;
+  background-color: rgba(27,31,35,.05);
+  color: black;
 }
-
 pre {
   padding: 8px 15px;
-  background: #f8f8f8;
+  background: #f6f8fa;
   border-radius: 5px;
   border: 1px solid #e5e5e5;
   overflow-x: auto; 
+}
+blockquote {
+  /* background: #f6f8fa; */
+  border-left: 0.25em solid #dfe2e5;
+  /* margin: 1.5em 10px; */
+  padding: 0 1em;
+  margin-top: 20px;
+}
+blockquote:before {
+  color: #ccc;
+  /* content: open-quote; */
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+blockquote p {
+  display: inline;
+  font-size: normal;
+  color: #6a737d;
+  display: block;
+  /* font-weight: bold; */
 }
 
 .center {
@@ -374,3 +407,4 @@ pre {
   text-decoration: none;
   /* display: inline-block; */
 }
+
