@@ -216,7 +216,7 @@ class Footer2 extends HTMLElement {
       <footer>
           <div class="footer-margin"></div>
 
-          <div class="footer-bottom">
+          <div class="footer-bottom"> 
               <p class='m-0 text-center text-white' id='copyright'>&copy; ` + new Date().getFullYear() + ` ANTHONY DO, ALL RIGHTS RESERVED</p>
           </div>
       </footer>
