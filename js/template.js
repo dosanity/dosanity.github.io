@@ -187,10 +187,10 @@ class Footer extends HTMLElement {
         <footer>
             <div class="footer-margin"></div>
             
-            <a href="https://www.instagram.com/dosanity/?hl=en"><img class="contacts-btn" src="assets/images/icons/insta.png"></a>
-            <a href="mailto:anthonydo888@gmail.com"><img class="contacts-btn" src="assets/images/icons/email.png"></a>
-            <a href="https://www.linkedin.com/in/dosanity/"><img class="contacts-btn" src="assets/images/icons/linkedin.png"></a>
-            <a href="https://github.com/dosanity"><img class="contacts-btn" src="assets/images/icons/github.png"></a>
+            <a href="https://www.instagram.com/dosanity/?hl=en"><img class="contacts-btn" src="../assets/images/icons/insta.png"></a>
+            <a href="mailto:anthonydo888@gmail.com"><img class="contacts-btn" src="../assets/images/icons/email.png"></a>
+            <a href="https://www.linkedin.com/in/dosanity/"><img class="contacts-btn" src="../assets/images/icons/linkedin.png"></a>
+            <a href="https://github.com/dosanity"><img class="contacts-btn" src="../assets/images/icons/github.png"></a>
 
             <div class="footer-bottom">
                 <p class='m-0 text-center text-white' id='copyright'>&copy; ` + new Date().getFullYear() + ` ANTHONY DO, ALL RIGHTS RESERVED</p>
