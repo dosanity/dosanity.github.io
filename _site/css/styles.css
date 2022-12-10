@@ -191,8 +191,8 @@ hr {
 }
 
 .pdfbtn:hover {
-  background-color: #1DA1F2;
-  border: 3px solid #1DA1F2;
+  background-color: black;
+  border: 3px solid black;
   border-radius: 4px;
   color: white;
   padding: 5px 10px;
