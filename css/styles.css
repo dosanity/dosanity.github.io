@@ -103,7 +103,8 @@ hr {
 }
 .footer-bottom{
 	width: 100%;
-	padding: 20px 0;
+	padding: 2px 0;
+  font-size: 12px;
 	text-align: center;
   background-color: black;
   color: white;
@@ -121,6 +122,17 @@ hr {
   width: 150px;
   border: 4px solid transparent;
 }
+
+.contacts-btn {
+  background-color: transparent; 
+  padding: 0px 1px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  width: 50px;
+  border: 4px solid transparent;
+}
+
 
 .title-btn {
   font-family: 'Hurricane', sans-serif;
