@@ -201,3 +201,27 @@ class Footer extends HTMLElement {
   }
   
 customElements.define('footer-component', Footer);
+
+class Footer2 extends HTMLElement {
+  constructor() {
+    super();
+  }
+
+  connectedCallback() {
+    this.innerHTML = `
+
+      <link href="../css/bootstrap.min.css" rel="stylesheet">
+      <link href="../css/styles.css" rel="stylesheet">
+
+      <footer>
+          <div class="footer-margin"></div>
+
+          <div class="footer-bottom">
+              <p class='m-0 text-center text-white' id='copyright'>&copy; ` + new Date().getFullYear() + ` ANTHONY DO, ALL RIGHTS RESERVED</p>
+          </div>
+      </footer>
+    `;
+  }
+}
+
+customElements.define('footer-component2', Footer2);
