@@ -58,6 +58,7 @@ hr {
 
 .portfolio-item {
   padding: 10px;
+  position: relative;
 }
 .portfolio-body {
   text-align: center;
@@ -72,12 +73,17 @@ hr {
   font-weight: bold;
 }
 
-.centerr {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+/* 2 Column Portfolio Grid */
+@media only screen and (max-width:750px) {
+  .portfolio {
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: space-between; */
+  }
+  .col-6 {
+    max-width: 49.99%;
 }
+  }
 
 .pagination {
   margin-bottom: 30px;
@@ -288,7 +294,7 @@ hr {
 
 /* Table CSS */
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 750px) {
   /* horizontal scrollbar for tables if mobile screen */
   table {
       overflow-x: auto;
@@ -426,8 +432,4 @@ blockquote p {
 
 .close {
   cursor: pointer;
-}
-
-.modal {
-  height: 100%
 }
