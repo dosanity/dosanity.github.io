@@ -431,3 +431,9 @@ blockquote p {
 .close {
   cursor: pointer;
 }
+
+@media only screen and (max-width:500px) {
+  .modal {
+    margin-top:50px;
+  }
+}
