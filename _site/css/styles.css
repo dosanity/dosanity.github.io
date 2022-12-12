@@ -78,12 +78,11 @@ hr {
   .portfolio {
   display: flex;
   flex-wrap: wrap;
-  /* justify-content: space-between; */
   }
   .col-6 {
     max-width: 49.99%;
-}
   }
+}
 
 .pagination {
   margin-bottom: 30px;
@@ -307,7 +306,6 @@ hr {
     left: 0;
     right: 0
   }
-  
 }
 
 table {
