@@ -431,3 +431,18 @@ blockquote p {
 .close {
   cursor: pointer;
 }
+
+.modal {
+  text-align: center;
+  padding: 0!important;
+}
+.modal:before {
+  content: '';
+  display: inline-block;
+  height: 10%;
+  vertical-align: middle;
+}
+.modal-dialog {
+  display: inline-block;
+  vertical-align: middle;
+}
