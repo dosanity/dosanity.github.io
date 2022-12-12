@@ -74,7 +74,7 @@ hr {
 }
 
 /* 2 Column Portfolio Grid */
-@media only screen and (max-width:750px) {
+@media only screen and (max-width:500px) {
   .portfolio {
   display: flex;
   flex-wrap: wrap;
@@ -294,7 +294,7 @@ hr {
 
 /* Table CSS */
 
-@media only screen and (max-width: 750px) {
+@media only screen and (max-width: 500px) {
   /* horizontal scrollbar for tables if mobile screen */
   table {
       overflow-x: auto;
