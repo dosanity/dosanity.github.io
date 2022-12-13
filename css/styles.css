@@ -302,7 +302,7 @@ hr {
 
   .home-position {
     position: absolute;
-    bottom: 120px;
+    bottom: 190px;
     left: 0;
     right: 0
   }
@@ -380,7 +380,7 @@ blockquote p {
 .background {
   background-image: url("../assets/images/photos/background.jpg");
   background-repeat: no-repeat; 
-  background-position-y: top;
+  background-position-y: 65%;
   background-position-x: center;
   background-attachment: fixed;       
   -webkit-background-size: cover;
@@ -400,20 +400,22 @@ blockquote p {
   font-family: 'Hurricane', sans-serif;
   /* font-weight: 600; */
   font-size: 30px;
-  background-color: white;
+  background-color: black;
   border: 3px solid black;
   border-radius: 4px;
   display: inline-block;
-  color: black;
-  margin: 20px;
+  color: white;
+  margin: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
   text-align: center;
   text-decoration: none;
   width: 200px;
 }
 
 .home-btn:hover {
-  background-color: black;
-  border: 3px solid black;
+  background-color: transparent;
+  border: 3px solid white;
   border-radius: 4px;
   color: white;
   /* text-align: center; */
