@@ -11,7 +11,7 @@ code.hljs{
     background:transparent
 }
 .hljs-attr,.hljs-keyword,.hljs-operator,.hljs-pattern-match{
-    color:blue;
+    color: violet;
     font-weight: bold;
 }
 .hljs-function,.hljs-pattern-match .hljs-constructor{
@@ -39,9 +39,9 @@ code.hljs{
     font-weight: bold;
 }
 .hljs-comment,.hljs-quote{
-    color:#b18eb1;
+    color: green;
     font-style:italic;
-    font-weight: bold;
+    font-weight:bolder;
 }
 .hljs-doctag,.hljs-formula{
     color:#c678dd;
@@ -60,11 +60,11 @@ code.hljs{
     font-weight: bold;
 }
 .hljs-built_in,.hljs-class .hljs-title,.hljs-title.class_{
-    color:orange;
+    color:rgb(87, 191, 255);
     font-weight: bold;
 }
 .hljs-number,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-pseudo,.hljs-template-variable,.hljs-type,.hljs-variable{
-    color:green;
+    color:orange;
     font-weight: bold;
 }
 .hljs-bullet,.hljs-link,.hljs-meta,.hljs-selector-id,.hljs-symbol,.hljs-title{
@@ -81,5 +81,9 @@ code.hljs{
 }
 .hljs-link{
     text-decoration:underline;
+    font-weight: bold;
+}
+.hljs-dependencies{
+    color: blue;
     font-weight: bold;
 }
