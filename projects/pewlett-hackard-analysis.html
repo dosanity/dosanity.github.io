@@ -100,18 +100,18 @@
             </blockquote>
 
             <pre><code>
-<span class="hljs-keyword">SELECT</span> e.emp_no,
+SELECT 	e.emp_no,
 e.first_name,
 e.last_name,
 ti.title,
 ti.from_date,
 ti.to_date
-<span class="hljs-keyword">INTO</span> retirement_titles
-<span class="hljs-keyword">FROM</span> employees <span class="hljs-keyword">as</span> e
-<span class="hljs-keyword">INNER</span> <span class="hljs-keyword">JOIN</span> titles <span class="hljs-keyword">as</span> ti
-<span class="hljs-keyword">ON</span> (e.emp_no = ti.emp_no)
-<span class="hljs-keyword">WHERE</span> (e.birth_date <span class="hljs-keyword">BETWEEN</span> <span class="hljs-string">'1952-01-01'</span> <span class="hljs-keyword">AND</span> <span class="hljs-string">'1955-12-31'</span>)
-<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> e.emp_no <span class="hljs-keyword">ASC</span>;
+INTO retirement_titles
+FROM employees as e
+INNER JOIN titles as ti
+ON (e.emp_no = ti.emp_no)
+WHERE (e.birth_date BETWEEN '1952-01-01' AND '1955-12-31')
+ORDER BY e.emp_no ASC;
             </code></pre>
             
             <p>Next, we created a table to hold all the current titles of employees who were born between Jaunary 1, 1952 and December 31, 1955 which is stored in the <code>unique_titles.csv</code>. </p>
@@ -121,14 +121,14 @@ ti.to_date
             </blockquote>
 
             <pre><code>
-<span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">DISTINCT</span> <span class="hljs-keyword">ON</span> (emp_no) emp_no,
+SELECT DISTINCT ON (emp_no) emp_no,
 first_name,
 last_name,
 title
-<span class="hljs-keyword">INTO</span> unique_titles
-<span class="hljs-keyword">FROM</span> retirement_titles
-<span class="hljs-keyword">WHERE</span> (<span class="hljs-keyword">to_date</span> = (<span class="hljs-string">'9999-01-01'</span>))
-<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> emp_no, <span class="hljs-keyword">to_date</span> <span class="hljs-keyword">DESC</span>;
+INTO unique_titles
+FROM retirement_titles
+WHERE (to_date = ('9999-01-01'))
+ORDER BY emp_no, to_date DESC;
 </code></pre>
 
             <p>Finally, we counted the number of retiring individuals by their current titles which are stored in the <code>retiring_titles.csv</code>.</p>
@@ -138,11 +138,11 @@ title
             </blockquote>
 
             <pre><code>
-<span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">COUNT</span>(title), title
-<span class="hljs-keyword">INTO</span> retiring_titles
-<span class="hljs-keyword">FROM</span> unique_titles
-<span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> title
-<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> <span class="hljs-keyword">COUNT</span>(title) <span class="hljs-keyword">DESC</span>;
+SELECT COUNT(title), title
+INTO retiring_titles
+FROM unique_titles
+GROUP BY title
+ORDER BY COUNT(title) DESC;
             </code></pre>
             
             <img src="https://user-images.githubusercontent.com/29410712/192976173-ba0c4e39-191b-49a7-b9ea-c6a7b8e9496c.png" class="image50">
@@ -166,22 +166,22 @@ title
             </blockquote>
 
             <pre><code>
-<span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">DISTINCT</span> <span class="hljs-keyword">ON</span> (e.emp_no) e.emp_no,
+SELECT DISTINCT ON (e.emp_no) e.emp_no,
 e.first_name,
 e.last_name,
 e.birth_date,
 dep.from_date,
 dep.to_date,
 ti.title
-<span class="hljs-keyword">INTO</span> mentorship_eligibilty
-<span class="hljs-keyword">FROM</span> employees <span class="hljs-keyword">as</span> e
-<span class="hljs-keyword">INNER</span> <span class="hljs-keyword">JOIN</span> dept_emp <span class="hljs-keyword">as</span> dep
-<span class="hljs-keyword">ON</span> (e.emp_no = dep.emp_no)
-<span class="hljs-keyword">INNER</span> <span class="hljs-keyword">JOIN</span> titles <span class="hljs-keyword">as</span> ti
-<span class="hljs-keyword">ON</span> (e.emp_no = ti.emp_no)
-<span class="hljs-keyword">WHERE</span> (dep.to_date = (<span class="hljs-string">'9999-01-01'</span>)) 
-<span class="hljs-keyword">AND</span> (e.birth_date <span class="hljs-keyword">BETWEEN</span> <span class="hljs-string">'1965-01-01'</span> <span class="hljs-keyword">AND</span> <span class="hljs-string">'1965-12-31'</span>)
-<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> e.emp_no;
+INTO mentorship_eligibilty
+FROM employees as e
+INNER JOIN dept_emp as dep
+ON (e.emp_no = dep.emp_no)
+INNER JOIN titles as ti
+ON (e.emp_no = ti.emp_no)
+WHERE (dep.to_date = ('9999-01-01')) 
+AND (e.birth_date BETWEEN '1965-01-01' AND '1965-12-31')
+ORDER BY e.emp_no;
             </code></pre>
             
             <ul>

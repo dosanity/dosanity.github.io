@@ -11,7 +11,7 @@ code.hljs{
     background:transparent
 }
 .hljs-attr,.hljs-keyword,.hljs-operator,.hljs-pattern-match{
-    color: violet;
+    color: blue;
     font-weight: bold;
 }
 .hljs-function,.hljs-pattern-match .hljs-constructor{
@@ -56,7 +56,7 @@ code.hljs{
     font-weight: bold;
 }
 .hljs-addition,.hljs-attribute,.hljs-meta .hljs-string,.hljs-regexp,.hljs-string{
-    color:red;
+    color:orange;
     font-weight: bold;
 }
 .hljs-built_in,.hljs-class .hljs-title,.hljs-title.class_{
@@ -64,7 +64,7 @@ code.hljs{
     font-weight: bold;
 }
 .hljs-number,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-pseudo,.hljs-template-variable,.hljs-type,.hljs-variable{
-    color:orange;
+    color:blue;
     font-weight: bold;
 }
 .hljs-bullet,.hljs-link,.hljs-meta,.hljs-selector-id,.hljs-symbol,.hljs-title{
@@ -84,6 +84,6 @@ code.hljs{
     font-weight: bold;
 }
 .hljs-dependencies{
-    color: blue;
+    color: #c678dd;
     font-weight: bold;
 }
