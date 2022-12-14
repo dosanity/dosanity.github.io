@@ -30,6 +30,10 @@
 		<script src="../js/filter.js" type="text/javascript"></script>
 		<script src="../js/bootstrap.bundle.min.js"></script>
         <script src="../js/template.js" type="text/javascript" defer></script>
+
+        <link rel="stylesheet" href="../css/code-highlight.css">
+        <script src="../js/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
 		{% seo %}
 	</head>
 
@@ -66,35 +70,96 @@
             <hr>
 
             <p>The earthquakes are categorized by size and color. The spectrum of color ranges from yellow (low-magnitude earthquakes) to red (high-magnitude earthquakes). Additionally, low-magnitude earthquakes have a small diameter and high-magnitude earthquakes are illustrated with a larger diameter.</p>
+            
+            <blockquote>
+                <p>JavaScript Code:</p>
+            </blockquote>
+
+            <pre><code class="language-javascript">
+  function styleInfo(feature) {
+    return {
+      opacity: 1,
+      fillOpacity: 1,
+      fillColor: getColor(feature.properties.mag),
+      color: "#000000",
+      radius: getRadius(feature.properties.mag),
+      stroke: true,
+      weight: 0.5
+    };
+  }
+
+  function getColor(magnitude) {
+    if (magnitude > 5) {
+      return "#ea2c2c";
+    }
+    if (magnitude > 4) {
+      return "#ea822c";
+    }
+    if (magnitude > 3) {
+      return "#ee9c00";
+    }
+    if (magnitude > 2) {
+      return "#eecc00";
+    }
+    if (magnitude > 1) {
+      return "#d4ee00";
+    }
+    return "#98ee00";
+  }
+
+  function getRadius(magnitude) {
+    if (magnitude === 0) {
+      return 1;
+    }
+    return magnitude * 4;
+  }
+            </code></pre>
+            
             <p>The viewer can interact with the map to show three different views and filter between three layers:</p>
 
-            <table>
-                <thead>
-                    <tr>
-                        <th>View Options</th>
-                        <th>Filter Options</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>- Street View</td>
-                        <td>- All Earthquakes</td>
-                    </tr>
-                    <tr>
-                        <td>- Satellite View</td>
-                        <td>- Tectonic Plates</td>
-                    </tr>
-                    <tr>
-                        <td>- Dark View</td>
-                        <td>- Major Earthquakes</td>
-                    </tr>
-                </tbody>
-            </table>
+            <br>
+            
+            <center>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>View Options</th>
+                            <th>Filter Options</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>- Street View</td>
+                            <td>- All Earthquakes</td>
+                        </tr>
+                        <tr>
+                            <td>- Satellite View</td>
+                            <td>- Tectonic Plates</td>
+                        </tr>
+                        <tr>
+                            <td>- Dark View</td>
+                            <td>- Major Earthquakes</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </center>
 
             <br>
             <br>
 
             <h5><b>Street View</b></h5>
+
+            <blockquote>
+                <p>JavaScript Code:</p>
+            </blockquote>
+
+            <pre><code class="language-javascript">
+let streets = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+	attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery (c) <a href="https://www.mapbox.com/">Mapbox</a>',
+	maxZoom: 18,
+	accessToken: API_KEY
+});
+            </code></pre>
 
             <img src="https://user-images.githubusercontent.com/29410712/194958569-4a5aa285-6f91-4ef4-8846-583fc51121db.png" alt="streets" class="center">
 
@@ -102,11 +167,35 @@
 
             <h5><b>Satellite View</b></h5>
 
+            <blockquote>
+                <p>JavaScript Code:</p>
+            </blockquote>
+
+            <pre><code class="language-javascript">
+let satelliteStreets = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/satellite-streets-v11/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+	attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery (c) <a href="https://www.mapbox.com/">Mapbox</a>',
+	maxZoom: 18,
+	accessToken: API_KEY
+});
+            </code></pre>
+
             <img src="https://user-images.githubusercontent.com/29410712/194958581-8e88f0c2-870a-4344-8922-a3e6e5f2ec1b.png" alt="satellite" class="center">
 
             <br>
 
             <h5><b>Dark View</b></h5>
+
+            <blockquote>
+                <p>JavaScript Code:</p>
+            </blockquote>
+
+            <pre><code class="language-javascript">
+let darkStreets = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/dark-v10/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+	attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery (c) <a href="https://www.mapbox.com/">Mapbox</a>',
+	maxZoom: 18,
+	accessToken: API_KEY
+});
+            </code></pre>
 
             <img src="https://user-images.githubusercontent.com/29410712/194958587-09becb86-65d9-4830-9e47-baf13baa7ac7.png" alt="dark" class="center">
 
