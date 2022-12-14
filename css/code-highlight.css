@@ -11,11 +11,11 @@ code.hljs{
     background:transparent
 }
 .hljs-attr,.hljs-keyword,.hljs-operator,.hljs-pattern-match{
-    color: blue;
+    color: #0071ce;
     font-weight: bold;
 }
 .hljs-function,.hljs-pattern-match .hljs-constructor{
-    color:#61aeee;
+    color:#0071ce;
     font-weight: bold;
 }
 .hljs-function .hljs-params{
