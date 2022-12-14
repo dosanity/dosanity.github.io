@@ -30,6 +30,10 @@
 		<script src="../js/filter.js" type="text/javascript"></script>
 		<script src="../js/bootstrap.bundle.min.js"></script>
         <script src="../js/template.js" type="text/javascript" defer></script>
+
+        <link rel="stylesheet" href="../css/code-highlight.css">
+        <script src="../js/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
 		{% seo %}
 	</head>
 
@@ -91,6 +95,15 @@
 
             <hr>
 
+            <blockquote>
+                <p>Python Code:</p>
+            </blockquote>
+
+            <pre><code class="language-python">
+import seaborn as sns
+rel = sns.pairplot(data = train_subset, hue="PropType", diag_kws={'bw': 0.2})
+            </code></pre>
+
             <img src="https://user-images.githubusercontent.com/29410712/180319003-85635773-b851-4135-a30c-a6680a8a892f.png" alt="real-estate-scatter" width=80% height=80% class="center">
 
             <br>
@@ -106,6 +119,14 @@
             <p>Geospatial data defines specific geographical locations, either in the form of latitude and longitude coordinates or text fields with names of geographical areas, such as countries or states. Geospatial charts combine geospatial data with other forms of data to create map-based charts.</p>
             <p>Two of the variables are the latitude and longitude of each listing. Salt Lake City is on a east-west, north-south grid, so even a simple plot of latitude and longitude makes sense. Thus, we will be creating a scatterplot of these two variables.</p>
             
+            <blockquote>
+                <p>Python Code:</p>
+            </blockquote>
+
+            <pre><code class="language-python">
+rel2 = sns.scatterplot(train['Latitude'], train['Longitude'], hue = train['LstPrice'], palette = 'hot')
+            </code></pre>
+
             <img src="https://user-images.githubusercontent.com/29410712/180321451-3765f0f8-3f4f-4da2-9101-15a80d963031.png" alt="real-estate-geospatial" class="center">
             
             <p>As we can see from the chart, the bigger the longitude and latitude, the higher the price is for the house. Houses closer to (-111.91, 40.770) are cheaper in price.</p>
@@ -133,9 +154,24 @@
             <p>where x is one of the other variables. </p>
             <p>After we run the regression, we will make a scatterplot of list price vs sold price and overlay the prediction with the regression model.</p>
 
-            <pre><code><span class="hljs-section">
+            <blockquote>
+                <p>Python Code:</p>
+            </blockquote>
+
+            <pre><code class="language-python">
+# Regression Model
+uni_mod = sm.ols(formula="SoldPrice ~ LstPrice", data = train)
+uni_result = uni_mod.fit()
+print(uni_result.summary())
+            </code></pre>
+
+            <blockquote>
+                <p>Output:</p>
+            </blockquote>
+
+            <pre><code class="nohighlight">
                             OLS Regression Results                            
-==============================================================================</span>
+==============================================================================
 Dep. Variable:              SoldPrice   R-squared:                       0.990
 Model:                            OLS   Adj. R-squared:                  0.990
 Method:                 Least Squares   F-statistic:                 2.611e+04
@@ -144,10 +180,10 @@ Time:                        13:50:46   Log-Likelihood:                -2927.2
 No. Observations:                 260   AIC:                             5858.
 Df Residuals:                     258   BIC:                             5866.
 Df Model:                           1                                         
-<span class="hljs-section">Covariance Type:            nonrobust                                         
-==============================================================================</span>
-<span class="hljs-code">                 coef    std err          t      P&gt;|t|      [0.025      0.975]</span>
-<span class="hljs-code">------------------------------------------------------------------------------
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P>|t|      [0.025      0.975]
+------------------------------------------------------------------------------
 Intercept   1.317e+04   2948.953      4.465      0.000    7361.378     1.9e+04
 LstPrice       0.9441      0.006    161.593      0.000       0.933       0.956
 ==============================================================================
@@ -155,11 +191,19 @@ Omnibus:                      123.259   Durbin-Watson:                   2.015
 Prob(Omnibus):                  0.000   Jarque-Bera (JB):              881.446
 Skew:                          -1.750   Prob(JB):                    3.95e-192
 Kurtosis:                      11.313   Cond. No.                     1.27e+06
-==============================================================================</span>
+==============================================================================
             </code></pre>
 
             <p>Based on the OLS Regression, the R-squared is 0.988. This is saying that 98.8% of the variation is explained in the model. The Beta one of <code>LstPrice</code> is 0.9019. In other words, as <code>LstPrice</code> goes up by 1, <code>SoldPrice</code> increases by 0.9019 points.</p>
             
+            <blockquote>
+                <p>Python Code:</p>
+            </blockquote>
+
+            <pre><code class="language-python">
+plt.scatter(train['LstPrice'], train['SoldPrice'],  color='red')
+            </code></pre>
+
             <img src="https://user-images.githubusercontent.com/29410712/180321828-91fe8634-1248-40b3-bfc7-f84d38117121.png" alt="lstprice-soldprice-scatter" class="center">
 
             <br>
@@ -189,33 +233,47 @@ Kurtosis:                      11.313   Cond. No.                     1.27e+06
 
             <h5><b>SoldPrice Regression</b></h5>
 
-            <pre><code>
+            <blockquote>
+                <p>Python Code:</p>
+            </blockquote>
+
+            <pre><code class="language-python">
+uni_mod0 = sm.ols(formula="SoldPrice ~ Acres + Taxes + TotBed + TotBth + TotSqf + YearBlt", data = train)
+uni_result0 = uni_mod0.fit()
+print(uni_result0.summary())
+            </code></pre>
+
+            <blockquote>
+                <p>Output:</p>
+            </blockquote>
+
+            <pre><code class="nohighlight">
                             OLS Regression Results                            
 ==============================================================================
 Dep. Variable:              SoldPrice   R-squared:                       0.838
 Model:                            OLS   Adj. R-squared:                  0.835
 Method:                 Least Squares   F-statistic:                     218.7
-Date:                Thu, 21 Jul 2022   Prob (F-statistic):           4.45e<span class="hljs-string">-97</span>
-<span class="hljs-keyword">Time:</span>                        13:51:02   Log-Likelihood:                <span class="hljs-string">-3291</span>.9
+Date:                Thu, 21 Jul 2022   Prob (F-statistic):           4.45e-97
+Time:                        13:51:02   Log-Likelihood:                -3291.9
 No. Observations:                 260   AIC:                             6598.
 Df Residuals:                     253   BIC:                             6623.
 Df Model:                           6                                         
 Covariance Type:            nonrobust                                         
 ==============================================================================
-                coef    std err          t      P&gt;|t|      [0.025      0.975]
+                 coef    std err          t      P>|t|      [0.025      0.975]
 ------------------------------------------------------------------------------
-Intercept   2.765e<span class="hljs-string">+05</span>   2.94e<span class="hljs-string">+05</span>      0.942      0.347   <span class="hljs-string">-3</span>.02e<span class="hljs-string">+05</span>    8.55e<span class="hljs-string">+05</span>
-Acres       1.169e<span class="hljs-string">+05</span>   6.15e<span class="hljs-string">+04</span>      1.900      0.059   <span class="hljs-string">-4276</span>.513    2.38e<span class="hljs-string">+05</span>
+Intercept   2.765e+05   2.94e+05      0.942      0.347   -3.02e+05    8.55e+05
+Acres       1.169e+05   6.15e+04      1.900      0.059   -4276.513    2.38e+05
 Taxes         58.6029      5.466     10.721      0.000      47.838      69.368
-TotBed      1.286e<span class="hljs-string">+04</span>   6045.229      2.127      0.034     951.492    2.48e<span class="hljs-string">+04</span>
-TotBth      6050.4777   8140.361      0.743      0.458   <span class="hljs-string">-9981</span>.025    2.21e<span class="hljs-string">+04</span>
+TotBed      1.286e+04   6045.229      2.127      0.034     951.492    2.48e+04
+TotBth      6050.4777   8140.361      0.743      0.458   -9981.025    2.21e+04
 TotSqf        45.5661      9.878      4.613      0.000      26.113      65.019
-YearBlt      <span class="hljs-string">-96</span>.9146    151.794     <span class="hljs-string">-0</span>.638      0.524    <span class="hljs-string">-395</span>.855     202.025
+YearBlt      -96.9146    151.794     -0.638      0.524    -395.855     202.025
 ==============================================================================
 Omnibus:                       30.768   Durbin-Watson:                   2.174
 Prob(Omnibus):                  0.000   Jarque-Bera (JB):               43.356
-Skew:                           0.759   Prob(JB):                     3.85e<span class="hljs-string">-10</span>
-Kurtosis:                       4.302   Cond. No.                     2.90e<span class="hljs-string">+05</span>
+Skew:                           0.759   Prob(JB):                     3.85e-10
+Kurtosis:                       4.302   Cond. No.                     2.90e+05
 ==============================================================================
             </code></pre>
 
@@ -223,33 +281,47 @@ Kurtosis:                       4.302   Cond. No.                     2.90e<span
 
             <h5><b>DiffPriceAbsolute Regression</b></h5>
 
-            <pre><code>
+            <blockquote>
+                <p>Python Code:</p>
+            </blockquote>
+
+            <pre><code class="language-python">
+uni_mod1 = sm.ols(formula="DiffPriceAbsolute ~ Acres + Taxes + TotBed + TotBth + TotSqf + YearBlt", data = train)
+uni_result1 = uni_mod1.fit()
+print(uni_result1.summary())
+            </code></pre>
+
+            <blockquote>
+                <p>Output:</p>
+            </blockquote>
+
+            <pre><code class="nohighlight">
                             OLS Regression Results                            
 ==============================================================================
 Dep. Variable:      DiffPriceAbsolute   R-squared:                       0.261
 Model:                            OLS   Adj. R-squared:                  0.244
 Method:                 Least Squares   F-statistic:                     14.92
-Date:                Thu, 21 Jul 2022   Prob (F-statistic):           1.32e<span class="hljs-string">-14</span>
-<span class="hljs-keyword">Time:</span>                        13:51:02   Log-Likelihood:                <span class="hljs-string">-2927</span>.3
+Date:                Thu, 21 Jul 2022   Prob (F-statistic):           1.32e-14
+Time:                        13:51:02   Log-Likelihood:                -2927.3
 No. Observations:                 260   AIC:                             5869.
 Df Residuals:                     253   BIC:                             5894.
 Df Model:                           6                                         
 Covariance Type:            nonrobust                                         
 ==============================================================================
-                coef    std err          t      P&gt;|t|      [0.025      0.975]
+                 coef    std err          t      P>|t|      [0.025      0.975]
 ------------------------------------------------------------------------------
-Intercept   2.867e<span class="hljs-string">+04</span>   7.22e<span class="hljs-string">+04</span>      0.397      0.692   <span class="hljs-string">-1</span>.14e<span class="hljs-string">+05</span>    1.71e<span class="hljs-string">+05</span>
-Acres      <span class="hljs-string">-1</span>.235e<span class="hljs-string">+04</span>   1.51e<span class="hljs-string">+04</span>     <span class="hljs-string">-0</span>.815      0.416   <span class="hljs-string">-4</span>.22e<span class="hljs-string">+04</span>    1.75e<span class="hljs-string">+04</span>
-Taxes         <span class="hljs-string">-1</span>.1223      1.345     <span class="hljs-string">-0</span>.834      0.405      <span class="hljs-string">-3</span>.771       1.527
-TotBed       528.3073   1487.544      0.355      0.723   <span class="hljs-string">-2401</span>.240    3457.854
-TotBth     <span class="hljs-string">-2969</span>.8850   2003.091     <span class="hljs-string">-1</span>.483      0.139   <span class="hljs-string">-6914</span>.743     974.973
-TotSqf        <span class="hljs-string">-4</span>.9697      2.431     <span class="hljs-string">-2</span>.045      0.042      <span class="hljs-string">-9</span>.756      <span class="hljs-string">-0</span>.183
-YearBlt       <span class="hljs-string">-9</span>.4079     37.352     <span class="hljs-string">-0</span>.252      0.801     <span class="hljs-string">-82</span>.968      64.152
+Intercept   2.867e+04   7.22e+04      0.397      0.692   -1.14e+05    1.71e+05
+Acres      -1.235e+04   1.51e+04     -0.815      0.416   -4.22e+04    1.75e+04
+Taxes         -1.1223      1.345     -0.834      0.405      -3.771       1.527
+TotBed       528.3073   1487.544      0.355      0.723   -2401.240    3457.854
+TotBth     -2969.8850   2003.091     -1.483      0.139   -6914.743     974.973
+TotSqf        -4.9697      2.431     -2.045      0.042      -9.756      -0.183
+YearBlt       -9.4079     37.352     -0.252      0.801     -82.968      64.152
 ==============================================================================
 Omnibus:                       98.703   Durbin-Watson:                   2.026
 Prob(Omnibus):                  0.000   Jarque-Bera (JB):              618.218
-Skew:                          <span class="hljs-string">-1</span>.371   Prob(JB):                    5.70e<span class="hljs-string">-135</span>
-Kurtosis:                      10.039   Cond. No.                     2.90e<span class="hljs-string">+05</span>
+Skew:                          -1.371   Prob(JB):                    5.70e-135
+Kurtosis:                      10.039   Cond. No.                     2.90e+05
 ==============================================================================
             </code></pre>
 
@@ -257,39 +329,99 @@ Kurtosis:                      10.039   Cond. No.                     2.90e<span
 
             <h5><b>DiffPriceRelative Regression</b></h5>
 
-            <pre><code>
+            <blockquote>
+                <p>Python Code:</p>
+            </blockquote>
+
+            <pre><code class="language-python">
+uni_mod2 = sm.ols(formula="DiffPriceRelative ~ Acres + Taxes + TotBed + TotBth + TotSqf + YearBlt", data = train)
+uni_result2 = uni_mod2.fit()
+print(uni_result2.summary())
+            </code></pre>
+
+            <blockquote>
+                <p>Output:</p>
+            </blockquote>
+
+            <pre><code class="nohighlight">
                             OLS Regression Results                            
 ==============================================================================
 Dep. Variable:      DiffPriceRelative   R-squared:                       0.079
 Model:                            OLS   Adj. R-squared:                  0.057
 Method:                 Least Squares   F-statistic:                     3.618
 Date:                Thu, 21 Jul 2022   Prob (F-statistic):            0.00184
-<span class="hljs-keyword">Time:</span>                        13:51:02   Log-Likelihood:                 486.61
-No. Observations:                 260   AIC:                            <span class="hljs-string">-959</span>.2
-Df Residuals:                     253   BIC:                            <span class="hljs-string">-934</span>.3
+Time:                        13:51:02   Log-Likelihood:                 486.61
+No. Observations:                 260   AIC:                            -959.2
+Df Residuals:                     253   BIC:                            -934.3
 Df Model:                           6                                         
 Covariance Type:            nonrobust                                         
 ==============================================================================
-                coef    std err          t      P&gt;|t|      [0.025      0.975]
+                 coef    std err          t      P>|t|      [0.025      0.975]
 ------------------------------------------------------------------------------
 Intercept      1.0221      0.143      7.131      0.000       0.740       1.304
-Acres         <span class="hljs-string">-0</span>.0145      0.030     <span class="hljs-string">-0</span>.483      0.629      <span class="hljs-string">-0</span>.074       0.045
-Taxes       9.371e<span class="hljs-string">-07</span>   2.67e<span class="hljs-string">-06</span>      0.351      0.726   <span class="hljs-string">-4</span>.32e<span class="hljs-string">-06</span>    6.19e<span class="hljs-string">-06</span>
-TotBed         0.0025      0.003      0.838      0.403      <span class="hljs-string">-0</span>.003       0.008
-TotBth        <span class="hljs-string">-0</span>.0080      0.004     <span class="hljs-string">-2</span>.022      0.044      <span class="hljs-string">-0</span>.016      <span class="hljs-string">-0</span>.000
-TotSqf     <span class="hljs-string">-3</span>.941e<span class="hljs-string">-06</span>   4.82e<span class="hljs-string">-06</span>     <span class="hljs-string">-0</span>.817      0.415   <span class="hljs-string">-1</span>.34e<span class="hljs-string">-05</span>    5.56e<span class="hljs-string">-06</span>
-YearBlt    <span class="hljs-string">-1</span>.261e<span class="hljs-string">-05</span>   7.41e<span class="hljs-string">-05</span>     <span class="hljs-string">-0</span>.170      0.865      <span class="hljs-string">-0</span>.000       0.000
+Acres         -0.0145      0.030     -0.483      0.629      -0.074       0.045
+Taxes       9.371e-07   2.67e-06      0.351      0.726   -4.32e-06    6.19e-06
+TotBed         0.0025      0.003      0.838      0.403      -0.003       0.008
+TotBth        -0.0080      0.004     -2.022      0.044      -0.016      -0.000
+TotSqf     -3.941e-06   4.82e-06     -0.817      0.415   -1.34e-05    5.56e-06
+YearBlt    -1.261e-05   7.41e-05     -0.170      0.865      -0.000       0.000
 ==============================================================================
 Omnibus:                      119.899   Durbin-Watson:                   2.053
 Prob(Omnibus):                  0.000   Jarque-Bera (JB):              840.861
-Skew:                          <span class="hljs-string">-1</span>.697   Prob(JB):                    2.57e<span class="hljs-string">-183</span>
-Kurtosis:                      11.130   Cond. No.                     2.90e<span class="hljs-string">+05</span>
+Skew:                          -1.697   Prob(JB):                    2.57e-183
+Kurtosis:                      11.130   Cond. No.                     2.90e+05
 ==============================================================================
             </code></pre>
 
             <p>The multilinear regression model has a lower R squared than the simple linear regression model including the List Price. Therefore, there is more variation explained by the simple regression model. Additionally, based on the two models, the model that predicts the <code>DiffPriceAbsolute</code> is better than the model that predicts the <code>DiffPriceRelative</code> because the R squared is greater. Furthermore, from the different trained plots, the plot for the <code>DiffPriceAbsolute</code> has more plots closer to the linear line, thus showing why more of the variation is explained. Although <code>DiffPriceAbsolute</code> is better, it still doesn't have a high R squared.</p>
             
+            <blockquote>
+                <p>Python Code:</p>
+            </blockquote>
+
+            <pre><code class="language-python">
+from sklearn.model_selection import train_test_split
+from sklearn import linear_model
+lr = linear_model.LinearRegression()
+
+# Generate Values
+X = train[['SoldPrice']].values
+y = train['DiffPriceAbsolute'].values
+
+# Split data into training data and test data sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.9, random_state=1)
+print(X_train.shape, y_train.shape)
+print(X_test.shape, y_test.shape)
+
+for m in np.arange(1,2):     
+    lr.fit(X=X_train[:,:m], y=y_train)
+    print('m=', m, ', train: ', lr.score(X_train[:,:m], y_train), ' test: ', lr.score(X_test[:,:m], y_test))
+            </code></pre>
+
             <img src="https://user-images.githubusercontent.com/29410712/180322332-5916c8b9-ce6c-42ff-ac7e-08d0a55a058e.png" alt="DiffPriceAbsolute" class="center">
+
+            <blockquote>
+                <p>Python Code:</p>
+            </blockquote>
+
+            <pre><code class="language-python">
+from sklearn.model_selection import train_test_split
+from sklearn import linear_model
+lr = linear_model.LinearRegression()
+
+# Generate Values
+X = train[['SoldPrice']].values
+y = train['DiffPriceRelative'].values
+
+# Split data into training data and test data sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.9, random_state=1)
+print(X_train.shape, y_train.shape)
+print(X_test.shape, y_test.shape)
+
+for m in np.arange(1,2):     
+    lr.fit(X=X_train[:,:m], y=y_train)
+    print('m=', m, ', train: ', lr.score(X_train[:,:m], y_train), ' test: ', lr.score(X_test[:,:m], y_test))
+            </code></pre>
 
             <img src="https://user-images.githubusercontent.com/29410712/180322345-9225101e-d08e-45b7-a23d-96319290064c.png" alt="DiffPriceRelative" class="center">
 
@@ -310,6 +442,14 @@ Kurtosis:                      11.130   Cond. No.                     2.90e<span
             <p>From the first model, property type is significant in predicting the sold price. On the other hand, the second model indicates that when we consider total square footage, property type is no longer predictive. </p>
             
             <p>We will also make a scatterplot of <code>TotSqf</code> vs. <code>SoldPrice</code> where the house types are colored differently to illustrate your explanation. </p>
+
+            <blockquote>
+                <p>Python Code:</p>
+            </blockquote>
+
+            <pre><code class="language-python">
+rel3 = sns.scatterplot(train['TotSqf'], train['SoldPrice'], hue = train['PropType'])
+            </code></pre>
 
             <img src="https://user-images.githubusercontent.com/29410712/180322473-26098837-49d0-4681-899f-77414775db27.png" alt="TotSqf-SoldPrice-Scatter" class="center">
 
