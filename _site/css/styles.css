@@ -380,7 +380,7 @@ blockquote p {
 .background {
   background-image: url("../assets/images/photos/background.jpg");
   background-repeat: no-repeat; 
-  background-position-y: 70%;
+  background-position-y: 65%;
   background-position-x: center;
   background-attachment: fixed;       
   -webkit-background-size: cover;
