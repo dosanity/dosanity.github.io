@@ -438,4 +438,12 @@ blockquote p {
   .modal {
     margin-top:50px;
   }
+  #table-scroll {
+    height:300px;
+    overflow:auto;
+    margin-top:20px;
+  }
+  #table-wrapper table {
+    width:100%;
+  }
 }
