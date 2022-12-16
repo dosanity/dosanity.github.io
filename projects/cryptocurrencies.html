@@ -55,10 +55,35 @@
 
             <hr>
 
-            <p>Cryptocurrency, sometimes called crypto-currency or crypto, is any form of currency that exists digitally or virtually and uses cryptography to secure transactions. Cryptocurrencies lack a central issuing or regulating authority, instead using a decentralized system to record transactions and issue new units.
-            These currencies run on a distributed public ledger called blockchain, a record of all transactions updated and held by currency holders. Additionally, units of cryptocurrency are created through a process called mining, which involves using computer power to solve complicated mathematical problems that generate coins. Users can also buy the currencies from brokers, then store and spend them using cryptographic wallets.</p>
+            <p>
+                <b>Cryptocurrency</b>, sometimes called crypto, is any form of currency that exists digitally and uses cryptography, mathematical and computational practice 
+                of encoding and decoding data, to secure transactions. For example, Bitcoin and Ethereum use a form of the elliptic-curve cryptography (ECC) to encrypt data. 
+                It is based on the algebraic structure of elliptic curves over finite fields. Below is a general form of the elliptic-curve equation:
+            </p>
+
+            $$
+                ay^2 + by = cx^3 + dx^2 + ex + f \\
+            $$
+
+            $$
+                \{a, b, c, d, e, f\} \in \mathbb{R}
+            $$
+
+            <img src="../assets/images/photos/cryptocurrencies/elliptic-curve.png" class="center image50">
+
             
-            <p>We are tasked to create an analysis for clients who are preparing to get into the cryptocurrency market. Since there is no known output, we will be using unsupervised machine learning to help create a report that includes what cryptocurrencies are on the trading market and how they could be grouped to create a classification system for this new investment. To group the cryptocurrencies, we decided on a clustering algorithm and then use data visualizations to share our findings.</p>
+            <p>
+                Cryptocurrencies lack a central issuing or regulating authority and use a decentralized system to record transactions and issue new units.
+                These currencies run on a distributed public ledger called <b>blockchains</b>, a record of all transactions updated and held by currency holders. 
+                Additionally, units of cryptocurrency are created through a process called <b>mining</b>. Mining involves using computers to solve complicated 
+                mathematical problems to generate coins. Users can also buy the currencies from brokers and store them using cryptographic wallets.</p>
+            
+            <p>
+                We are tasked to create an analysis for clients preparing to enter the cryptocurrency market. Since there is no known output, we will be using 
+                unsupervised machine learning to help create a report that includes what cryptocurrencies are on the trading market and how they could be grouped 
+                to create a classification system for new investments. We decided on a clustering algorithm to group the cryptocurrencies and used data visualizations 
+                to share our findings.
+            </p>
             
             <h4 id="resources"><b>Resources</b></h4>
 
@@ -76,7 +101,7 @@
             <h5><b>The Data</b></h5>
 
             <p>
-                CryptoCompare is a global cryptocurrency market data provider, giving institutional and retail investors access to real-time, high-quality, reliable market 
+                CryptoCompare is a global cryptocurrency market data provider, giving institutional and retail investors access to real-time market 
                 and pricing data on 5,300+ coins. This data is aggregated from numerous cryptocurrency trading platforms (CTPs) around the world. Our raw dataset includes 
                 6 different variables associated with 1,252 cryptocurrencies. The data selection, processing, and transformation Python code can be viewed in 
                 the <code>crypto_clustering.ipynb</code> file.
@@ -88,24 +113,8 @@
             </p>
 
             <p>
-                In order to utilize PCA, we have to quantify the columns <code>Algorithm</code> and <code>ProofType</code> and convert them into dummy variables. For example:
+                In order to utilize PCA, we have to quantify the columns <code>Algorithm</code> and <code>ProofType</code> and convert them into dummy variables.
             </p>
-
-            $$
-            \text{Algorithm_}(\cdots) =
-            \begin{cases}
-                0,  &amp; \text{True} \\
-                1, &amp; \text{False}
-            \end{cases}
-            $$
-
-            $$
-            \text{ProofType_}(\cdots) =
-            \begin{cases}
-                0,  &amp; \text{True} \\
-                1, &amp; \text{False}
-            \end{cases}
-            $$
 
             <blockquote>
                 <p>Python Code:</p>
@@ -114,6 +123,11 @@
             <pre><code class="language-python">
 X = pd.get_dummies(crypto_df, columns=["Algorithm","ProofType"])
             </code></pre>
+
+            <p>
+                Within the <code>ProofType</code> column, there were multiple variables that can be classified the same. In order to calculate accurate results, we combined similar types
+                together and simplified the data. For example: "Proof of Stake" can be categorized into "PoS", etc.
+            </p>
 
             <h5><b>Terminology</b></h5>
 
@@ -133,7 +147,7 @@ X = pd.get_dummies(crypto_df, columns=["Algorithm","ProofType"])
 
             <br>
 
-            <h2 id="results"><b>Machine Learning Algorithms (Deeper Analysis)</b></h2>
+            <h2><b>Machine Learning Algorithms (Deeper Analysis)</b></h2>
 
             <hr>
 
@@ -252,8 +266,13 @@ plt.plot(k, inertia)
                 4 dimensions, we need to create higher dimensional plots. Therefore, we generated a 3D PCA plot to visualize the data.
             </p>
 
-            <img src="../assets/images/photos/cryptocurrencies/crypto-pca-2D.png" class="center">
+            <p>
+                However, we do see that there are two cryptocurrency outliers: TurtleCoin and BitTorrent. TurtleCoin has a high Total Coin Supply and BitTorrent has both a high
+                Total Coin Supply and Total Coins Mined. In order to get a better understanding from the clustering algorithm, we will remove these later.
+            </p>
 
+            <img src="../assets/images/photos/cryptocurrencies/crypto-pca-2D.png" class="center">
+ 
             <h5><b>3D PCA Scatter Plot</b></h5>
             <p>
                 Based on the 3D PCA plot with the clustering, we have a clear visualization of the clusters.
@@ -271,11 +290,13 @@ import matplotlib.pyplot as plt
  
 # Creating dataset
 z = clustered_df["PC 3"]
-x = clustered_df["PC 1"]
-y = clustered_df["PC 2"]
+y = clustered_df["PC 1"]
+x = clustered_df["PC 2"]
+
+cmap = plt.get_cmap("tab10")
 
 # Creating figure
-fig = plt.figure(figsize = (16, 9))
+fig = plt.figure(figsize = (10, 10))
 ax = plt.axes(projection ="3d")
 
 # Add x, y gridlines
@@ -285,17 +306,87 @@ ax.grid(visible = True, color ='grey',
 
  
 # Creating plot
-sctt = ax.scatter3D(x, y, z, alpha = 0.8, c = predictions,)
+sctt = ax.scatter3D(x, y, z, alpha = 0.6, c = predictions, cmap=cmap, s = 100)
             </code></pre>
 
-            <img src="../assets/images/photos/cryptocurrencies/crypto-pca-3D-1.png">
+            <img src="../assets/images/photos/cryptocurrencies/crypto-pca-3D-1.png" class="center">
 
             <h5><b>3D PCA Scatter Plot (No Outliers)</b></h5>
             <p>
-                Previously, the 3D plot included a class outlier. In order to visualize it better, we removed this outlier and generated the 3D model once more.
+                Previously, the two-dimensional and three-dimensional plots included two class outliers. By running the analysis again, we determined that the removal of the 
+                class outliers, TurtleCoin and BitTorrent, does not significantly impact the clusters.
+                Therefore, in order to visualize it better, we removed these outliers and generated the 3D model once more.
             </p>
 
-            <img src="../assets/images/photos/cryptocurrencies/crypto-pca-3D-2.png">
+            <img src="../assets/images/photos/cryptocurrencies/crypto-pca-3D-2.png" class="center">
+
+            <h2><b>Results</b></h2>
+
+            <hr>
+
+            <p>
+                The visualizations illustrate that there is a clear separation between the clusters generated by the machine learning algorithm. Now we will compare the 
+                different clusters: mainly cluster 0 and cluster 1 since these are the largest clusters.
+                From the plot below, we can see the variation across the variables for each of the clusters found by the K-means algorithm. We can identify 
+                that the cryptocurrencies in cluster 0 on average have fewer total coins mined and supplied than cluster 1. 
+            </p>
+
+            <img src="../assets/images/photos/cryptocurrencies/cluster-compare.png" class="center">
+
+            <p>
+                There was also a pattern in the proof type of the currencies. Cluster 1 contained only Proof-of-Work (PoW) while cluster 0 included cryptocurrencies that required 
+                both Proof-of-Work and Proof-of-Stake (PoW/PoS). Additionally, the currencies that required only Proof-of-Stake (PoS) was categorized in cluster 0.
+            </p>
+
+            <center>
+                <table>
+                <thead>
+                <tr>
+                <th>Proof Type</th>
+                <th>Cluster 0</th>
+                <th>Cluster 1</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                <td>PoW/PoS</td>
+                <td>
+                    182
+                </td>
+                <td>
+                    0
+                </td>
+                </tr>
+                <tr>
+                <td>PoS</td>
+                <td>
+                    100
+                </td>
+                <td>
+                    0
+                </td>
+                </tr>
+                <tr>
+                <td>PoW</td>
+                <td>
+                    0
+                </td>
+                <td>
+                    241
+                </td>
+                </tbody>
+                </table>
+            </center>
+
+            <br>
+
+            <p>
+                This analysis is the basis for a recomendation algorithm for those interested in the cryptocurrecy market. We can create a portfolio and give recommendations
+                based on similar cryptocurrencies one is interested in. For example: if you are buying Bitcoin and Ethereum, we can recommend similar coins from cluster 1.
+                In contrast, we can also create a diversified portfolio from the different clusters to diminish the risk factor in the cryptocurrency market. This will be 
+                beneficial since there are high risks of trading cryptocurrencies because of volatility.
+            </p>
+            <br>
 
             <h5 id="2d-scatterplot"><b>Cryptocurrency Symbol Within Each Cluster</b></h5>
 
@@ -323,25 +414,34 @@ cluster1 = df[model.labels_==i].tolist()
                         <tbody>
                         <tr>
                         <td>0</td>
-                        <td>42, 404, 1337, DASH, BTS, BTCD, XPY, KOBO, AUR, BLU, ENRG, BTB, CBX, CSC, DMD, EXCL, FLT, HBN, HYP, IOC, MAX, MINT, MZC, NAUT, NAV, OPAL, ORB, POT, PXC, RDD, SUPER, SYNC, TES, TIT, TOR, USDE, UTC, VRC, XC, XCR, XST, ZCC, BURST, SJCX, NTRN, FAIR, RBY, KORE, NOTE, 8BIT, STV, U, VTR, ISL, NXS, DRZ, SQL, DIGS, CON, EMC, EGC, DCR, EDRC, HTC, DBIC, PWR, BLRY, GPU, ERC, ZEIT, SWING, SAFEX, NEBU, XRA, REV, CKC, VIP, BSD, LIR, PUT, IBANK, FRWC, MUDRA, LC, GB, CTC, BXT, MST, ZNE, ROOT, BTCR, SCN, BUZZ, XPO, PSB, HALLO, CFC, ROYAL, GNJ, TEAM, LANA, ARK, INSANE, EMB, XEN, FRE, PLNC, ARCO, XCRE, ENT, EUC, BCF, XSN, BCCOIN, MONEY, XNG, RC, PND, UNITS, GAKH, ASAFE2, LTCR, KED, IOP, KUSH, PRX, IMPCH, ZBC, FRST, FIND, CHAT, RNS, XVP, TAJ, IMX, ATMOS, HPC, MCRN, RAIN, IMS, ARGUS, LMC, PROC, XGR, GRW, PHR, DEA, HTML5, USC, QTUM, ESP, DNR, VUC, BTPL, BRIT, LINDA, ONION, SIGT, CRM, XMCC, DFT, STCN, XCXT, ETHD, ODN, ADA, REC, TZC, TER, RUP, WOMEN, MAY, NAMO, LUX, XIOS, BTDX, KEK, BLHC, XIN, MAG, TAU, ECA, BCD, CNBC, BWK, KLKS, GER, LTCU, PNX, WAGE, TROLL, LCP, MONK, TPAY, MCT, MBC, USX, TOKC, SPD, PUSHI, ELP, VLX, ONT, BSX, BRIA, IC, MEDIC, BITG, DEV, ABJ, SEM, CARE, NZL, PROTON, DEAL, XBI, HWC, SIC, XT3, VIG, EMAR, DKD, LYNX, POSQ, BWS, MUSE, TRVC, DTEM, GIC, PNY, ABS, VITAE, TPC, ARE, EUNO, MMO, KETAN, XDNA, PAXEX, TSC, KCASH, BTXC, BITM, JMC, HERB, PIRATE, OWC, GALI, CSPN, CREDIT, DASHP, NSD, BEET, TTN, AWR, INSN, ALX, LDOGE, TRK, OC, BITS, NEOS, HYPER, PINK, ADC, NKA, PIGGY, GEN, MI, CPC, CLUB, RADS, CRB, OK, LSK, XHI, XWC, FSC, TRI, EOS, OXY, TCH, PART, NXT, ZEPH, GAP, XBC</td>
+                        <td>
+                            '42', '404', '1337', 'DASH', 'BTS', 'BTCD', 'XPY', 'KOBO', 'AUR', 'BLU', 'ENRG', 'BTB', 'CBX', 'CSC', 'DMD', 'EXCL', 'FLT', 'HBN', 'HYP', 'IOC', 'MAX', 'MINT', 'MZC', 'NAUT', 'NAV', 'OPAL', 'ORB', 'POT', 'PXC', 'RDD', 'SUPER', 'SYNC', 'TES', 'TIT', 'TOR', 'USDE', 'UTC', 'VRC', 'XC', 'XCR', 'XST', 'ZCC', 'BURST', 'SJCX', 'NTRN', 'FAIR', 'RBY', 'KORE', 'NOTE', '8BIT', 'STV', 'U', 'VTR', 'ISL', 'NXS', 'DRZ', 'SQL', 'DIGS', 'CON', 'EMC', 'EGC', 'DCR', 'EDRC', 'HTC', 'DBIC', 'PWR', 'BLRY', 'GPU', 'ERC', 'ZEIT', 'SWING', 'SAFEX', 'NEBU', 'XRA', 'REV', 'CKC', 'VIP', 'BSD', 'LIR', 'PUT', 'IBANK', 'FRWC', 'MUDRA', 'LC', 'GB', 'CTC', 'BXT', 'MST', 'ZNE', 'ROOT', 'BTCR', 'BUZZ', 'XPO', 'PSB', 'HALLO', 'CFC', 'ROYAL', 'GNJ', 'TEAM', 'LANA', 'ARK', 'INSANE', 'EMB', 'XEN', 'FRE', 'PLNC', 'ARCO', 'XCRE', 'ENT', 'EUC', 'BCF', 'XSN', 'BCCOIN', 'MONEY', 'XNG', 'RC', 'PND', 'UNITS', 'GAKH', 'ASAFE2', 'LTCR', 'KED', 'IOP', 'KUSH', 'PRX', 'IMPCH', 'ZBC', 'FRST', 'FIND', 'CHAT', 'RNS', 'XVP', 'TAJ', 'IMX', 'ATMOS', 'HPC', 'MCRN', 'RAIN', 'IMS', 'ARGUS', 'LMC', 'PROC', 'XGR', 'GRW', 'PHR', 'DEA', 'HTML5', 'USC', 'QTUM', 'ESP', 'DNR', 'VUC', 'BTPL', 'BRIT', 'LINDA', 'ONION', 'SIGT', 'CRM', 'XMCC', 'DFT', 'STCN', 'XCXT', 'ETHD', 'ODN', 'ADA', 'REC', 'TZC', 'TER', 'RUP', 'WOMEN', 'MAY', 'NAMO', 'LUX', 'XIOS', 'BTDX', 'KEK', 'BLHC', 'XIN', 'MAG', 'TAU', 'ECA', 'BCD', 'CNBC', 'BWK', 'KLKS', 'GER', 'LTCU', 'PNX', 'WAGE', 'TROLL', 'LCP', 'MONK', 'TPAY', 'MCT', 'MBC', 'USX', 'TOKC', 'SPD', 'PUSHI', 'ELP', 'VLX', 'ONT', 'BSX', 'BRIA', 'IC', 'MEDIC', 'BITG', 'DEV', 'ABJ', 'SEM', 'CARE', 'NZL', 'PROTON', 'DEAL', 'XBI', 'HWC', 'SIC', 'XT3', 'VIG', 'EMAR', 'DKD', 'POSQ', 'BWS', 'MUSE', 'TRVC', 'DTEM', 'GIC', 'PNY', 'ABS', 'VITAE', 'TPC', 'ARE', 'EUNO', 'MMO', 'KETAN', 'XDNA', 'PAXEX', 'TSC', 'KCASH', 'AAC', 'BTXC', 'BITM', 'JMC', 'HERB', 'PIRATE', 'OWC', 'GALI', 'CSPN', 'CREDIT', 'DASHP', 'NSD', 'BEET', 'TTN', 'AWR', 'INSN', 'ALX', 'LDOGE', 'TRK', 'OC', 'BITS', 'NEOS', 'HYPER', 'PINK', 'ADC', 'NKA', 'PIGGY', 'GEN', 'MI', 'CPC', 'CLUB', 'RADS', 'CRB', 'OK', 'LSK', 'XHI', 'XWC', 'FSC', 'TRI', 'EOS', 'OXY', 'TCH', 'WAVES', 'PART', 'NXT', 'ZEPH', 'GAP', 'XBC'
                         </tr>
                         <tr>
                         <td>1</td>
-                        <td>BTC, ETH, LTC, XMR, ETC, ZEC, DGB, PRC, SPR, ARG, XMY, MOON, ZET, SXC, QTL, QRK, RIC, DGC, CAT, CCN, CRYPT, XVG, DVC, EAC, EFL, EMC2, EMD, FRK, FTC, GDC, GLC, GLD, IFC, IXC, KGC, LKY, LTB, MEC, MED, MINC, NOBL, NMC, NYAN, RPC, SBC, SMC, SYS, TGC, TRC, UNB, UNO, URO, VIA, VTC, WDC, XJO, BCN, XDN, MONA, NLG, PTC, WBB, FLO, ABY, FLDC, UIS, CYP, OMC, GRE, XCN, MSC, SOON, 1CR, MARS, CTO, ACP, BSC, SONG, ZNY, EXP, SC, MND, I0C, RVR, HODL, GAME, DIEM, ADZ, SOIL, YOC, SIB, FRN, BOLI, OMNI, PIZZA, KMD, KRB, ZYD, COVAL, DOPE, DLC, SH, XZC, ELE, ZCL, KLC, ATX, KURT, XCI, OS76, BIC, HXX, PAC, CTL, BVC, VLTC, ZER, CDN, ZOI, DBIX, EB3, CXT, BENJI, ILC, EQT, QRL, DYN, NANO, CHAN, DCY, DP, UNIFY, SOCC, ARC, DAS, XLC, BTX, GCN, SMART, ONX, BCH, SOJ, NYC, FRAZ, KRONE, ACC, LINX, SUMO, BTCZ, ELM, VIVO, BTG, PIRL, EBST, PURA, INN, ELLA, GBX, XSH, XUN, COAL, DAXX, AC3, LTHN, POP, PHO, SUCR, SPK, GUN, IRL, PCOIN, UBTC, ITZ, TRTL, MUN, NBR, SSS, TRF, KREDS, FLIP, LOT, CIF, CLO, TUBE, PSD, ADK, BTL, ALPS, FTO, XMC, JUMP, INFX, KEC, GIN, PLTC, LOKI, NCP, MGD, PLURA, XMN, PLUS1, AXE, HEX, WEBC, RYO, URALS, QWC, PPAI, AZART, XCG, CRYP, ACM, BSV, FRED, UMO, LIT, EXO, BLTG, BEAM, BTH, SLC, BLAST, XRC, GLT, SLR, UFO, BLC, CESC, CRW, SMLY, GRS, BTA, PAK, J, VOLLAR, RCC, BDX, ZEN</td>
+                        <td>
+                            'BTC', 'ETH', 'LTC', 'XMR', 'ETC', 'ZEC', 'DGB', 'PRC', 'SPR', 'ARG', 'XMY', 'MOON', 'ZET', 'SXC', 'QTL', 'QRK', 'RIC', 'DGC', 'CAT', 'CCN', 'CRYPT', 'XVG', 'DVC', 'EAC', 'EFL', 'EMC2', 'EMD', 'FRK', 'FTC', 'GDC', 'GLC', 'GLD', 'IFC', 'IXC', 'KGC', 'LKY', 'LTB', 'MEC', 'MED', 'MINC', 'NOBL', 'NMC', 'NYAN', 'RPC', 'SBC', 'SMC', 'SYS', 'TGC', 'TRC', 'UNB', 'UNO', 'URO', 'VIA', 'VTC', 'WDC', 'XJO', 'BCN', 'XDN', 'MONA', 'NLG', 'PTC', 'WBB', 'FLO', 'ABY', 'FLDC', 'UIS', 'CYP', 'OMC', 'GRE', 'XCN', 'MSC', 'SOON', '1CR', 'MARS', 'CTO', 'ACP', 'BSC', 'SONG', 'ZNY', 'EXP', 'SC', 'MND', 'I0C', 'RVR', 'HODL', 'GAME', 'DIEM', 'ADZ', 'SOIL', 'YOC', 'SIB', 'FRN', 'BOLI', 'OMNI', 'PIZZA', 'KMD', 'KRB', 'ZYD', 'COVAL', 'DOPE', 'DLC', 'SCN', 'SH', 'XZC', 'ELE', 'ZCL', 'KLC', 'ATX', 'KURT', 'XCI', 'OS76', 'BIC', 'HXX', 'PAC', 'CTL', 'BVC', 'VLTC', 'ZER', 'CDN', 'ZOI', 'DBIX', 'EB3', 'CXT', 'BENJI', 'ILC', 'EQT', 'QRL', 'DYN', 'NANO', 'CHAN', 'DCY', 'DP', 'UNIFY', 'SOCC', 'ARC', 'DAS', 'XLC', 'BTX', 'GCN', 'SMART', 'ONX', 'BCH', 'SOJ', 'NYC', 'FRAZ', 'KRONE', 'ACC', 'LINX', 'SUMO', 'BTCZ', 'ELM', 'VIVO', 'BTG', 'PIRL', 'EBST', 'PURA', 'INN', 'ELLA', 'GBX', 'XSH', 'XUN', 'COAL', 'DAXX', 'AC3', 'LTHN', 'POP', 'PHO', 'SUCR', 'SPK', 'GUN', 'IRL', 'PCOIN', 'UBTC', 'ITZ', 'TRTL', 'MUN', 'NBR', 'SSS', 'TRF', 'KREDS', 'LCC', 'FLIP', 'LOT', 'CIF', 'CLO', 'TUBE', 'PSD', 'ADK', 'BTL', 'ALPS', 'FTO', 'XMC', 'JUMP', 'INFX', 'KEC', 'GIN', 'PLTC', 'LOKI', 'NCP', 'MGD', 'PLURA', 'LYNX', 'XMN', 'PLUS1', 'AXE', 'HEX', 'WEBC', 'RYO', 'URALS', 'QWC', 'PPAI', 'AZART', 'XCG', 'CRYP', 'ACM', 'BSV', 'FRED', 'UMO', 'LIT', 'EXO', 'BLTG', 'BEAM', 'BTH', 'SLC', 'BLAST', 'XRC', 'GLT', 'SLR', 'UFO', 'BLC', 'CESC', 'CRW', 'SMLY', 'GRS', 'BTA', 'PAK', 'J', 'VOLLAR', 'RCC', 'BDX', 'ZEN'
+                        </td>
                         </tr>
                         <tr>
                         <td>2</td>
-                        <td>BTT</td>
+                        <td>
+                            'BTT'
+                        </td>
                         </tr>
                         <tr>
                         <td>3</td>
-                        <td>VET, BBP, LCC, POA, AAC, WAVES</td>
+                        <td>
+                            'VET', 'BBP', 'POA'
+                        </td>
                         </tr>
                         </tbody>
                         </table>
                     </center>
                 </div>
             </div>
+
+            <br>
 
         </div>
     </body>
