@@ -116,7 +116,7 @@ hr {
 .card {
   border: 3px solid transparent;
   background-color: #f6f8fa;
-  border: 3px solid #e5e5e5;
+  border: 3px solid #d1d1d1;
 }
 .card:hover {
   background-color: rgb(29, 161, 242, 0.3);
