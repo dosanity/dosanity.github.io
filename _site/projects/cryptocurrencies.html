@@ -53,6 +53,8 @@
 
   	<body>
 
+        <button onclick="topFunction()" id="myBtn" title="Go to top">↑↑↑</button>
+
         <div class="topnav">
 			<portfolio-nav></portfolio-nav>
 		</div>
@@ -70,7 +72,7 @@
             <hr>
 
             <p>
-                <b>Cryptocurrency</b>, sometimes called crypto, is any form of currency that exists digitally and uses cryptography, mathematical and computational practice 
+                <b>Cryptocurrency</b>, sometimes called crypto, is any form of currency that exists digitally and uses cryptography, the mathematical and computational practice 
                 of encoding and decoding data, to secure transactions. For example, Bitcoin and Ethereum use a form of the elliptic-curve cryptography (ECC) to encrypt data. 
                 It is based on the algebraic structure of elliptic curves over finite fields. Below is a general form of the elliptic-curve equation:
             </p>
@@ -117,12 +119,12 @@
             <p>
                 CryptoCompare is a global cryptocurrency market data provider, giving institutional and retail investors access to real-time market 
                 and pricing data on 5,300+ coins. This data is aggregated from numerous cryptocurrency trading platforms (CTPs) around the world. Our raw dataset includes 
-                6 different variables associated with 1,252 cryptocurrencies. The data selection, processing, and transformation Python code can be viewed in 
+                6 different variables associated with 1,252 cryptocurrencies. The data selection, processing, and transformation of Python code can be viewed in 
                 the <code>crypto_clustering.ipynb</code> file.
             </p>
 
             <p>
-                Additionally, we preprocessed the data for Principal Component Analysis (PCA) by keeping all cryptocurrencies that are being traded and have a working algorithm. 
+                Additionally, we preprocessed the data for Principal Component Analysis (PCA) by keeping all cryptocurrencies that are being traded and having a working algorithm. 
                 We also kept the rows where coins are being mined.
             </p>
 
@@ -139,7 +141,7 @@ X = pd.get_dummies(crypto_df, columns=["Algorithm","ProofType"])
             </code></pre>
 
             <p>
-                Within the <code>ProofType</code> column, there were multiple variables that can be classified the same. In order to calculate accurate results, we combined similar types
+                Within the <code>ProofType</code> column, there were multiple variables that can be classified as the same. To calculate accurate results, we combined similar types
                 together and simplified the data. For example: "Proof of Stake" can be categorized into "PoS", etc.
             </p>
 
@@ -191,7 +193,7 @@ X = pd.get_dummies(crypto_df, columns=["Algorithm","ProofType"])
             w_{(1)} = \text{arg max} \left( \frac{w^TX^TXw}{w^Tw} \right)
             $$
 
-            <p>The quantity to be maximised can be recognised as a Rayleigh quotient. A standard result for a positive semidefinite matrix such as $X^TX$ is that the quotient&#39;s maximum possible value is the largest eigenvalue of the matrix, which occurs when $w$ is the corresponding eigenvector.</p>
+            <p>The quantity to be maximized can be recognized as a Rayleigh quotient. A standard result for a positive semidefinite matrix such as $X^TX$ is that the quotient&#39;s maximum possible value is the largest eigenvalue of the matrix, which occurs when $w$ is the corresponding eigenvector.</p>
             <p>In our analysis, we require more than one component. The $k^{th}$ component can be found by subtracting the first $k − 1$ principal components from $X$ and then finding the weight vector which extracts the maximum variance from this new data matrix:</p>
 
             $$
@@ -205,7 +207,7 @@ X = pd.get_dummies(crypto_df, columns=["Algorithm","ProofType"])
             \end{aligned}
             $$
 
-            <p>The sum of squared distances for the best fit line is the eigenvalue for PC1. The second component (PC2) is orthogonal to the first, and it explains the greatest amount of variance left after the first principal component. Then we find PC3 which is perpendicular to PC1 and PC2 that goes through the origin. The number of PCs is either the number of variables or the number of samples, whichever is smaller.</p>
+            <p>The sum of squared distances for the best fit line is the eigenvalue for PC1. The second component (PC2) is orthogonal to the first, and it explains the greatest amount of variance left after the first principal component. Then we find PC3 which is perpendicular to PC1 and PC2. The number of PCs is either the number of variables or the number of samples, whichever is smaller.</p>
 
             <blockquote>
                 <p>Python Code:</p>
@@ -251,7 +253,7 @@ plt.plot(k, inertia)
             <img src="../assets/images/photos/cryptocurrencies/intra-cluster-distance.png" class="center">
 
             <p>
-                Using the "elbow" or "knee of a curve" as a cutoff point is a common heuristic in mathematical optimization to choose a point where diminishing returns are no longer worth the additional cost. In clustering, this means one should choose a number of clusters so that adding another cluster doesn't give a much better modeling of the data. The intuition is that increasing the number of clusters will naturally improve the fit (explain more of the variation), since there are more parameters (more clusters) to use, but that at some point this is over-fitting, and the elbow reflects this. We can see that the total intra-cluster distance is large for k = 1 and decreases as we increase k, until k = 4, after which it tapers off and gets only marginally smaller. The slope becomes constant after k = 4. This indicates that k = 4 is a good choice. Therefore, will now cluster the states into four clusters using K-means.
+                Using the "elbow" or "knee of a curve" as a cutoff point is a common heuristic in mathematical optimization to choose a point where diminishing returns are no longer worth the additional cost. In clustering, this means one should choose several clusters so that adding another cluster doesn't result in a better model. The intuition is that increasing the number of clusters will naturally improve the fit (explain more of the variation) since there are more parameters (more clusters) to use, but at some point this is over-fitting, and the elbow reflects this. We can see that the total intra-cluster distance is large for k = 1 and decreases as we increase k, until k = 4, after which it tapers off and gets only marginally smaller. The slope becomes constant after k = 4. This indicates that k = 4 is a good choice. Therefore, will now cluster the states into four clusters using K-means.
             </p>
 
             <br>
@@ -260,7 +262,7 @@ plt.plot(k, inertia)
 
             <p>
                 First, we used the PCA data to predict the clusters. Then we added a new column, <code>Class</code> to hold our predictions. In other words, we determined that 
-                there were 532 tradable cryptocurrencies and each are now separated by class.
+                there were 532 tradable cryptocurrencies, and each is now separated by class.
             </p>
 
             <img src="../assets/images/photos/cryptocurrencies/tradable-crypto.png" class="center">
@@ -282,7 +284,7 @@ plt.plot(k, inertia)
 
             <p>
                 However, we do see that there are two cryptocurrency outliers: TurtleCoin and BitTorrent. TurtleCoin has a high Total Coin Supply and BitTorrent has both a high
-                Total Coin Supply and Total Coins Mined. In order to get a better understanding from the clustering algorithm, we will remove these later.
+                Total Coin Supply and Total Coins Mined. In order to get a better understanding of the clustering algorithm, we will remove these later.
             </p>
 
             <img src="../assets/images/photos/cryptocurrencies/crypto-pca-2D.png" class="center">
@@ -329,7 +331,7 @@ sctt = ax.scatter3D(x, y, z, alpha = 0.6, c = predictions, cmap=cmap, s = 100)
             <p>
                 Previously, the two-dimensional and three-dimensional plots included two class outliers. By running the analysis again, we determined that the removal of the 
                 class outliers, TurtleCoin and BitTorrent, does not significantly impact the clusters.
-                Therefore, in order to visualize it better, we removed these outliers and generated the 3D model once more.
+                Therefore, to visualize it better, we removed these outliers and generated the 3D model once more.
             </p>
 
             <img src="../assets/images/photos/cryptocurrencies/crypto-pca-3D-2.png" class="center">
@@ -342,14 +344,14 @@ sctt = ax.scatter3D(x, y, z, alpha = 0.6, c = predictions, cmap=cmap, s = 100)
                 The visualizations illustrate that there is a clear separation between the clusters generated by the machine learning algorithm. Now we will compare the 
                 different clusters: mainly cluster 0 and cluster 1 since these are the largest clusters.
                 From the plot below, we can see the variation across the variables for each of the clusters found by the K-means algorithm. We can identify 
-                that the cryptocurrencies in cluster 0 on average have fewer total coins mined and supplied than cluster 1. 
+                that the cryptocurrencies in cluster 0 on average have fewer total coins mined and supplied than in cluster 1. 
             </p>
 
             <img src="../assets/images/photos/cryptocurrencies/cluster-compare.png" class="center">
 
             <p>
                 There was also a pattern in the proof type of the currencies. Cluster 1 contained only Proof-of-Work (PoW) while cluster 0 included cryptocurrencies that required 
-                both Proof-of-Work and Proof-of-Stake (PoW/PoS). Additionally, the currencies that required only Proof-of-Stake (PoS) was categorized in cluster 0.
+                both Proof-of-Work and Proof-of-Stake (PoW/PoS). Additionally, the currencies that required only Proof-of-Stake (PoS) were categorized in cluster 0.
             </p>
 
             <center>
@@ -395,7 +397,7 @@ sctt = ax.scatter3D(x, y, z, alpha = 0.6, c = predictions, cmap=cmap, s = 100)
             <br>
 
             <p>
-                This analysis is the basis for a recomendation algorithm for those interested in the cryptocurrecy market. We can create a portfolio and give recommendations
+                This analysis is the basis for a recommendation algorithm for those interested in the cryptocurrency market. We can create a portfolio and give recommendations
                 based on similar cryptocurrencies one is interested in. For example: if you are buying Bitcoin and Ethereum, we can recommend similar coins from cluster 1.
                 In contrast, we can also create a diversified portfolio from the different clusters to diminish the risk factor in the cryptocurrency market. This will be 
                 beneficial since there are high risks of trading cryptocurrencies because of volatility.

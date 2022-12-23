@@ -53,6 +53,8 @@
 
   	<body>
 
+        <button onclick="topFunction()" id="myBtn" title="Go to top">↑↑↑</button>
+
         <div class="topnav">
 			<portfolio-nav></portfolio-nav>
 		</div>
@@ -385,7 +387,7 @@ for i,name in enumerate(summary['zipcode'].values):
             w_{(1)} = \text{arg max} \left( \frac{w^TX^TXw}{w^Tw} \right)
             $$
 
-            <p>The quantity to be maximised can be recognised as a Rayleigh quotient. A standard result for a positive semidefinite matrix such as $X^TX$ is that the quotient&#39;s maximum possible value is the largest eigenvalue of the matrix, which occurs when $w$ is the corresponding eigenvector.</p>
+            <p>The quantity to be maximized can be recognized as a Rayleigh quotient. A standard result for a positive semidefinite matrix such as $X^TX$ is that the quotient&#39;s maximum possible value is the largest eigenvalue of the matrix, which occurs when $w$ is the corresponding eigenvector.</p>
             <p>In our analysis, we require more than one component. The $k^{th}$ component can be found by subtracting the first $k − 1$ principal components from $X$ and then finding the weight vector which extracts the maximum variance from this new data matrix:</p>
 
             $$
@@ -399,7 +401,7 @@ for i,name in enumerate(summary['zipcode'].values):
             \end{aligned}
             $$
 
-            <p>The sum of squared distances for the best fit line is the eigenvalue for PC1. The second component (PC2) is orthogonal to the first, and it explains the greatest amount of variance left after the first principal component. Then we find PC3 which is perpendicular to PC1 and PC2 that goes through the origin. The number of PCs is either the number of variables or the number of samples, whichever is smaller.</p>
+            <p>The sum of squared distances for the best fit line is the eigenvalue for PC1. The second component (PC2) is orthogonal to the first, and it explains the greatest amount of variance left after the first principal component. Then we find PC3 which is perpendicular to PC1 and PC2. The number of PCs is either the number of variables or the number of samples, whichever is smaller.</p>
 
             <img src="https://user-images.githubusercontent.com/29410712/203155568-68b4015c-9f68-4087-bbb6-0a44f0228fe0.png" alt="PCA" class="center">
 
@@ -442,7 +444,7 @@ Explained Variance Ratios of the PCA: [0.59977592 0.39255202 0.00767206]
 
             <img src="https://user-images.githubusercontent.com/29410712/203158951-caf2a648-746a-4908-9cd1-a423b225d669.png" alt="Intra-Cluster-Distance" class="center">
 
-            <p>Using the "elbow" or "knee of a curve" as a cutoff point is a common heuristic in mathematical optimization to choose a point where diminishing returns are no longer worth the additional cost. In clustering, this means one should choose a number of clusters so that adding another cluster doesn&#39;t give a much better modeling of the data. The intuition is that increasing the number of clusters will naturally improve the fit (explain more of the variation), since there are more parameters (more clusters) to use, but that at some point this is over-fitting, and the elbow reflects this. We can see that the total intra-cluster distance is large for k = 1 and decreases as we increase k, until k = 6, after which it tapers off and gets only marginally smaller. The slope becomes constant after k = 6. This indicates that k = 6 is a good choice. Therefore, will now cluster the states into six clusters using K-means. </p>
+            <p>Using the "elbow" or "knee of a curve" as a cutoff point is a common heuristic in mathematical optimization to choose a point where diminishing returns are no longer worth the additional cost. In clustering, this means one should choose several clusters so that adding another cluster doesn't result in a better model. The intuition is that increasing the number of clusters will naturally improve the fit (explain more of the variation) since there are more parameters (more clusters) to use, but at some point this is over-fitting, and the elbow reflects this. We can see that the total intra-cluster distance is large for k = 1 and decreases as we increase k, until k = 6, after which it tapers off and gets only marginally smaller. The slope becomes constant after k = 6. This indicates that k = 6 is a good choice. Therefore, will now cluster the states into six clusters using K-means. </p>
 
             <blockquote>
                 <p>Python Code:</p>
