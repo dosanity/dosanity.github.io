@@ -246,8 +246,8 @@ img = generator(z)
             <ul>
                 <li>First Hidden Layer: 25856 params = [100 inputs (from input layer) * 256 neurons] + (256 bias terms)</li>
                 <li>Second Hidden Layer: 131584 params = [256 inputs (from first hidden layer) * 512 neurons] + (512 bias terms)</li>
-                <li>Third Hidden Layer: 525312 params = [80 inputs (from first hidden layer) * 1024 neurons] + (1024 bias terms)</li>
-                <li>Output Layer: 803600 params = [1024 inputs (from second hidden layer) * 784 neuron] + (784 bias term)</li>
+                <li>Third Hidden Layer: 525312 params = [80 inputs (from second hidden layer) * 1024 neurons] + (1024 bias terms)</li>
+                <li>Output Layer: 803600 params = [1024 inputs (from third hidden layer) * 784 neuron] + (784 bias term)</li>
             </ul>
 
             <pre><code class="language-python">
@@ -418,18 +418,19 @@ GAN.compile(loss='binary_crossentropy', optimizer=optimizer, metrics=['accuracy'
 
             <img src="https://user-images.githubusercontent.com/29410712/209286611-602f38d9-af15-4124-9310-9a9cb51ac57f.gif" class="center">
 
-            <p>The model performance was reported on every batch. This includes the loss and accuracy of the discriminative and generative models. We were able to train 30,000 epochs
-            with a batch size of 32. The generated results were saved every 200 sample intervals. The figures below visualizes the changes in loss and accuracy in the GANs model:</p>
+            <p>
+                The model performance was reported on every batch. This includes the loss and accuracy of the discriminative and generative models. We were able to train 30,000 epochs with a batch size of 32. The generated results were saved every 200 sample intervals. The figures below visualize the changes in loss and accuracy in the GANs model:
+            </p>
 
             <img src="../assets/images/photos/mnist/losses.png" class="center">
             <img src="../assets/images/photos/mnist/accuracy.png" class="center">
 
-            <p>Both the loss and the accuracy of the GANs model converges to a certain point. If we run the algorithm infinitely times, the discriminator loss converges to 
-            approximately 0.57 and the generator loss converges to approximately 1. Furthermore, as the number of epochs goes to infinity, the discriminator accuracy converges 
-            to an interval between 65% - 75% and the generator accuracy converges to an interval between 0% - 30%.</p>
+            <p>
+                Both the loss and the accuracy of the GANs model converge to a certain point. If we run the algorithm infinitely times, the discriminator loss converges to approximately 0.57 and the generator loss converges to approximately 1. Furthermore, as the number of epochs goes to infinity, the discriminator accuracy converges to an interval between 65% - 75%, and the generator accuracy converges to an interval between 0% - 30%.
+            </p>
 
             <p>
-                Finally, the figures below show the breakdown of the generated images from 0 epoch to 30,000 epochs.
+                Finally, the figures below show the breakdown of the generated images from 0 epochs to 30,000 epochs.
             </p>
 
             <img src="https://user-images.githubusercontent.com/29410712/209316318-56695d7a-7814-41f0-890f-6c31aaf0b9c3.png" class="center">
