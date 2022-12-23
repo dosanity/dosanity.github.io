@@ -242,13 +242,13 @@ img = generator(z)
             </code></pre>
             
             <p>As stated before, the generator is a neural network model that uses three hidden layers with the Leaky ReLU function. The output layer uses the TanH activation function.</p>
-            
-            <ul>
-                <li>First Hidden Layer: 25856 params = [100 inputs (from input layer) * 256 neurons] + (256 bias terms)</li>
-                <li>Second Hidden Layer: 131584 params = [256 inputs (from first hidden layer) * 512 neurons] + (512 bias terms)</li>
-                <li>Third Hidden Layer: 525312 params = [80 inputs (from second hidden layer) * 1024 neurons] + (1024 bias terms)</li>
-                <li>Output Layer: 803600 params = [1024 inputs (from third hidden layer) * 784 neuron] + (784 bias term)</li>
-            </ul>
+
+            <pre><code class="nohighlight">
+• First Hidden Layer: 25856 params = [100 inputs (from input layer) * 256 neurons] + (256 bias terms)
+• Second Hidden Layer: 131584 params = [256 inputs (from first hidden layer) * 512 neurons] + (512 bias terms)
+• Third Hidden Layer: 525312 params = [80 inputs (from second hidden layer) * 1024 neurons] + (1024 bias terms)
+• Output Layer: 803600 params = [1024 inputs (from third hidden layer) * 784 neuron] + (784 bias term)
+            </code></pre>
 
             <pre><code class="language-python">
 _________________________________________________________________
@@ -326,12 +326,12 @@ validity = discriminator(img)
             </code></pre>
             
             <p>As stated before, the discriminator is also a neural network model that uses two hidden layers with the Leaky ReLU function. Since we need the output to be a binary classifier, the output layer uses the Sigmoid activation function.</p>
-            
-            <ul>
-                <li>First Hidden Layer: 401920 params = [784 inputs (from generator output layer) * 512 neurons] + (512 bias terms)</li>
-                <li>Second Hidden Layer: 131328 params = [512 inputs (from first hidden layer) * 256 neurons] + (256 bias terms)</li>
-                <li>Output Layer: 257 params = [256 inputs (from second hidden layer) * 1 neuron] + (1 bias term)</li>
-            </ul>
+
+            <pre><code class="nohighlight">
+• First Hidden Layer: 401920 params = [784 inputs (from generator output layer) * 512 neurons] + (512 bias terms)
+• Second Hidden Layer: 131328 params = [512 inputs (from first hidden layer) * 256 neurons] + (256 bias terms)
+• Output Layer: 257 params = [256 inputs (from second hidden layer) * 1 neuron] + (1 bias term)
+            </code></pre>
 
             <pre><code class="language-python">
 _________________________________________________________________
