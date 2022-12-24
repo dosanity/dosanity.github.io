@@ -24,6 +24,7 @@
 }
 
 body {
+  margin-top: 30px;
   overflow-y:scroll;
   font-family:  -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto;
   height: 100%;
@@ -456,8 +457,8 @@ blockquote p {
     color: white; /* Text color */
     cursor: pointer; /* Add a mouse pointer on hover */
     padding: 10.5px; /* Some padding */
-    padding-left: 14.5px;
-    padding-right: 14.5px;
+    padding-left: 14px;
+    padding-right: 14px;
     border-radius: 10px; /* Rounded corners */
     font-size: 20px; /* Increase font size */
     transition-duration: 0.2s;
@@ -550,15 +551,18 @@ html {
   list-style: none;
   width: 0;
   position: fixed;
+  z-index: 99; /* Make sure it does not overlap */
   top: 100px;
   left: 0;
   background-color: #111;
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 14px;
-  padding-bottom: 40px;
+  padding-bottom: 20px;
   white-space: nowrap;
   font-weight: bold;
+  overflow:hidden; 
+  overflow-y:scroll;
 }
 
 .side-btn:hover {
