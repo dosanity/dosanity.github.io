@@ -562,7 +562,6 @@ html {
   white-space: nowrap;
   font-weight: bold;
   overflow:hidden; 
-  overflow-y:scroll;
 }
 
 .side-btn:hover {
