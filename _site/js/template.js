@@ -189,10 +189,12 @@ class Footer extends HTMLElement {
         <footer>
             <div class="footer-margin"></div>
             
-            <a href="https://www.instagram.com/dosanity/?hl=en"><img class="contacts-btn" src="../assets/images/icons/insta.png"></a>
-            <a href="mailto:anthonydo888@gmail.com"><img class="contacts-btn" src="../assets/images/icons/email.png"></a>
-            <a href="https://www.linkedin.com/in/dosanity/"><img class="contacts-btn" src="../assets/images/icons/linkedin.png"></a>
-            <a href="https://github.com/dosanity"><img class="contacts-btn" src="../assets/images/icons/github.png"></a>
+            <div class="mobile-center">
+              <a href="https://www.instagram.com/dosanity/?hl=en"><img class="contacts-btn" src="../assets/images/icons/insta.png"></a>
+              <a href="mailto:anthonydo888@gmail.com"><img class="contacts-btn" src="../assets/images/icons/email.png"></a>
+              <a href="https://www.linkedin.com/in/dosanity/"><img class="contacts-btn" src="../assets/images/icons/linkedin.png"></a>
+              <a href="https://github.com/dosanity"><img class="contacts-btn" src="../assets/images/icons/github.png"></a>
+            </div>
 
             <div class="footer-bottom">
                 <p class='m-0 text-center text-white' id='copyright'>&copy; ` + new Date().getFullYear() + ` ANTHONY DO, ALL RIGHTS RESERVED</p>
@@ -275,12 +277,11 @@ window.addEventListener('DOMContentLoaded', () => {
 function toggleNav(){
   navSize = document.getElementById("mySidenav").style.width;
   if (navSize === "350px") {
-    document.getElementById("mySidenav").parentElement.classList.add('active');
     return closeNav();
   }
   else {
-    document.getElementById("mySidenav").parentElement.classList.remove('active');
     return openNav();
+    
   }
 }
 /* Set the width of the side navigation to 350px */
@@ -291,3 +292,4 @@ function openNav() {
 function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
 }
+
