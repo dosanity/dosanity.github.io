@@ -39,11 +39,29 @@
 
   	<body>
 
-        <button onclick="topFunction()" id="myBtn" title="Go to top">↑↑↑</button>
+        <button onclick="topFunction()" id="myBtn" title="Back to top">🡱</button>
 
         <div class="topnav">
 			<portfolio-nav></portfolio-nav>
 		</div>
+
+        <span class="side-btn" onclick="openNav()">&#9776;</span>
+        
+        <nav id="mySidenav" class="section-nav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <li class="toc">Table of Contents</li>
+
+            <hr style="color: white; border-top: 3px solid white;">
+
+            <li><a href="#section-1">Overview</a></li>
+            <li><a href="#section-2">Artificial Neural Networks</a></li>
+            <li><a href="#section-3">The MNIST Data</a></li>
+            <li><a href="#section-4">Generative Adversarial Networks</a></li>
+            <li><a href="#section-5">The Generator</a></li>
+            <li><a href="#section-6">The Discriminator</a></li>
+            <li><a href="#section-7">Zero-Sum Game</a></li>
+            <li><a href="#section-8">Results</a></li>
+        </nav>
 
 		<div class="container">
 
@@ -52,6 +70,8 @@
 			<br>
 
             <script src="../js/load-mathjax.js" async></script>
+
+        <section id="section-1">
 
             <h1 id="mnist-generative-adversarial-networks"><b>MNIST Generative Adversarial Networks</b></h1>
 
@@ -70,12 +90,16 @@
                 <li>Data Source: <a href="https://www.tensorflow.org/datasets/catalog/mnist">Keras MNIST</a></li>
             </ul>
 
+        </section>
+
             <br>
 
-            <h2 id="artificial-neural-networks"><b>Artificial Neural Networks</b></h2>
+        <section id="section-2">
+
+            <h2><b>Artificial Neural Networks</b></h2>
 
             <hr>
-
+            
             <p>Neural networks (also known as artificial neural networks, or ANN) are a set of algorithms that are modeled after the human brain and are categorized as Artificial General Intelligence. Neural networks are an advanced form of machine learning that recognizes patterns and features in input data and provides a clear quantitative output. In its simplest form, a neural network contains layers of neurons, which perform individual computations. These computations are connected and weighed against one another until the neurons reach the final layer, which returns a numerical result, or an encoded categorical result.</p>
             <p>One way to use a neural network model is to create a classification algorithm that determines if an input belongs in one category versus another. Alternatively, neural network models can behave like a regression model, where a dependent output variable can be predicted from independent input variables. Therefore, neural network models can be an alternative to many of the models we have learned throughout the course, such as random forest, logistic regression, or multiple linear regression.</p>
             <p>There are a few advantages to using a neural network instead of a traditional statistical or machine learning model. For instance, neural networks are effective at detecting complex, nonlinear relationships and can approximate any function based on the Universal Approximation Theorem. Additionally, neural networks have a greater tolerance for messy data and can learn to ignore noisy characteristics in data. The two biggest disadvantages to using a neural network model are that the layers of neurons are often too complex to dissect and understand (creating a black box problem), and neural networks are prone to overfitting (characterizing the training data so well that it does not generalize to test data effectively). However, both disadvantages can be mitigated and accounted for.</p>
@@ -88,7 +112,7 @@
                 <li>Bias is a constant value added to the input to influence the final decision, typically labeled as $w_0$.</li>
                 <li>A net summary function that aggregates all weighted inputs, in this case, a weighted summation:</li>
             </ul>
-
+            
             <img src="https://user-images.githubusercontent.com/29410712/208508271-b775459f-f379-42a5-9c54-6d8877791f0a.png" class="center">
 
             <br>
@@ -145,9 +169,13 @@
 
             <p>By understanding this framework, we can dive deeper into combining multiple neural networks to train machines to generate images from scratch.</p>
 
+        </section>
+
             <br>
 
-            <h2 id="the-mnist-data"><b>The MNIST Data</b></h2>
+        <section id="section-3">
+
+            <h2><b>The MNIST Data</b></h2>
 
             <hr>
 
@@ -173,7 +201,13 @@ from keras.datasets import mnist
             
             <img src="https://user-images.githubusercontent.com/29410712/209283904-afd02e91-e6ed-42fc-b596-a0253aada742.png" class="center">
 
-            <h2 id="generative-adversarial-networks-gans-"><b>Generative Adversarial Networks (GANs)</b></h2>
+        </section>
+
+            <br>
+
+        <section id="section-4">
+
+            <h2><b>Generative Adversarial Networks (GANs)</b></h2>
 
             <hr>
 
@@ -182,7 +216,12 @@ from keras.datasets import mnist
             <img src="https://user-images.githubusercontent.com/29410712/209293134-032a6aec-827e-4a53-a7f4-741938a94899.png" class="center">
             
             <br>
+
+        </section>
+
             <br>
+
+        <section id="section-5">
 
             <h2 id="the-generator"><b>The Generator</b></h2>
 
@@ -272,7 +311,11 @@ Non-trainable params: 3,584
 _________________________________________________________________
             </code></pre>
 
+        </section>
+
             <br>
+
+        <section id="section-6">
             
             <h2><b>The Discriminator</b></h2>
 
@@ -350,7 +393,11 @@ Non-trainable params: 0
 _________________________________________________________________
             </code></pre>
 
+        </section>
+
             <br>
+
+        <section id="section-7">
             
             <h2><b>Zero-Sum Game</b></h2>
 
@@ -408,7 +455,11 @@ GAN.compile(loss='binary_crossentropy', optimizer=optimizer, metrics=['accuracy'
 
             <p>Since both the generator and the discriminator are trying to optimize, eventually the results will converge. In other words, it would be impossible for the discriminator to tell the difference between the trained data and the reconstructed data created from the generator. Generative Adversarial Networks are extremely complex and training them to achieve perfection would be difficult.</p>
             
+        </section>
+        
             <br>
+
+        <section id="section-8">
 
             <h2><b>Results</b></h2>
 
@@ -451,6 +502,8 @@ GAN.compile(loss='binary_crossentropy', optimizer=optimizer, metrics=['accuracy'
                 <li><a href="https://www.tensorflow.org/datasets/catalog/mnist">https://www.tensorflow.org</a></li>
                 <li><a href="https://maelfabien.github.io/deeplearning/Perceptron/">https://maelfabien.github.io</a></li>
             </ul>
+
+        </section>
             
         </div>
     </body>

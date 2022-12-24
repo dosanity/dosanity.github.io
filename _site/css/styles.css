@@ -24,11 +24,11 @@
 }
 
 body {
-  padding-top: 54px;
+  padding-top: 100px;
   overflow-y:scroll;
   font-family:  -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto;
   height: 100%;
-}  
+}
 
 hr {
   color: lightgray;
@@ -440,6 +440,11 @@ blockquote p {
     padding: 15px; /* Some padding */
     border-radius: 10px; /* Rounded corners */
     font-size: 18px; /* Increase font size */
+    transition-duration: 0.2s;
+  }
+
+  .side-btn {
+    display: none;
   }
 
 }
@@ -469,7 +474,7 @@ blockquote p {
     bottom: 40px; /* Place the button at the bottom of the page */
     right: 30px; /* Place the button 30px from the right */
     z-index: 99; /* Make sure it does not overlap */
-    border: none; /* Remove borders */
+    border: 3px solid black;
     outline: none; /* Remove outline */
     background-color: black; /* Set a background color */
     color: white; /* Text color */
@@ -477,11 +482,108 @@ blockquote p {
     padding: 15px; /* Some padding */
     border-radius: 10px; /* Rounded corners */
     font-size: 18px; /* Increase font size */
+    transition-duration: 0.2s;
   }
 
   #myBtn:hover {
-    background-color: #555;
+    background-color: white;
+    color: black;
+    border: 3px solid black;
+    border-radius: 10px;
   }
 
 }
 
+
+
+
+
+
+/* 1. Enable smooth scrolling */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+/* 3. ScrollSpy active styles (see JS tab for activation) */
+.section-nav li.active > a {
+  color: white;
+  font-weight: bold;
+}
+
+/* Sidebar Navigation */
+.section-nav {
+  list-style: none;
+  width: 0;
+  position: fixed;
+  top: 100px;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 14px;
+  padding-bottom: 40px;
+  white-space: nowrap;
+  font-weight: bold;
+}
+
+.side-btn {
+  padding-left: 0;
+  position: fixed;
+  top: 100px;
+  font-size: 25px;
+  list-style: none;
+  border: 3px solid black;
+  outline: none; /* Remove outline */
+  background-color: black; /* Set a background color */
+  color: white; /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 10px; /* Some padding */
+  border-radius: 10px; /* Rounded corners */
+  font-size: 20px; /* Increase font size */
+  transition-duration: 0.2s;
+}
+
+.side-btn:hover {
+  background-color: white;
+  color: black;
+  border: 3px solid black;
+  border-radius: 10px;
+}
+
+.section-nav a {
+  text-decoration: none;
+  display: block;
+  transition: all 50ms ease-in-out; /* 💡 This small transition makes setting of the active state smooth */
+  padding: 8px 8px 8px 32px;
+  font-size: 18px;
+  color: #818181;
+  white-space: nowrap;
+  font-weight: bold;
+}
+
+.section-nav li a:hover,
+.section-nav li a:focus {
+  color: white;
+  background-color: #1DA1F2;
+}
+
+.section-nav .closebtn {
+  position: absolute;
+  top: 0;
+  margin-top: -10px;
+  right: 10px;
+  font-size: 36px;
+  margin-left: 50px;
+  background-color: none;
+}
+
+.section-nav .closebtn:hover {
+  color:white
+}
+
+.toc {
+  font-size: 25px;
+  padding: 8px 8px 8px 32px;
+  color: white;
+}
