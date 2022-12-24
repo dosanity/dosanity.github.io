@@ -24,7 +24,7 @@
 }
 
 body {
-  padding-top: 50px;
+  padding-top: 45px;
   overflow-y:scroll;
   font-family:  -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto;
   height: 100%;
@@ -539,8 +539,10 @@ html {
   color: white; /* Text color */
   cursor: pointer; /* Add a mouse pointer on hover */
   padding: 10px; /* Some padding */
+  padding-left: 15px;
+  padding-right: 15px;
   border-radius: 10px; /* Rounded corners */
-  font-size: 20px; /* Increase font size */
+  font-size: 25px; /* Increase font size */
   transition-duration: 0.2s;
 }
 
