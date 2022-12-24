@@ -270,29 +270,39 @@ window.addEventListener('DOMContentLoaded', () => {
   
 });
 
-// /* Set the width of the side navigation to 250px */
-// function openNav() {
-//   document.getElementById("mySidenav").style.width = "350px";
-// }
 
+
+// document.getElementById("sideBtn").addEventListener("click", open_close);
+
+// var menuState = 0 // close
+// function open_close() {
+//   if(menuState === 0){
+//      menuState = 1;
+//      document.getElementById("mySidenav").style.width = "350px";
+
+//   }
+//   else {
+//      menuState = 0;
+//      document.getElementById("mySidenav").style.width = "0";
+
+//   }
+//   console.log(menuState);
+// } 
+
+// document.getElementById("sideBtn").addEventListener("click", toggleNav);
+
+function toggleNav(){
+  navSize = document.getElementById("mySidenav").style.width;
+  if (navSize === "350px") {
+      return closeNav();
+  }
+  return openNav();
+}
+/* Set the width of the side navigation to 350px */
+function openNav() {
+  document.getElementById("mySidenav").style.width = "350px";
+}
 /* Set the width of the side navigation to 0 */
 function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
 }
-
-document.getElementById("sideBtn").addEventListener("click", open_close);
-
-var menuState = 0 // close
-function open_close() {
-  if(menuState === 0){
-     menuState = 1;
-     document.getElementById("mySidenav").style.width = "350px";
-
-  }
-  else {
-     menuState = 0;
-     document.getElementById("mySidenav").style.width = "0";
-
-  }
-  console.log(menuState);
-} 

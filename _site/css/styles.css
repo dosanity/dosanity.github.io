@@ -457,8 +457,8 @@ blockquote p {
     color: white; /* Text color */
     cursor: pointer; /* Add a mouse pointer on hover */
     padding: 10.5px; /* Some padding */
-    padding-left: 14px;
-    padding-right: 14px;
+    padding-left: 13px;
+    padding-right: 13px;
     border-radius: 10px; /* Rounded corners */
     font-size: 20px; /* Increase font size */
     transition-duration: 0.2s;
@@ -527,6 +527,14 @@ blockquote p {
     transition-duration: 0.2s;
   }
 
+  .side-btn:hover {
+    background-color: white;
+    color: black;
+    border: 3px solid black;
+    border-radius: 10px;
+  }
+  
+
 }
 
 
@@ -562,13 +570,6 @@ html {
   white-space: nowrap;
   font-weight: bold;
   overflow:hidden; 
-}
-
-.side-btn:hover {
-  background-color: white;
-  color: black;
-  border: 3px solid black;
-  border-radius: 10px;
 }
 
 .section-nav a {
