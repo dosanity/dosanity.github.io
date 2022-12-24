@@ -252,19 +252,19 @@ img = generator(z)
 
             <pre><code class="language-python">
 _________________________________________________________________
- Layer (type)                Output Shape              Param #   
+ Layer (type)                Output Shape              Param #
 =================================================================
- dense (Dense)               (None, 256)               25856 
+ dense (Dense)               (None, 256)               25856
  batch_normalization                                   1024
-                                                                 
- dense_1 (Dense)             (None, 512)               131584  
+                                                        
+ dense_1 (Dense)             (None, 512)               131584
  batch_normalization                                   2048
-                                                                 
- dense_2 (Dense)             (None, 1024)              525312    
- batch_normalization                                   4096         
-                                                                 
- dense_3 (Dense)             (None, 784)               803600           
-                                                                 
+                                                    
+ dense_2 (Dense)             (None, 1024)              525312
+ batch_normalization                                   4096
+                                                        
+ dense_3 (Dense)             (None, 784)               803600 
+                                                
 =================================================================
 Total params: 1,493,520
 Trainable params: 1,489,936
@@ -335,19 +335,19 @@ validity = discriminator(img)
 
             <pre><code class="language-python">
 _________________________________________________________________
-Layer (type)                Output Shape              Param #   
-=================================================================                                                              
-dense_4 (Dense)             (None, 512)               401920         
-                                                                
-dense_5 (Dense)             (None, 256)               131328           
-                                                                
-dense_6 (Dense)             (None, 1)                 257       
-                                                                
+Layer (type)                Output Shape              Param #
+=================================================================
+dense_4 (Dense)             (None, 512)               401920
+                                            
+dense_5 (Dense)             (None, 256)               131328
+                                                
+dense_6 (Dense)             (None, 1)                 257
+                                                
 =================================================================
 Total params: 533,505
 Trainable params: 533,505
 Non-trainable params: 0
-_________________________________________________________________  
+_________________________________________________________________
             </code></pre>
 
             <br>
