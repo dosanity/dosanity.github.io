@@ -38,12 +38,32 @@
 	</head>
 
   	<body>
-
-        <button onclick="topFunction()" id="myBtn" title="Back to top">▲</button>
+        
+        <span class="side-btn" id="sideBtn" onclick="toggleNav()">𝐓</span>
 
         <div class="topnav">
 			<portfolio-nav></portfolio-nav>
 		</div>
+        
+        <nav id="mySidenav" class="section-nav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <li class="toc">Table of Contents</li>
+
+            <hr style="color: white; border-top: 3px solid white;">
+
+            <li><a href="#section-1">Overview</a></li>
+            <li><a href="#section-2">Webscraping Process</a></li>
+            <li><a href="#section-3">Preliminary Analysis</a></li>
+            <li><a href="#section-4">GeoSpatial Analysis</a></li>
+            <li><a href="#section-5">Linear Regression</a></li>
+            <li><a href="#section-6">Machine Learning Algorithms</a>
+                <ul>
+                    <li><a href="#section-7">Principal Component Analysis</a></li>
+                    <li><a href="#section-8">K-Means Cluster Analysis</a></li>
+                    <li><a href="#section-9">Hierarchical Cluster Analysis</a></li>
+                </ul>
+            </li>
+        </nav>
 
 		<div class="container">
 
@@ -52,6 +72,8 @@
 			<br>
 
             <script src="../js/load-mathjax.js" async></script>
+
+            <section id="section-1">
 
             <h1 id="salt-lake-county-real-estate-analysis"><b>Salt Lake County Real Estate Analysis</b></h1>
 
@@ -69,7 +91,11 @@
                 <li>Data Source: ZillowData.csv - <a href="https://www.zillow.com">Zillow.com</a></li>
             </ul>
 
-            <br>
+        </section>
+
+        <br>
+
+        <section id="section-2">
 
             <h2 id="webscraping-process"><b>Webscraping Process</b></h2>
 
@@ -175,7 +201,11 @@ df = df.drop(df[(df['city'] == 'Salt Lake City') & (df['price'] > upper)].index)
 
             <img src="https://user-images.githubusercontent.com/29410712/203438013-477acca7-14af-401b-9a20-12426841631b.png" alt="AC Home Price Scatter" class="center">
 
-            <br>
+        </section>
+
+        <br>
+
+        <section id="section-3">
 
             <h2 id="preliminary-analysis"><b>Preliminary Analysis</b></h2>
 
@@ -195,7 +225,11 @@ df = df.drop(df[(df['city'] == 'Salt Lake City') & (df['price'] > upper)].index)
 
             <img src="https://user-images.githubusercontent.com/29410712/203019394-f2f98c0b-1106-4eb8-9ff6-4a7f75567acb.png" alt="Price vs Sqft Scatterplot" class="center">
 
-            <br>
+        </section>
+
+        <br>
+
+        <section id="section-4">
 
             <h2 id="geospatial-analysis"><b>GeoSpatial Analysis</b></h2>
 
@@ -253,7 +287,11 @@ geo_df.plot(column = 'sqft_log', ax=ax, cmap = 'inferno',
 
             <p>In the sqft heat map of Salt Lake County, we can see that the real estate properties with more square feet are located on the east and south-west sides of the Salt Lake Valley which is understandable since the locations are further away from the city center.</p>
 
-            <br>
+        </section>
+
+        <br>
+
+        <section id="section-5">
 
             <h2 id="linear-regression"><b>Linear Regression</b></h2>
 
@@ -320,7 +358,11 @@ Kurtosis:                      11.750   Cond. No.                     9.78e+03
 
             <p>In the multiple linear regression model, the intercept of the regression is 102,400 and the R-squared is 0.640. The R-squared is the proportion of the variation in the dependent variable that is predictable from the independent variable. This means that around 64.0% of the variability observed in the target variable is explained by this regression model. Additionally, all the variables are statistically significant at an alpha of 5% and can be used to predict the listed price of the real estate property. With further clarification, as the sqft of the real estate property and the number of baths increase by one, the price increases by 181 and 27220, respectively. Moreover, as the number of bedrooms increase by one, the price actually decreases by 8116. We can also see that if the real estate property is a Single Family Home, it increases the price of the property. </p>
 
-            <br> 
+        </section>
+
+        <br>
+
+        <section id="section-6">
 
             <h2 id="machine-learning-algorithms-deeper-analysis-"><b>Machine Learning Algorithms (Deeper Analysis)</b></h2>
 
@@ -328,7 +370,9 @@ Kurtosis:                      11.750   Cond. No.                     9.78e+03
 
             <p>For this analysis, we will be using Principal Component Analysis, K-Means Clustering, and Hierarchical Clustering to understand how the prices, sqft, and cost per sqft differ between zipcodes.</p>
 
-            <br>
+        <br>
+
+        <section id="section-7">
 
             <h4 id="principal-component-analysis-pca-"><b>Principal Component Analysis (PCA)</b></h4>
 
@@ -416,7 +460,11 @@ plt.plot([1,2,3], var_ratio, '-o')
 Explained Variance Ratios of the PCA: [0.59977592 0.39255202 0.00767206]
             </code></pre>
 
-            <br>
+        </section>
+
+        <br>
+
+        <section id="section-8">
 
             <h4 id="k-means-cluster-analysis"><b>K-Means Cluster Analysis</b></h4>
 
@@ -540,7 +588,11 @@ for i,name in enumerate(summary['zipcode'].values):
             
             <img src="https://user-images.githubusercontent.com/29410712/203165056-6b1c828b-6dcc-492f-b01e-61d6f91e2077.png" alt="K-Mean-PCA" class="center">
 
-            <br>
+        </section>
+
+        <br>
+
+        <section id="section-9">
 
             <h4 id="hierarchical-cluster-analysis"><b>Hierarchical Cluster Analysis</b></h4>
 
@@ -649,6 +701,8 @@ for i,name in enumerate(summary['zipcode'].values):
             </code></pre>
 
             <img src="https://user-images.githubusercontent.com/29410712/203176836-ca08d232-3bc9-4626-bfae-3cbb8d0ee762.png" alt="Hierarchical-PCA" class="center">
+
+        </section>
         </div>
     </body>
 
