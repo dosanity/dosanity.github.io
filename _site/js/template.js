@@ -6,6 +6,8 @@ class Header1 extends HTMLElement {
     connectedCallback() {
       this.innerHTML = `
 
+        <button onclick="topFunction()" id="myBtn" title="Back to top">▲</button>
+
         <link href="../css/bootstrap.min.css" rel="stylesheet">
         <link href="../css/styles.css" rel="stylesheet">
 
@@ -270,33 +272,16 @@ window.addEventListener('DOMContentLoaded', () => {
   
 });
 
-
-
-// document.getElementById("sideBtn").addEventListener("click", open_close);
-
-// var menuState = 0 // close
-// function open_close() {
-//   if(menuState === 0){
-//      menuState = 1;
-//      document.getElementById("mySidenav").style.width = "350px";
-
-//   }
-//   else {
-//      menuState = 0;
-//      document.getElementById("mySidenav").style.width = "0";
-
-//   }
-//   console.log(menuState);
-// } 
-
-// document.getElementById("sideBtn").addEventListener("click", toggleNav);
-
 function toggleNav(){
   navSize = document.getElementById("mySidenav").style.width;
   if (navSize === "350px") {
-      return closeNav();
+    document.getElementById("mySidenav").parentElement.classList.add('active');
+    return closeNav();
   }
-  return openNav();
+  else {
+    document.getElementById("mySidenav").parentElement.classList.remove('active');
+    return openNav();
+  }
 }
 /* Set the width of the side navigation to 350px */
 function openNav() {

@@ -117,7 +117,7 @@ hr {
   color: white;
 }
 .footer-position{
-  position: absolute;
+  position: fixed;
   bottom: 0;
 }
 
@@ -144,7 +144,6 @@ hr {
   width: 50px;
   border: 4px solid transparent;
 }
-
 
 .title-btn {
   font-family: 'Hurricane', sans-serif;
@@ -414,7 +413,7 @@ blockquote p {
 }
 
 /* Mobile */
-@media only screen and (max-width:991px) {
+@media only screen and (max-width:500px) {
   .modal {
     margin-top:50px;
   }
@@ -464,10 +463,15 @@ blockquote p {
     transition-duration: 0.2s;
   }
 
+  .section-nav {
+    border-top: 76px solid white;
+    height: 86%;
+  }
+
 }
 
 /* Desktop */
-@media (min-width: 992px) {
+@media (min-width: 1200px) {
   body {
     padding-top: 56px;
   }
@@ -502,13 +506,6 @@ blockquote p {
     transition-duration: 0.2s;
   }
 
-  #myBtn:hover {
-    background-color: white;
-    color: black;
-    border: 3px solid black;
-    border-radius: 10px;
-  }
-
   .side-btn {
     padding-left: 0;
     position: fixed;
@@ -527,20 +524,91 @@ blockquote p {
     transition-duration: 0.2s;
   }
 
-  .side-btn:hover {
-    background-color: white;
-    color: black;
-    border: 3px solid black;
-    border-radius: 10px;
+  .section-nav {
+    border-top: 75px solid white;
+    height: 100%;
   }
-  
 
 }
 
+/* Tablets */
+@media (min-width: 500px) and (max-width: 1200px) {
+  .modal {
+    margin-top:50px;
+  }
+  #table-scroll {
+    height:300px;
+    overflow:auto;
+    margin-top:20px;
+  }
+  #table-wrapper table {
+    width:100%;
+  }
+  #myBtn {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed/sticky position */
+    bottom: 28px; /* Place the button at the bottom of the page */
+    right: 20px; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+    border: none; /* Remove borders */
+    outline: none; /* Remove outline */
+    background-color: black; /* Set a background color */
+    color: white; /* Text color */
+    cursor: pointer; /* Add a mouse pointer on hover */
+    padding: 15px; /* Some padding */
+    border-radius: 10px; /* Rounded corners */
+    font-size: 18px; /* Increase font size */
+    transition-duration: 0.2s;
+  }
+
+  .side-btn {
+    position: fixed; /* Fixed/sticky position */
+    bottom: 28px; /* Place the button at the bottom of the page */
+    left: 20px; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+    padding-left: 0;
+    position: fixed;
+    list-style: none;
+    border: 3px solid black;
+    outline: none; /* Remove outline */
+    background-color: black; /* Set a background color */
+    color: white; /* Text color */
+    cursor: pointer; /* Add a mouse pointer on hover */
+    padding: 10.5px; /* Some padding */
+    padding-left: 13px;
+    padding-right: 13px;
+    border-radius: 10px; /* Rounded corners */
+    font-size: 20px; /* Increase font size */
+    transition-duration: 0.2s;
+  }
+
+  .section-nav {
+    border-top: 77px solid white;
+    height: 90%;
+  }
+}
 
 
+#myBtn:hover {
+  background-color: white;
+  color: black;
+  border: 3px solid black;
+  border-radius: 10px;
+}
 
+.side-btn:hover {
+  background-color: white;
+  color: black;
+  border: 3px solid black;
+  border-radius: 10px;
+}
 
+.side-btn:active {
+  background-color: white;
+  color: black;
+  border: 3px solid black;
+  border-radius: 10px;
+}
 
 /* 1. Enable smooth scrolling */
 html {
@@ -559,8 +627,8 @@ html {
   list-style: none;
   width: 0;
   position: fixed;
-  z-index: 99; /* Make sure it does not overlap */
-  top: 100px;
+  z-index: 1; /* Make sure it does not overlap */
+  top: 0;
   left: 0;
   background-color: #111;
   overflow-x: hidden;
@@ -577,7 +645,7 @@ html {
   display: block;
   transition: all 50ms ease-in-out; /* 💡 This small transition makes setting of the active state smooth */
   padding: 8px 8px 8px 32px;
-  font-size: 18px;
+  font-size: 17px;
   color: #818181;
   white-space: nowrap;
   font-weight: bold;
@@ -604,7 +672,7 @@ html {
 }
 
 .toc {
-  font-size: 25px;
+  font-size: 20px;
   padding: 8px 8px 8px 32px;
   color: white;
 }
