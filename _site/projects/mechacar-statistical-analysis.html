@@ -65,15 +65,8 @@
                 <li><a href="#section-1">Overview</a></li>
                 <li><a href="#section-2">Linear Regression to Predict MPG</a></li>
                 <li><a href="#section-3">Summary Statistics on Suspension</a></li>
-                <li><a href="#section-4">T-Tests on Suspension Coils</a>
-                    <ul>
-                        <li><a href="#section-5">Total T-Test Summary</a></li>
-                        <li><a href="#section-6">Lot 1 T-Test Summary</a></li>
-                        <li><a href="#section-7">Lot 2 T-Test Summary</a></li>
-                        <li><a href="#section-8">Lot 3 T-Test Summary</a></li>
-                    </ul>
-                </li>
-                <li><a href="#section-9">MechaCar vs Competition</a></li>
+                <li><a href="#section-4">T-Tests on Suspension Coils</a></li>
+                <li><a href="#section-5">MechaCar vs Competition</a></li>
             </ol>
         </nav>
 
@@ -304,9 +297,7 @@ lot_summary <- suspension %>% group_by(Manufacturing_Lot) %>% summarize(Mean=mea
                 <li>$H_a$ - There is a statistical difference between the observed sample mean and its presumed population mean.</li>
             </ul>
 
-        <br>
-
-        <section id="section-5">
+            <br>
 
             <h5 id="total-t-test-summary"><b>Total T-Test Summary</b></h5>
 
@@ -337,11 +328,7 @@ mean of x
             
             <p>Based on our results for the t-test that compares all manufacturing lots against the mean PSI of the population, we can interpret that there is no statistical difference between the observed sample mean and its presumed population mean since the p-value is 0.06. It is not statistically significant as the p-value is greater than our significance level of 0.05. </p>
             
-        </section>
-
-        <br>
-
-        <section id="section-6">
+            <br>
             
             <h5 id="lot-1-t-test-summary"><b>Lot 1 T-Test Summary</b></h5>
 
@@ -371,12 +358,8 @@ mean of x
 </code></pre>
             
             <p>Based on our results for the t-test that compares manufacturing lot 1 against the mean PSI of the population, we can interpret that there is no statistical difference between the observed sample mean and its presumed population mean since the p-value is 1. It is not statistically significant as the p-value is greater than our significance level of 0.05.</p>
-            
-        </section>
 
-        <br>
-
-        <section id="section-7">
+            <br>
             
             <h5 id="lot-2-t-test-summary"><b>Lot 2 T-Test Summary</b></h5>
 
@@ -407,11 +390,7 @@ mean of x
             
             <p>Based on our results for the t-test that compares manufacturing lot 2 against the mean PSI of the population, we can interpret that there is no statistical difference between the observed sample mean and its presumed population mean since the p-value is 0.6. It is not statistically significant as the p-value is greater than our significance level of 0.05.</p>
             
-        </section>
-
-        <br>
-
-        <section id="section-8">
+            <br>
 
             <h5 id="lot-3-t-test-summary"><b>Lot 3 T-Test Summary</b></h5>
 
@@ -444,11 +423,9 @@ mean of x
             
         </section>
 
-        </section>
-
         <br>
 
-        <section id="section-9">
+        <section id="section-5">
 
             <h2 id="study-design-mechacar-vs-competition"><b>Study Design: MechaCar vs Competition</b></h2>
 
@@ -496,6 +473,8 @@ mean of x
             <h5 id="data-source"><b>Data Source</b></h5>
             
             <p>Since data would be difficult to obtain before the release of competitor cars, we can collect or scrape the data from outside sources on previous car models in the same class as the MechaCar. The data could potentially be found through competitor webpages since the information is public after the car&#39;s release. We would need the fuel efficiency and vehicle price data from the competitors. </p>
+
+        </section>
 
         </div>
     </body>

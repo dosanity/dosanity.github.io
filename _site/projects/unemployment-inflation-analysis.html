@@ -53,9 +53,26 @@
 
   	<body>
 
-		<div class="topnav">
+        <span class="side-btn" id="sideBtn" onclick="toggleNav()">𝐓</span>
+
+        <div class="topnav">
 			<portfolio-nav></portfolio-nav>
 		</div>
+        
+        <nav id="mySidenav" class="section-nav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <li class="toc">Table of Contents</li>
+
+            <hr style="color: white; border-top: 3px solid white;">
+
+            <ol>
+                <li><a href="#section-1">Overview</a></li>
+                <li><a href="#section-2">The Data</a></li>
+                <li><a href="#section-3">The Process</a></li>
+                <li><a href="#section-4">Unemployment Analysis</a></li>
+                <li><a href="#section-5">Other Variables</a></li>
+            </ol>
+        </nav>
 
 		<div class="container">
 
@@ -64,6 +81,8 @@
 			<br>
 
             <script src="../js/load-mathjax.js" async></script>
+
+        <section id="section-1">
 
             <h1 id="inflation-analysis"><b>Inflation Analysis</b></h1>
 
@@ -86,7 +105,11 @@
                 <li>Data Source: <a href="https://www.stlouisfed.org/">www.stlouisfed.org</a></li>
             </ul>
 
-            <br>
+        </section>
+
+        <hr>
+
+        <section id="section-2">
 
             <h2 id="data"><b>The Data</b></h2>
 
@@ -113,7 +136,11 @@
             
             <img src="https://user-images.githubusercontent.com/29410712/180629045-84721112-77dc-443d-ac4e-2360b9ed0a48.png" alt="fredgraph (1)" class="center">
 
-            <br>
+        </section>
+
+        <hr>
+
+        <section id="section-3">
 
             <h2 id="process"><b>The Process</b></h2>
 
@@ -180,7 +207,11 @@
               Y = β_0 + β_1x_1 + β_2x_2 + \cdots + β_nx_n + ε
             $$
 
-            <br>
+        </section>
+
+        <hr>
+
+        <section id="section-4">
 
             <h2 id="unemployment-analysis"><b>Unemployment Analysis</b></h2>
 
@@ -372,7 +403,11 @@ Kurtosis:                       5.340   Cond. No.                         23.2
             
             <p>Overall, the intercept of the regression is 2.5340 and the R-squared is 0.011. The R-squared is the proportion of the variation in the dependent variable that is predictable from the independent variable. In this case, unemployment does have an impact on inflation, but due to the R-squared being small, it is not the total determinant of inflation. This means that 1.1% of the variability observed in the target variable is explained by this regression model. Additionally, unemployment is statistically significant and as unemployment increases by 1%, inflation increases by 0.1759 percentage points.</p>
             
-            <br>
+        </section>
+
+        <hr>
+
+        <section id="section-5">
             
             <h2 id="other-variables"><b>Other Variables</b></h2>
 
