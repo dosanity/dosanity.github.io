@@ -39,15 +39,36 @@
 
   	<body>
 
+        <span class="side-btn" id="sideBtn" onclick="toggleNav()">𝐓</span>
+
         <div class="topnav">
 			<portfolio-nav></portfolio-nav>
 		</div>
+        
+        <nav id="mySidenav" class="section-nav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <li class="toc">Table of Contents</li>
+
+            <hr style="color: white; border-top: 3px solid white;">
+            <ol>
+                <li><a href="#section-1">Overview</a></li>
+                <li><a href="#section-2">Naive Random Oversampling</a></li>
+                <li><a href="#section-3">SMOTE Oversampling</a></li>
+                <li><a href="#section-4">Cluster Centroids</a></li>
+                <li><a href="#section-5">SMOTEENN Sampling</a></li>
+                <li><a href="#section-6">Balanced Random Forest</a></li>
+                <li><a href="#section-7">AdaBoost Classifier</a></li>
+                <li><a href="#section-8">Summary</a></li>
+            </ol>
+        </nav>
 
 		<div class="container">
 
 			<br>
 			<br>
 			<br>
+
+        <section id="section-1">
 
             <h1 id="credit-risk-analysis"><b>Credit Risk Analysis</b></h1>
 
@@ -70,7 +91,11 @@
 
             <p>In each analysis with the resampling models, we used the resampled data to train a logistic regression model and calculated the balanced accuracy score from <code>sklearn.metrics</code>, printed the confusion matrix, and generated a classification report from <code>imbalanced-learn</code>.</p>
             
-            <br>
+        </section>
+
+        <br>
+
+        <section id="section-2">
 
             <h5 id="naive-random-oversampling"><b>Naive Random Oversampling</b></h5>
 
@@ -131,7 +156,11 @@ avg / total       <span class="hljs-number">0.99</span>      <span class="hljs-n
             
             <p>The Naive Random Oversampling model accurately predicts credit risk 66.3% of the time. Additionally, the precision of the model for high risk is 0.01 and low risk is 1.00. In other words, when it predicts that a client is high risk, it is correct 1% of the time and when it predicts that a client is low risk, it is correct 100% of the time. The recall in our model 0.75 for high risk and 0.57 for low risk. This means that it correctly identifies 75% of all high risk and 57% for all low risk.</p>
             
-            <br>
+        </section>
+
+        <br>
+
+        <section id="section-3">
 
             <h5 id="smote-oversampling"><b>SMOTE Oversampling</b></h5>
 
@@ -192,7 +221,11 @@ avg / total       <span class="hljs-number">0.99</span>      <span class="hljs-n
             
             <p>The SMOTE Oversampling model accurately predicts credit risk 66.2% of the time. Additionally, the precision of the model for high risk is 0.01 and low risk is 1.00. In other words, when it predicts that a client is high risk, it is correct 1% of the time and when it predicts that a client is low risk, it is correct 100% of the time. The recall in our model 0.63 for high risk and 0.69 for low risk. This means that it correctly identifies 63% of all high risk and 69% for all low risk.</p>
             
-            <br>
+        </section>
+
+        <br>
+
+        <section id="section-4">
             
             <h5 id="cluster-centroids-undersampling-"><b>Cluster Centroids (Undersampling)</b></h5>
 
@@ -253,7 +286,11 @@ avg / total       <span class="hljs-number">0.99</span>      <span class="hljs-n
             
             <p>The Cluster Centroids model accurately predicts credit risk 54.4% of the time. Additionally, the precision of the model for high risk is 0.01 and low risk is 1.00. In other words, when it predicts that a client is high risk, it is correct 1% of the time and when it predicts that a client is low risk, it is correct 100% of the time. The recall in our model 0.69 for high risk and 0.40 for low risk. This means that it correctly identifies 69% of all high risk and 40% for all low risk.</p>
             
-            <br>
+        </section>
+
+        <br>
+
+        <section id="section-5">
 
             <h5 id="smoteenn-combination-sampling-"><b>SMOTEENN (Combination Sampling)</b></h5>
 
@@ -322,6 +359,12 @@ avg / total       <span class="hljs-number">0.99</span>      <span class="hljs-n
 
             <p>In each analysis with the ensemble models, we trained the model using training data and calculated the balanced accuracy score from <code>sklearn.metrics</code>, printed the confusion matrix, and generated a classification report from <code>imbalanced-learn</code>.</p>
             
+        </section>
+
+        <br>
+
+        <section id="section-6">
+
             <h5 id="balanced-random-forest-classifier"><b>Balanced Random Forest Classifier</b></h5>
 
             <p>Instead of having a single, complex tree like the ones created by decision trees, a random forest algorithm will sample the data and build several smaller, simpler decision trees. Each tree is simpler because it is built from a random subset of features.</p>
@@ -381,7 +424,11 @@ avg / total       <span class="hljs-number">0.99</span>      <span class="hljs-n
             
             <p>The SMOTEENN model accurately predicts credit risk 78.9% of the time. Additionally, the precision of the model for high risk is 0.03 and low risk is 1.00. In other words, when it predicts that a client is high risk, it is correct 3% of the time and when it predicts that a client is low risk, it is correct 100% of the time. The recall in our model 0.70 for high risk and 0.87 for low risk. This means that it correctly identifies 70% of all high risk and 87% for all low risk.</p>
             
-            <br>
+        </section>
+
+        <br>
+
+        <section id="section-7">
 
             <h5 id="adaboost-classifier"><b>AdaBoost Classifier</b></h5>
 
@@ -442,7 +489,11 @@ avg / total       <span class="hljs-number">0.99</span>      <span class="hljs-n
             
             <p>The SMOTEENN model accurately predicts credit risk 93.2% of the time. Additionally, the precision of the model for high risk is 0.09 and low risk is 1.00. In other words, when it predicts that a client is high risk, it is correct 9% of the time and when it predicts that a client is low risk, it is correct 100% of the time. The recall in our model is 0.92 for high risk and 0.94 for low risk. This means that it correctly identifies 92% of all high risk and 94% of all low risk.</p>
             
-            <br>
+        </section>
+
+        <br>
+
+        <section id="section-8">
 
             <h2 id="summary"><b>Summary</b></h2>
 

@@ -53,9 +53,30 @@
 
   	<body>
 
+        <span class="side-btn" id="sideBtn" onclick="toggleNav()">𝐓</span>
+
         <div class="topnav">
 			<portfolio-nav></portfolio-nav>
 		</div>
+        
+        <nav id="mySidenav" class="section-nav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <li class="toc">Table of Contents</li>
+
+            <hr style="color: white; border-top: 3px solid white;">
+            <ol>
+                <li><a href="#section-1">Overview</a></li>
+                <li><a href="#section-2">Data Process</a></li>
+                <li><a href="#section-3">Machine Learning Algorithms</a>
+                    <ul>
+                        <li><a href="#section-4">Principal Component</a></li>
+                        <li><a href="#section-5">K-Means Clustering</a></li>
+                    </ul>
+                </li>
+                <li><a href="#section-6">Visualizations</a></li>
+                <li><a href="#section-7">Results</a></li>
+            </ol>
+        </nav>
 
 		<div class="container">
 
@@ -64,6 +85,8 @@
 			<br>
 
             <script src="../js/load-mathjax.js" async></script>
+
+            <section id="section-1">
 
             <h1 id="cryptocurrencies"><b>Cryptocurrencies</b></h1>
 
@@ -106,7 +129,11 @@
                 <li>Data Source: <a href="https://min-api.cryptocompare.com/data/all/coinlist">CryptoCompare</a> - crypto_data.csv</li>
             </ul>
 
-            <br>
+        </section>
+
+        <br>
+
+        <section id="section-2">
 
             <h2 id="results"><b>Data Process</b></h2>
 
@@ -159,7 +186,11 @@ X = pd.get_dummies(crypto_df, columns=["Algorithm","ProofType"])
                 anybody from gaming the system. Proof of work is used widely in cryptocurrency mining, for validating transactions and mining new tokens.
             </p>
 
-            <br>
+        </section>
+
+        <br>
+
+        <section id="section-3">
 
             <h2><b>Machine Learning Algorithms (Deeper Analysis)</b></h2>
 
@@ -169,6 +200,10 @@ X = pd.get_dummies(crypto_df, columns=["Algorithm","ProofType"])
                 For this analysis, we will be using Principal Component Analysis and K-Means Clustering to understand how the <code>Algorithm</code>, 
                 <code>ProofType</code>, <code>TotalCoinsMined</code>, and <code>TotalCoinSupply</code> differ between cryptocurrencies.
             </p>
+
+        <br>
+
+        <section id="section-4">
 
             <h5 id="principal-component-analysis-pca-"><b>Principal Component Analysis (PCA)</b></h5>
 
@@ -223,7 +258,12 @@ X_pca = pca.fit_transform(X_scaled)columns=["PC 1","PC 2","PC 3"],index=X.index)
 
             <img src="../assets/images/photos/cryptocurrencies/pca-chart.png" class="center">
 
-            <br>
+        </section>
+
+        <br>
+
+        <section id="section-5">
+
             <h5 id="elbow-curve"><b>Clustering Cryptocurrencies Using K-Means</b></h5>
 
             <p>
@@ -265,7 +305,13 @@ plt.plot(k, inertia)
 
             <img src="../assets/images/photos/cryptocurrencies/tradable-crypto.png" class="center">
 
-            <br>
+        </section>
+
+        </section>
+
+        <br>
+
+        <section id="section-6">
 
             <h2><b>Visualizations</b></h2>
 
@@ -333,6 +379,12 @@ sctt = ax.scatter3D(x, y, z, alpha = 0.6, c = predictions, cmap=cmap, s = 100)
             </p>
 
             <img src="../assets/images/photos/cryptocurrencies/crypto-pca-3D-2.png" class="center">
+
+        </section>
+
+        <br>
+
+        <section id="section-7">
 
             <h2><b>Results</b></h2>
 

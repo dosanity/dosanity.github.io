@@ -50,9 +50,32 @@
 
   	<body>
 
+        <span class="side-btn" id="sideBtn" onclick="toggleNav()">𝐓</span>
+
         <div class="topnav">
 			<portfolio-nav></portfolio-nav>
 		</div>
+        
+        <nav id="mySidenav" class="section-nav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <li class="toc">Table of Contents</li>
+
+            <hr style="color: white; border-top: 3px solid white;">
+            <ol>
+                <li><a href="#section-1">Overview</a></li>
+                <li><a href="#section-2">Linear Regression to Predict MPG</a></li>
+                <li><a href="#section-3">Summary Statistics on Suspension</a></li>
+                <li><a href="#section-4">T-Tests on Suspension Coils</a>
+                    <ul>
+                        <li><a href="#section-5">Total T-Test Summary</a></li>
+                        <li><a href="#section-6">Lot 1 T-Test Summary</a></li>
+                        <li><a href="#section-7">Lot 2 T-Test Summary</a></li>
+                        <li><a href="#section-8">Lot 3 T-Test Summary</a></li>
+                    </ul>
+                </li>
+                <li><a href="#section-9">MechaCar vs Competition</a></li>
+            </ol>
+        </nav>
 
 		<div class="container">
 
@@ -60,13 +83,19 @@
 			<br>
 			<br>
 
+        <section id="section-1">
+
             <h1 id="mechacar-statistical-analysis"><b>MechaCar Statistical Analysis</b></h1>
 
             <hr>
 
             <p>The purpose of this project is to analyze data for a prototype car. We are tasked to review the production data for insights in vehicle performance. Using the programming language R, we will perform multiple linear regressions, summary statistics, and t-tests to produce statistical interpretations.</p>
             
-            <br>
+        </section>
+
+        <br>
+
+        <section id="section-2">
             
             <h2 id="linear-regression-to-predict-mpg"><b>Linear Regression to Predict MPG</b></h2>
 
@@ -141,7 +170,11 @@ F-statistic: 22.07 on 5 and 44 DF,  p-value: 5.35e-11
             
             <p>In our analysis, we can see that <code>ground_clearance</code> and <code>vehicle_length</code> have a p-value of 5.21e-08 and 2.60e-12, respectively. Since both values are smaller than the significance level of 0.05, therefore both variables are statistically significant resulting in rejecting the null hypothesis. In other words, the slope of the linear model is not zero and these coefficients provided a non-random amount of variance to the mpg values in the dataset. Additionally, the R-Squared value of this multiple linear regression model is 0.71. The coefficient of determination represents how well the regression model approximates real-world data points. In our case, we have a strong likelihood that the model can be used to approximate the <code>mpg</code> values in the dataset.</p>
             
-            <br>
+        </section>
+
+        <br>
+
+        <section id="section-3">
 
             <h2 id="summary-statistics-on-suspension-coils"><b>Summary Statistics on Suspension Coils</b></h2>
 
@@ -239,7 +272,11 @@ lot_summary <- suspension %>% group_by(Manufacturing_Lot) %>% summarize(Mean=mea
 
             <p>In the summary of the individual lots, we can see that the mean and median between the lots are similar. The variance for Lot 1 is 0.98, Lot 2 is 7.47, and Lot 3 is 170.29. Since the variance of the suspension coils for Lot 1 and Lot 2 are below 100 pounds per square inch, it meets the design specifications for the MechaCar suspension coils. However, the Lot 3 variance exceeds 100 pounds per square inch, so it does not meet the design specifications.</p>
             
-            <br>
+        </section>
+
+        <br>
+
+        <section id="section-4">
             
             <h2 id="t-tests-on-suspension-coils"><b>T-Tests on Suspension Coils</b></h2>
 
@@ -267,7 +304,9 @@ lot_summary <- suspension %>% group_by(Manufacturing_Lot) %>% summarize(Mean=mea
                 <li>$H_a$ - There is a statistical difference between the observed sample mean and its presumed population mean.</li>
             </ul>
 
-            <br>
+        <br>
+
+        <section id="section-5">
 
             <h5 id="total-t-test-summary"><b>Total T-Test Summary</b></h5>
 
@@ -298,7 +337,11 @@ mean of x
             
             <p>Based on our results for the t-test that compares all manufacturing lots against the mean PSI of the population, we can interpret that there is no statistical difference between the observed sample mean and its presumed population mean since the p-value is 0.06. It is not statistically significant as the p-value is greater than our significance level of 0.05. </p>
             
-            <br>
+        </section>
+
+        <br>
+
+        <section id="section-6">
             
             <h5 id="lot-1-t-test-summary"><b>Lot 1 T-Test Summary</b></h5>
 
@@ -329,7 +372,11 @@ mean of x
             
             <p>Based on our results for the t-test that compares manufacturing lot 1 against the mean PSI of the population, we can interpret that there is no statistical difference between the observed sample mean and its presumed population mean since the p-value is 1. It is not statistically significant as the p-value is greater than our significance level of 0.05.</p>
             
-            <br>
+        </section>
+
+        <br>
+
+        <section id="section-7">
             
             <h5 id="lot-2-t-test-summary"><b>Lot 2 T-Test Summary</b></h5>
 
@@ -360,7 +407,11 @@ mean of x
             
             <p>Based on our results for the t-test that compares manufacturing lot 2 against the mean PSI of the population, we can interpret that there is no statistical difference between the observed sample mean and its presumed population mean since the p-value is 0.6. It is not statistically significant as the p-value is greater than our significance level of 0.05.</p>
             
-            <br>
+        </section>
+
+        <br>
+
+        <section id="section-8">
 
             <h5 id="lot-3-t-test-summary"><b>Lot 3 T-Test Summary</b></h5>
 
@@ -391,7 +442,13 @@ mean of x
             
             <p>Based on our results for the t-test that compares manufacturing lot 3 against the mean PSI of the population, we can interpret that there is a statistical difference between the observed sample mean and its presumed population mean since the p-value is 0.04. It is statistically significant as the p-value is smaller than our significance level of 0.05.</p>
             
-            <br>
+        </section>
+
+        </section>
+
+        <br>
+
+        <section id="section-9">
 
             <h2 id="study-design-mechacar-vs-competition"><b>Study Design: MechaCar vs Competition</b></h2>
 

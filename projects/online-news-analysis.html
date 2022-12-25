@@ -39,15 +39,38 @@
 
   	<body>
 
+        <span class="side-btn" id="sideBtn" onclick="toggleNav()">𝐓</span>
+
         <div class="topnav">
 			<portfolio-nav></portfolio-nav>
 		</div>
+        
+        <nav id="mySidenav" class="section-nav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <li class="toc">Table of Contents</li>
+
+            <hr style="color: white; border-top: 3px solid white;">
+
+            <ol>
+                <li><a href="#section-1">Overview</a></li>
+                <li><a href="#section-2">Classification Tools</a>
+                    <ul>
+                        <li><a href="#section-3">K-Nearest Neighbors</a></li>
+                        <li><a href="#section-4">Support-Vector Machine</a></li>
+                        <li><a href="#section-5">Decision Trees</a></li>
+                    </ul>
+                </li>
+                <li><a href="#section-6">Results</a></li>
+            </ol>
+        </nav>
 
 		<div class="container">
 
 			<br>
 			<br>
 			<br>
+
+        <section id="section-1">
 
             <h1 id="online-news-popularity"><b>Online News Popularity</b></h1>
 
@@ -60,11 +83,17 @@
             <p>The dataset contains variables describing 39,644 articles published between January 7, 2013 and January 7, 2015 on the news website, <a href="http://mashable.com/">Mashable</a>. 
             There are 61 variables associated with each article. Of these, 58 are <em>predictor</em> variables, 2 are variables that we will not use (url and timedelta), and finally the number of shares of each article. The number of shares is what we will use to define whether the article was <em>popular</em>, which is what we will try to predict. Further details about the collection and processing of the articles can be found in the conference paper. </p>
             
-            <br>
+        </section>
+
+        <br>
+
+        <section id="section-2">
             
             <h2 id="classification-tools"><b>Classification Tools</b></h2>
 
             <hr>
+
+        <section id="section-3">
 
             <h5 id="classification-using-k-nn"><b>Classification using K-NN</b></h5>
 
@@ -123,7 +152,11 @@ accuracy = metrics.accuracy_score(y_true=y_test, y_pred=y_pred)
             
             <p>From the results, we conclude that the best accuracy one can obtain from the test data is around 0.567 with k = 93.</p>
 
-            <br>
+        </section>
+
+        <br>
+
+        <section id="section-4">
 
             <h5 id="classification-using-svm"><b>Classification using SVM</b></h5>
 
@@ -199,7 +232,11 @@ for C in C_range:
 
             <p>From the results, we conclude that the best accuracy one can obtain from the test data is around 0.58175 with C = 8106.</p>
 
-            <br>
+        </section>
+
+        <br>
+
+        <section id="section-5">
 
             <h5 id="classification-using-decision-trees"><b>Classification using Decision Trees</b></h5>
 
@@ -222,7 +259,14 @@ Accuracy on test data = 0.6377762082534557
             <img src="https://user-images.githubusercontent.com/29410712/180126065-cab71206-fe1d-40e3-8156-a3e1d6256b54.png" alt="DecisionTree" class="center">
 
             <br>
-            <br>
+
+        </section>
+
+        </section>
+
+        <br>
+
+        <section id="section-6">
 
             <h2 id="results"><b>Results</b></h2>
 

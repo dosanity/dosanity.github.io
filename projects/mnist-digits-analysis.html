@@ -39,15 +39,36 @@
 
   	<body>
 
+        <span class="side-btn" id="sideBtn" onclick="toggleNav()">𝐓</span>
+
         <div class="topnav">
 			<portfolio-nav></portfolio-nav>
 		</div>
+        
+        <nav id="mySidenav" class="section-nav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <li class="toc">Table of Contents</li>
+
+            <hr style="color: white; border-top: 3px solid white;">
+            <ol>
+                <li><a href="#section-1">Overview</a></li>
+                <li><a href="#section-2">Exploratory Data Analysis</a></li>
+                <li><a href="#section-3">Classification Tools</a>
+                    <ul>
+                        <li><a href="#section-4">Support Vector Machines</a></li>
+                        <li><a href="#section-5">K-Nearest Neighbors</a></li>
+                    </ul>
+                </li>
+            </ol>
+        </nav>
 
         <div class="container">
 
 			<br>
 			<br>
 			<br>
+
+            <section id="section-1">
 
             <h1 id="mnist-handwritten-digits"><b>MNIST Handwritten Digits</b></h1>
 
@@ -72,7 +93,11 @@
 
             <p>Note that we will scale the data before running it through our algorithms. <a href="http://scikit-learn.org/stable/modules/preprocessing.html#standardization-or-mean-removal-and-variance-scaling">This website</a> explains why scaling is important.</p>
             
-            <br>
+        </section>
+
+        <br>
+
+        <section id="section-2">
 
             <h2 id="exploratory-data-analysis"><b>Exploratory Data Analysis</b></h2>
 
@@ -86,9 +111,17 @@ Number of Features: 64
             
             <img src="https://user-images.githubusercontent.com/29410712/180262496-99c8c1a6-9e38-4d39-83fd-16ba2bbe3e2e.png" alt="ExampleNumbers" class="center">
 
+        </section>
+
+        <br>
+
+        <section id="section-3">
+
             <h2 id="classification-tools"><b>Classification Tools</b></h2>
 
-            <hr>
+        <hr>
+
+        <section id="section-4">
 
             <h5 id="classification-with-support-vector-machines-svm-"><b>Classification with Support Vector Machines (SVM)</b></h5>
 
@@ -196,7 +229,11 @@ Accuracy of Raw Model: 0.9756606397774688
 
             <p>Using the SVM classifier with C = 100, the accuracy score is 0.95 with the scaled training data. The most common mistake that the SVM classifier makes is in cases where the number of features for each data point exceeds the number of training data samples, the SVM will underperform. The SVM classifier does not perform very well when the data set has more noise such that the target classes are overlapping. The best score from the &#39;cross_val_score&#39; function is the score of 0.99. With the raw or unscaled data, the accuracy score is 0.975. Additionally, based on the chart, the best C value is 5.</p>
             
-            <br>
+        </section>
+
+        <br>
+
+        <section id="section-5">
             
             <h5 id="prediction-with-k-nearest-neighbors-k-nn-"><b>Prediction with K-Nearest Neighbors (K-NN)</b></h5>
 

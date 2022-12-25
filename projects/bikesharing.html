@@ -35,15 +35,38 @@
 
   	<body>
         
+        <span class="side-btn" id="sideBtn" onclick="toggleNav()">𝐓</span>
+
         <div class="topnav">
 			<portfolio-nav></portfolio-nav>
 		</div>
+        
+        <nav id="mySidenav" class="section-nav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <li class="toc">Table of Contents</li>
+
+            <hr style="color: white; border-top: 3px solid white;">
+            <ol>
+                <li><a href="#section-1">Overview</a></li>
+                <li><a href="#section-2">Checkout Times for Users</a></li>
+                <li><a href="#section-3">Checkout Times by Gender</a></li>
+                <li><a href="#section-4">Trips by Weekday (Hourly)</a></li>
+                <li><a href="#section-5">Trips by Gender (Hourly)</a></li>
+                <li><a href="#section-6">Trips by Gender (Weekday)</a></li>
+                <li><a href="#section-7">Top Starting Locations</a></li>
+                <li><a href="#section-8">August Peak Hours</a></li>
+                <li><a href="#section-9">Summary</a></li>
+            </ol>
+
+        </nav>
 
 		<div class="container">
 
 			<br>
 			<br>
 			<br>
+
+        <section id="section-1">
 
             <h1 id="bikesharing"><b>Bikesharing</b></h1>
 
@@ -71,8 +94,12 @@
                     </a>
                 </h5>
             </center>
-            
-            <hr>
+
+        </section>
+
+        <hr>
+
+        <section id="section-2">
 
             <h5 id="checkout-times-for-users"><b>Checkout Times for Users</b></h5>
             <p>As we can see from the chart below, almost all bikes are checked out for less than one hour and the duration for most of the bike rides is around 5 minutes.</p>
@@ -81,7 +108,11 @@
 
             <img src="https://user-images.githubusercontent.com/29410712/196068945-ecd8f890-9660-4526-acba-e8b71f690c69.png" alt="Checkout-Times-for-Users" class="center">
 
-            <br>
+        </section>
+
+        <br>
+
+        <section id="section-3">
 
             <h5 id="checkout-times-by-gender"><b>Checkout Times by Gender</b></h5>
 
@@ -91,7 +122,11 @@
 
             <img src="https://user-images.githubusercontent.com/29410712/196068955-b5532c89-5890-4225-83f8-9c3ba470f1af.png" alt="Checkout-Times-by-Gender" class="center">
 
-            <br>
+        </section>
+
+        <br>
+
+        <section id="section-4">
 
             <h5 id="trips-by-weekday-for-each-hour"><b>Trips by Weekday for each Hour</b></h5>
 
@@ -103,7 +138,11 @@
 
             <img src="https://user-images.githubusercontent.com/29410712/196068968-947f75ec-1d99-4fdb-aa96-47dd621e9e9a.png" alt="Trips-by-Weekday-per-Hour" class="center">
             
-            <br>
+        </section>
+
+        <br>
+
+        <section id="section-5">
 
             <h5 id="trips-by-gender-weekday-per-hour-"><b>Trips by Gender (Weekday per Hour)</b></h5>
 
@@ -115,7 +154,11 @@
 
             <img src="https://user-images.githubusercontent.com/29410712/196068973-068f0c48-65e0-49bf-965b-c03e1b1c8114.png" alt="Trips-by-Gender" class="center">
 
-            <br>
+        </section>
+
+        <br>
+
+        <section id="section-6">
 
             <h5 id="user-trips-by-gender-by-weekday"><b>User Trips by Gender by Weekday</b></h5>
 
@@ -127,7 +170,11 @@
  
             <img src="https://user-images.githubusercontent.com/29410712/196070120-b2d53da7-ebf7-4e90-873a-11fdea09a214.png" alt="User-Trips-by-Gender" class="center">
 
-            <br>
+        </section>
+
+        <br>
+
+        <section id="section-7">
 
             <h5 id="top-starting-locations"><b>Top Starting Locations</b></h5>
 
@@ -139,7 +186,11 @@
 
             <img src="https://user-images.githubusercontent.com/29410712/196068983-f49b3776-d3d2-4aa7-b2ff-b8b8fd397ac0.png" alt="Top-Starting-Locations" class="center">
             
-            <hr>
+        </section>
+
+        <br>
+
+        <section id="section-8">
 
             <h5 id="august-peak-hours"><b>August Peak Hours</b></h5>
 
@@ -151,7 +202,13 @@
 
             <img src="https://user-images.githubusercontent.com/29410712/196068996-96c85019-d16d-4c8e-a047-076c3ebbb9c4.png" alt="August-Peak-Hours" class="center">
             
-            <br>
+        </section>
+
+        </section>
+
+        <br>
+
+        <section id="section-9">
             
             <h2 id="summary"><b>Summary</b></h2>
 
