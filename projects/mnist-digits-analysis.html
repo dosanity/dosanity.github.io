@@ -2,48 +2,48 @@
 ---
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<link rel="icon" type="image/png" sizes="32x32" href="../favicons/favicon.png">
-		<link rel="icon" type="image/png" sizes="16x16" href="../favicons/favicon.png">
-		<meta name="theme-color" content="#ffffff">
+    <head>
+        <link rel="icon" type="image/png" sizes="32x32" href="../favicons/favicon.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="../favicons/favicon.png">
+        <meta name="theme-color" content="#ffffff">
 
-		<script>
-			window.dataLayer = window.dataLayer || [];
-		  	function gtag(){dataLayer.push(arguments);}
-		  	gtag('js', new Date());
-		  	gtag('config', 'UA-110543961-1');
-		</script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'UA-110543961-1');
+        </script>
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-		<meta name="description" content="Anthony Do - Portfolio; Machine Learning, Data Analysis">
-		<meta name="keywords" content="Machine Learning, Data Analysis">
-		<meta name="author" content="Anthony Do">
+        <meta name="description" content="Anthony Do - Portfolio; Machine Learning, Data Analysis">
+        <meta name="keywords" content="Machine Learning, Data Analysis">
+        <meta name="author" content="Anthony Do">
 
-		<title>Anthony Do</title>
+        <title>Anthony Do</title>
 
-		<link href="../css/bootstrap.min.css" rel="stylesheet">
-		<link href="../css/styles.css" rel="stylesheet">
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/styles.css" rel="stylesheet">
 
-		<script src="https://code.jquery.com/jquery-latest.js" type="text/javascript"></script>
-		<script src="../js/jquery.isotope.js" type="text/javascript"></script>
-		<script src="../js/filter.js" type="text/javascript"></script>
-		<script src="../js/bootstrap.bundle.min.js"></script>
+        <script src="https://code.jquery.com/jquery-latest.js" type="text/javascript"></script>
+        <script src="../js/jquery.isotope.js" type="text/javascript"></script>
+        <script src="../js/filter.js" type="text/javascript"></script>
+        <script src="../js/bootstrap.bundle.min.js"></script>
         <script src="../js/template.js" type="text/javascript" defer></script>
 
         <link rel="stylesheet" href="../css/code-highlight.css">
         <script src="../js/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script>
-		{% seo %}
-	</head>
+        {% seo %}
+    </head>
 
-  	<body>
+    <body>
 
         <span class="side-btn" id="sideBtn" onclick="toggleNav()">𝐓</span>
 
         <div class="topnav">
-			<portfolio-nav></portfolio-nav>
-		</div>
+            <portfolio-nav></portfolio-nav>
+        </div>
         
         <nav id="mySidenav" class="section-nav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -64,9 +64,9 @@
 
         <div class="container">
 
-			<br>
-			<br>
-			<br>
+            <br>
+            <br>
+            <br>
 
             <section id="section-1">
 
@@ -123,7 +123,7 @@ Number of Features: 64
 
         <section id="section-4">
 
-            <h5 id="classification-with-support-vector-machines-svm-"><b>Classification with Support Vector Machines (SVM)</b></h5>
+            <h4 id="classification-with-support-vector-machines-svm-"><b>Classification with Support Vector Machines (SVM)</b></h4>
 
             <p>We developed a support-vector machine classification model for the data. In machine learning, support vector machines (SVMs, also support-vector networks) are supervised learning models with associated learning algorithms that analyze data for classification and regression analysis. It uses the support-vector classifier which splits the data with a soft margin (the distance between the observations and the threshold) and some misclassifications.</p>
             
@@ -235,7 +235,7 @@ Accuracy of Raw Model: 0.9756606397774688
 
         <section id="section-5">
             
-            <h5 id="prediction-with-k-nearest-neighbors-k-nn-"><b>Prediction with K-Nearest Neighbors (K-NN)</b></h5>
+            <h4 id="prediction-with-k-nearest-neighbors-k-nn-"><b>Prediction with K-Nearest Neighbors (K-NN)</b></h4>
 
             <p>The K-nearest neighbors (K-NN) algorithm is a simple, easy-to-implement supervised machine learning algorithm that can be used to solve both classification and regression problems. It categorizes unknown variables into different clusters. In our study, we will try out different values to choose the value of K. Low values of K can be noisy and subject to the effects of outliers. Large values of K smooth over things, but you don&#39;t want K to be so large that a category with only a few samples in it will always be outvoted by other categories. We will be using training data, data used for initial clustering (data where we know the categories in advance) to calculate the accuracy of the data.</p>
             <p>We developed a K-NN classification model for the data and use cross-validation to choose the best value of K. First, we will look at K = 10 and like before, we split the data into test and training sets.</p>
@@ -337,3 +337,4 @@ Accuracy of Raw Model: 0.9666203059805285
     <footer-component></footer-component>
 
 </html>
+

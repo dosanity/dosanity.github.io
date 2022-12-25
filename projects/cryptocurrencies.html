@@ -125,8 +125,6 @@
 
             <hr>
 
-            <h5><b>The Data</b></h5>
-
             <p>
                 CryptoCompare is a global cryptocurrency market data provider, giving institutional and retail investors access to real-time market 
                 and pricing data on 5,300+ coins. This data is aggregated from numerous cryptocurrency trading platforms (CTPs) around the world. Our raw dataset includes 
@@ -156,7 +154,7 @@ X = pd.get_dummies(crypto_df, columns=["Algorithm","ProofType"])
                 together and simplified the data. For example: "Proof of Stake" can be categorized into "PoS", etc.
             </p>
 
-            <h5><b>Terminology</b></h5>
+            <h4><b>Terminology</b></h4>
 
             <p>
                 The cryptocurrency <b>algorithm</b> or hashing algorithm is a mechanism that encrypts virtual currency or digital currency. The hashing algorithm is a 
@@ -191,7 +189,7 @@ X = pd.get_dummies(crypto_df, columns=["Algorithm","ProofType"])
 
         <section id="section-4">
 
-            <h5 id="principal-component-analysis-pca-"><b>Principal Component Analysis (PCA)</b></h5>
+            <h4 id="principal-component-analysis-pca-"><b>Principal Component Analysis (PCA)</b></h4>
 
             <p>Principal Component Analysis (PCA) is one of the most used unsupervised machine learning algorithms across a variety of applications: exploratory data analysis, dimensionality reduction, information compression, and data de-noising. PCA is a dimensionality reduction technique that transforms a set of features in a dataset into a smaller number of features called principal components while at the same time trying to retain as much information in the original dataset as possible. PCA can take 4 or more variables and make a two-dimensional PCA plot. PCA can also tell us which variable is the most valuable for clustering the data. It also can tell us how accurate the two-dimensional graph is.</p>
             <p>Principal Component Analysis calculates the average of each variable and using this average, finds the center of the data. It then shifts the data so that the center of the data is at the origin. From here, we input principal components. The principal components are vectors, but they are not chosen at random. The first principal component (PC1) is computed so that it explains the greatest amount of variance in the original features. Thus, it minimizes the distance between each data point on the graph (Sum of Squared) so PC1 is a linear combination of variables. </p>
@@ -250,7 +248,7 @@ X_pca = pca.fit_transform(X_scaled)columns=["PC 1","PC 2","PC 3"],index=X.index)
 
         <section id="section-5">
 
-            <h5 id="elbow-curve"><b>Clustering Cryptocurrencies Using K-Means</b></h5>
+            <h4 id="elbow-curve"><b>Clustering Cryptocurrencies Using K-Means</b></h4>
 
             <p>
                 K-means cluster identifies initial clusters and calculates the variances between each cluster or the Euclidean distance. It clusters all the remaining points, calculates the mean of each cluster, and then reclusters based on the new means. It repeats until the clusters no longer change. It restarts the cluster until it finds the best overall cluster. It does as much reclustering as we tell it to do. It then comes back and returns to the optimal one.
@@ -282,7 +280,7 @@ plt.plot(k, inertia)
 
             <br>
 
-            <h5 id="tradable-cryptocurrencies"><b>Tradable Cryptocurrencies By Predictions</b></h5>
+            <h4 id="tradable-cryptocurrencies"><b>Tradable Cryptocurrencies By Predictions</b></h4>
 
             <p>
                 First, we used the PCA data to predict the clusters. Then we added a new column, <code>Class</code> to hold our predictions. In other words, we determined that 
@@ -303,7 +301,7 @@ plt.plot(k, inertia)
 
             <hr>
 
-            <h5 id="2d-scatterplot"><b>2D PCA Scatter Plot</b></h5>
+            <h4 id="2d-scatterplot"><b>2D PCA Scatter Plot</b></h4>
 
             <p>
                 Applying the K-means to the Principal Component Analysis projection data produces an additional categorical constraint to validate the clustering algorithm. 
@@ -319,7 +317,7 @@ plt.plot(k, inertia)
 
             <img src="../assets/images/photos/cryptocurrencies/crypto-pca-2D.png" class="center">
  
-            <h5><b>3D PCA Scatter Plot</b></h5>
+            <h4><b>3D PCA Scatter Plot</b></h4>
             <p>
                 Based on the 3D PCA plot with the clustering, we have a clear visualization of the clusters.
             </p>
@@ -357,7 +355,7 @@ sctt = ax.scatter3D(x, y, z, alpha = 0.6, c = predictions, cmap=cmap, s = 100)
 
             <img src="../assets/images/photos/cryptocurrencies/crypto-pca-3D-1.png" class="center">
 
-            <h5><b>3D PCA Scatter Plot (No Outliers)</b></h5>
+            <h4><b>3D PCA Scatter Plot (No Outliers)</b></h4>
             <p>
                 Previously, the two-dimensional and three-dimensional plots included two class outliers. By running the analysis again, we determined that the removal of the 
                 class outliers, TurtleCoin and BitTorrent, does not significantly impact the clusters.
@@ -440,7 +438,7 @@ sctt = ax.scatter3D(x, y, z, alpha = 0.6, c = predictions, cmap=cmap, s = 100)
             </p>
             <br>
 
-            <h5 id="2d-scatterplot"><b>Cryptocurrency Symbol Within Each Cluster</b></h5>
+            <h4 id="2d-scatterplot"><b>Cryptocurrency Symbol Within Each Cluster</b></h4>
 
             <blockquote>
                 <p>Python Code:</p>
