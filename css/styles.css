@@ -441,7 +441,7 @@ blockquote p {
 
   .section-nav {
     border-top: 76px solid white;
-    height: 800px;
+    height: 120%;
   }
 
   .mobile-center {
