@@ -598,7 +598,7 @@ html {
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 14px;
-  padding-bottom: 20px;
+  padding-bottom: 800px;
   white-space: nowrap;
   font-weight: bold;
   overflow:hidden; 
@@ -624,15 +624,6 @@ html {
   white-space: nowrap;
   font-weight: bold;
 }
-
-.sidebar-sticky {
-  position: relative;
-  top: 0;
-  height: calc(100vh - 48px);
-  padding-top: 0.5rem;
-  overflow-x: hidden;
-  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
-  }
 
 .section-nav .closebtn {
   position: absolute;
