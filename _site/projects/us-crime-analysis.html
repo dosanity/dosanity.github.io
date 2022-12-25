@@ -53,15 +53,39 @@
 
   	<body>
 
+        <span class="side-btn" id="sideBtn" onclick="toggleNav()">𝐓</span>
+
         <div class="topnav">
 			<portfolio-nav></portfolio-nav>
 		</div>
+        
+        <nav id="mySidenav" class="section-nav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <li class="toc">Table of Contents</li>
+
+            <hr style="color: white; border-top: 3px solid white;">
+
+            <ol>
+                <li><a href="#section-1">Overview</a></li>
+                <li><a href="#section-2">Exploratory Data Analysis</a></li>
+                <li><a href="#section-3">Machine Learning Algorithms</a>
+                    <ul>
+                        <li><a href="#section-4">Principal Component</a></li>
+                        <li><a href="#section-5">K-Means Clustering</a></li>
+                        <li><a href="#section-6">Hierarchical Clustering</a></li>
+                        <li><a href="#section-7">DBSCAN</a></li>
+                    </ul>
+                </li>
+            </ol>
+        </nav>
 
 		<div class="container">
 
 			<br>
 			<br>
 			<br>
+
+        <section id="section-1">
 
             <h1 id="us-crime-analysis"><b>US Crime Analysis</b></h1>
 
@@ -78,9 +102,13 @@
                 <li>Data Source: USArrests.csv
             </ul>
 
-            <br>
+        </section>
 
-            <h2 id="preliminary-exploratory-analysis"><b>Exploratory Analysis</b></h2>
+        <br>
+
+        <section id="section-2">
+
+            <h2 id="preliminary-exploratory-analysis"><b>Exploratory Data Analysis</b></h2>
 
             <hr>
 
@@ -113,11 +141,17 @@
 
             <p>In our cluster heat map analysis, we can visualize that Urban Population does not necessarily correlate with Murder and Assault. This means that states with a higher population do not determine murders or assaults. There is some relationship between the number of Rapes, Murders, and Assaults. We can also see that Murder and Assault are similar within the states.</p>
             
-            <br>
+        </section>
+
+        <br>
+
+        <section id="section-3">
             
-            <h2 id="deeper-analysis"><b>Deeper Analysis</b></h2>
+            <h2 id="deeper-analysis"><b>Machine Learning Algorithms</b></h2>
 
             <hr>
+
+        <section id="section-4">
 
             <h4 id="visualizing-data-using-principal-component-analysis-pca-"><b>Principal Component Analysis (PCA)</b></h4>
 
@@ -162,7 +196,11 @@ plt.plot([1,2,3,4], var_ratio, '-o')
 
             <p>In this scree plot, we can see that PC1, PC2, and PC3 account for the vast majority of the variation. This means that a three-dimensional graph, using just PC1, PC2, and PC3 would be a good approximation of this four-dimensional graph since it would account for 95.66% of the variation in the data. Also, a two-dimensional graph would account for 86.76% of the variation in the data.</p>
             
-            <br>
+        </section>
+
+        <br>
+
+        <section id="section-5">
             
             <h4 id="k-means-cluster-analysis"><b>K-Means Cluster Analysis</b></b></h4>
 
@@ -256,7 +294,11 @@ for i,name in enumerate(df['Unnamed: 0'].values):
 
             <p>Based on the updated PCA plot with the clustering, it is consistent with the clustering with the points split into four sections.</p>
 
-            <br>
+        </section>
+
+        <br>
+
+        <section id="section-6">
 
             <h4 id="hierarchical-cluster-analysis"><b>Hierarchical Cluster Analysis</b></h4>
 
@@ -337,7 +379,11 @@ for i,name in enumerate(df['Unnamed: 0'].values):
 
             <p>The results are slightly different from the k-means. The data now is still split into four sections, but some of the states belong in different clusters.</p>
             
-            <br>
+        </section>
+
+        <br>
+
+        <section id="section-7">
 
             <h4 id="dbscan"><b>DBSCAN</b></h4>
 

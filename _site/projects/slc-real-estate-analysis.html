@@ -53,9 +53,27 @@
 
   	<body>
 
+        <span class="side-btn" id="sideBtn" onclick="toggleNav()">𝐓</span>
+
         <div class="topnav">
 			<portfolio-nav></portfolio-nav>
 		</div>
+        
+        <nav id="mySidenav" class="section-nav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <li class="toc">Table of Contents</li>
+
+            <hr style="color: white; border-top: 3px solid white;">
+
+            <ol>
+                <li><a href="#section-1">Overview</a></li>
+                <li><a href="#section-2">Data Overview</a></li>
+                <li><a href="#section-3">Exploratory Data Analysis</a></li>
+                <li><a href="#section-4">Geospatial Analysis</a></li>
+                <li><a href="#section-5">Simple Linear Regressions</a></li>
+                <li><a href="#section-6">Multilinear Regressions</a></li>
+            </ol>
+        </nav>
 
 		<div class="container">
 
@@ -65,13 +83,21 @@
 
             <script src="../js/load-mathjax.js" async></script>
 
+        <section id="section-1">
+
             <h1 id="salt-lake-city-real-estate"><b>Salt Lake City Real Estate</b></h1>
 
             <hr>
 
             <p>We will be analyzing SLC real estate data. The dataset contains multiple listing service (MLS) real estate transactions for houses sold in 2015-16 in zip code 84103 (<a href="https://www.google.com/maps/place/Salt+Lake+City,+UT+84103/@40.8030372,-111.8957957,12z/data=!3m1!4b1!4m5!3m4!1s0x87525f672006dded:0x311e638d9a1a2de5!8m2!3d40.810506!4d-111.8449346">SLC avenues neighborhood</a>). We are primarily interested in regressing the <code>SoldPrice</code> on the house attributes (property size, house size, number of bedrooms, etc...).</p>
+        
+        </section>
 
-            <h2 id="the-data"><b>The Data</b></h2>
+        <br>
+
+        <section id="section-2">
+
+            <h2 id="the-data"><b>Data Overview</b></h2>
 
             <hr>
 
@@ -103,7 +129,11 @@
             <li>We removed the listings with erroneous <code>Longitude</code> (one has Longitude = 0) and <code>Taxes</code> values (two have unreasonably large values).</li>
             </ul>
 
-            <br>
+        </section>
+
+        <br>
+
+        <section id="section-3">
 
             <h2 id="exploratory-data-analysis"><b>Exploratory Data Analysis</b></h2>
 
@@ -124,7 +154,11 @@ rel = sns.pairplot(data = train_subset, hue="PropType", diag_kws={'bw': 0.2})
 
             <p>In our exploratory analysis, there are 260 observations and 18 variables in the training dataset. Based on the correlation scatterplot, the columns with the strongest correlation are the <code>LstPrice</code> and the <code>SoldPrice</code>. The plot is almost a linear line. Additionally, there are more than own a Single Family than any other Property Type.</p>
             
-            <br>
+        </section>
+
+        <br>
+
+        <section id="section-4">
             
             <h2 id="analysis-tools"><b>Geospatial Analysis</b></h2>
 
@@ -145,6 +179,12 @@ rel2 = sns.scatterplot(train['Latitude'], train['Longitude'], hue = train['LstPr
             
             <p>As we can see from the chart, the bigger the longitude and latitude, the higher the price is for the house. Houses closer to (-111.91, 40.770) are cheaper in price.</p>
             
+        </section>
+
+        <br>
+
+        <section id="section-5">
+
             <h2 id="linear-regression"><b>Linear Regression</b></h2>
 
             <hr>
@@ -220,7 +260,11 @@ plt.scatter(train['LstPrice'], train['SoldPrice'],  color='red')
 
             <img src="https://user-images.githubusercontent.com/29410712/180321828-91fe8634-1248-40b3-bfc7-f84d38117121.png" alt="lstprice-soldprice-scatter" class="center">
 
-            <br>
+        </section>
+
+        <br>
+
+        <section id="section-6">
 
             <h2 id="multilinear-regression"><b>Multilinear Regression</b></h2>
 

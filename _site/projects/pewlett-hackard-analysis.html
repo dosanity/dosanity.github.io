@@ -53,15 +53,33 @@
 
   	<body>
 
+        <span class="side-btn" id="sideBtn" onclick="toggleNav()">𝐓</span>
+
         <div class="topnav">
 			<portfolio-nav></portfolio-nav>
 		</div>
+        
+        <nav id="mySidenav" class="section-nav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <li class="toc">Table of Contents</li>
+
+            <hr style="color: white; border-top: 3px solid white;">
+
+            <ol>
+                <li><a href="#section-1">Overview</a></li>
+                <li><a href="#section-2">Entity Relationship Diagrams</a></li>
+                <li><a href="#section-3">SQL Analysis</a></li>
+                <li><a href="#section-4">Summary</a></li>
+            </ol>
+        </nav>
 
 		<div class="container">
 
 			<br>
 			<br>
 			<br>
+
+        <section id="section-1">
 
             <h1 id="pewlett-hackard-analysis"><b>Pewlett Hackard Analysis</b></h1>
 
@@ -89,7 +107,11 @@
                 <li>Software: pgAdmin 4.26</li>
             </ul>
 
-            <br>
+        </section>
+
+        <br>
+
+        <section id="section-2">
 
             <h2 id="entity-relationship-diagrams-erds-"><b>Entity Relationship Diagrams (ERDs)</b></h2>
 
@@ -99,9 +121,13 @@
             
             <img src="https://user-images.githubusercontent.com/29410712/186916191-dac541c0-bcf1-4195-9369-bc9f5108cc86.png" alt="image" class="center">
 
-            <br>
+        </section>
 
-            <h2 id="results"><b>Results</b></h2>
+        <br>
+
+        <section id="section-3">
+
+            <h2><b>SQL Analysis</b></h2>
 
             <hr>
 
@@ -205,7 +231,11 @@ ORDER BY e.emp_no;
 
             <p>As a result, Pewlett Hackard would need to increase the number of trainers to make the program effective.</p>
 
-            <br>
+        </section>
+
+        <br>
+
+        <section id="section-4">
 
             <h2 id="summary"><b>Summary</b></h2>
 

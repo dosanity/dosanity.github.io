@@ -53,9 +53,25 @@
 
   	<body>
 
+        <span class="side-btn" id="sideBtn" onclick="toggleNav()">𝐓</span>
+
         <div class="topnav">
 			<portfolio-nav></portfolio-nav>
 		</div>
+        
+        <nav id="mySidenav" class="section-nav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <li class="toc">Table of Contents</li>
+
+            <hr style="color: white; border-top: 3px solid white;">
+
+            <ol>
+                <li><a href="#section-1">Overview</a></li>
+                <li><a href="#section-2">Webscraping Process</a></li>
+                <li><a href="#section-3">Repository Data Analysis</a></li>
+                <li><a href="#section-4">Analysis Results</a></li>
+            </ol>
+        </nav>
 
 		<div class="container">
 
@@ -63,13 +79,19 @@
 			<br>
 			<br>
 
+        <section id="section-1">
+
             <h1><b>Analysis on GitHub Repositories</b></h1>
 
             <hr>
 
             <p>There are many GitHub repositories and some are more popular than others. A Git repository tracks and saves the history of all changes made to the files in a Git project. It saves this data in a directory called . git, also known as the repository folder. Git uses a version control system to track all changes made to the project and save them in the repository. In this project, we will be scraping GitHub repositories and organizing the information in a Pandas data frame. After that, we will use linear regressions to gain meaningful insights into the data we collected. Our goal is to identify properties that make a repository popular which will give insights into future uses of repositories.</p>
             
-            <br>
+        </section>
+
+        <br>
+
+        <section id="section-2">
             
             <h2><b>Webscraping Process</b></h2>
 
@@ -112,7 +134,11 @@ for i in range(2, 10):
             <li>Length of readme file.</li>
             </ul>
 
-            <br>
+        </section>
+
+        <br>
+
+        <section id="section-3">
 
             <h2><b>Analyzing the Repository Data</b></h2>
 
@@ -358,7 +384,11 @@ strong multicollinearity or other numerical problems.
 
             <p>The data from the GitHub repository is always changing and we did not program to actively take in data. Instead, we saved the HTML files to access the data at a certain point in time. Although this is a good enough sample for this analysis, it could potentially be more accurate if there was a program taking in live data from the GitHub repository. It was also difficult and time-consuming to scrape the data through the HTML files. We overcame this through for loops to salvage the code.</p>
             
-            <br>
+        </section>
+
+        <br>
+
+        <section id="section-4">
             
             <h2><b>Results</b></h2>
 
