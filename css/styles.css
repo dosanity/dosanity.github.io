@@ -441,6 +441,7 @@ blockquote p {
 
   .section-nav {
     border-top: 76px solid white;
+    padding-bottom: 200px;
   }
 
   .mobile-center {
@@ -498,6 +499,7 @@ blockquote p {
 
   .section-nav {
     border-top: 75px solid white;
+    height: 100%;
   }
 
   .section-nav li a:hover {
@@ -537,6 +539,7 @@ blockquote p {
 
   .section-nav {
     border-top: 77px solid white;
+    height: 100%;
   }
 
   .mobile-center {
@@ -593,12 +596,12 @@ html {
   z-index: 1; /* Make sure it does not overlap */
   top: 0;
   left: 0;
-  bottom: 0;
+  /* bottom: 0; */
   background-color: #111;
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 14px;
-  padding-bottom: 800px;
+  /* padding-bottom: 10px; */
   white-space: nowrap;
   font-weight: bold;
   overflow:hidden; 
