@@ -23,6 +23,10 @@
   color: white;
 }
 
+.navbar-brand {
+  height: 56px;
+}
+
 body {
   margin-top: 30px;
   overflow-y:scroll;
@@ -440,7 +444,6 @@ blockquote p {
   }
 
   .section-nav {
-    border-top: 76px solid white;
     height: 600px;
     border-bottom-right-radius: 30px;
   }
@@ -496,7 +499,6 @@ blockquote p {
   }
 
   .section-nav {
-    border-top: 75px solid white;
     height: 100%;
   }
 
@@ -536,8 +538,8 @@ blockquote p {
   }
 
   .section-nav {
-    border-top: 77px solid white;
     height: 100%;
+    border-bottom: 100px solid #111;
   }
 
   .mobile-center {
@@ -592,17 +594,18 @@ html {
   width: 0;
   position: fixed;
   z-index: 1; /* Make sure it does not overlap */
-  top: 0;
+  top: 72px;
   left: 0;
   /* bottom: 0; */
   background-color: #111;
   overflow-x: hidden;
+  overflow-y: auto; 
   transition: 0.5s;
   padding-top: 14px;
   /* padding-bottom: 10px; */
   white-space: nowrap;
   font-weight: bold;
-  overflow: auto; 
+  border-top: 3px solid white;
 }
 
 .section-nav ol {
