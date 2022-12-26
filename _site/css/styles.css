@@ -191,6 +191,8 @@ hr {
   text-decoration: none;
   display: inline-block;
   width: 250px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .pdfbtn:hover {
@@ -348,7 +350,6 @@ blockquote p {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  justify-content: center
 }
 
 .profile {
