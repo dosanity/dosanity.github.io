@@ -602,7 +602,7 @@ html {
   /* padding-bottom: 10px; */
   white-space: nowrap;
   font-weight: bold;
-  overflow:hidden; 
+  overflow: auto; 
 }
 
 .section-nav ol {
