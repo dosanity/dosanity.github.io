@@ -637,10 +637,15 @@ html {
   font-size: 36px;
   margin-left: 50px;
   background-color: none;
+  color: #818181;
+  transition-duration: 0.2s;
+  padding: 8px;
+  padding-top: 15px;
 }
 
 .section-nav .closebtn:hover {
-  color:white
+  color:white;
+  cursor: pointer;
 }
 
 .toc {
