@@ -352,6 +352,8 @@ blockquote p {
 
 .wrap {
   text-align: center;
+  padding: 0px;
+  margin: 0px auto;
 }
 
 .profile {
