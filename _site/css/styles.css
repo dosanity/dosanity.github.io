@@ -455,9 +455,6 @@ blockquote p {
 
 /* Desktop */
 @media (min-width: 1200px) {
-  body {
-    padding-top: 56px;
-  }
   .image50{
     width: 50%;
     height: 50%;
