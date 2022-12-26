@@ -28,10 +28,15 @@
 }
 
 body {
-  margin-top: 30px;
+  margin-top: 90px;
   overflow-y:scroll;
   font-family:  -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto;
   height: 100%;
+}
+
+.pre-body {
+  height: 72px;
+  width: 100%
 }
 
 hr {
@@ -539,7 +544,7 @@ blockquote p {
 
   .section-nav {
     height: 100%;
-    border-bottom: 100px solid #111;
+    border-bottom: 180px solid #111;
   }
 
   .mobile-center {
@@ -605,7 +610,7 @@ html {
   /* padding-bottom: 10px; */
   white-space: nowrap;
   font-weight: bold;
-  border-top: 3px solid white;
+  border-top: 4px solid white;
 }
 
 .section-nav ol {
@@ -646,6 +651,11 @@ html {
 .section-nav .closebtn:hover {
   color:white;
   cursor: pointer;
+}
+
+.section-nav hr {
+  color: white; 
+  border-top: 4px solid white;
 }
 
 .toc {
