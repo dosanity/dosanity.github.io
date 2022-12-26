@@ -345,7 +345,7 @@ blockquote p {
 }
 
 .center {
-  display: block;
+  display: inline-block;
   margin-left: auto;
   margin-right: auto;
 }
