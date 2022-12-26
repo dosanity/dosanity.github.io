@@ -34,11 +34,6 @@ body {
   height: 100%;
 }
 
-.pre-body {
-  height: 72px;
-  width: 100%
-}
-
 hr {
   color: lightgray;
   border-top: 1px solid lightgray;
