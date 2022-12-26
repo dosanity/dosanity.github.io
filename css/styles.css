@@ -34,6 +34,11 @@ body {
   height: 100%;
 }
 
+.pre-body {
+  height: 72px;
+  width: 100%;
+}
+
 hr {
   color: lightgray;
   border-top: 1px solid lightgray;
@@ -273,23 +278,6 @@ hr {
     transition-property: transform, opacity;
 }
 
-/* Table CSS */
-
-@media only screen and (max-width: 500px) {
-  /* horizontal scrollbar for tables if mobile screen */
-  table {
-      overflow-x: auto;
-      display: block;
-  }
-
-  .home-position {
-    position: absolute;
-    bottom: 190px;
-    left: 0;
-    right: 0
-  }
-}
-
 table {
   font-family: arial, sans-serif;
   table-layout:fixed;
@@ -454,6 +442,18 @@ blockquote p {
     margin-right: auto;
   }
 
+  table {
+    overflow-x: auto;
+    display: block;
+  }
+
+  .home-position {
+    position: absolute;
+    bottom: 190px;
+    left: 0;
+    right: 0
+  }
+
 }
 
 /* Desktop */
@@ -576,13 +576,11 @@ blockquote p {
   transition-duration: 0.2s;
 }
 
-/* 1. Enable smooth scrolling */
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 90px;
 }
 
-/* 3. ScrollSpy active styles (see JS tab for activation) */
 .section-nav li.active > a {
   color: white;
   font-weight: bold;
@@ -593,16 +591,14 @@ html {
   list-style: none;
   width: 0;
   position: fixed;
-  z-index: 1; /* Make sure it does not overlap */
+  z-index: 1;
   top: 72px;
   left: 0;
-  /* bottom: 0; */
   background-color: #111;
   overflow-x: hidden;
   overflow-y: auto; 
   transition: 0.5s;
   padding-top: 14px;
-  /* padding-bottom: 10px; */
   white-space: nowrap;
   font-weight: bold;
   border-top: 4px solid white;
@@ -621,7 +617,7 @@ html {
 .section-nav a {
   text-decoration: none;
   display: block;
-  transition: all 50ms ease-in-out; /* 💡 This small transition makes setting of the active state smooth */
+  transition: all 50ms ease-in-out;
   padding: 8px 8px 8px 32px;
   font-size: 17px;
   color: #818181;
