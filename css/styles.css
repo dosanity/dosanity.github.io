@@ -37,6 +37,9 @@ padding-top: 10px;
 .navbar-title {
 font-family: 'Hurricane', sans-serif;
 }
+.navbar-toggler.active {
+  border-color: white;
+}
 
 body {
   margin-top: 90px;
