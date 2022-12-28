@@ -11,10 +11,6 @@ class Header1 extends HTMLElement {
         <link href="../css/bootstrap.min.css" rel="stylesheet">
         <link href="../css/styles.css" rel="stylesheet">
 
-        <div class="progress-container">
-            <div class="progress-bar" id="myBar"></div>
-        </div>
-
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
 
             <div class="container">
@@ -53,10 +49,6 @@ class Header2 extends HTMLElement {
       <link href="../css/bootstrap.min.css" rel="stylesheet">
       <link href="../css/styles.css" rel="stylesheet">
 
-      <div class="progress-container">
-          <div class="progress-bar" id="myBar"></div>
-      </div>
-
       <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
           <div class="container">
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -91,10 +83,6 @@ class Header3 extends HTMLElement {
 
       <link href="../css/bootstrap.min.css" rel="stylesheet">
       <link href="../css/styles.css" rel="stylesheet">
-
-      <div class="progress-container">
-          <div class="progress-bar" id="myBar"></div>
-      </div>
 
       <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
           <div class="container">
@@ -131,10 +119,6 @@ class Header4 extends HTMLElement {
       <link href="../css/bootstrap.min.css" rel="stylesheet">
       <link href="../css/styles.css" rel="stylesheet">
 
-      <div class="progress-container">
-          <div class="progress-bar" id="myBar"></div>
-      </div>
-
       <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
           <div class="container">
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -169,10 +153,6 @@ class Header5 extends HTMLElement {
 
       <link href="../css/bootstrap.min.css" rel="stylesheet">
       <link href="../css/styles.css" rel="stylesheet">
-
-      <div class="progress-container">
-          <div class="progress-bar" id="myBar"></div>
-      </div>
 
       <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
           <div class="container">
