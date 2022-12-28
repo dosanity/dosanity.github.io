@@ -735,12 +735,12 @@ html {
 
 .collapsible.active::after {
   content: "–";
-  font-size: 25px;
+  font-size: 23px;
   font-weight: bold;
   color: white;
   float: right;
-  padding-right: 2px;
-  line-height: 17px;
+  padding-right: 3px;
+  line-height: 16px;
 }
 
 .details{
