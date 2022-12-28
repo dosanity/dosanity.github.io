@@ -38,10 +38,6 @@ padding-top: 10px;
 font-family: 'Hurricane', sans-serif;
 }
 
-.navbar-collapse {
-  margin-top: 8px;
-}
-
 body {
   margin-top: 90px;
   overflow-y:scroll;
