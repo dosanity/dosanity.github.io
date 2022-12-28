@@ -734,13 +734,11 @@ html {
 }
 
 .collapsible.active::after {
-  content: "–";
-  font-size: 23px;
+  content: '\2212';
+  font-size: 25px;
   font-weight: bold;
   color: white;
   float: right;
-  padding-right: 3px;
-  line-height: 16px;
 }
 
 .details{
