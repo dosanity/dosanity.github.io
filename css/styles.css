@@ -27,6 +27,17 @@
   height: 56px;
 }
 
+.navbar {
+  background-color: black;
+}
+.navbar-brand {
+color: #f2f2f2;
+padding-top: 10px;
+}
+.navbar-title {
+font-family: 'Hurricane', sans-serif;
+}
+
 body {
   margin-top: 90px;
   overflow-y:scroll;
@@ -72,19 +83,21 @@ hr {
   }
 }
 
-.pagination {
-  margin-bottom: 30px;
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  padding: 10px;
 }
 
-.navbar {
-    background-color: black;
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
 }
-.navbar-brand {
-  color: #f2f2f2;
-  padding-top: 10px;
-}
-.navbar-title {
-  font-family: 'Hurricane', sans-serif;
+
+.pagination {
+  margin-bottom: 30px;
 }
 
 .card-title {
@@ -405,7 +418,7 @@ blockquote p {
 }
 
 /* Mobile */
-@media only screen and (max-width:500px) {
+@media only screen and (max-width:600px) {
   .modal {
     margin-top:50px;
   }
@@ -452,6 +465,10 @@ blockquote p {
     bottom: 190px;
     left: 0;
     right: 0
+  }
+
+  .column {
+    width: 100%;
   }
 
 }
@@ -507,10 +524,21 @@ blockquote p {
     background-color: #1DA1F2;
   }
 
+  .column {
+    width: 50%;
+  }
+
 }
 
 /* Tablets */
-@media (min-width: 500px) and (max-width: 1200px) {
+@media (min-width: 600px) and (max-width: 1200px) {
+  .image70t{
+    width: 70%;
+    /* height: 70%; */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
   .modal {
     margin-top:50px;
   }
@@ -546,6 +574,10 @@ blockquote p {
     text-align: center;
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .column {
+    width: 100%;
   }
 }
 
@@ -654,3 +686,161 @@ html {
   padding: 8px 8px 8px 32px;
   color: white;
 }
+
+/* Style the button that is used to open and close the collapsible content */
+.collapsible {
+  background-color: black;
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 18px;
+  border-bottom: 2px solid white;
+  height: 60px;
+  line-height: 20px;
+}
+
+/* Style the collapsible content. Note: hidden by default */
+.content {
+  padding: 0 18px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out;
+}
+.content:before {
+  padding: 0 18px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out;
+}
+
+.collapsible:after {
+  content: '+'; /* Unicode character for "plus" sign (+) */
+  font-size: 25px;
+  font-weight: bold;
+  color: white;
+  float: right;
+  line-height: 16px;
+}
+
+.collapsible.active::after {
+  content: "–";
+  font-size: 25px;
+  font-weight: bold;
+  color: white;
+  float: right;
+  padding-right: 2px;
+  line-height: 16px;
+}
+
+.collapsible:hover {
+  background-color: #1DA1F2;
+}
+
+.details{
+  width: 100%;
+  display: flex;  
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.bar{
+  position: relative;
+  border: 2px solid #1DA1F2;
+  border-radius: 20px;
+  margin-bottom: 15px;
+  margin-top: -5px;
+}
+.bar div{
+  position: relative;
+  width: 0;
+  height: 9px;
+  border-radius: 10px;
+  background-color: #1DA1F2;
+}
+
+#python-bar{
+  animation: python-fill 5s forwards;
+}
+
+@keyframes python-fill{
+  100%{
+      width: 90%;
+  }
+}
+
+#sql-bar{
+  animation: sql-fill 5s forwards;
+}
+@keyframes sql-fill {
+  100%{
+      width: 65%;
+  }
+}
+
+#js-bar{
+  animation: js-fill 5s forwards;
+}
+@keyframes js-fill{
+  100%{
+      width: 40%;
+  }
+} 
+
+#r-bar{
+  animation: r-fill 5s forwards;
+}
+@keyframes r-fill{
+  100%{
+      width: 50%;
+  }
+} 
+
+#html-bar{
+  animation: html-fill 5s forwards;
+}
+@keyframes html-fill{
+  100%{
+      width: 80%;
+  }
+} 
+
+#css-bar{
+  animation: css-fill 5s forwards;
+}
+@keyframes css-fill{
+  100%{
+      width: 85%;
+  }
+} 
+
+#lightroom-bar{
+  animation: lightroom-fill 5s forwards;
+}
+@keyframes lightroom-fill{
+  100%{
+      width: 75%;
+  }
+} 
+
+#photoshop-bar{
+  animation: photoshop-fill 5s forwards;
+}
+@keyframes photoshop-fill{
+  100%{
+      width: 85%;
+  }
+} 
+
+#illustrator-bar{
+  animation: illustrator-fill 5s forwards;
+}
+@keyframes illustrator-fill{
+  100%{
+      width: 40%;
+  }
+} 
