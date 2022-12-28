@@ -295,18 +295,30 @@ function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
 }
 
-var coll = document.getElementsByClassName("collapsible");
-var i;
+var colls = document.getElementsByClassName("collapsible");
+var dolls = document.getElementsByClassName("collapsible");
 
-for (i = 0; i < coll.length; i++) {
-  coll[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var content = this.nextElementSibling;
-    if (content.style.maxHeight){
-      content.style.maxHeight = null;
-    } else {
-      content.style.maxHeight = content.scrollHeight + "px";
-    }
+  function closeAll() {
+      for(var dol of dolls) {
+        dol.classList.remove("active");
+        dol.nextElementSibling.style.maxHeight = null;
+      }
+  }
+
+  for(var col of colls) {
+    col.addEventListener("click", function() {
+
+      var content = this.nextElementSibling;
+      
+      if (this.classList.contains("active")) {
+        closeAll();        
+        content.style.maxHeight = 0;
+      } else {
+        closeAll();
+        this.classList.toggle("active");
+        content.style.maxHeight = content.scrollHeight + "px";
+      }
+
   });
 }
 document.querySelector('.collapsible').click();
