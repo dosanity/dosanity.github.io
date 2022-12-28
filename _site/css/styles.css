@@ -38,6 +38,10 @@ padding-top: 10px;
 font-family: 'Hurricane', sans-serif;
 }
 
+.navbar-nav {
+  margin-top: 9px;
+}
+
 body {
   margin-top: 90px;
   overflow-y:scroll;
