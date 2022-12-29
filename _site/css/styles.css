@@ -472,6 +472,13 @@ blockquote p {
     width: 100%;
   }
 
+  .navbar-dark .navbar-toggler-icon {
+    background-image: url("../assets/images/icons/navbar-toggler.png");
+  }
+  .navbar-toggler {
+    border: 2px solid transparent;
+  }
+
 }
 
 /* Desktop */
@@ -584,6 +591,13 @@ blockquote p {
 
   .column {
     width: 100%;
+  }
+
+  .navbar-dark .navbar-toggler-icon {
+    background-image: url("../assets/images/icons/navbar-toggler.png");
+  }
+  .navbar-toggler {
+    border: 2px solid transparent;
   }
 }
 

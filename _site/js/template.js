@@ -15,7 +15,8 @@ class Header1 extends HTMLElement {
 
             <div class="container">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon">
+                    </span>
                 </button>
                 <div class="navbar-brand"><h3><b>Anthony Do</b></h3></div>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
