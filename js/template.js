@@ -297,6 +297,25 @@ function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
 }
 
+function toggleNav2(){
+  navSize = document.getElementById("mySidenav2").style.width;
+  if (navSize === "350px") {
+    return closeNav2();
+  }
+  else {
+    return openNav2();
+    
+  }
+}
+/* Set the width of the side navigation to 350px */
+function openNav2() {
+  document.getElementById("mySidenav2").style.width = "900px";
+}
+/* Set the width of the side navigation to 0 */
+function closeNav2() {
+  document.getElementById("mySidenav2").style.width = "0";
+}
+
 var colls = document.getElementsByClassName("collapsible");
 var dolls = document.getElementsByClassName("collapsible");
 

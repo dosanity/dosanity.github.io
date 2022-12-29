@@ -445,6 +445,14 @@ blockquote p {
     z-index: 99; 
   }
 
+  .side-btn2 {
+    position: fixed;
+    bottom: 98px; 
+    left: 20px; 
+    z-index: 99; 
+    visibility: hidden;
+  }
+
   .section-nav {
     height: 600px;
     border-bottom-right-radius: 30px;
@@ -485,6 +493,8 @@ blockquote p {
 
 }
 
+/* ==================================================================================== */
+
 /* Tablets */
 @media (min-width: 600px) and (max-width: 1200px) {
   .image70t{
@@ -520,6 +530,14 @@ blockquote p {
     z-index: 99; /* Make sure it does not overlap */
   }
 
+  .side-btn2 {
+    position: fixed;
+    bottom: 98px; 
+    left: 20px; 
+    z-index: 99; 
+    visibility: hidden;
+  }
+
   .section-nav {
     height: 100%;
     border-bottom: 180px solid #111;
@@ -545,7 +563,14 @@ blockquote p {
     margin-top: 0.5rem;
     border-top: 2px solid white;
   }
+
+  .side-btn:hover .tooltiptext {
+    visibility: hidden;
+  }
+  
 }
+
+/* ==================================================================================== */
 
 /* Desktop */
 @media (min-width: 1200px) {
@@ -589,6 +614,18 @@ blockquote p {
     border-radius: 10px;
   }
 
+  .side-btn2 {
+    padding-left: 0;
+    position: fixed;
+    top: 170px;
+  }
+  .side-btn2:hover {
+    background-color: black;
+    color: white;
+    border: 3px solid black;
+    border-radius: 10px;
+  }
+
   .section-nav {
     height: 100%;
   }
@@ -606,6 +643,75 @@ blockquote p {
     background-color: #1DA1F2;
   }
 
+  /* Tooltip text */
+  .side-btn .tooltiptext {
+    visibility: hidden;
+    width: 250px;
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    border: 3px solid black;
+    font-size: 20px;
+
+    /* Position the tooltip text */
+    position: absolute;
+    z-index: 1;
+    top: 5px;
+    margin-left: 25px;
+
+    /* Fade in tooltip */
+    opacity: 0;
+    transition: opacity 0.1s;
+  }
+  .side-btn:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+  }
+
+    /* Tooltip text */
+    .side-btn2 .tooltiptext {
+      visibility: hidden;
+      width: 250px;
+      background-color: white;
+      color: black;
+      font-weight: bold;
+      text-align: center;
+      padding: 5px 0;
+      border-radius: 6px;
+      border: 3px solid black;
+      font-size: 20px;
+  
+      /* Position the tooltip text */
+      position: absolute;
+      z-index: 1;
+      top: 5px;
+      margin-left: 25px;
+  
+      /* Fade in tooltip */
+      opacity: 0;
+      transition: opacity 0.1s;
+    }
+
+    .side-btn2:hover .tooltiptext {
+      visibility: visible;
+      opacity: 1;
+    }
+
+}
+
+/* ==================================================================================== */
+
+.side-btn .tooltiptext {
+  visibility: hidden;
+  position: absolute;
+}
+
+.side-btn2 .tooltiptext {
+  visibility: hidden;
+  position: absolute;
 }
 
 #myBtn {
@@ -622,6 +728,20 @@ blockquote p {
 }
 
 .side-btn {
+  border: 3px solid black;
+  outline: none; /* Remove outline */
+  background-color: white; /* Set a background color */
+  color: black; /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 10.5px; /* Some padding */
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 10px; /* Rounded corners */
+  font-size: 24px; /* Increase font size */
+  transition-duration: 0.2s;
+}
+
+.side-btn2 {
   border: 3px solid black;
   outline: none; /* Remove outline */
   background-color: white; /* Set a background color */
@@ -706,6 +826,16 @@ html {
 .section-nav hr {
   color: white; 
   border-top: 4px solid white;
+}
+
+.section-nav pre {
+  margin-left: 30px;
+  width: 810px;
+}
+
+.section-nav .side-margin {
+  margin-top: 30px;
+  margin-bottom: 110px;
 }
 
 .toc {
