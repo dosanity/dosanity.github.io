@@ -478,7 +478,71 @@ blockquote p {
   .navbar-toggler {
     border: 2px solid transparent;
   }
+  .navbar-collapse {
+    margin-top: 0.5rem;
+  }
 
+}
+
+/* Tablets */
+@media (min-width: 600px) and (max-width: 1200px) {
+  .image70t{
+    width: 70%;
+    /* height: 70%; */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .modal {
+    margin-top:50px;
+  }
+  #table-scroll {
+    height:300px;
+    overflow:auto;
+    margin-top:20px;
+  }
+  #table-wrapper table {
+    width:100%;
+  }
+  #myBtn {
+    position: fixed; /* Fixed/sticky position */
+    bottom: 28px; /* Place the button at the bottom of the page */
+    right: 20px; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+
+  }
+
+  .side-btn {
+    position: fixed; /* Fixed/sticky position */
+    bottom: 28px; /* Place the button at the bottom of the page */
+    left: 20px; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+  }
+
+  .section-nav {
+    height: 100%;
+    border-bottom: 180px solid #111;
+  }
+
+  .mobile-center {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .column {
+    width: 100%;
+  }
+
+  .navbar-dark .navbar-toggler-icon {
+    background-image: url("../assets/images/icons/navbar-toggler.png");
+  }
+  .navbar-toggler {
+    border: 2px solid transparent;
+  }
+  .navbar-collapse {
+    margin-top: 0.5rem;
+  }
 }
 
 /* Desktop */
@@ -539,66 +603,7 @@ blockquote p {
   .collapsible:hover {
     background-color: #1DA1F2;
   }
-  
 
-}
-
-/* Tablets */
-@media (min-width: 600px) and (max-width: 1200px) {
-  .image70t{
-    width: 70%;
-    /* height: 70%; */
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .modal {
-    margin-top:50px;
-  }
-  #table-scroll {
-    height:300px;
-    overflow:auto;
-    margin-top:20px;
-  }
-  #table-wrapper table {
-    width:100%;
-  }
-  #myBtn {
-    position: fixed; /* Fixed/sticky position */
-    bottom: 28px; /* Place the button at the bottom of the page */
-    right: 20px; /* Place the button 30px from the right */
-    z-index: 99; /* Make sure it does not overlap */
-
-  }
-
-  .side-btn {
-    position: fixed; /* Fixed/sticky position */
-    bottom: 28px; /* Place the button at the bottom of the page */
-    left: 20px; /* Place the button 30px from the right */
-    z-index: 99; /* Make sure it does not overlap */
-  }
-
-  .section-nav {
-    height: 100%;
-    border-bottom: 180px solid #111;
-  }
-
-  .mobile-center {
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .column {
-    width: 100%;
-  }
-
-  .navbar-dark .navbar-toggler-icon {
-    background-image: url("../assets/images/icons/navbar-toggler.png");
-  }
-  .navbar-toggler {
-    border: 2px solid transparent;
-  }
 }
 
 #myBtn {
