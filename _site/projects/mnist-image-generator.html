@@ -87,6 +87,7 @@
 
             <div class="side-margin">
                 <pre><code class="language-python">
+# Import Dependencies 
 from keras.datasets import mnist
 from keras.layers import Input, Dense, Reshape, Flatten, Dropout
 from keras.layers import BatchNormalization, Activation, ZeroPadding2D
@@ -109,9 +110,9 @@ latent_dim = 100
 
 # Optimizer
 optimizer = Adam(0.0002, 0.5)
-# Generator Function
                 </code></pre>
                 <pre><code class="language-python">
+# Generator Model
 def build_generator():
 
     model = Sequential()
@@ -142,6 +143,7 @@ def build_generator():
 
     return Model(noise, img)
 
+# Discriminator Model
 def build_discriminator():
 
     model = Sequential()
@@ -167,30 +169,23 @@ def build_discriminator():
 
     return Model(img, validity)
 
-# Build and compile the discriminator
 discriminator = build_discriminator()
 discriminator.compile(loss='binary_crossentropy', optimizer=optimizer, metrics=['accuracy'])
 
-# Build the generator
 generator = build_generator()
 
-# The generator takes noise as input and generates imgs
 z = Input(shape=(latent_dim,))
 img = generator(z)
 
-# For the combined model we will only train the generator
 discriminator.trainable = False
 
-# The discriminator takes generated images as input and determines validity
 validity = discriminator(img)
 
-# The combined model  (stacked generator and discriminator)
-# Trains the generator to fool the discriminator
 combined = Model(z, validity)
 combined.compile(loss='binary_crossentropy', optimizer=optimizer, metrics=['accuracy'])
                 </code></pre>
                 <pre><code class="language-python">
-# Set up a vector (dict) to store the losses
+# Set up a vector to store the losses
 losses = {"D":[], "G":[]}
 
 def train(epochs, batch_size=128, sample_interval=50):
@@ -212,10 +207,6 @@ def train(epochs, batch_size=128, sample_interval=50):
         
         for epoch in range(epochs):
 
-            # ---------------------
-            #  Train Discriminator
-            # ---------------------
-
             # Select a random batch of images
             idx = np.random.randint(0, X_train.shape[0], batch_size)
             imgs = X_train[idx]
@@ -229,10 +220,6 @@ def train(epochs, batch_size=128, sample_interval=50):
             d_loss_real = discriminator.train_on_batch(imgs, valid)
             d_loss_fake = discriminator.train_on_batch(gen_imgs, fake)
             d_loss = 0.5 * np.add(d_loss_real, d_loss_fake)
-
-            # ---------------------
-            #  Train Generator
-            # ---------------------
 
             noise = np.random.normal(0, 1, (batch_size, latent_dim))
 
@@ -258,14 +245,10 @@ def plot_loss(losses, epochs):
     dis_loss = [v[0] for v in losses["D"]]
     gen_loss = [v[0] for v in losses["G"]]
     x = np.arange(1,epochs+1)
-    # d_acc = [v[1] for v in losses["D"]]
-    #g_acc = [v[1] for v in losses["G"]]
     
     plt.figure(figsize=(10,8))
     plt.plot(x, dis_loss, label="Discriminator loss")
     plt.plot(x, gen_loss, label="Generator loss")
-    # plt.plot(d_acc, label="Discriminator accuracy")
-    #plt.plot(g_acc, label="Generator accuracy")
     plt.xlabel('Epochs')
     plt.ylabel('Loss')
     plt.legend()
@@ -292,6 +275,7 @@ def sample_images(epoch):
     plt.close()
                 </code></pre>
                 <pre><code class="language-python">
+# Run GAN
 train(epochs=30000, batch_size=32, sample_interval=200)
                 </code></pre>
             </div>
