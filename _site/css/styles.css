@@ -418,6 +418,13 @@ blockquote p {
   cursor: pointer;
 }
 
+@media (min-width: 0px) and (max-width: 991px) {
+  .navbar-collapse {
+    margin-top: 0.5rem;
+    border-top: 2px solid white;
+  }
+}
+
 /* Mobile */
 @media only screen and (max-width:600px) {
   .modal {
@@ -486,17 +493,14 @@ blockquote p {
   .navbar-toggler {
     border: 2px solid transparent;
   }
-  .navbar-collapse {
-    margin-top: 0.5rem;
-    border-top: 2px solid white;
-  }
+
 
 }
 
 /* ==================================================================================== */
 
 /* Tablets */
-@media (min-width: 600px) and (max-width: 1200px) {
+@media (min-width: 600px) and (max-width: 1024px) {
   .image70t{
     width: 70%;
     /* height: 70%; */
@@ -559,10 +563,6 @@ blockquote p {
   .navbar-toggler {
     border: 2px solid transparent;
   }
-  .navbar-collapse {
-    margin-top: 0.5rem;
-    border-top: 2px solid white;
-  }
 
   .side-btn:hover .tooltiptext {
     visibility: hidden;
@@ -573,7 +573,7 @@ blockquote p {
 /* ==================================================================================== */
 
 /* Desktop */
-@media (min-width: 1200px) {
+@media (min-width: 1025px) {
   .image50{
     width: 50%;
     height: 50%;

@@ -299,6 +299,12 @@ function closeNav() {
 
 function toggleNav2(){
   navSize = document.getElementById("mySidenav2").style.width;
+  document.addEventListener('mouseup', function(e) {
+    var container = document.getElementById('mySidenav2');
+    if (!container.contains(e.target)) {
+        return closeNav2();
+    }
+  });
   if (navSize === "350px") {
     return closeNav2();
   }
@@ -315,6 +321,12 @@ function openNav2() {
 function closeNav2() {
   document.getElementById("mySidenav2").style.width = "0";
 }
+
+
+
+
+
+
 
 var colls = document.getElementsByClassName("collapsible");
 var dolls = document.getElementsByClassName("collapsible");
