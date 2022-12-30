@@ -181,8 +181,11 @@ discriminator.trainable = False
 
 validity = discriminator(img)
 
-combined = Model(z, validity)
-combined.compile(loss='binary_crossentropy', optimizer=optimizer, metrics=['accuracy'])
+# Build the GAN
+GAN = Model(z, validity)
+
+# Train the generator to fool the discriminator
+GAN.compile(loss='binary_crossentropy', optimizer=optimizer, metrics=['accuracy'])
                 </code></pre>
                 <pre><code class="language-python">
 # Set up a vector to store the losses
@@ -224,7 +227,7 @@ def train(epochs, batch_size=128, sample_interval=50):
             noise = np.random.normal(0, 1, (batch_size, latent_dim))
 
             # Train the generator (to have the discriminator label samples as valid)
-            g_loss = combined.train_on_batch(noise, valid)
+            g_loss = GAN.train_on_batch(noise, valid)
 
             # Plot the progress
             print ("%d [D loss: %f, acc.: %.2f%%] [G loss: %f]" % (epoch, d_loss[0], 100*d_loss[1], g_loss[0]))

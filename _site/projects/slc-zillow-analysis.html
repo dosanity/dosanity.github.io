@@ -80,6 +80,390 @@
             </ol>
         </nav>
 
+        <span class="side-btn2" id="sideBtn" onclick="toggleNav2()">𝐂<span class="tooltiptext">View Code</span></span>
+        
+        <nav id="mySidenav2" class="section-nav">
+            <div class="closebtn" onclick="closeNav2()">&times;</div>
+            <li class="toc">Python Code</li>
+
+            <hr>
+
+            <div class="side-margin">
+                <pre><code class="language-python">
+# Import Dependencies 
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from numpy import std
+import os
+from sklearn.preprocessing import StandardScaler
+from sklearn.decomposition import PCA
+from sklearn.cluster import KMeans
+from sklearn.cluster import AgglomerativeClustering
+from sklearn.linear_model import LinearRegression 
+from sklearn.metrics import r2_score
+from sklearn.model_selection import train_test_split
+import geopandas as gpd
+from shapely.geometry import Point
+import statsmodels.formula.api as sm
+                </code></pre>
+                <pre><code class="language-python">
+# Preprocessing
+df = pd.read_csv("./ZillowData.csv")
+df = df.drop(columns=['Unnamed: 0'])
+df["price"] = df["price"].astype(float)
+df["price_sqft"] = (df["price"]/df["sqft"]).round(2)
+df['proptype'] = np.where((df['type'] == 'SINGLE_FAMILY'), 1, 0)
+                </code></pre>
+                <pre><code class="language-python">
+# GeoSpatial Analysis
+utah_map = gpd.read_file('Municipal_Boundaries/Municipal_Boundaries.shp')
+
+crs = 'EPSG:4326'
+geometry = [Point(xy) for xy in zip(df['longitude'], df['latitude'])]
+geo_df = gpd.GeoDataFrame(df, crs = crs, geometry = geometry)
+
+fig, ax = plt.subplots(figsize = (8,8))
+utah_map.to_crs(epsg=4326).plot(ax=ax, color='lightgrey')
+geo_df.plot(ax=ax)
+ax.set_title('Salt Lake County Real Estate', fontsize = 15)
+ax.set_xlabel("Longitude")
+ax.set_ylabel("Latitude")
+plt.tight_layout()
+plt.savefig('charts/SLC Real Estate')
+plt.show()
+
+geo_df['price_log'] = np.log(geo_df['price'])
+fig, ax = plt.subplots(figsize = (10,10))
+utah_map.to_crs(epsg=4326).plot(ax=ax, color='lightgrey')
+geo_df.plot(column = 'price_log', ax=ax, cmap = 'inferno',
+            legend = True, legend_kwds={'shrink': 0.5}, markersize = 15)
+ax.set_title('Salt Lake County Price Heatmap', fontsize = 15)
+ax.set_xlabel("Longitude")
+ax.set_ylabel("Latitude")
+plt.tight_layout()
+plt.savefig('charts/Price Heat Map')
+plt.show()
+
+geo_df['sqft_log'] = np.log(geo_df['sqft'])
+fig, ax = plt.subplots(figsize = (10,10))
+utah_map.to_crs(epsg=4326).plot(ax=ax, color='lightgrey')
+geo_df.plot(column = 'sqft_log', ax=ax, cmap = 'inferno',
+            legend = True, legend_kwds={'shrink': 0.5},
+            alpha = .5)
+ax.set_title('Salt Lake County Sqft Heatmap', fontsize = 15)
+ax.set_xlabel("Longitude")
+ax.set_ylabel("Latitude")
+plt.tight_layout()
+plt.savefig('charts/Sqft Heat Map')
+plt.show()
+                </code></pre>
+                <pre><code class="language-python">
+# Preliminary Analysis
+average_price = df.groupby(["city"]).mean().round(2)["price"]
+count = df.groupby(["city"]).count()["price"]
+average_sqft = df.groupby(["city"]).mean().round(2)["sqft"]
+cost_sqft = df.groupby(["city"]).mean().round(2)["price_sqft"]
+summary = pd.DataFrame({"average_price" : average_price,
+                        "count" : count,
+                        "average_sqft" : average_sqft,
+                        "cost_sqft" : cost_sqft})
+summary = summary.reset_index()
+summary = summary.sort_values(["average_price"], ascending=False)
+
+# Finding Outliers
+x_axis = np.arange(len(summary))
+tick_locations = [value for value in x_axis]
+plt.figure(figsize=(10,6))
+plt.scatter(df["city"], df["price"])
+plt.xticks(rotation='vertical')
+plt.ticklabel_format(style='plain', useOffset=False, axis='y')
+plt.title("Home Price Scatter Plot", fontsize = 15)
+plt.xlabel("City")
+plt.ylabel("Home Price")
+plt.tight_layout()
+plt.savefig('charts/BC Home Price Scatter')
+plt.show()
+
+# Salt Lake City Box Plot
+outlier = df.loc[df["city"] == "Salt Lake City"]
+outlier = outlier['price']
+
+# Calculate interquartile range
+q25, q75 = np.percentile(outlier, 25), np.percentile(outlier, 75)
+iqr = q75 - q25
+
+# Calculate the outlier cutoff
+cut_off = iqr * 1.5
+lower, upper = q25 - cut_off, q75 + cut_off
+
+# Identify outliers
+outliers = [x for x in outlier if x < lower or x > upper]
+
+# Remove outliers
+df = df.drop(df[(df['city'] == 'Salt Lake City') & (df['price'] < lower)].index)
+df = df.drop(df[(df['city'] == 'Salt Lake City') & (df['price'] > upper)].index)
+
+# Show plot without outliers
+x_axis = np.arange(len(summary))
+tick_locations = [value for value in x_axis]
+plt.figure(figsize=(10,6))
+plt.scatter(df["city"], df["price"])
+plt.xticks(rotation='vertical')
+plt.ticklabel_format(style='plain', useOffset=False, axis='y')
+plt.title("Home Price Scatter Plot", fontsize = 15)
+plt.xlabel("City")
+plt.ylabel("Home Price")
+plt.tight_layout()
+plt.savefig('charts/AC Home Price Scatter')
+plt.show()
+                </code></pre>
+                <pre><code class="language-python">
+# Average Home Price
+x_axis = np.arange(len(summary))
+tick_locations = [value for value in x_axis]
+plt.figure(figsize=(10,6))
+plt.bar(summary["city"], summary["average_price"])
+plt.xticks(tick_locations, summary["city"], rotation='vertical')
+plt.ticklabel_format(style='plain', useOffset=False, axis='y')
+plt.title("Average Home Price", fontsize = 15)
+plt.xlabel("City")
+plt.ylabel("Average Price")
+plt.tight_layout()
+plt.savefig('charts/Average Home Price')
+plt.show()
+
+# Average Home Sqft
+summary = summary.sort_values(["average_sqft"], ascending=False)
+x_axis = np.arange(len(summary))
+tick_locations = [value for value in x_axis]
+plt.figure(figsize=(10,6))
+plt.bar(summary["city"], summary["average_sqft"])
+plt.xticks(tick_locations, summary["city"], rotation='vertical')
+plt.ticklabel_format(style='plain', useOffset=False, axis='y')
+plt.title("Average Home Sqft", fontsize = 15)
+plt.xlabel("City")
+plt.ylabel("Average Sqft")
+plt.tight_layout()
+plt.savefig('charts/Average Home Sqft')
+plt.show()
+
+# Average Cost per Sqft
+summary = summary.sort_values(["cost_sqft"], ascending=False)
+x_axis = np.arange(len(summary))
+tick_locations = [value for value in x_axis]
+plt.figure(figsize=(10,6))
+plt.bar(summary["city"], summary["cost_sqft"])
+plt.xticks(tick_locations, summary["city"], rotation='vertical')
+plt.ticklabel_format(style='plain', useOffset=False, axis='y')
+plt.title("Average Cost per Sqft")
+plt.xlabel("City")
+plt.ylabel("Average Cost per Sqft")
+plt.tight_layout()
+plt.savefig('charts/Average Cost per Sqft')
+plt.show()
+
+# Price vs Sqft
+y_axis = df['price']
+x_axis = df['sqft']
+fig, ax = plt.subplots(figsize=(10, 6))
+ax.scatter(x_axis, y_axis, alpha = 0.5)
+ax.ticklabel_format(useOffset=False, style='plain', axis='y')
+ax.set_xlabel("Sqft")
+ax.set_ylabel("Price")
+ax.set_title("Price vs Sqft", fontsize = 15)
+plt.tight_layout()
+plt.savefig('charts/Price vs Sqft Scatterplot')
+plt.show()
+                </code></pre>
+                <pre><code class="language-python">
+# Linear Regression
+mod = sm.ols(formula="price ~ sqft + beds + baths + proptype", data = df)
+res = mod.fit()
+print(res.summary())
+                </code></pre>
+                <pre><code class="language-python">
+# PCA Analysis
+average_price = df.groupby(["zipcode"]).mean().round(2)["price"]
+average_sqft = df.groupby(["zipcode"]).mean().round(2)["sqft"]
+cost_sqft = df.groupby(["zipcode"]).mean().round(2)["price_sqft"]
+summary = pd.DataFrame({"average_price" : average_price,
+                        # "count" : count,
+                        "average_sqft" : average_sqft,
+                        "cost_sqft" : cost_sqft})
+summary = summary.reset_index()
+summary = summary.sort_values(["average_price"], ascending=False)
+
+# Drops first state column
+X = summary.drop(['zipcode'],axis=1).values
+X = StandardScaler().fit_transform(X)
+
+# PCA Model
+pca_model = PCA(n_components=3)
+X_PCA = pca_model.fit_transform(X)
+df_plot = pd.DataFrame(X_PCA, columns=['PC1', 'PC2', 'PC3'])
+df_plot.head()
+fig,ax1 = plt.subplots(figsize=(10, 6))
+
+ax1.set_xlim(X_PCA[:,0].min()-1,X_PCA[:,0].max()+1)
+ax1.set_ylim(X_PCA[:,1].min()-1,X_PCA[:,1].max()+1)
+
+# Recenters Data
+for i,name in enumerate(summary['zipcode'].values):
+    ax1.annotate(name, (X_PCA[i,0], X_PCA[i,1]), ha='center',fontsize=10)
+
+ax1.set_xlabel('First Principal Component', fontsize = 12)
+ax1.set_ylabel('Second Principal Component', fontsize = 12)
+ax1.set_title('Principal Component Analysis', fontsize = 15)
+plt.tight_layout()
+plt.savefig('charts/PCA.png')
+plt.show()
+
+# Scree Plot
+var_ratio = pca_model.explained_variance_ratio_
+print('Explained Variance Ratios of the PCA:', var_ratio)
+
+fig,ax1 = plt.subplots(figsize=(10, 6))
+plt.plot([1,2,3], var_ratio, '-o')
+
+plt.ylabel('Proportion of Variance Explained')
+plt.xlabel('Principal Component')
+plt.title('Proportion of Variation')
+plt.xticks([1,2,3])
+plt.tight_layout()
+plt.savefig('charts/scree-plot.png')
+plt.show()
+                </code></pre>
+                <pre><code class="language-python">
+# K-Means Clustering
+kmeans = KMeans(n_clusters=6)
+kmeans.fit(X)
+y_kmeans = kmeans.predict(X)
+fig,ax1 = plt.subplots(figsize=(10, 6))
+
+plt.scatter(X[:, 0], X[:, 1], c=y_kmeans, s=50)
+
+for i,name in enumerate(summary['zipcode'].values):
+    ax1.annotate(name, (X[i,0], X[i,1]), ha='center',fontsize=10)
+
+plt.title('K-Mean Cluster (k = 6)', fontsize = 15)
+plt.tight_layout()
+plt.savefig('charts/K-Mean.png')
+plt.show()
+
+# Parallel Coordinates Centroids
+from pandas.plotting import parallel_coordinates
+
+palette = sns.color_palette("Set1", 10)
+X_df = summary.drop(['zipcode'],axis=1)
+    
+def display_parallel_coordinates_centroids(df, num_clusters):
+    '''Display a parallel coordinates plot for the centroids in df'''
+
+    # Create the plot
+    fig = plt.figure(figsize=(10, 6))
+    title = fig.suptitle("Parallel Coordinates Centroids", fontsize=15)
+    fig.subplots_adjust(top=0.9, wspace=0)
+
+    # Draw the chart
+    parallel_coordinates(df, 'cluster', color=palette)
+
+    # Stagger the axes
+    ax=plt.gca() 
+    plt.savefig('charts/Parallel-Centroids.png')
+
+# Create a data frame containing our centroids
+centroids = pd.DataFrame(kmeans.cluster_centers_, columns=X_df.columns)
+centroids['cluster'] = centroids.index + 1
+
+display_parallel_coordinates_centroids(centroids, 6)
+
+ks = range(1,11)
+scores = []
+
+fig, axs = plt.subplots(2,5, figsize=(20, 8))
+fig.suptitle('Different K-Mean Clusters', fontsize = 15)
+
+# Different K-Mean Clusters
+for k in ks:
+    model = KMeans(n_clusters=k)
+    y_pred = model.fit_predict(X)
+    scores.append(-model.score(X))
+
+    subplot = axs[int((k-1)/5)][(k-1)%5]
+    subplot.scatter(X[:, 0], X[:, 1], c=y_pred,  marker="o", s=7);
+    subplot.set_title("k="+str(k))
+plt.tight_layout()
+plt.savefig('charts/Different K-Means')
+
+# Intra-Cluster Distance Analysis
+fig = plt.figure(figsize=(10, 6))
+plt.plot(ks, scores)
+plt.title('Intra-Cluster Distance Analysis', fontsize = 15)
+plt.ylabel('Total Intra-Cluster Distance', fontsize = 12)
+plt.xlabel('k', fontsize = 12)
+plt.tight_layout()
+plt.savefig('charts/Intra-Cluster-Distance.png')
+plt.show()
+
+# K-Means Clustering with PCA
+fig,ax1 = plt.subplots(figsize=(10, 6))
+
+ax1.set_xlim(X_PCA[:,0].min()-1,X_PCA[:,0].max()+1)
+ax1.set_ylim(X_PCA[:,1].min()-1,X_PCA[:,1].max()+1)
+
+plt.scatter(X_PCA[:, 0], X_PCA[:, 1], c=y_kmeans, s=50)
+
+for i,name in enumerate(summary['zipcode'].values):
+    ax1.annotate(name, (X_PCA[i,0], X_PCA[i,1]), ha='center',fontsize=10)
+
+ax1.set_xlabel('First Principal Component')
+ax1.set_ylabel('Second Principal Component')
+plt.title('K-Means Clustering with PCA', fontsize = 15)
+plt.tight_layout()
+plt.savefig('charts/K-Mean-PCA.png')
+plt.show()
+                </code></pre>
+                <pre><code class="language-python">
+# Create the dendrogram
+fig = ff.create_dendrogram(X_PCA, color_threshold=0, labels=summary['zipcode'].values)
+fig.update_layout(width=800, height=500)
+fig.write_image("charts/dendogram.png")
+fig.show()
+
+# Hierarchical Clustering
+fig,ax1 = plt.subplots(figsize=(10, 6))
+agg_cluster_model = AgglomerativeClustering(linkage="complete", affinity='euclidean', n_clusters=6)
+y_pred = agg_cluster_model.fit_predict(X)
+
+plt.scatter(X[:, 0], X[:, 1], c=y_pred,  marker="o")
+for i,name in enumerate(summary['zipcode'].values):
+    ax1.annotate(name, (X[i,0], X[i,1]), ha='center',fontsize=10)
+plt.title('Hierarchical Clustering (6 Clusters)', fontsize = 15)
+plt.savefig('charts/Hierarchical.png')
+plt.show()
+
+# Hierarchical Clustering with PCA
+fig,ax1 = plt.subplots(figsize=(10, 6))
+
+ax1.set_xlim(X_PCA[:,0].min()-1,X_PCA[:,0].max()+1)
+ax1.set_ylim(X_PCA[:,1].min()-1,X_PCA[:,1].max()+1)
+
+plt.scatter(X_PCA[:, 0], X_PCA[:, 1], c=y_pred, s=50)
+
+for i,name in enumerate(summary['zipcode'].values):
+    ax1.annotate(name, (X_PCA[i,0], X_PCA[i,1]), ha='center',fontsize=10)
+
+ax1.set_xlabel('First Principal Component')
+ax1.set_ylabel('Second Principal Component')
+plt.title('Hierarchical Clusters with PCA', fontsize = 15)
+plt.savefig('charts/Hierarchical-PCA.png')
+plt.show()
+                </code></pre>
+            </div>
+
+        </nav>
+
         <div class="container">
 
             <script src="../js/load-mathjax.js" async></script>
