@@ -80,13 +80,17 @@
             </ol>
         </nav>
 
-        <span class="side-btn2" id="sideBtn" onclick="toggleNav2()">𝐂<span class="tooltiptext">View Code</span></span>
+        <!-- <span class="side-btn2" id="sideBtn" onclick="toggleNav2()">𝐂<span class="tooltiptext">View Code</span></span> -->
         
         <nav id="mySidenav2" class="section-nav">
             <div class="closebtn" onclick="closeNav2()">&times;</div>
             <li class="toc">Python Code</li>
 
             <hr>
+
+            <center>
+                <a href="https://github.com/dosanity/SLC-Zillow-analysis" class="github-btn">GitHub</a>
+            </center>
 
             <div class="side-margin">
                 <pre><code class="language-python">
@@ -95,7 +99,6 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from numpy import std
-import os
 from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import PCA
 from sklearn.cluster import KMeans

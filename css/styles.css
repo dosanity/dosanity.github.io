@@ -714,6 +714,25 @@ blockquote p {
   position: absolute;
 }
 
+.section-nav .github-btn {
+  background-color: black; 
+  border: 3px solid white;
+  border-radius: 4px;
+  color: white;
+  padding: 5px 10px;
+  margin-top: 4px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  width: 200px;
+}
+
+.section-nav .github-btn:hover {
+  background-color: white;; 
+  border: 3px solid white;;
+  color: black;
+}
+
 #myBtn {
   display: none; /* Hidden by default */
   border: 3px solid black;
