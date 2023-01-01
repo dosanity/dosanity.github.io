@@ -567,7 +567,13 @@ blockquote p {
   .side-btn:hover .tooltiptext {
     visibility: hidden;
   }
-  
+
+  .navbar button[aria-expanded="true"] > span.navbar-toggler-icon {
+    background-image: url("../assets/images/icons/navbar-toggler2.png");
+  }
+  .navbar button[aria-expanded="false"] > span.close {
+    display: none;
+  }
 }
 
 /* ==================================================================================== */
