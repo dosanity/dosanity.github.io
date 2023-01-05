@@ -1158,6 +1158,7 @@ html {
   font-size: 20px;
   padding: 8px;
   margin-left: 32px;
+  border-radius: 5px;
 }
 
 /* Style the navigation menu */
@@ -1170,7 +1171,7 @@ html {
 /* Style the navigation links */
 #myMenu li a {
   text-decoration: none;
-  color: #818181;
+  color: white;
   font-weight: none;
   display: block;
   padding: 8px 8px 8px 32px;
@@ -1186,4 +1187,15 @@ html {
 
 .fixed-position {
   overflow: hidden;
+}
+
+input[type=search]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  background-size: contain;
+  background-image: url("../assets/images/icons/close.png");
+  cursor: pointer;
+
 }
