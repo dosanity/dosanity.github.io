@@ -511,7 +511,7 @@ blockquote p {
     display: none;
   }
   
-  #myMenu li a:hover {
+  #myMenu li a:active {
     color: black;
     background-color: #ddd;
   }
@@ -602,7 +602,7 @@ blockquote p {
     display: none;
   }
 
-  #myMenu li a:hover {
+  #myMenu li a:active {
     color: black;
     background-color: #ddd;
   }
