@@ -470,9 +470,9 @@ blockquote p {
   }
 
   .section-nav {
-    height: 500px;
-    border-bottom-right-radius: 30px;
-    border-bottom: 50px solid #111;
+    height: 100%;
+    /* border-bottom-right-radius: 30px; */
+    border-bottom: 180px solid #111;
   }
 
   .mobile-center {
@@ -510,7 +510,10 @@ blockquote p {
   .navbar button[aria-expanded="false"] > span.close {
     display: none;
   }
-
+  
+  #myMenu li a:hover {
+    color: white;
+  }
 }
 
 /* ==================================================================================== */
@@ -596,6 +599,10 @@ blockquote p {
   }
   .navbar button[aria-expanded="false"] > span.close {
     display: none;
+  }
+
+  #myMenu li a:hover {
+    color: white;
   }
 }
 
@@ -770,6 +777,11 @@ blockquote p {
   .side-btn3:hover .tooltiptext {
     visibility: visible;
     opacity: 1;
+  }
+
+  #myMenu li a:hover {
+    background-color: #1DA1F2;
+    color: white;
   }
 
 }
@@ -1164,15 +1176,14 @@ html {
   padding: 8px 8px 8px 32px;
 }
 
-#myMenu li a:hover {
-  background-color: #1DA1F2;
-  color: white;
-}
-
 .search-container i {
   background: transparent;
   color: white;
   border: none;
   padding: 8px;
   font-size: 22px;
+}
+
+.fixed-position {
+  overflow: hidden;
 }
