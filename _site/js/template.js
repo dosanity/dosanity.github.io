@@ -232,7 +232,12 @@ class Footer2 extends HTMLElement {
 
 customElements.define('footer-component2', Footer2);
 
-// Get the button:
+// ====================================================================================
+
+// Back to Top
+
+// ====================================================================================
+
 let mybutton = document.getElementById("myBtn");
 
 // When the user scrolls down 20px from the top of the document, show the button
@@ -256,19 +261,29 @@ function topFunction() {
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
 
+// ====================================================================================
+
+// Table of Contents
+
+// ====================================================================================
 
 window.addEventListener('DOMContentLoaded', () => {
+
+  let options = {
+    rootMargin: '-72px'
+  }
 
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       const id = entry.target.getAttribute('id');
       if (entry.intersectionRatio > 0) {
         document.querySelector(`nav li a[href="#${id}"]`).parentElement.classList.add('active');
-      } else {
+      } 
+      else {
         document.querySelector(`nav li a[href="#${id}"]`).parentElement.classList.remove('active');
       }
     });
-  });
+  }, options);
 
   // Track all sections that have an `id` applied
   document.querySelectorAll('section[id]').forEach((section) => {
@@ -276,6 +291,12 @@ window.addEventListener('DOMContentLoaded', () => {
   });
   
 });
+
+// ====================================================================================
+
+// Side Navigations
+
+// ====================================================================================
 
 function toggleNav(){
   navSize = document.getElementById("mySidenav").style.width;
@@ -350,11 +371,11 @@ function closeNav3() {
   $('body').removeClass("fixed-position");
 }
 
+// ====================================================================================
 
+// Click anywhere outside to close side navigation.
 
-
-
-
+// ====================================================================================
 
 var colls = document.getElementsByClassName("collapsible");
 var dolls = document.getElementsByClassName("collapsible");
@@ -384,7 +405,11 @@ var dolls = document.getElementsByClassName("collapsible");
 }
 document.querySelector('.collapsible').click();
 
-// Search
+// ====================================================================================
+
+// Search Bar
+
+// ====================================================================================
 
 function myFunction() {
   // Declare variables
@@ -404,6 +429,12 @@ function myFunction() {
     }
   }
 }
+
+// ====================================================================================
+
+// Stop the scrolling feature when side navigation is open.
+
+// ====================================================================================
 
 if ($('#myMenu').is(':visible')) {
   $('body').addClass("fixed-position");
