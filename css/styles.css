@@ -510,7 +510,10 @@ blockquote p {
   .navbar button[aria-expanded="false"] > span.close {
     display: none;
   }
-
+  
+  #myMenu li a:hover {
+    color: white;
+  }
 }
 
 /* ==================================================================================== */
@@ -596,6 +599,10 @@ blockquote p {
   }
   .navbar button[aria-expanded="false"] > span.close {
     display: none;
+  }
+
+  #myMenu li a:hover {
+    color: white;
   }
 }
 
@@ -770,6 +777,11 @@ blockquote p {
   .side-btn3:hover .tooltiptext {
     visibility: visible;
     opacity: 1;
+  }
+
+  #myMenu li a:hover {
+    background-color: #1DA1F2;
+    color: white;
   }
 
 }
@@ -1162,11 +1174,6 @@ html {
   font-weight: none;
   display: block;
   padding: 8px 8px 8px 32px;
-}
-
-#myMenu li a:hover {
-  background-color: #1DA1F2;
-  color: white;
 }
 
 .search-container i {
