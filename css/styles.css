@@ -425,6 +425,8 @@ blockquote p {
   }
 }
 
+/* ==================================================================================== */
+
 /* Mobile */
 @media only screen and (max-width:599px) {
   .modal {
@@ -460,9 +462,17 @@ blockquote p {
     visibility: hidden;
   }
 
+  .side-btn3 {
+    position: fixed;
+    bottom: 28px; 
+    left: 20px; 
+    z-index: 99; 
+  }
+
   .section-nav {
-    height: 600px;
-    border-bottom-right-radius: 30px;
+    height: 100%;
+    /* border-bottom-right-radius: 30px; */
+    border-bottom: 180px solid #111;
   }
 
   .mobile-center {
@@ -548,6 +558,13 @@ blockquote p {
     visibility: hidden;
   }
 
+  .side-bt3 {
+    position: fixed;
+    bottom: 28px;
+    left: 20px;
+    z-index: 99;
+  }
+
   .section-nav {
     height: 100%;
     border-bottom: 180px solid #111;
@@ -618,6 +635,7 @@ blockquote p {
     padding-left: 0;
     position: fixed;
     top: 100px;
+    z-index: 95;
   }
   .side-btn:hover {
     background-color: black;
@@ -632,6 +650,19 @@ blockquote p {
     top: 170px;
   }
   .side-btn2:hover {
+    background-color: black;
+    color: white;
+    border: 3px solid black;
+    border-radius: 10px;
+  }
+
+  .side-btn3 {
+    padding-left: 0;
+    position: fixed;
+    top: 100px;
+    z-index: 95; 
+  }
+  .side-btn3:hover {
     background-color: black;
     color: white;
     border: 3px solid black;
@@ -683,34 +714,63 @@ blockquote p {
     opacity: 1;
   }
 
-    /* Tooltip text */
-    .side-btn2 .tooltiptext {
-      visibility: hidden;
-      width: 250px;
-      background-color: white;
-      color: black;
-      font-weight: bold;
-      text-align: center;
-      padding: 5px 0;
-      border-radius: 6px;
-      border: 3px solid black;
-      font-size: 20px;
-  
-      /* Position the tooltip text */
-      position: absolute;
-      z-index: 1;
-      top: 5px;
-      margin-left: 25px;
-  
-      /* Fade in tooltip */
-      opacity: 0;
-      transition: opacity 0.1s;
-    }
+  /* Tooltip text */
+  .side-btn2 .tooltiptext {
+    visibility: hidden;
+    width: 250px;
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    border: 3px solid black;
+    font-size: 20px;
 
-    .side-btn2:hover .tooltiptext {
-      visibility: visible;
-      opacity: 1;
-    }
+    /* Position the tooltip text */
+    position: absolute;
+    z-index: 1;
+    top: 5px;
+    margin-left: 25px;
+
+    /* Fade in tooltip */
+    opacity: 0;
+    transition: opacity 0.1s;
+  }
+
+  .side-btn2:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  /* Tooltip text */
+  .side-btn3 .tooltiptext {
+    visibility: hidden;
+    width: 250px;
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    border: 3px solid black;
+    font-size: 20px;
+
+    /* Position the tooltip text */
+    position: absolute;
+    z-index: 1;
+    top: 5px;
+    margin-left: 25px;
+
+    /* Fade in tooltip */
+    opacity: 0;
+    transition: opacity 0.1s;
+  }
+
+  .side-btn3:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+  }
 
 }
 
@@ -722,6 +782,11 @@ blockquote p {
 }
 
 .side-btn2 .tooltiptext {
+  visibility: hidden;
+  position: absolute;
+}
+
+.side-btn3 .tooltiptext {
   visibility: hidden;
   position: absolute;
 }
@@ -756,6 +821,8 @@ blockquote p {
   border-radius: 10px; /* Rounded corners */
   font-size: 18px; /* Increase font size */
   transition-duration: 0.2s;
+  width: 55px;
+  text-align: center;
 }
 
 .side-btn {
@@ -770,6 +837,8 @@ blockquote p {
   border-radius: 10px; /* Rounded corners */
   font-size: 24px; /* Increase font size */
   transition-duration: 0.2s;
+  width: 55px;
+  text-align: center;
 }
 
 .side-btn2 {
@@ -784,6 +853,24 @@ blockquote p {
   border-radius: 10px; /* Rounded corners */
   font-size: 24px; /* Increase font size */
   transition-duration: 0.2s;
+  width: 55px;
+  text-align: center;
+}
+
+.side-btn3 {
+  border: 3px solid black;
+  outline: none; /* Remove outline */
+  background-color: white; /* Set a background color */
+  color: black; /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 13.5px 0; /* Some padding */
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 10px; /* Rounded corners */
+  font-size: 20px; /* Increase font size */
+  transition-duration: 0.2s;
+  width: 55px;
+  text-align: center;
 }
 
 html {
@@ -801,7 +888,7 @@ html {
   list-style: none;
   width: 0;
   position: fixed;
-  z-index: 1;
+  z-index: 98;
   top: 0;
   margin-top: 72px;
   left: 0;
@@ -838,7 +925,6 @@ html {
 .section-nav .closebtn {
   position: absolute;
   top: 0;
-  margin-top: -10px;
   right: 10px;
   font-size: 36px;
   margin-left: 50px;
@@ -846,7 +932,6 @@ html {
   color: #818181;
   transition-duration: 0.2s;
   padding: 8px;
-  padding-top: 15.5px;
 }
 
 .section-nav .closebtn:hover {
@@ -1054,4 +1139,39 @@ html {
   height: 8px;
   background: #1DA1F2;
   width: 0%;
+}
+
+#mySearch {
+  width: 68%;
+  font-size: 20px;
+  padding: 8px;
+  margin-left: 32px;
+}
+
+/* Style the navigation menu */
+#myMenu {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Style the navigation links */
+#myMenu li a {
+  text-decoration: none;
+  color: #818181;
+  font-weight: none;
+  display: block;
+  padding: 8px 8px 8px 32px;
+}
+
+#myMenu li a:hover {
+  background-color: #1DA1F2;
+  color: white;
+}
+
+.search-container button {
+  background: transparent;
+  color: white;
+  border: none;
+  font-size: 22px;
 }

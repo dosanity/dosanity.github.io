@@ -28,6 +28,7 @@
 		<script src="js/filter.js" type="text/javascript"></script>
 		<script src="js/bootstrap.bundle.min.js"></script>
 		<script src="js/template.js" type="text/javascript" defer></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Anthony Do | Data scientist &amp; mathematician knowledgeable in statistical analysis and visualizations to utilize the power of data. &lt;div class=&quot;center&quot;&gt; Resume LinkedIn Profile &lt;/div&gt;</title>
 <meta name="generator" content="Jekyll v4.3.1" />
@@ -48,6 +49,40 @@
 	</head>
 
   	<body>
+
+        <div class="topnav">
+			<portfolio-nav></portfolio-nav>
+		</div>
+        
+        <span class="side-btn3" id="sideBtn" onclick="toggleNav3()"><i class="fa fa-search"></i><span class="tooltiptext">Search Projects</span></span>
+        
+        <nav id="mySidenav3" class="section-nav">
+            <div class="closebtn" onclick="closeNav3()">&times;</div>
+			<div class="search-container">
+				<input type="text" id="mySearch" onkeyup="myFunction()" placeholder="Search" title="">
+				<button type="submit"><i class="fa fa-search"></i></button>
+			</div>
+
+            <hr>
+			
+			<ol id="myMenu">
+				<li><a href="projects/bikesharing">Bikesharing</a></li>
+				<li><a href="projects/credit-risk-analysis">Credit Risk Analysis</a></li>
+				<li><a href="projects/cryptocurrencies">Cryptocurrencies</a></li>
+				<li><a href="projects/webscraping-github">GitHub Analysis</a></li>
+				<li><a href="projects/mapping-earthquakes">Mapping Earthquakes</a></li>
+				<li><a href="projects/mechacar-statistical-analysis">MechaCar Statistical Analysis</a></li>
+				<li><a href="projects/mnist-image-generator">MNIST General Adversarial Networks</a></li>
+				<li><a href="projects/mnist-digits-analysis">MNIST Handwritten Digits</a></li>
+				<li><a href="projects/online-news-analysis">Online News Popularity</a></li>
+				<li><a href="projects/personal-website">Personal Website</a></li>
+				<li><a href="projects/pewlett-hackard-analysis">Pewlett Hackard Analysis</a></li>
+				<li><a href="projects/slc-real-estate-analysis">Salt Lake Avenues Real Estate Analysis</a></li>
+				<li><a href="projects/slc-zillow-analysis">Salt Lake County Real Estate Analysis</a></li>
+				<li><a href="projects/unemployment-inflation-analysis">Unemployment on Inflation Analysis</a></li>
+				<li><a href="projects/us-crime-analysis">US Crime Analysis</a></li>
+			</ol>
+        </nav>
 
 		<div class="topnav">
 			<portfolio-nav></portfolio-nav>

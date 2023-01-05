@@ -279,7 +279,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 function toggleNav(){
   navSize = document.getElementById("mySidenav").style.width;
-  if (navSize === "350px") {
+  if (navSize === "100%" | navSize === "450px") {
     return closeNav();
   }
   else {
@@ -289,7 +289,12 @@ function toggleNav(){
 }
 /* Set the width of the side navigation to 350px */
 function openNav() {
-  document.getElementById("mySidenav").style.width = "350px";
+  if( screen.width <= 599 ) {
+    document.getElementById("mySidenav").style.width = "100%";
+  }
+  else {
+    document.getElementById("mySidenav").style.width = "450px";
+  }
 }
 /* Set the width of the side navigation to 0 */
 function closeNav() {
@@ -304,7 +309,7 @@ function toggleNav2(){
         return closeNav2();
     }
   });
-  if (navSize === "350px") {
+  if (navSize === "900px") {
     return closeNav2();
   }
   else {
@@ -312,13 +317,33 @@ function toggleNav2(){
     
   }
 }
-/* Set the width of the side navigation to 350px */
 function openNav2() {
   document.getElementById("mySidenav2").style.width = "900px";
 }
-/* Set the width of the side navigation to 0 */
 function closeNav2() {
   document.getElementById("mySidenav2").style.width = "0";
+}
+
+function toggleNav3(){
+  navSize = document.getElementById("mySidenav3").style.width;
+  if (navSize === "100%" | navSize === "450px") {
+    return closeNav3();
+  }
+  else {
+    return openNav3();
+    
+  }
+}
+function openNav3() {
+  if( screen.width <= 599 ) {
+    document.getElementById("mySidenav3").style.width = "100%";
+  }
+  else {
+    document.getElementById("mySidenav3").style.width = "450px";
+  }
+}
+function closeNav3() {
+  document.getElementById("mySidenav3").style.width = "0";
 }
 
 
@@ -354,3 +379,24 @@ var dolls = document.getElementsByClassName("collapsible");
   });
 }
 document.querySelector('.collapsible').click();
+
+// Search
+
+function myFunction() {
+  // Declare variables
+  var input, filter, ul, li, a, i;
+  input = document.getElementById("mySearch");
+  filter = input.value.toUpperCase();
+  ul = document.getElementById("myMenu");
+  li = ul.getElementsByTagName("li");
+
+  // Loop through all list items, and hide those who don't match the search query
+  for (i = 0; i < li.length; i++) {
+    a = li[i].getElementsByTagName("a")[0];
+    if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+      li[i].style.display = "";
+    } else {
+      li[i].style.display = "none";
+    }
+  }
+}
