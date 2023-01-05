@@ -1171,12 +1171,8 @@ html {
 }
 
 /* Style the navigation links */
-#myMenu li a {
-  text-decoration: none;
+#myMenu a {
   color: white;
-  font-weight: none;
-  display: block;
-  padding: 8px 8px 8px 32px;
 }
 
 .search-container i {
