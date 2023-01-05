@@ -470,9 +470,9 @@ blockquote p {
   }
 
   .section-nav {
-    height: 500px;
-    border-bottom-right-radius: 30px;
-    border-bottom: 50px solid #111;
+    height: 100%;
+    /* border-bottom-right-radius: 30px; */
+    border-bottom: 180px solid #111;
   }
 
   .mobile-center {
