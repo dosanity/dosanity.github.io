@@ -425,7 +425,7 @@ document.querySelector('.collapsible').click();
 
 // ====================================================================================
 
-function myFunction() {
+function search() {
   // Declare variables
   var input, filter, ul, li, a, i;
   input = document.getElementById("mySearch");

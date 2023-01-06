@@ -827,6 +827,7 @@ img {
   border: none;
   padding: 8px;
   font-size: 22px;
+  cursor: pointer;
 }
 
 input[type=search]::-webkit-search-cancel-button {
@@ -837,7 +838,6 @@ input[type=search]::-webkit-search-cancel-button {
   background-size: contain;
   background-image: url("../assets/images/icons/close.png");
   cursor: pointer;
-
 }
 
 @media (min-width: 0px) and (max-width: 991px) {
