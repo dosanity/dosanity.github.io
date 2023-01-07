@@ -150,7 +150,7 @@ exports.init = init;
         salt = 'b16da65ec9a7f512b8d6d2f8bc0164e3',
         labelError = 'Please Try Again',
         isRememberEnabled = true,
-        rememberDurationInDays = 0.5; // 0 means forever
+        rememberDurationInDays = 0; // 0 means forever
 
     // constants
     var rememberPassphraseKey = 'staticrypt_passphrase',

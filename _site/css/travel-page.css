@@ -17,14 +17,14 @@ iframe {
 }
 
 .staticrypt-background{
-  background: rgb(37, 37, 37);
+  background: rgb(48, 48, 48);
 }
 
 .staticrypt-form {
   position: relative;
   z-index: 1;
   background: white;
-  padding: 45px 45px 45px;
+  padding: 40px 40px 40px;
   text-align: center;
   border-radius: 10px;
 }
@@ -42,9 +42,9 @@ iframe {
 .staticrypt-form .staticrypt-decrypt-button {
   text-transform: uppercase;
   outline: 0;
-  background: black;
+  background: #009cfc;
   width: 60%;
-  border: 2px solid black;
+  border: 2px solid #009cfc;
   padding: 8px;
   color: #FFFFFF;
   font-size: 15px;
@@ -53,8 +53,8 @@ iframe {
 }
 
 .staticrypt-form .staticrypt-decrypt-button:hover, .staticrypt-form .staticrypt-decrypt-button:active, .staticrypt-form .staticrypt-decrypt-button:focus {
-  background: #1DA1F2;
-  border: 2px solid #1DA1F2;
+  background: black;
+  border: 2px solid black;
 }
 
 .staticrypt-instructions {
@@ -72,9 +72,7 @@ label.staticrypt-remember {
   margin-bottom: 1em;
 }
 
-.staticrypt-remember input[type=checkbox] {
-  transform: scale(1.0);
-  margin-right: 8px;
+.staticrypt-remember {
   cursor: pointer;
 }
 
@@ -126,9 +124,55 @@ label.staticrypt-remember {
 
 .password-align {
   text-align: left;
-  /* font-weight: bold; */
-  /* margin-bottom: 5px; */
-  /* font-size: 20px; */
+  font-weight: 600;
+  margin-bottom: 0px;
+  font-size: 18px;
+}
+
+input {
+  font-size: 1rem;
+  line-height: 1.5;
+  padding: 11px 23px;
+  border: 1px solid black;
+  border-radius: 0;
+  outline: 0;
+  background-color: transparent;
+}
+
+.checkbox-button__input {
+  opacity: 0;
+  position: absolute;
+}
+
+.checkbox-button__control {
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 7px;
+  vertical-align: middle;
+  background-color: inherit;
+  color: #009cfc;
+  border: 2px solid black;
+  cursor: pointer;
+}
+
+.checkbox-button__input:checked+.checkbox-button__control:after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 10px;
+  height: 10px;
+  background-color: #009cfc;
+}
+
+.checkbox-button__input:checked+.checkbox-button__control {
+  border-color: #009cfc;
+}
+
+.checkbox-button__control {
+  transform: scale(0.75);
 }
 
 /* ======================================== */
