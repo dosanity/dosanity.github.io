@@ -24,7 +24,7 @@ iframe {
   position: relative;
   z-index: 1;
   background: white;
-  padding: 45px;
+  padding: 45px 45px 45px;
   text-align: center;
   border-radius: 10px;
 }
@@ -50,7 +50,6 @@ iframe {
   font-size: 15px;
   cursor: pointer;
   font-weight: bold;
-  margin-top: 10px;
 }
 
 .staticrypt-form .staticrypt-decrypt-button:hover, .staticrypt-form .staticrypt-decrypt-button:active, .staticrypt-form .staticrypt-decrypt-button:focus {
@@ -75,7 +74,7 @@ label.staticrypt-remember {
 
 .staticrypt-remember input[type=checkbox] {
   transform: scale(1.0);
-  margin-right: 10px;
+  margin-right: 8px;
   cursor: pointer;
 }
 
@@ -122,6 +121,14 @@ label.staticrypt-remember {
   margin-top: -45px;
   position: relative;
   z-index: 2;
+  cursor: pointer;
+}
+
+.password-align {
+  text-align: left;
+  /* font-weight: bold; */
+  /* margin-bottom: 5px; */
+  /* font-size: 20px; */
 }
 
 /* ======================================== */
@@ -143,7 +150,7 @@ label.staticrypt-remember {
     width: 90%;
   }
   .staticrypt-page {
-    width: 340px;
+    width: 400px;
   }
 }
 
@@ -155,7 +162,7 @@ label.staticrypt-remember {
     width: 70%;
   }
   .staticrypt-page {
-    width: 340px;
+    width: 400px;
   }
 }
 
