@@ -10,11 +10,128 @@ iframe {
   margin-bottom: 50px;
 }
 
+.staticrypt-page {
+  padding: 8% 0 0;
+  margin: auto;
+  box-sizing: border-box;
+}
+
+.staticrypt-background{
+  background: rgb(37, 37, 37);
+}
+
+.staticrypt-form {
+  position: relative;
+  z-index: 1;
+  background: white;
+  padding: 45px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.password-box {
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 2px solid black;
+  margin: 0 0 15px;
+  padding: 10px;
+  font-size: 14px;
+}
+
+.staticrypt-form .staticrypt-decrypt-button {
+  text-transform: uppercase;
+  outline: 0;
+  background: black;
+  width: 60%;
+  border: 2px solid black;
+  padding: 8px;
+  color: #FFFFFF;
+  font-size: 15px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.staticrypt-form .staticrypt-decrypt-button:hover, .staticrypt-form .staticrypt-decrypt-button:active, .staticrypt-form .staticrypt-decrypt-button:focus {
+  background: #1DA1F2;
+  border: 2px solid #1DA1F2;
+}
+
+.staticrypt-instructions {
+  margin-top: -1em;
+  margin-bottom: 1em;
+}
+
+.staticrypt-title {
+  font-size: 1.5em;
+}
+
+label.staticrypt-remember {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1em;
+}
+
+.staticrypt-remember input[type=checkbox] {
+  transform: scale(1.0);
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.staticrypt-spinner-container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.staticrypt-spinner {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  vertical-align: text-bottom;
+  border: 0.25em solid gray;
+  border-right-color: transparent;
+  border-radius: 50%;
+  -webkit-animation: spinner-border .75s linear infinite;
+  animation: spinner-border .75s linear infinite;
+  animation-duration: 0.75s;
+  animation-timing-function: linear;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  animation-fill-mode: none;
+  animation-play-state: running;
+  animation-name: spinner-border;
+}
+
+@keyframes spinner-border {
+  100% {
+      transform: rotate(360deg);
+  }
+}
+
+.field-icon {
+  float: right;
+  margin-right: 12px;
+  margin-top: -45px;
+  position: relative;
+  z-index: 2;
+}
+
 /* ======================================== */
 /* Mobile */
 @media only screen and (max-width:599px) {
   iframe {
     height: 70vh;
+    width: 100%;
+  }
+  .staticrypt-page {
     width: 100%;
   }
 }
@@ -25,6 +142,9 @@ iframe {
     height: 70vh;
     width: 100%;
   }
+  .staticrypt-page {
+    width: 340px;
+  }
 }
 
 /* ======================================== */
@@ -33,6 +153,9 @@ iframe {
   iframe {
     height: 85vh;
     width: 70%;
+  }
+  .staticrypt-page {
+    width: 340px;
   }
 }
 
