@@ -129,10 +129,10 @@ label.staticrypt-remember {
 @media only screen and (max-width:599px) {
   iframe {
     height: 70vh;
-    width: 100%;
+    width: 95%;
   }
   .staticrypt-page {
-    width: 100%;
+    width: 340px;
   }
 }
 /* ======================================== */
@@ -140,7 +140,7 @@ label.staticrypt-remember {
 @media (min-width: 600px) and (max-width: 1049px) {
   iframe {
     height: 70vh;
-    width: 100%;
+    width: 90%;
   }
   .staticrypt-page {
     width: 340px;
