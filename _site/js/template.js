@@ -184,6 +184,41 @@ class Header5 extends HTMLElement {
 
 customElements.define('home-nav', Header5);
 
+class Header6 extends HTMLElement {
+  constructor() {
+    super();
+  }
+
+  connectedCallback() {
+    this.innerHTML = `
+
+      <link href="../css/bootstrap.min.css" rel="stylesheet">
+      <link href="../css/styles.css" rel="stylesheet">
+
+      <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+          <div class="container">
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="navbar-brand"><h3><b>Anthony Do</b></h3></div>
+              <div class="collapse navbar-collapse" id="navbarResponsive">
+                  <ul class="navbar-nav ml-auto">
+                      <a href="../"><b>Home</b></a>
+                      <a href="../portfolio"><b>Portfolio</b></a>
+                      <a href="../gallery"><b>Gallery</b></a>
+                      <a href="../about"><b>About</b></a>
+                      <a href="../contact"><b>Contact</b></a>
+                      <a href="../assets/pdf/Anthony_ResumeATS.pdf"><b>Resume</b></a>
+                  </ul>
+              </div>
+          </div>
+      </nav>
+      `;
+  }
+}
+
+customElements.define('other-nav', Header6);
+
 
 // ====================================================================================
 
