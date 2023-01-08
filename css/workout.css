@@ -99,7 +99,7 @@ ul li {
   position: relative;
   padding: 12px 8px 12px 40px;
   background: white;
-  font-size: 18px;
+  font-size: 12px;
   transition: 0.2s;
   font-weight: bold;
 }
@@ -129,7 +129,7 @@ ul li.checked::before {
   border-color: #fff;
   border-style: solid;
   border-width: 0 2px 2px 0;
-  top: 16px;
+  top: 11px;
   left: 15px;
   transform: rotate(45deg);
   height: 15px;
@@ -137,7 +137,7 @@ ul li.checked::before {
 }
 
 .fa-times {
-  font-size: 15px;
+  font-size: 11px;
 }
 
 .reset-btn {
@@ -161,37 +161,6 @@ ul li.checked::before {
   background-color: black;
   color: white;
   border: 3px solid black;
-}
-
-/* Style the button that is used to open and close the collapsible content */
-.collapsible2 {
-  background-color: black;
-  color: white;
-  cursor: pointer;
-  padding: 18px;
-  width: 100%;
-  border: none;
-  text-align: left;
-  outline: none;
-  font-size: 18px;
-  border-top: 2px solid white;
-  height: 60px;
-  line-height: 21px;
-}
-.collapsible2:after {
-  content: '+'; /* Unicode character for "plus" sign (+) */
-  font-size: 25px;
-  font-weight: bold;
-  color: white;
-  float: right;
-  line-height: 17px;
-}
-.collapsible2.active::after {
-  content: '\2212';
-  font-size: 25px;
-  font-weight: bold;
-  color: white;
-  float: right;
 }
 
 
