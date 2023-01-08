@@ -746,6 +746,22 @@ img {
   position: absolute;
 }
 
+.side-btn4 {
+  border: 3px solid black;
+  outline: none; /* Remove outline */
+  background-color: white; /* Set a background color */
+  color: black; /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 13.5px 0;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 10px; /* Rounded corners */
+  font-size: 20px; /* Increase font size */
+  transition-duration: 0.2s;
+  width: 55px;
+  text-align: center;
+}
+
 /* Sidebar Navigation */
 .section-nav {
   list-style: none;
@@ -854,6 +870,12 @@ input[type=search]::-webkit-search-cancel-button {
     position: fixed;
     bottom: 28px; 
     left: 20px; 
+    z-index: 99; 
+  }
+  .side-btn4 {
+    position: fixed;
+    bottom: 28px; 
+    right: 20px; 
     z-index: 99; 
   }
   .section-nav {

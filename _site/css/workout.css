@@ -1,0 +1,202 @@
+/* ==================================================================================== */
+
+/* Workout Page */
+
+/* ==================================================================================== */
+
+/* Include the padding and border in an element's total width and height */
+#myUL {
+  border: 2px solid black;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+#myUL2 {
+  border: 2px solid black;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+#myUL3 {
+  border: 2px solid black;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+#myUL4 {
+  border: 2px solid black;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+#myUL5 {
+  border: 2px solid black;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+#myUL6 {
+  border: 2px solid black;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+#myUL7 {
+  border: 2px solid black;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+#myUL8 {
+  border: 2px solid black;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+#myUL9 {
+  border: 2px solid black;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+#myUL10 {
+  border: 2px solid black;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+#myUL11 {
+  border: 2px solid black;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+#myUL12 {
+  border: 2px solid black;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+#myUL13 {
+  border: 2px solid black;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+.margin {
+  margin-bottom: 100px;
+}
+
+/* Remove margins and padding from the list */
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Style the list items */
+ul li {
+  cursor: pointer;
+  position: relative;
+  padding: 12px 8px 12px 40px;
+  background: white;
+  font-size: 18px;
+  transition: 0.2s;
+  font-weight: bold;
+}
+
+/* Set all odd list items to a different color (zebra-stripes) */
+ul li:nth-child(odd) {
+  background: #dddddd;
+}
+
+/* Darker background-color on hover */
+ul li:hover {
+  background: #ddd;
+}
+
+/* When clicked on, add a background color and strike out text */
+ul li.checked {
+  background: #888;
+  color: #fff;
+  text-decoration: line-through;
+  font-weight: bold;
+}
+
+/* Add a "checked" mark when clicked on */
+ul li.checked::before {
+  content: '';
+  position: absolute;
+  border-color: #fff;
+  border-style: solid;
+  border-width: 0 2px 2px 0;
+  top: 16px;
+  left: 15px;
+  transform: rotate(45deg);
+  height: 15px;
+  width: 7px;
+}
+
+.fa-times {
+  font-size: 15px;
+}
+
+.reset-btn {
+  background-color: #009cfc;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-weight: bold;
+  width: 150px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  border: 3px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.reset-btn:hover {
+  background-color: black;
+  color: white;
+  border: 3px solid black;
+}
+
+/* Style the button that is used to open and close the collapsible content */
+.collapsible2 {
+  background-color: black;
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 18px;
+  border-top: 2px solid white;
+  height: 60px;
+  line-height: 21px;
+}
+.collapsible2:after {
+  content: '+'; /* Unicode character for "plus" sign (+) */
+  font-size: 25px;
+  font-weight: bold;
+  color: white;
+  float: right;
+  line-height: 17px;
+}
+.collapsible2.active::after {
+  content: '\2212';
+  font-size: 25px;
+  font-weight: bold;
+  color: white;
+  float: right;
+}
+
+
+
+
+
+
+
