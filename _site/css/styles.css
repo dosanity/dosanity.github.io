@@ -434,6 +434,20 @@ img {
   background-color: #1DA1F2;
 }
 
+.secret-door {
+  position: relative;
+}
+.secret-door img {
+  display: block;
+}
+.secret-door .fa-plane {
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  font-size: 40px;
+  color: black;
+}
+
 #python-bar{
   animation: python-fill 5s forwards;
 }
