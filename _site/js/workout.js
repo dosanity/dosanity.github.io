@@ -94,7 +94,7 @@ var dolls = document.getElementsByClassName("collapsible");
         closeAll();        
         content.style.maxHeight = 0;
       } else {
-        closeAll();
+        // closeAll();
         this.classList.toggle("active");
         content.style.maxHeight = content.scrollHeight + "px";
       }
