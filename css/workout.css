@@ -86,6 +86,10 @@
   margin-bottom: 150px;
 }
 
+.margin a {
+  text-decoration: none !important;
+}
+
 /* Remove margins and padding from the list */
 ul {
   margin: 0;

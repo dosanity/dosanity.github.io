@@ -704,6 +704,10 @@ img {
   height: 150pt;
 }
 
+.card-body a {
+  text-decoration-color: black;
+}
+
 /* Link button to GitHub code */
 .btn {
   background-color: white;
