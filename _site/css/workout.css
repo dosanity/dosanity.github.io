@@ -141,13 +141,30 @@ ul li.checked::before {
 }
 
 .reset-btn {
+  background-color: #fc0000;
+  color: white;
+  text-align: center;
+  padding: 8px;
+  font-weight: bold;
+  width: 150px;
+  display: inline-block;
+  margin-left: auto;
+  margin-right: 20px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  border: 3px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.save-btn {
   background-color: #009cfc;
   color: white;
   text-align: center;
-  padding: 10px;
+  padding: 8px;
   font-weight: bold;
   width: 150px;
-  display: block;
+  display: inline-block;
   margin-left: auto;
   margin-right: auto;
   border-radius: 10px;
@@ -158,6 +175,12 @@ ul li.checked::before {
 }
 
 .reset-btn:hover {
+  background-color: black;
+  color: white;
+  border: 3px solid black;
+}
+
+.save-btn:hover {
   background-color: black;
   color: white;
   border: 3px solid black;

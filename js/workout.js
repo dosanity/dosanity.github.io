@@ -102,3 +102,114 @@ var dolls = document.getElementsByClassName("collapsible");
   });
 }
 // document.querySelector('.collapsible').click();
+
+// ====================================================================================
+
+// Local Storage
+
+// ====================================================================================
+
+function clearStorage() {
+  localStorage.clear();
+}
+
+var update = document.querySelector('#myUL');
+var update2 = document.querySelector('#myUL2');
+var update3 = document.querySelector('#myUL3');
+var update4 = document.querySelector('#myUL4');
+var update5 = document.querySelector('#myUL5');
+var update6 = document.querySelector('#myUL6');
+var update7 = document.querySelector('#myUL7');
+var update8 = document.querySelector('#myUL8');
+var update9 = document.querySelector('#myUL9');
+var update10 = document.querySelector('#myUL10');
+var update11 = document.querySelector('#myUL11');
+var update12 = document.querySelector('#myUL12');
+var update13 = document.querySelector('#myUL13');
+
+
+function save() {
+  var update = document.getElementById("myUL").innerHTML
+  localStorage.setItem("save", update);
+  var update2 = document.getElementById("myUL2").innerHTML
+  localStorage.setItem("save2", update2);
+  var update3 = document.getElementById("myUL3").innerHTML
+  localStorage.setItem("save3", update3);
+  var update4 = document.getElementById("myUL4").innerHTML
+  localStorage.setItem("save4", update4);
+  var update5 = document.getElementById("myUL5").innerHTML
+  localStorage.setItem("save5", update5);
+  var update6 = document.getElementById("myUL6").innerHTML
+  localStorage.setItem("save6", update6);
+  var update7 = document.getElementById("myUL7").innerHTML
+  localStorage.setItem("save7", update7);
+  var update8 = document.getElementById("myUL8").innerHTML
+  localStorage.setItem("save8", update8);
+  var update9 = document.getElementById("myUL9").innerHTML
+  localStorage.setItem("save9", update9);
+  var update10 = document.getElementById("myUL10").innerHTML
+  localStorage.setItem("save10", update10);
+  var update11 = document.getElementById("myUL11").innerHTML
+  localStorage.setItem("save11", update11);
+  var update12 = document.getElementById("myUL12").innerHTML
+  localStorage.setItem("save12", update12);
+  var update13 = document.getElementById("myUL13").innerHTML
+  localStorage.setItem("save13", update13);
+}
+
+// Check for saved wishlist items
+var saved = localStorage.getItem('save');
+var saved2 = localStorage.getItem('save2');
+var saved3 = localStorage.getItem('save3');
+var saved4 = localStorage.getItem('save4');
+var saved5 = localStorage.getItem('save5');
+var saved6 = localStorage.getItem('save6');
+var saved7 = localStorage.getItem('save7');
+var saved8 = localStorage.getItem('save8');
+var saved9 = localStorage.getItem('save9');
+var saved10 = localStorage.getItem('save10');
+var saved11 = localStorage.getItem('save11');
+var saved12 = localStorage.getItem('save12');
+var saved13 = localStorage.getItem('save13');
+
+// If there are any saved items, update our list
+if (saved) {
+	update.innerHTML = saved;
+}
+if (saved2) {
+	update2.innerHTML = saved2;
+}
+if (saved3) {
+	update3.innerHTML = saved3;
+}
+if (saved4) {
+	update4.innerHTML = saved4;
+}
+if (saved5) {
+	update5.innerHTML = saved5;
+}
+if (saved6) {
+	update6.innerHTML = saved6;
+}
+if (saved7) {
+	update7.innerHTML = saved7;
+}
+if (saved8) {
+	update8.innerHTML = saved8;
+}
+if (saved9) {
+	update9.innerHTML = saved9;
+}
+if (saved10) {
+	update10.innerHTML = saved10;
+}
+if (saved11) {
+	update11.innerHTML = saved11;
+}
+if (saved12) {
+	update12.innerHTML = saved12;
+}
+if (saved13) {
+	update13.innerHTML = saved13;
+}
+

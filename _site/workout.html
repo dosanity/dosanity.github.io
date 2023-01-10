@@ -33,7 +33,7 @@
 
 	</head>
 
-  	<body>
+  	<body id="update">
 
 		<div class="topnav">
 			<other-nav></other-nav>
@@ -50,19 +50,22 @@
 
 				<br>
 
-				<a href="../workout">
-					<div class="reset-btn">RESET</div>
-				</a>
+				<center>
+					<a href="../workout">
+						<div class="reset-btn" onclick=clearStorage()>RESET</div>
+					</a>
+					<div class="save-btn" onclick=save()>SAVE</div>
+				</center>
 
 				<br>
-
+ 
 				<div class="collapsible"><b>Monday</b></div>
 				<div class="content">
 					<br>
 
 					<h5><b>Chest:</b></h5>
 
-					<ul id="myUL">
+					<ul id="myUL" class="routine">
 						<li>4 <i class="fa fa-times" aria-hidden="true"></i> 10 - Pec Deck</li>
 						<li>4 <i class="fa fa-times" aria-hidden="true"></i> 08 - Dumbbell Bench Press</li>
 						<li>4 <i class="fa fa-times" aria-hidden="true"></i> 08 - Chest Fly</li>
@@ -72,7 +75,7 @@
 
 					<h5><b>Abs:</b></h5>
 
-					<ul id="myUL2">
+					<ul id="myUL2" class="routine">
 						<li>3 <i class="fa fa-times" aria-hidden="true"></i> 40 - Crunches</li>
 						<li>3 <i class="fa fa-times" aria-hidden="true"></i> 45 - Side Plank (45s)</li>
 						<li>3 <i class="fa fa-times" aria-hidden="true"></i> 20 - Leg Raises</li>
@@ -90,7 +93,7 @@
 
 					<h5><b>Shoulders:</b></h5>
 
-					<ul id="myUL3">
+					<ul id="myUL3" class="routine">
 						<li>3 <i class="fa fa-times" aria-hidden="true"></i> 10 - Front Raise</li>
 						<li>3 <i class="fa fa-times" aria-hidden="true"></i> 10 - Lateral Raise</li>
 						<li>4 <i class="fa fa-times" aria-hidden="true"></i> 08 - Shoulder Press</li>
@@ -101,7 +104,7 @@
 
 					<h5><b>Cardio:</b></h5>
 
-					<ul id="myUL4">
+					<ul id="myUL4" class="routine">
 						<li>30 Minutes - Cardio</li>
 					</ul>
 
@@ -115,7 +118,7 @@
 
 					<h5><b>Legs:</b></h5>
 
-					<ul id="myUL5">
+					<ul id="myUL5" class="routine">
 						<li>4 <i class="fa fa-times" aria-hidden="true"></i> 10 - Leg Extension</li>
 						<li>4 <i class="fa fa-times" aria-hidden="true"></i> 10 - Hamstring Curl</li>
 						<li>4 <i class="fa fa-times" aria-hidden="true"></i> 10 - Squat</li>
@@ -127,7 +130,7 @@
 
 					<h5><b>Abs:</b></h5>
 
-					<ul id="myUL6">
+					<ul id="myUL6" class="routine">
 						<li>3 <i class="fa fa-times" aria-hidden="true"></i> 40 - Crunches</li>
 						<li>3 <i class="fa fa-times" aria-hidden="true"></i> 45 - Side Plank (45s)</li>
 						<li>3 <i class="fa fa-times" aria-hidden="true"></i> 20 - Leg Raises</li>
@@ -145,7 +148,7 @@
 
 					<h5><b>Back:</b></h5>
 
-					<ul id="myUL7">
+					<ul id="myUL7" class="routine">
 						<li>4 <i class="fa fa-times" aria-hidden="true"></i> 08 - Seated Row</li>
 						<li>4 <i class="fa fa-times" aria-hidden="true"></i> 10 - Close Grip Lat Pulldown</li>
 						<li>4 <i class="fa fa-times" aria-hidden="true"></i> 08 - Wide Grip Lat Pulldown</li>
@@ -155,7 +158,7 @@
 
 					<h5><b>Triceps:</b></h5>
 
-					<ul id="myUL8">
+					<ul id="myUL8" class="routine">
 						<li>4 <i class="fa fa-times" aria-hidden="true"></i> 08 - Tricep Push Down (Rope)</li>
 						<li>4 <i class="fa fa-times" aria-hidden="true"></i> 08 - Tricep Push Down (Bar)</li>
 						<li>4 <i class="fa fa-times" aria-hidden="true"></i> 10 - Tricep Dips</li>
@@ -173,7 +176,7 @@
 
 					<h5><b>Abs:</b></h5>
 
-					<ul id="myUL9">
+					<ul id="myUL9" class="routine">
 						<li>5 <i class="fa fa-times" aria-hidden="true"></i> 15 - Cable Crunches</li>
 						<li>4 <i class="fa fa-times" aria-hidden="true"></i> 20 - Decline Abs</li>
 						<li>3 <i class="fa fa-times" aria-hidden="true"></i> 40 - Crunches</li>
@@ -186,7 +189,7 @@
 
 					<h5><b>Cardio:</b></h5>
 
-					<ul id="myUL10">
+					<ul id="myUL10" class="routine">
 						<li>30 Minutes - Cardio</li>
 					</ul>
 
@@ -200,7 +203,7 @@
 
 					<h5><b>Biceps:</b></h5>
 
-					<ul id="myUL11">
+					<ul id="myUL11" class="routine">
 						<li>4 <i class="fa fa-times" aria-hidden="true"></i> 08 - Dumbbell Curls</li>
 						<li>4 <i class="fa fa-times" aria-hidden="true"></i> 08 - Hammer Curls</li>
 						<li>4 <i class="fa fa-times" aria-hidden="true"></i> 08 - Barbell Curls</li>
@@ -209,7 +212,7 @@
 
 					<h5><b>Cardio:</b></h5>
 
-					<ul id="myUL12">
+					<ul id="myUL12" class="routine">
 						<li>30 Minutes - Cardio</li>
 					</ul>
 
@@ -224,7 +227,7 @@
 					
 					<h5><b>(Optional) Cardio:</b></h5>
 
-					<ul id="myUL13">
+					<ul id="myUL13" class="routine">
 						<li>60 Minutes - Cardio</li>
 					</ul>
 
@@ -241,6 +244,7 @@
 			list.addEventListener('click', function(ev) {
 			if (ev.target.tagName === 'LI') {
 				ev.target.classList.toggle('checked');
+				localStorage.setItem('UL', 'checked');
 			}
 			}, false);
 
