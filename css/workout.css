@@ -158,12 +158,12 @@ ul li.checked::before {
 }
 
 .save-btn {
-  background-color: #009cfc;
+  background-color: #1a73e8;
   color: white;
   text-align: center;
   padding: 10px;
   font-weight: bold;
-  width: 80%;
+  width: 250px;
   display: inline-block;
   margin-left: auto;
   margin-right: auto;
