@@ -688,8 +688,8 @@ img {
     bottom: 35px !important;
   }
   .card-body {
-    height: 110pt !important;
-    padding: 1.25rem 0 !important;
+    height: 120pt !important;
+    padding: 1.25rem 2px !important;
   }
   .link_button {
     bottom: 5px !important;
