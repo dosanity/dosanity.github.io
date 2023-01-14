@@ -675,6 +675,24 @@ img {
   .col-6 {
     max-width: 49.99%;
   }
+  .card-title {
+    font-size: 14px !important; 
+  }
+  .card-img-top {
+    width: 140px !important; 
+    height: 160px !important;
+    padding-top: 15px !important;
+  }
+  .portfolio-body {
+    font-size: 12px !important;
+    bottom: 35px !important;
+  }
+  .card-body {
+    height: 120pt !important;
+  }
+  .link_button {
+    bottom: 5px !important;
+  }
 }
 
 .card-title {
@@ -695,6 +713,7 @@ img {
   border: 3px solid transparent;
   background-color: #f6f8fa;
   border: 3px solid #d1d1d1;
+  cursor: pointer;
 }
 .card:hover {
   background-color: rgb(29, 161, 242, 0.3);
