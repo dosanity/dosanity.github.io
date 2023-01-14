@@ -667,7 +667,12 @@ img {
 }
 
 /* Portfolio Mobile Screen */
-@media only screen and (max-width:500px) {
+@media only screen and (max-width:379px) {
+  .col-6 {
+    max-width: 100%;
+  }
+}
+@media (min-width: 380px) and (max-width:769px) {
   .portfolio {
   display: flex;
   flex-wrap: wrap;
@@ -688,8 +693,30 @@ img {
     bottom: 35px !important;
   }
   .card-body {
-    height: 120pt !important;
+    height: 110pt !important;
     padding: 1.25rem 2px !important;
+  }
+  .link_button {
+    bottom: 5px !important;
+    width: 100% !important;
+  }
+}
+
+@media (min-width: 770px) and (max-width: 1049px) {
+  .card-title {
+    font-size: 18px !important; 
+  }
+  .card-img-top {
+    width: 180px !important; 
+    height: 200px !important;
+    padding-top: 16px !important;
+  }
+  .portfolio-body {
+    bottom: 35px !important;
+  }
+  .card-body {
+    height: 120pt !important;
+    padding: 1.25rem 8px !important;
   }
   .link_button {
     bottom: 5px !important;
