@@ -166,10 +166,10 @@ img {
   background-color: white; /* Set a background color */
   color: black; /* Text color */
   cursor: pointer; /* Add a mouse pointer on hover */
-  padding: 15px; /* Some padding */
   border-radius: 10px; /* Rounded corners */
   font-size: 18px; /* Increase font size */
   transition-duration: 0.2s;
+  height: 65px;
   width: 55px;
   text-align: center;
 }
@@ -771,11 +771,10 @@ img {
   color: black; /* Text color */
   cursor: pointer; /* Add a mouse pointer on hover */
   padding: 13.5px 0; /* Some padding */
-  padding-left: 15px;
-  padding-right: 15px;
   border-radius: 10px; /* Rounded corners */
   font-size: 20px; /* Increase font size */
   transition-duration: 0.2s;
+  height: 65px;
   width: 55px;
   text-align: center;
 }
@@ -791,11 +790,10 @@ img {
   color: black; /* Text color */
   cursor: pointer; /* Add a mouse pointer on hover */
   padding: 13.5px 0;
-  /* padding-left: 12px;
-  padding-right: 12px; */
   border-radius: 10px; /* Rounded corners */
   font-size: 20px; /* Increase font size */
   transition-duration: 0.2s;
+  height: 65px;
   width: 55px;
   text-align: center;
 }
@@ -1094,12 +1092,11 @@ td {
   background-color: white; /* Set a background color */
   color: black; /* Text color */
   cursor: pointer; /* Add a mouse pointer on hover */
-  padding: 10.5px; /* Some padding */
-  padding-left: 15px;
-  padding-right: 15px;
+  padding: 10.5px;
   border-radius: 10px; /* Rounded corners */
   font-size: 24px; /* Increase font size */
   transition-duration: 0.2s;
+  height: 65px;
   width: 55px;
   text-align: center;
 }
@@ -1115,11 +1112,10 @@ td {
   color: black; /* Text color */
   cursor: pointer; /* Add a mouse pointer on hover */
   padding: 10.5px; /* Some padding */
-  padding-left: 15px;
-  padding-right: 15px;
   border-radius: 10px; /* Rounded corners */
   font-size: 24px; /* Increase font size */
   transition-duration: 0.2s;
+  height: 65px;
   width: 55px;
   text-align: center;
 }
