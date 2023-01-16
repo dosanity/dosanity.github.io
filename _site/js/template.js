@@ -343,7 +343,7 @@ function topFunction() {
 window.addEventListener('DOMContentLoaded', () => {
 
   let options = {
-    rootMargin: '-72px'
+    rootMargin: '-70px'
   }
 
   const observer = new IntersectionObserver(entries => {

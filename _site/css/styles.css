@@ -93,7 +93,7 @@ font-family: 'Hurricane', sans-serif;
 /* ==================================================================================== */
 
 body {
-  margin-top: 100px;
+  margin-top: 90px;
   overflow-y:scroll;
   font-family:  -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto;
   height: 100%;
@@ -105,7 +105,7 @@ html {
 }
 
 .pre-body {
-  height: 72px;
+  height: 61.5px;
   width: 100%;
 }
 
@@ -814,7 +814,7 @@ img {
   position: fixed;
   z-index: 98;
   top: 0;
-  margin-top: 72px;
+  margin-top: 61.5px;
   left: 0;
   background-color: #111;
   overflow: auto;
