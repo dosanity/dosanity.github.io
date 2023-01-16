@@ -31,33 +31,19 @@
 		<script src="js/filter.js" type="text/javascript"></script>
 		<script src="js/bootstrap.bundle.min.js"></script>
 		<script src="js/template.js" type="text/javascript" defer></script>
+		<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+		<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
 		{% seo %}
 	</head>
+
+	<script>AOS.init();</script>
 
   	<body>
 
 		<div class="topnav">
 			<home-nav></home-nav>
 		</div>
-
-			<!-- <div class="col-12 mt-auto mb-5 text-center">
-				<center>
-					<h1 class="home-title mb-5 text-center">Welcome</h1>
-				</center>
-	
-				<br>
-				
-				<div class="home-position">
-					<center>
-						<a href="../portfolio" class="home-btn">Data Science</a>
-	
-						<a href="../gallery" class="home-btn">Photography</a>
-	
-					</center>
-				
-				</div>
-			</div> -->
 
 		<section class="hero-section">
 			<div class="section-overlay"></div>
@@ -67,12 +53,12 @@
 
 					<div class="col-12 mt-auto mb-5 text-center">
 						<center>
-							<h1 class="home-title">Welcome</h1>
+							<h1 class="home-title" data-aos="fade-down"  data-aos-duration="1000">Welcome</h1>
 						</center>
 			
 						<center>
-							<a href="../portfolio" class="home-btn">Data Science</a>
-							<a href="../gallery" class="home-btn">Photography</a>
+							<a href="../portfolio" class="home-btn" data-aos="fade-in"  data-aos-duration="1000">Data Science</a>
+							<a href="../gallery" class="home-btn" data-aos="fade-in"  data-aos-duration="1000">Photography</a>
 						</center>
 					</div> 
 				</div>
@@ -83,12 +69,12 @@
 		</section>
 
 		<section>
-			<div class="container section-one-card">
+			<div class="container section-one-card" data-aos="fade-up"  data-aos-duration="1000">
 
 				<div class="row">
 					<div class="column">
 
-						<center>
+						<center data-aos="fade-in"  data-aos-easing="ease-in" data-aos-delay="300">
 							<img class="section-one-profile" src="assets/images/photos/profile3.jpg" alt="profile">
 							<br>
 							<i class="fa fa-map-pin"></i> <span class="location">Salt Lake City, UT</span>
@@ -98,7 +84,7 @@
 					<div class="column">
 
 						<div align="center">
-							<p class="section-one-font">Hi, I'm Anthony</p>
+							<p class="section-one-font" data-aos="fade-up"  data-aos-duration="1000">Hi, I'm Anthony</p>
 						</div>
 
 						<p>
@@ -123,18 +109,37 @@
 		<section>
 			<div class="container section-two-card">
 				<div class="blockquote" align="center">
-					<p class="home-quote">Live in the present, launch yourself on every wave, find eternity in each moment.</p>
+					<p class="home-quote" data-aos="fade-up" data-aos-duration="500">Live in the present, launch yourself on every wave, find eternity in each moment.</p>
 				</div>
-				<p align="center" class="home-quote-author"><b>Henry David Thoreau</b></p>
-				<br>
+				<p align="center" class="home-quote-author" data-aos="fade-in" data-aos-delay="500" data-aos-duration="500"><b>- Henry David Thoreau -</b></p>
 
 			</div>
 		</section>
+
+		<!-- <section>
+			<div class="container section-one-card">
+				<div align="center">
+					<h1 class="section-one-font">Featured Projects</h1>
+					<hr>
+				</div>
+				<p align="center" class="home-quote-author"><b>- Henry David Thoreau -</b></p>
+				<br>
+
+			</div>
+		</section> -->
 
 
 		<div class="static-bottom">
 			<footer-component></footer-component>
 		</div>
+
+		<!-- aos script -->
+		<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+		<script>
+		AOS.init({once: true});
+		</script>
+
+<!-- {once: true} -->
 
 	</body>
 

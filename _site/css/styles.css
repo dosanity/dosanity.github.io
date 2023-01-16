@@ -400,17 +400,6 @@ img {
   margin: 15px;
 }
 
-.home-quote {
-  font-family: 'Acme', sans-serif;
-  font-size: 3.2vh;
-  text-align: center;
-}
-
-.home-quote-author {
-  font-size: 2vh;
-  text-align: center;
-}
-
 .blockquote {
   background: transparent;
   margin: 1.5em 10px;
@@ -438,7 +427,15 @@ img {
   .section-one-card {
     width: 90%;
   }
-
+  .home-quote {
+    font-family: 'Acme', sans-serif;
+    font-size: 3.2vh;
+    text-align: center;
+  }
+  .home-quote-author {
+    font-size: 2vh;
+    text-align: center;
+  }
 }
 
 /* ======================================== */
@@ -447,6 +444,15 @@ img {
   .section-one-font {
     font-family: 'Hurricane', sans-serif;
     font-size: 80px;
+  }
+  .home-quote {
+    font-family: 'Acme', sans-serif;
+    font-size: 3.2vmax;
+    text-align: center;
+  }
+  .home-quote-author {
+    font-size: 2vmax;
+    text-align: center;
   }
 }
 
@@ -474,6 +480,15 @@ img {
     line-height: 0.1em;
     margin-left: 0.25em;
     vertical-align: -0.4em;
+  }
+  .home-quote {
+    font-family: 'Acme', sans-serif;
+    font-size: 3.2vh;
+    text-align: center;
+  }
+  .home-quote-author {
+    font-size: 2vh;
+    text-align: center;
   }
 }
 
