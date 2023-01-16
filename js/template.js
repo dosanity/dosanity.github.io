@@ -23,7 +23,11 @@ class Header1 extends HTMLElement {
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-brand"><h3><b>Anthony Do</b></h3></div>
+                <div class="navbar-brand">
+                  <a href="../">
+                    <h3><b>Anthony Do</b></h3>
+                  </a>
+                </div>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
                         <a href="../"><b>Home</b></a>
@@ -60,7 +64,11 @@ class Header2 extends HTMLElement {
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
               </button>
-              <div class="navbar-brand"><h3><b>Anthony Do</b></h3></div>
+              <div class="navbar-brand">
+                <a href="../">
+                  <h3><b>Anthony Do</b></h3>
+                </a>
+              </div>
               <div class="collapse navbar-collapse" id="navbarResponsive">
                   <ul class="navbar-nav ml-auto">
                       <a href="../"><b>Home</b></a>
@@ -95,7 +103,11 @@ class Header3 extends HTMLElement {
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
               </button>
-              <div class="navbar-brand"><h3><b>Anthony Do</b></h3></div>
+              <div class="navbar-brand">
+                <a href="../">
+                  <h3><b>Anthony Do</b></h3>
+                </a>
+              </div>
               <div class="collapse navbar-collapse" id="navbarResponsive">
                   <ul class="navbar-nav ml-auto">
                       <a href="../"><b>Home</b></a>
@@ -130,7 +142,11 @@ class Header4 extends HTMLElement {
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
               </button>
-              <div class="navbar-brand"><h3><b>Anthony Do</b></h3></div>
+              <div class="navbar-brand">
+                <a href="../">
+                  <h3><b>Anthony Do</b></h3>
+                </a>
+              </div>
               <div class="collapse navbar-collapse" id="navbarResponsive">
                   <ul class="navbar-nav ml-auto">
                       <a href="../"><b>Home</b></a>
@@ -165,7 +181,11 @@ class Header5 extends HTMLElement {
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
               </button>
-              <div class="navbar-brand"><h3><b>Anthony Do</b></h3></div>
+              <div class="navbar-brand">
+                <a href="../">
+                  <h3><b>Anthony Do</b></h3>
+                </a>
+              </div>
               <div class="collapse navbar-collapse" id="navbarResponsive">
                   <ul class="navbar-nav ml-auto">
                       <a class="active" href="../"><b>Home</b></a>
@@ -200,7 +220,11 @@ class Header6 extends HTMLElement {
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
               </button>
-              <div class="navbar-brand"><h3><b>Anthony Do</b></h3></div>
+              <div class="navbar-brand">
+                <a href="../">
+                  <h3><b>Anthony Do</b></h3>
+                </a>
+              </div>
               <div class="collapse navbar-collapse" id="navbarResponsive">
                   <ul class="navbar-nav ml-auto">
                       <a href="../"><b>Home</b></a>
