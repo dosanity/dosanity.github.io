@@ -261,11 +261,6 @@ img {
 
 /* ==================================================================================== */
 
-.home-title {
-  font-family: 'Hurricane', sans-serif;
-  font-size: 120px;
-}
-
 .home-btn {
   font-family: 'Hurricane', sans-serif;
   font-size: 30px;
@@ -414,6 +409,11 @@ img {
 /* ======================================== */
 /* Mobile */
 @media only screen and (max-width:599px) {
+  .home-title {
+    font-family: 'Hurricane', sans-serif;
+    font-size: 84px;
+    text-align: center;
+  }
   .home-position {
     position: absolute;
     bottom: 190px;
@@ -441,6 +441,10 @@ img {
 /* ======================================== */
 /* Tablets */
 @media (min-width: 600px) and (max-width: 1049px) {
+  .home-title {
+    font-family: 'Hurricane', sans-serif;
+    font-size: 120px;
+  }
   .section-one-font {
     font-family: 'Hurricane', sans-serif;
     font-size: 80px;
@@ -459,6 +463,10 @@ img {
 /* ======================================== */
 /* Desktop */
 @media (min-width: 1050px) {
+  .home-title {
+    font-family: 'Hurricane', sans-serif;
+    font-size: 120px;
+  }
   .section-one-font {
     font-family: 'Hurricane', sans-serif;
     font-size: 80px;
