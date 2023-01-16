@@ -294,9 +294,6 @@ img {
   padding: 5px;
   display: inline-block;
   color: black;
-  margin: 10px;
-  margin-left: 20px;
-  margin-right: 20px;
   text-align: center;
   text-decoration: none;
   width: 200px;
@@ -395,6 +392,11 @@ img {
   margin: 15px;
 }
 
+.section-three-card {
+  background-color: white;
+  border: 3px solid transparent;
+}
+
 .blockquote {
   background: transparent;
   margin: 1.5em 10px;
@@ -403,6 +405,12 @@ img {
 }
 .blockquote p {
   display: inline;
+}
+
+.featured-projects {
+  margin: 10px;
+  /* background-color: rgb(29, 161, 242, 0.3) !important;
+  border: 3px solid black !important; */
 }
 
 
@@ -436,6 +444,13 @@ img {
     font-size: 2vh;
     text-align: center;
   }
+  .column-3 {
+    width: 100%;
+  }
+  .section-three-font {
+    font-family: 'Hurricane', sans-serif;
+    font-size: 7vh;
+  }
 }
 
 /* ======================================== */
@@ -457,6 +472,13 @@ img {
   .home-quote-author {
     font-size: 2vmax;
     text-align: center;
+  }
+  .column-3 {
+    width: 100%;
+  }
+  .section-three-font {
+    font-family: 'Hurricane', sans-serif;
+    font-size: 90px;
   }
 }
 
@@ -497,6 +519,13 @@ img {
   .home-quote-author {
     font-size: 2vh;
     text-align: center;
+  }
+  .column-3 {
+    width: 33.33%;
+  }
+  .section-three-font {
+    font-family: 'Hurricane', sans-serif;
+    font-size: 90px;
   }
 }
 
