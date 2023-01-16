@@ -59,179 +59,181 @@
             </ol>
         </nav>
 
-        <div class="container">
+        <section>
+            <div class="container">
 
-        <section id="section-1">
+            <section id="section-1">
 
-            <h1 id="pewlett-hackard-analysis"><b>Pewlett Hackard Analysis</b></h1>
+                <h1 id="pewlett-hackard-analysis"><b>Pewlett Hackard Analysis</b></h1>
 
-            <hr>
+                <hr>
 
-            <p>Pewlett-Packard (PH) is a large firm that currently employs 300,024 individuals. Many employees are approaching retirement age, which will result in a significant number of job openings in the organization. We will be conducting a database analysis for Pewlett Hackard with detailed information on the number of future retirees from all departments currently working at the company to be able to prepare a plan to hire new staff and also to prepare a mentorship initiative. </p>
-            <p>The goal of this study is to construct a list of employees approaching retirement age using Pewlett-Packard employee data. Employees born between January 1, 1952, and December 31, 1955 are included on the list. The company&#39;s management must be aware of the overall number of retirees, as well as the department in which they work and their titles.</p>
-            <p>The database provided by Pewlett-Packard consisted of 6 CSV files:</p> 
+                <p>Pewlett-Packard (PH) is a large firm that currently employs 300,024 individuals. Many employees are approaching retirement age, which will result in a significant number of job openings in the organization. We will be conducting a database analysis for Pewlett Hackard with detailed information on the number of future retirees from all departments currently working at the company to be able to prepare a plan to hire new staff and also to prepare a mentorship initiative. </p>
+                <p>The goal of this study is to construct a list of employees approaching retirement age using Pewlett-Packard employee data. Employees born between January 1, 1952, and December 31, 1955 are included on the list. The company&#39;s management must be aware of the overall number of retirees, as well as the department in which they work and their titles.</p>
+                <p>The database provided by Pewlett-Packard consisted of 6 CSV files:</p> 
 
-            <ul>
-                <li><a href="https://github.com/dosanity/Pewlett-Hackard-Analysis/files/9433529/employees.csv">employees.csv</a></li>
-                <li><a href="https://github.com/dosanity/Pewlett-Hackard-Analysis/files/9433516/departments.csv">departments.csv</a> </li>
-                <li><a href="https://github.com/dosanity/Pewlett-Hackard-Analysis/files/9433522/dept_emp.csv">dept_emp.csv</a></li>
-                <li><a href="https://github.com/dosanity/Pewlett-Hackard-Analysis/files/9433527/dept_manager.csv">dept_manager.csv</a></li>
-                <li><a href="https://github.com/dosanity/Pewlett-Hackard-Analysis/files/9433532/titles.csv">titles.csv</a></li>
-                <li><a href="https://github.com/dosanity/Pewlett-Hackard-Analysis/files/9433533/salaries.csv">salaries.csv</a></li>
-            </ul>
+                <ul>
+                    <li><a href="https://github.com/dosanity/Pewlett-Hackard-Analysis/files/9433529/employees.csv">employees.csv</a></li>
+                    <li><a href="https://github.com/dosanity/Pewlett-Hackard-Analysis/files/9433516/departments.csv">departments.csv</a> </li>
+                    <li><a href="https://github.com/dosanity/Pewlett-Hackard-Analysis/files/9433522/dept_emp.csv">dept_emp.csv</a></li>
+                    <li><a href="https://github.com/dosanity/Pewlett-Hackard-Analysis/files/9433527/dept_manager.csv">dept_manager.csv</a></li>
+                    <li><a href="https://github.com/dosanity/Pewlett-Hackard-Analysis/files/9433532/titles.csv">titles.csv</a></li>
+                    <li><a href="https://github.com/dosanity/Pewlett-Hackard-Analysis/files/9433533/salaries.csv">salaries.csv</a></li>
+                </ul>
 
-            <br>
+                <br>
 
-            <h4 id="resources"><b>Resources</b></h4>
+                <h4 id="resources"><b>Resources</b></h4>
 
-            <ul>
-                <li>Data Tools: PostgreSQL</li>
-                <li>Software: pgAdmin 4.26</li>
-            </ul>
+                <ul>
+                    <li>Data Tools: PostgreSQL</li>
+                    <li>Software: pgAdmin 4.26</li>
+                </ul>
 
-        </section>
-
-        <br>
-
-        <section id="section-2">
-
-            <h2 id="entity-relationship-diagrams-erds-"><b>Entity Relationship Diagrams (ERDs)</b></h2>
-
-            <hr>
-
-            <p>An entity relationship diagram (ERD) is a type of flowchart that highlights different tables and their relationships to each other. The ERD does not include any actual data, but it does capture the following pertinent information from each CSV file. We used the ERD to capture the primary keys, foreign keys, and data types of each column.</p>
-            
-            <img src="https://user-images.githubusercontent.com/29410712/186916191-dac541c0-bcf1-4195-9369-bc9f5108cc86.png" alt="image" class="center">
-
-        </section>
-
-        <br>
-
-        <section id="section-3">
-
-            <h2><b>Database Analysis</b></h2>
-
-            <hr>
-
-            <h4 id="the-number-of-retiring-employees-by-title"><b>The Number of Retiring Employees by Title</b></h4>
-
-            <p>We created a table that holds all the titles of employees who were born between January 1, 1952 and December 31, 1955 which is stored in the <code>retirement_titles.csv</code>. </p>
-            
-            <blockquote>
-                <p>SQL Code:</p>
-            </blockquote>
-
-            <pre><code>
-SELECT  e.emp_no,
-e.first_name,
-e.last_name,
-ti.title,
-ti.from_date,
-ti.to_date
-INTO retirement_titles
-FROM employees as e
-INNER JOIN titles as ti
-ON (e.emp_no = ti.emp_no)
-WHERE (e.birth_date BETWEEN '1952-01-01' AND '1955-12-31')
-ORDER BY e.emp_no ASC;
-            </code></pre>
-            
-            <p>Next, we created a table to hold all the current titles of employees who were born between Jaunary 1, 1952 and December 31, 1955 which is stored in the <code>unique_titles.csv</code>. </p>
-            
-            <blockquote>
-                <p>SQL Code:</p>
-            </blockquote>
-
-            <pre><code>
-SELECT DISTINCT ON (emp_no) emp_no,
-first_name,
-last_name,
-title
-INTO unique_titles
-FROM retirement_titles
-WHERE (to_date = ('9999-01-01'))
-ORDER BY emp_no, to_date DESC;
-</code></pre>
-
-            <p>Finally, we counted the number of retiring individuals by their current titles which are stored in the <code>retiring_titles.csv</code>.</p>
-
-            <blockquote>
-                <p>SQL Code:</p>
-            </blockquote>
-
-            <pre><code>
-SELECT COUNT(title), title
-INTO retiring_titles
-FROM unique_titles
-GROUP BY title
-ORDER BY COUNT(title) DESC;
-            </code></pre>
-            
-            <img src="https://user-images.githubusercontent.com/29410712/192976173-ba0c4e39-191b-49a7-b9ea-c6a7b8e9496c.png" class="image50">
+            </section>
 
             <br>
 
-            <ul>
-                <li>Looking at the numbers in the table we see that 24% of the employees of the company are about to retire. This is a high percentage of individuals retiring and would require Pewlett Hackard to hire many new employees. </li>
-                <li>Additionally, around 50% of all retirees are engineers and 71% are holding senior positions.</li>
-            </ul>
+            <section id="section-2">
+
+                <h2 id="entity-relationship-diagrams-erds-"><b>Entity Relationship Diagrams (ERDs)</b></h2>
+
+                <hr>
+
+                <p>An entity relationship diagram (ERD) is a type of flowchart that highlights different tables and their relationships to each other. The ERD does not include any actual data, but it does capture the following pertinent information from each CSV file. We used the ERD to capture the primary keys, foreign keys, and data types of each column.</p>
+                
+                <img src="https://user-images.githubusercontent.com/29410712/186916191-dac541c0-bcf1-4195-9369-bc9f5108cc86.png" alt="image" class="center">
+
+            </section>
 
             <br>
 
-            <h4 id="the-number-of-employees-eligible-for-the-mentorship-program"><b>The Number of Employees Eligible for the Mentorship Program</b></h4>
+            <section id="section-3">
 
-            <p>Given the vast number of employees departing and the skillsets they possess, the firm decides to select a group of employees born in 1965 (i.e., they are 10 years younger than the retirees) and turn them into trainers for new hires and coworkers who will be promoted to fill future openings. The management at Pewlett Hackard wants to be prepared for this development, known as the &quot;Silver Tsunami&quot; by designating some of the retirees as mentors to train the future generation of workers who would run Pewlett Hackard&#39;s operations and day-to-day activities.</p>
-            <p>We created a table that holds all of the employees who were eligible for the mentorship program and we stored it in the <code>mentorship_eligibility.csv</code>. </p>
+                <h2><b>Database Analysis</b></h2>
 
-            <blockquote>
-                <p>SQL Code:</p>
-            </blockquote>
+                <hr>
 
-            <pre><code>
-SELECT DISTINCT ON (e.emp_no) e.emp_no,
-e.first_name,
-e.last_name,
-e.birth_date,
-dep.from_date,
-dep.to_date,
-ti.title
-INTO mentorship_eligibilty
-FROM employees as e
-INNER JOIN dept_emp as dep
-ON (e.emp_no = dep.emp_no)
-INNER JOIN titles as ti
-ON (e.emp_no = ti.emp_no)
-WHERE (dep.to_date = ('9999-01-01')) 
-AND (e.birth_date BETWEEN '1965-01-01' AND '1965-12-31')
-ORDER BY e.emp_no;
-            </code></pre>
-            
-            <ul>
-                <li>There are 1549 employees eligible for the mentorship program.</li>
-                <li>With 72458 retirees needing replacement, there would be about 46 employees per trainer. </li>
-            </ul>
+                <h4 id="the-number-of-retiring-employees-by-title"><b>The Number of Retiring Employees by Title</b></h4>
 
-            <p>As a result, Pewlett Hackard would need to increase the number of trainers to make the program effective.</p>
+                <p>We created a table that holds all the titles of employees who were born between January 1, 1952 and December 31, 1955 which is stored in the <code>retirement_titles.csv</code>. </p>
+                
+                <blockquote>
+                    <p>SQL Code:</p>
+                </blockquote>
 
+                <pre><code>
+    SELECT  e.emp_no,
+    e.first_name,
+    e.last_name,
+    ti.title,
+    ti.from_date,
+    ti.to_date
+    INTO retirement_titles
+    FROM employees as e
+    INNER JOIN titles as ti
+    ON (e.emp_no = ti.emp_no)
+    WHERE (e.birth_date BETWEEN '1952-01-01' AND '1955-12-31')
+    ORDER BY e.emp_no ASC;
+                </code></pre>
+                
+                <p>Next, we created a table to hold all the current titles of employees who were born between Jaunary 1, 1952 and December 31, 1955 which is stored in the <code>unique_titles.csv</code>. </p>
+                
+                <blockquote>
+                    <p>SQL Code:</p>
+                </blockquote>
+
+                <pre><code>
+    SELECT DISTINCT ON (emp_no) emp_no,
+    first_name,
+    last_name,
+    title
+    INTO unique_titles
+    FROM retirement_titles
+    WHERE (to_date = ('9999-01-01'))
+    ORDER BY emp_no, to_date DESC;
+    </code></pre>
+
+                <p>Finally, we counted the number of retiring individuals by their current titles which are stored in the <code>retiring_titles.csv</code>.</p>
+
+                <blockquote>
+                    <p>SQL Code:</p>
+                </blockquote>
+
+                <pre><code>
+    SELECT COUNT(title), title
+    INTO retiring_titles
+    FROM unique_titles
+    GROUP BY title
+    ORDER BY COUNT(title) DESC;
+                </code></pre>
+                
+                <img src="https://user-images.githubusercontent.com/29410712/192976173-ba0c4e39-191b-49a7-b9ea-c6a7b8e9496c.png" class="image50">
+
+                <br>
+
+                <ul>
+                    <li>Looking at the numbers in the table we see that 24% of the employees of the company are about to retire. This is a high percentage of individuals retiring and would require Pewlett Hackard to hire many new employees. </li>
+                    <li>Additionally, around 50% of all retirees are engineers and 71% are holding senior positions.</li>
+                </ul>
+
+                <br>
+
+                <h4 id="the-number-of-employees-eligible-for-the-mentorship-program"><b>The Number of Employees Eligible for the Mentorship Program</b></h4>
+
+                <p>Given the vast number of employees departing and the skillsets they possess, the firm decides to select a group of employees born in 1965 (i.e., they are 10 years younger than the retirees) and turn them into trainers for new hires and coworkers who will be promoted to fill future openings. The management at Pewlett Hackard wants to be prepared for this development, known as the &quot;Silver Tsunami&quot; by designating some of the retirees as mentors to train the future generation of workers who would run Pewlett Hackard&#39;s operations and day-to-day activities.</p>
+                <p>We created a table that holds all of the employees who were eligible for the mentorship program and we stored it in the <code>mentorship_eligibility.csv</code>. </p>
+
+                <blockquote>
+                    <p>SQL Code:</p>
+                </blockquote>
+
+                <pre><code>
+    SELECT DISTINCT ON (e.emp_no) e.emp_no,
+    e.first_name,
+    e.last_name,
+    e.birth_date,
+    dep.from_date,
+    dep.to_date,
+    ti.title
+    INTO mentorship_eligibilty
+    FROM employees as e
+    INNER JOIN dept_emp as dep
+    ON (e.emp_no = dep.emp_no)
+    INNER JOIN titles as ti
+    ON (e.emp_no = ti.emp_no)
+    WHERE (dep.to_date = ('9999-01-01')) 
+    AND (e.birth_date BETWEEN '1965-01-01' AND '1965-12-31')
+    ORDER BY e.emp_no;
+                </code></pre>
+                
+                <ul>
+                    <li>There are 1549 employees eligible for the mentorship program.</li>
+                    <li>With 72458 retirees needing replacement, there would be about 46 employees per trainer. </li>
+                </ul>
+
+                <p>As a result, Pewlett Hackard would need to increase the number of trainers to make the program effective.</p>
+
+            </section>
+
+            <br>
+
+            <section id="section-4">
+
+                <h2 id="summary"><b>Summary</b></h2>
+
+                <hr>
+
+                <p><b>How many roles will need to be filled as the & silver tsunami & begins to make an impact?</b></p>
+
+                <p>As stated before, Pewlett Hackard would need to increase the number of trainers to make the program effective. Currently, there are 1549 employees eligible for the mentorship program and 72458 retirees needing replacement. This would result in about 46 employees per trainer. The company would need about 4.5 times more trainers to effectively have &quot;silver tsunami&quot; create an impact.</p>
+                
+                <p><b>Are there enough qualified, retirement-ready employees in the departments to mentor the next generation of Pewlett Hackard employees?</b></p>
+                
+                <p>There are not enough qualified, retirement-ready employees in the departments to mentor the next generation of Pewlett Hackard employees. Each mentor would need to train about 46 new employees. Depending on how many employees each mentor can train, Pewlett Hackard would need to increase the number of mentors to make the program effective.</p>
+                
+            </div>
         </section>
-
-        <br>
-
-        <section id="section-4">
-
-            <h2 id="summary"><b>Summary</b></h2>
-
-            <hr>
-
-            <p><b>How many roles will need to be filled as the & silver tsunami & begins to make an impact?</b></p>
-
-            <p>As stated before, Pewlett Hackard would need to increase the number of trainers to make the program effective. Currently, there are 1549 employees eligible for the mentorship program and 72458 retirees needing replacement. This would result in about 46 employees per trainer. The company would need about 4.5 times more trainers to effectively have &quot;silver tsunami&quot; create an impact.</p>
-            
-            <p><b>Are there enough qualified, retirement-ready employees in the departments to mentor the next generation of Pewlett Hackard employees?</b></p>
-            
-            <p>There are not enough qualified, retirement-ready employees in the departments to mentor the next generation of Pewlett Hackard employees. Each mentor would need to train about 46 new employees. Depending on how many employees each mentor can train, Pewlett Hackard would need to increase the number of mentors to make the program effective.</p>
-            
-        </div>
     </body>
 
     <footer-component></footer-component>

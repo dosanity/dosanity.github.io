@@ -6,6 +6,7 @@
 
 @import url('https://fonts.cdnfonts.com/css/amperzand');
 @import url('https://fonts.googleapis.com/css?family=Hurricane&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Acme&display=swap');
 
 /* ==================================================================================== */
 
@@ -17,7 +18,7 @@
   float: left;
   color: #f2f2f2;
   text-align: center;
-  padding: 10px 14px;
+  padding: 10.25px 14px;
   text-decoration: none;
   font-size: 17px;
 }
@@ -49,7 +50,14 @@
   color: #f2f2f2 !important;
 }
 .navbar-title {
-font-family: 'Hurricane', sans-serif;
+  font-family: 'Hurricane', sans-serif;
+}
+
+@media (min-width: 0px) and (max-width: 991px) {
+  .navbar-collapse {
+    margin-top: 10px;
+    border-top: 2px solid white;
+  }
 }
 
 /* ======================================== */
@@ -60,6 +68,7 @@ font-family: 'Hurricane', sans-serif;
   }
   .navbar-toggler {
     border: 2px solid transparent;
+    height: 46px;
   }
   .navbar button[aria-expanded="true"] > span.navbar-toggler-icon {
     background-image: url("../assets/images/icons/navbar-toggler2.png");
@@ -77,6 +86,7 @@ font-family: 'Hurricane', sans-serif;
   }
   .navbar-toggler {
     border: 2px solid transparent;
+    height: 46px;
   }
   .navbar button[aria-expanded="true"] > span.navbar-toggler-icon {
     background-image: url("../assets/images/icons/navbar-toggler2.png");
@@ -93,10 +103,17 @@ font-family: 'Hurricane', sans-serif;
 /* ==================================================================================== */
 
 body {
-  margin-top: 90px;
   overflow-y:scroll;
   font-family:  -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto;
   height: 100%;
+}
+
+section .container {
+  margin-top: 90px;
+}
+
+.travel {
+  margin-top: 90px;
 }
 
 html {
@@ -105,7 +122,7 @@ html {
 }
 
 .pre-body {
-  height: 61.5px;
+  height: 62px;
   width: 100%;
 }
 
@@ -189,6 +206,11 @@ img {
   background-color: #f1f1f1;
 }
 
+.section-home {
+  margin-top: -28.5px;
+  height: 100%;
+}
+
 /* ======================================== */
 /* Mobile */
 @media only screen and (max-width:599px) {
@@ -266,6 +288,31 @@ img {
   text-decoration: none;
 }
 
+.home-about-btn {
+  font-weight: bold;
+  font-size: 15px;
+  background-color: transparent;
+  border: 3px solid black;
+  border-radius: 4px;
+  padding: 5px;
+  display: inline-block;
+  color: black;
+  margin: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+  text-align: center;
+  text-decoration: none;
+  width: 200px;
+}
+
+.home-about-btn:hover {
+  background-color: black;
+  border: 3px solid black;
+  border-radius: 4px;
+  color: white;
+  text-decoration: none;
+}
+
 .background {
   background-image: url("../assets/images/photos/background.jpg");
   background-repeat: no-repeat; 
@@ -276,9 +323,102 @@ img {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  height: 100%; 
+  height: 100vh; 
   width: 100%;
+  margin-top: 62px;
 }
+
+.custom-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  z-index: -100;
+}
+
+.hero-section {
+  position: relative;
+  overflow: hidden;
+  padding-top: 62px;
+  height: 100vh;
+}
+
+.hero-section small {
+  color: var(--white-color);
+  text-transform: uppercase;
+}
+
+.hero-section .section-overlay {
+  z-index: 2;
+  opacity: 0.45;
+}
+
+.hero-section .container {
+  position: absolute;
+  width: auto;    
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -50%);   
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%); 
+}
+.section-one-card {
+  background-color: #f6f8fa;
+  border: 3px solid #d1d1d1;
+}
+.section-one-card .row {
+  margin: 15px;
+}
+.section-one-card .location {
+  font-size: 18px;
+  font-weight: bold;
+}
+.section-one-card .fa-map-pin {
+  font-size: 18px;
+  font-weight: bold;
+  margin-right: 5px;
+}
+.section-one-profile {
+  width: 70%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 50%;
+  border: 3px solid black;
+}
+
+.section-two-card {
+  background-color: white;
+  border: 3px solid transparent;
+}
+.section-two-card .row {
+  margin: 15px;
+}
+
+.home-quote {
+  font-family: 'Acme', sans-serif;
+  font-size: 3vh;
+  text-align: center;
+}
+
+.home-quote-author {
+  font-size: 2vh;
+  text-align: center;
+}
+
+.blockquote {
+  background: transparent;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  quotes: "\201C""\201D""\2018""\2019";
+}
+.blockquote p {
+  display: inline;
+}
+
 
 /* ======================================== */
 /* Mobile */
@@ -288,6 +428,68 @@ img {
     bottom: 190px;
     left: 0;
     right: 0
+  }
+  .section-one-font {
+    font-family: 'Hurricane', sans-serif;
+    font-size: 6vh;
+  }
+  .section-one-card {
+    width: 90%;
+  }
+
+}
+
+/* ======================================== */
+/* Tablets */
+@media (min-width: 600px) and (max-width: 1049px) {
+  .section-one-font {
+    font-family: 'Hurricane', sans-serif;
+    font-size: 80px;
+  }
+  .blockquote:before {
+    font-family:'Times New Roman', Times, serif;
+    color: #d1d1d1;
+    content: open-quote;
+    font-size: 4em;
+    line-height: 0.1em;
+    margin-right: 0.25em;
+    vertical-align: -0.4em;
+  }
+  .blockquote:after {
+    font-family:'Times New Roman', Times, serif;
+    color: #d1d1d1;
+    content: close-quote;
+    font-size: 4em;
+    line-height: 0.1em;
+    margin-left: 0.25em;
+    vertical-align: -0.4em;
+  }
+}
+
+/* ======================================== */
+/* Desktop */
+@media (min-width: 1050px) {
+  .section-one-font {
+    font-family: 'Hurricane', sans-serif;
+    font-size: 80px;
+  }
+  .blockquote:before {
+    font-family:'Times New Roman', Times, serif;
+    color: #d1d1d1;
+    content: open-quote;
+    font-size: 4em;
+    line-height: 0.1em;
+    margin-right: 0.25em;
+    vertical-align: -0.4em;
+  }
+  .blockquote:after {
+    font-family:'Times New Roman', Times, serif;
+    color: #d1d1d1;
+    content: close-quote;
+    font-size: 4em;
+    line-height: 0.1em;
+    margin-left: 0.25em;
+    vertical-align: -0.4em;
   }
 }
 
@@ -814,7 +1016,7 @@ img {
   position: fixed;
   z-index: 98;
   top: 0;
-  margin-top: 61.5px;
+  margin-top: 62px;
   left: 0;
   background-color: #111;
   overflow: auto;
@@ -899,13 +1101,6 @@ input[type=search]::-webkit-search-cancel-button {
   background-size: contain;
   background-image: url("../assets/images/icons/close.png");
   cursor: pointer;
-}
-
-@media (min-width: 0px) and (max-width: 991px) {
-  .navbar-collapse {
-    margin-top: 0.5rem;
-    border-top: 2px solid white;
-  }
 }
 
 /* ======================================== */

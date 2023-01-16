@@ -24,47 +24,118 @@
 
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<link href="css/styles.css" rel="stylesheet">
+		<!-- <link href="test/css/templatemo-festava-live.css" rel="stylesheet"> -->
 
 		<script src="https://code.jquery.com/jquery-latest.js" type="text/javascript"></script>
 		<script src="js/jquery.isotope.js" type="text/javascript"></script>
 		<script src="js/filter.js" type="text/javascript"></script>
 		<script src="js/bootstrap.bundle.min.js"></script>
 		<script src="js/template.js" type="text/javascript" defer></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
 		{% seo %}
 	</head>
 
-  	<body class="background">
+  	<body>
 
 		<div class="topnav">
 			<home-nav></home-nav>
 		</div>
 
-		<div class="container">
-			
-			<center>
-				<h1 class="home-title">Welcome</h1>
-			</center>
-
-			<br>
-			
-			<div class="home-position">
+			<!-- <div class="col-12 mt-auto mb-5 text-center">
 				<center>
-					<a href="../portfolio" class="home-btn">Data Science</a>
-
-					<a href="../gallery" class="home-btn">Photography</a>
-
+					<h1 class="home-title mb-5 text-center">Welcome</h1>
 				</center>
+	
+				<br>
+				
+				<div class="home-position">
+					<center>
+						<a href="../portfolio" class="home-btn">Data Science</a>
+	
+						<a href="../gallery" class="home-btn">Photography</a>
+	
+					</center>
+				
+				</div>
+			</div> -->
+
+		<section class="hero-section">
+			<div class="section-overlay"></div>
+
+			<div class="container d-flex justify-content-center align-items-center">
+				<div class="row">
+
+					<div class="col-12 mt-auto mb-5 text-center">
+						<center>
+							<h1 class="home-title">Welcome</h1>
+						</center>
 			
+						<center>
+							<a href="../portfolio" class="home-btn">Data Science</a>
+							<a href="../gallery" class="home-btn">Photography</a>
+						</center>
+					</div> 
+				</div>
 			</div>
 
-		</div>
+			
+		<img class="custom-background" src="../assets/images/photos/background.jpg">
+		</section>
 
+		<section>
+			<div class="container section-one-card">
 
-			<div class="fixed-bottom">
-				<footer-component2></footer-component2>
+				<div class="row">
+					<div class="column">
+
+						<center>
+							<img class="section-one-profile" src="assets/images/photos/profile3.jpg" alt="profile">
+							<br>
+							<i class="fa fa-map-pin"></i> <span class="location">Salt Lake City, UT</span>
+						</center>
+
+					</div>
+					<div class="column">
+
+						<div align="center">
+							<p class="section-one-font">Hi, I'm Anthony</p>
+						</div>
+
+						<p>
+							I am data scientist skilled in building and handling data pipelines. 
+							Specifically, experience in using the programming language Python for data analysis 
+							combined with forecasting and machine learning.
+						</p>
+						<p>
+							I am also a photographer, traveler, and visual artist. With my creative skills, I believe in capturing the moment and enjoying the little things in life.
+							My dream is to revolutionize the world and create many cherishable memories in the process!
+						</p>
+
+						<center>
+							<a href="../about" class="home-about-btn">MORE ABOUT ME</a>
+						</center>
+
+					</div>
+				</div>
 			</div>
+		</section>
 
+		<section>
+			<div class="container section-two-card">
+				<div class="blockquote" align="center">
+					<p class="home-quote">Live in the present, launch yourself on every wave, find eternity in each moment.</p>
+				</div>
+				<p align="center" class="home-quote-author"><b>Henry David Thoreau</b></p>
+				<br>
+
+			</div>
+		</section>
+
+
+		<div class="static-bottom">
+			<footer-component></footer-component>
 		</div>
+
 	</body>
 
 	

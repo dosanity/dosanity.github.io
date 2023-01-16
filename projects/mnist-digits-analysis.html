@@ -62,272 +62,275 @@
             </ol>
         </nav>
 
-        <div class="container">
+        <section>
+            <div class="container">
 
-            <section id="section-1">
+                <section id="section-1">
 
-            <h1 id="mnist-handwritten-digits"><b>MNIST Handwritten Digits</b></h1>
+                <h1 id="mnist-handwritten-digits"><b>MNIST Handwritten Digits</b></h1>
+
+                <hr>
+
+                <p>The MNIST handwritten digit dataset consists of images of handwritten digits, together with labels indicating which digit is in each image. We can see that images are just matrices with scalar values so we can apply the different classification algorithms to them.</p>
+                <p>Because both the features and the labels are present in this dataset (and labels for large datasets are generally difficult/expensive to obtain), this dataset is frequently used as a benchmark to compare various classification methods. For example, <a href="http://yann.lecun.com/exdb/mnist/">this webpage</a> gives a comparison of a variety of different classification methods on MNIST.</p>
+                <p>Our goal is to use scikit-learn machine learning to compare classification methods on the MNIST dataset. </p>
+                <p>There are several versions of the MNIST dataset. We used the one that is built-into scikit-learn, described <a href="http://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_digits.html">here</a>. </p>
+                
+                <ul>
+                    <li>Classes: 10 (one for each digit)</li>
+                    <li>Samples total: 1797</li>
+                    <li>Samples per class: <em>approx</em> 180</li>
+                    <li>Dimensionality: 64 (8 pixels by 8 pixels)</li>
+                    <li>Features: integers 0-16 (grayscale value; 0 is white, 16 is black)</li>
+                </ul>
+
+                <p>Here are some examples of the images. Note that the digits have been size-normalized and centered in a fixed-size (8 x 8 pixels) image.</p>
+
+                <img src="http://scikit-learn.org/stable/_images/sphx_glr_plot_digits_classification_001.png" class="center">
+
+                <p>Note that we will scale the data before running it through our algorithms. <a href="http://scikit-learn.org/stable/modules/preprocessing.html#standardization-or-mean-removal-and-variance-scaling">This website</a> explains why scaling is important.</p>
+                
+            </section>
+
+            <br>
+
+            <section id="section-2">
+
+                <h2 id="exploratory-data-analysis"><b>Exploratory Data Analysis</b></h2>
+
+                <hr>
+
+                <pre><code>
+    Number of Digits: 10
+    Number of Samples: 1797
+    Number of Features: 64
+                </code></pre>
+                
+                <img src="https://user-images.githubusercontent.com/29410712/180262496-99c8c1a6-9e38-4d39-83fd-16ba2bbe3e2e.png" alt="ExampleNumbers" class="center">
+
+            </section>
+
+            <br>
+
+            <section id="section-3">
+
+                <h2 id="classification-tools"><b>Classification Tools</b></h2>
 
             <hr>
 
-            <p>The MNIST handwritten digit dataset consists of images of handwritten digits, together with labels indicating which digit is in each image. We can see that images are just matrices with scalar values so we can apply the different classification algorithms to them.</p>
-            <p>Because both the features and the labels are present in this dataset (and labels for large datasets are generally difficult/expensive to obtain), this dataset is frequently used as a benchmark to compare various classification methods. For example, <a href="http://yann.lecun.com/exdb/mnist/">this webpage</a> gives a comparison of a variety of different classification methods on MNIST.</p>
-            <p>Our goal is to use scikit-learn machine learning to compare classification methods on the MNIST dataset. </p>
-            <p>There are several versions of the MNIST dataset. We used the one that is built-into scikit-learn, described <a href="http://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_digits.html">here</a>. </p>
-            
-            <ul>
-                <li>Classes: 10 (one for each digit)</li>
-                <li>Samples total: 1797</li>
-                <li>Samples per class: <em>approx</em> 180</li>
-                <li>Dimensionality: 64 (8 pixels by 8 pixels)</li>
-                <li>Features: integers 0-16 (grayscale value; 0 is white, 16 is black)</li>
-            </ul>
+            <section id="section-4">
 
-            <p>Here are some examples of the images. Note that the digits have been size-normalized and centered in a fixed-size (8 x 8 pixels) image.</p>
+                <h4 id="classification-with-support-vector-machines-svm-"><b>Classification with Support Vector Machines (SVM)</b></h4>
 
-            <img src="http://scikit-learn.org/stable/_images/sphx_glr_plot_digits_classification_001.png" class="center">
+                <p>We developed a support-vector machine classification model for the data. In machine learning, support vector machines (SVMs, also support-vector networks) are supervised learning models with associated learning algorithms that analyze data for classification and regression analysis. It uses the support-vector classifier which splits the data with a soft margin (the distance between the observations and the threshold) and some misclassifications.</p>
+                
+                <ol>
+                    <li>Using Train-Test-Split validation procedure, we split the data into a training and a test set. </li>
+                    <li>We use SVM to build a classifier using the <em>training dataset</em>.</li>
+                    <li>We will find the misclassified digits.</li>
+                    <li>Using the &#39;cross_val_score&#39; function, we evaluate the accuracy of the SVM for 100 different values of the parameter C between 1 and 500.</li>
+                    <li>We will train and test the algorithm on the raw (non-scaled) data.</li>
+                </ol>
 
-            <p>Note that we will scale the data before running it through our algorithms. <a href="http://scikit-learn.org/stable/modules/preprocessing.html#standardization-or-mean-removal-and-variance-scaling">This website</a> explains why scaling is important.</p>
-            
+                <p>First, we split data into a training and a test set and then we use SVM with C = 100 to calculate the accuracy of the model.</p>
+
+                <blockquote>
+                    <p>Python Code:</p>
+                </blockquote>
+
+                <pre><code class="language-python">
+    X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=1, test_size=0.8)
+    clf = svm.SVC(kernel='rbf', C=100)
+    clf.fit(X_train, y_train)
+
+    y_pred = clf.predict(X_test)
+    accuracy = metrics.accuracy_score(y_true=y_test, y_pred=y_pred)
+    confusionmatrix = metrics.confusion_matrix(y_true=y_test, y_pred=y_pred)
+    print("Accuracy of Model:", accuracy)
+                </code></pre>
+
+                <blockquote>
+                    <p>Output:</p>
+                </blockquote>
+                
+                <pre><code class="nohighlight">
+    Accuracy of Model: 0.9534075104311543
+                </code></pre>
+                
+                <p>Since we are looking at the accuracy of the model predicting the digits, we will need to look at the misclassified digits. Using the code below, we find the index of each misclassified digit and then generate an image.</p>
+                
+                <blockquote>
+                    <p>Python Code:</p>
+                </blockquote>
+
+                <pre><code class="language-python">
+    index = 0
+    misclassified_images = []
+    for label, predict in zip(y_test, y_pred):
+        if label != predict: 
+            misclassified_images.append(index)
+        index +=1
+        
+    plt.figure(figsize=(10,10))
+    plt.suptitle('SVM Misclassified Digits');
+    for plot_index, bad_index in enumerate(misclassified_images[0:]):
+        p = plt.subplot(8, 9, plot_index+1)
+        
+        p.imshow(X_test[bad_index].reshape(8,8), cmap='Greys',
+                interpolation='nearest')
+        p.set_xticks(()); p.set_yticks(())
+                </code></pre>
+
+                <br>
+                
+                <img src="https://user-images.githubusercontent.com/29410712/180263582-78a19b05-9fb4-4153-b639-9c56a732b522.png" alt="Misclassified-Digits-SVM" class="center">
+
+                <p>Using Cross Validation to find the accuracy of SVM we get: </p>
+
+                <pre><code>
+    [0.93888889, 0.99444444, 0.98333333, 0.95, 0.98888889, 0.97777778, 0.97222222, 0.94972067, 0.96648045, 0.96089385]
+                </code></pre>
+                
+                <p>Thus, the highest accuracy using Cross Validation is 0.99.</p>
+                <p>Now we look at the raw data and calculate the best C value for the SVM classification model.</p>
+
+                <img src="https://user-images.githubusercontent.com/29410712/180265137-b223cfd3-dc44-47c5-9351-9ec87b5b5320.png" alt="SVM-Accuracy" class="center">
+
+                <p>Using this code, we calculate the accuracy of the raw data.</p>
+
+                <blockquote>
+                    <p>Python Code:</p>
+                </blockquote>
+
+                <pre><code class="language-python">
+    Xraw = digits.data
+    yraw = digits.target
+    Xraw_train, Xraw_test, yraw_train, yraw_test = train_test_split(Xraw, yraw, random_state=1, test_size=0.8)
+    clfraw = svm.SVC(kernel='rbf', C=10)
+    clfraw.fit(Xraw_train, yraw_train)
+
+    yraw_pred = clfraw.predict(Xraw_test)
+    accuracyraw = metrics.accuracy_score(y_true=yraw_test, y_pred=yraw_pred)
+    print("Accuracy of Raw Model:", accuracyraw)
+                </code></pre>
+                
+                <blockquote>
+                    <p>Output:</p>
+                </blockquote>
+
+                <pre><code class="nohighlight">
+    Accuracy of Raw Model: 0.9756606397774688
+                </code></pre>
+
+                <br>
+
+                <p>Using the SVM classifier with C = 100, the accuracy score is 0.95 with the scaled training data. The most common mistake that the SVM classifier makes is in cases where the number of features for each data point exceeds the number of training data samples, the SVM will underperform. The SVM classifier does not perform very well when the data set has more noise such that the target classes are overlapping. The best score from the &#39;cross_val_score&#39; function is the score of 0.99. With the raw or unscaled data, the accuracy score is 0.975. Additionally, based on the chart, the best C value is 5.</p>
+                
+            </section>
+
+            <br>
+
+            <section id="section-5">
+                
+                <h4 id="prediction-with-k-nearest-neighbors-k-nn-"><b>Prediction with K-Nearest Neighbors (K-NN)</b></h4>
+
+                <p>The K-nearest neighbors (K-NN) algorithm is a simple, easy-to-implement supervised machine learning algorithm that can be used to solve both classification and regression problems. It categorizes unknown variables into different clusters. In our study, we will try out different values to choose the value of K. Low values of K can be noisy and subject to the effects of outliers. Large values of K smooth over things, but you don&#39;t want K to be so large that a category with only a few samples in it will always be outvoted by other categories. We will be using training data, data used for initial clustering (data where we know the categories in advance) to calculate the accuracy of the data.</p>
+                <p>We developed a K-NN classification model for the data and use cross-validation to choose the best value of K. First, we will look at K = 10 and like before, we split the data into test and training sets.</p>
+                
+                <blockquote>
+                    <p>Python Code:</p>
+                </blockquote>
+
+                <pre><code class="language-python">
+    k = 10
+    X_traink, X_testk, y_traink, y_testk = train_test_split(X, y, random_state=1, test_size=0.8)
+    clfk = KNeighborsClassifier(n_neighbors=k)
+    clfk.fit(X_traink, y_traink)
+
+    y_predk = clfk.predict(X_testk)
+    accuracyk = metrics.accuracy_score(y_true=y_testk, y_pred=y_predk)
+    confusionmatrix = metrics.confusion_matrix(y_true=y_testk, y_pred=y_predk)
+    print("Accuracy of Model:", accuracyk)
+                </code></pre>
+
+                <blockquote>
+                    <p>Output:</p>
+                </blockquote>
+                
+                <pre><code class="nohighlight">
+    Accuracy of Model: 0.9123783031988874
+                </code></pre>
+                
+                <p>Since we are looking at the accuracy of the model predicting the digits, we will need to look at the misclassified digits. Using the code below, we find the index of each misclassified digit and then generate an image.</p>
+                
+                <blockquote>
+                    <p>Python Code:</p>
+                </blockquote>
+
+                <pre><code class="language-python">
+    index = 0
+    misclassified_imagesk = []
+    for label, predict in zip(y_testk, y_predk):
+        if label != predict: 
+            misclassified_imagesk.append(index)
+        index +=1
+        
+    plt.figure(figsize=(10,10))
+    plt.suptitle('K-NN Misclassified Digits');
+    for plot_indexk, bad_indexk in enumerate(misclassified_imagesk[0:]):
+        p = plt.subplot(9, 14, plot_indexk+1)
+        
+        p.imshow(X_test[bad_indexk].reshape(8,8), cmap='Greys',
+                interpolation='nearest')
+        p.set_xticks(()); p.set_yticks(())
+                </code></pre>
+
+                <br>
+                
+                <img src="https://user-images.githubusercontent.com/29410712/180266882-8fdc8b31-31f0-4db3-b311-369bce66b113.png" alt="Misclassified-Digits-KNN" class="center">
+
+                <p>Using Cross Validation to find the accuracy of K-NN we get: </p>
+
+                <pre><code>
+    [0.91666667, 0.96111111, 0.96666667, 0.9, 0.95, 0.96666667, 0.97222222, 0.95530726, 0.95530726, 0.93854749]
+                </code></pre>
+                
+                <p>Thus, the highest accuracy using Cross Validation is 0.97.</p>
+                <p>Now we look at the raw data and calculate the best K value for the K-NN classification model.</p>
+
+                <img src="https://user-images.githubusercontent.com/29410712/180267282-5355c9b0-03a7-4664-bd68-4c4fa85c95e2.png" alt="K-NN-Accuracy" class="center">
+
+                <p>Using this code we calculate the accuracy of the raw data.</p>
+
+                <blockquote>
+                    <p>Python Code:</p>
+                </blockquote>
+
+                <pre><code class="language-python">
+    lfk = KNeighborsClassifier(n_neighbors=1)
+    clfk.fit(X_traink, y_traink)
+
+    y_predk = clfk.predict(X_testk)
+    accuracyk = metrics.accuracy_score(y_true=y_testk, y_pred=y_predk)
+    print("Accuracy of Raw Model:", accuracyk)
+                </code></pre>
+
+                <blockquote>
+                    <p>Output:</p>
+                </blockquote>
+                
+                <pre><code class="nohighlight">
+    Accuracy of Raw Model: 0.9666203059805285
+                </code></pre>
+                
+                <br>
+
+                <p>Using the K-NN, we would need to manually remove missing values and outliers. The K-NN classifier could potentially generate wrong predictions because of the lack of scaling. The best score from the &#39;cross_val_score&#39; function is the score of 0.97 of the test accuracy. With the raw or unscaled data, the best accuracy score is achieved with K = 1 and it is 0.967.</p>
+                
+                
+            </div>
         </section>
-
-        <br>
-
-        <section id="section-2">
-
-            <h2 id="exploratory-data-analysis"><b>Exploratory Data Analysis</b></h2>
-
-            <hr>
-
-            <pre><code>
-Number of Digits: 10
-Number of Samples: 1797
-Number of Features: 64
-            </code></pre>
-            
-            <img src="https://user-images.githubusercontent.com/29410712/180262496-99c8c1a6-9e38-4d39-83fd-16ba2bbe3e2e.png" alt="ExampleNumbers" class="center">
-
-        </section>
-
-        <br>
-
-        <section id="section-3">
-
-            <h2 id="classification-tools"><b>Classification Tools</b></h2>
-
-        <hr>
-
-        <section id="section-4">
-
-            <h4 id="classification-with-support-vector-machines-svm-"><b>Classification with Support Vector Machines (SVM)</b></h4>
-
-            <p>We developed a support-vector machine classification model for the data. In machine learning, support vector machines (SVMs, also support-vector networks) are supervised learning models with associated learning algorithms that analyze data for classification and regression analysis. It uses the support-vector classifier which splits the data with a soft margin (the distance between the observations and the threshold) and some misclassifications.</p>
-            
-            <ol>
-                <li>Using Train-Test-Split validation procedure, we split the data into a training and a test set. </li>
-                <li>We use SVM to build a classifier using the <em>training dataset</em>.</li>
-                <li>We will find the misclassified digits.</li>
-                <li>Using the &#39;cross_val_score&#39; function, we evaluate the accuracy of the SVM for 100 different values of the parameter C between 1 and 500.</li>
-                <li>We will train and test the algorithm on the raw (non-scaled) data.</li>
-            </ol>
-
-            <p>First, we split data into a training and a test set and then we use SVM with C = 100 to calculate the accuracy of the model.</p>
-
-            <blockquote>
-                <p>Python Code:</p>
-            </blockquote>
-
-            <pre><code class="language-python">
-X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=1, test_size=0.8)
-clf = svm.SVC(kernel='rbf', C=100)
-clf.fit(X_train, y_train)
-
-y_pred = clf.predict(X_test)
-accuracy = metrics.accuracy_score(y_true=y_test, y_pred=y_pred)
-confusionmatrix = metrics.confusion_matrix(y_true=y_test, y_pred=y_pred)
-print("Accuracy of Model:", accuracy)
-            </code></pre>
-
-            <blockquote>
-                <p>Output:</p>
-            </blockquote>
-            
-            <pre><code class="nohighlight">
-Accuracy of Model: 0.9534075104311543
-            </code></pre>
-            
-            <p>Since we are looking at the accuracy of the model predicting the digits, we will need to look at the misclassified digits. Using the code below, we find the index of each misclassified digit and then generate an image.</p>
-            
-            <blockquote>
-                <p>Python Code:</p>
-            </blockquote>
-
-            <pre><code class="language-python">
-index = 0
-misclassified_images = []
-for label, predict in zip(y_test, y_pred):
-    if label != predict: 
-        misclassified_images.append(index)
-    index +=1
-    
-plt.figure(figsize=(10,10))
-plt.suptitle('SVM Misclassified Digits');
-for plot_index, bad_index in enumerate(misclassified_images[0:]):
-    p = plt.subplot(8, 9, plot_index+1)
-    
-    p.imshow(X_test[bad_index].reshape(8,8), cmap='Greys',
-            interpolation='nearest')
-    p.set_xticks(()); p.set_yticks(())
-            </code></pre>
-
-            <br>
-            
-            <img src="https://user-images.githubusercontent.com/29410712/180263582-78a19b05-9fb4-4153-b639-9c56a732b522.png" alt="Misclassified-Digits-SVM" class="center">
-
-            <p>Using Cross Validation to find the accuracy of SVM we get: </p>
-
-            <pre><code>
-[0.93888889, 0.99444444, 0.98333333, 0.95, 0.98888889, 0.97777778, 0.97222222, 0.94972067, 0.96648045, 0.96089385]
-            </code></pre>
-            
-            <p>Thus, the highest accuracy using Cross Validation is 0.99.</p>
-            <p>Now we look at the raw data and calculate the best C value for the SVM classification model.</p>
-
-            <img src="https://user-images.githubusercontent.com/29410712/180265137-b223cfd3-dc44-47c5-9351-9ec87b5b5320.png" alt="SVM-Accuracy" class="center">
-
-            <p>Using this code, we calculate the accuracy of the raw data.</p>
-
-            <blockquote>
-                <p>Python Code:</p>
-            </blockquote>
-
-            <pre><code class="language-python">
-Xraw = digits.data
-yraw = digits.target
-Xraw_train, Xraw_test, yraw_train, yraw_test = train_test_split(Xraw, yraw, random_state=1, test_size=0.8)
-clfraw = svm.SVC(kernel='rbf', C=10)
-clfraw.fit(Xraw_train, yraw_train)
-
-yraw_pred = clfraw.predict(Xraw_test)
-accuracyraw = metrics.accuracy_score(y_true=yraw_test, y_pred=yraw_pred)
-print("Accuracy of Raw Model:", accuracyraw)
-            </code></pre>
-            
-            <blockquote>
-                <p>Output:</p>
-            </blockquote>
-
-            <pre><code class="nohighlight">
-Accuracy of Raw Model: 0.9756606397774688
-            </code></pre>
-
-            <br>
-
-            <p>Using the SVM classifier with C = 100, the accuracy score is 0.95 with the scaled training data. The most common mistake that the SVM classifier makes is in cases where the number of features for each data point exceeds the number of training data samples, the SVM will underperform. The SVM classifier does not perform very well when the data set has more noise such that the target classes are overlapping. The best score from the &#39;cross_val_score&#39; function is the score of 0.99. With the raw or unscaled data, the accuracy score is 0.975. Additionally, based on the chart, the best C value is 5.</p>
-            
-        </section>
-
-        <br>
-
-        <section id="section-5">
-            
-            <h4 id="prediction-with-k-nearest-neighbors-k-nn-"><b>Prediction with K-Nearest Neighbors (K-NN)</b></h4>
-
-            <p>The K-nearest neighbors (K-NN) algorithm is a simple, easy-to-implement supervised machine learning algorithm that can be used to solve both classification and regression problems. It categorizes unknown variables into different clusters. In our study, we will try out different values to choose the value of K. Low values of K can be noisy and subject to the effects of outliers. Large values of K smooth over things, but you don&#39;t want K to be so large that a category with only a few samples in it will always be outvoted by other categories. We will be using training data, data used for initial clustering (data where we know the categories in advance) to calculate the accuracy of the data.</p>
-            <p>We developed a K-NN classification model for the data and use cross-validation to choose the best value of K. First, we will look at K = 10 and like before, we split the data into test and training sets.</p>
-            
-            <blockquote>
-                <p>Python Code:</p>
-            </blockquote>
-
-            <pre><code class="language-python">
-k = 10
-X_traink, X_testk, y_traink, y_testk = train_test_split(X, y, random_state=1, test_size=0.8)
-clfk = KNeighborsClassifier(n_neighbors=k)
-clfk.fit(X_traink, y_traink)
-
-y_predk = clfk.predict(X_testk)
-accuracyk = metrics.accuracy_score(y_true=y_testk, y_pred=y_predk)
-confusionmatrix = metrics.confusion_matrix(y_true=y_testk, y_pred=y_predk)
-print("Accuracy of Model:", accuracyk)
-            </code></pre>
-
-            <blockquote>
-                <p>Output:</p>
-            </blockquote>
-            
-            <pre><code class="nohighlight">
-Accuracy of Model: 0.9123783031988874
-            </code></pre>
-            
-            <p>Since we are looking at the accuracy of the model predicting the digits, we will need to look at the misclassified digits. Using the code below, we find the index of each misclassified digit and then generate an image.</p>
-            
-            <blockquote>
-                <p>Python Code:</p>
-            </blockquote>
-
-            <pre><code class="language-python">
-index = 0
-misclassified_imagesk = []
-for label, predict in zip(y_testk, y_predk):
-    if label != predict: 
-        misclassified_imagesk.append(index)
-    index +=1
-    
-plt.figure(figsize=(10,10))
-plt.suptitle('K-NN Misclassified Digits');
-for plot_indexk, bad_indexk in enumerate(misclassified_imagesk[0:]):
-    p = plt.subplot(9, 14, plot_indexk+1)
-    
-    p.imshow(X_test[bad_indexk].reshape(8,8), cmap='Greys',
-            interpolation='nearest')
-    p.set_xticks(()); p.set_yticks(())
-            </code></pre>
-
-            <br>
-            
-            <img src="https://user-images.githubusercontent.com/29410712/180266882-8fdc8b31-31f0-4db3-b311-369bce66b113.png" alt="Misclassified-Digits-KNN" class="center">
-
-            <p>Using Cross Validation to find the accuracy of K-NN we get: </p>
-
-            <pre><code>
-[0.91666667, 0.96111111, 0.96666667, 0.9, 0.95, 0.96666667, 0.97222222, 0.95530726, 0.95530726, 0.93854749]
-            </code></pre>
-            
-            <p>Thus, the highest accuracy using Cross Validation is 0.97.</p>
-            <p>Now we look at the raw data and calculate the best K value for the K-NN classification model.</p>
-
-            <img src="https://user-images.githubusercontent.com/29410712/180267282-5355c9b0-03a7-4664-bd68-4c4fa85c95e2.png" alt="K-NN-Accuracy" class="center">
-
-            <p>Using this code we calculate the accuracy of the raw data.</p>
-
-            <blockquote>
-                <p>Python Code:</p>
-            </blockquote>
-
-            <pre><code class="language-python">
-lfk = KNeighborsClassifier(n_neighbors=1)
-clfk.fit(X_traink, y_traink)
-
-y_predk = clfk.predict(X_testk)
-accuracyk = metrics.accuracy_score(y_true=y_testk, y_pred=y_predk)
-print("Accuracy of Raw Model:", accuracyk)
-            </code></pre>
-
-            <blockquote>
-                <p>Output:</p>
-            </blockquote>
-            
-            <pre><code class="nohighlight">
-Accuracy of Raw Model: 0.9666203059805285
-            </code></pre>
-            
-            <br>
-
-            <p>Using the K-NN, we would need to manually remove missing values and outliers. The K-NN classifier could potentially generate wrong predictions because of the lack of scaling. The best score from the &#39;cross_val_score&#39; function is the score of 0.97 of the test accuracy. With the raw or unscaled data, the best accuracy score is achieved with K = 1 and it is 0.967.</p>
-            
-            
-        </div>
+        
     </body>
 
     <footer-component></footer-component>
