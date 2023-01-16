@@ -402,7 +402,7 @@ img {
 
 .home-quote {
   font-family: 'Acme', sans-serif;
-  font-size: 3vh;
+  font-size: 3.2vh;
   text-align: center;
 }
 
@@ -447,24 +447,6 @@ img {
   .section-one-font {
     font-family: 'Hurricane', sans-serif;
     font-size: 80px;
-  }
-  .blockquote:before {
-    font-family:'Times New Roman', Times, serif;
-    color: #d1d1d1;
-    content: open-quote;
-    font-size: 4em;
-    line-height: 0.1em;
-    margin-right: 0.25em;
-    vertical-align: -0.4em;
-  }
-  .blockquote:after {
-    font-family:'Times New Roman', Times, serif;
-    color: #d1d1d1;
-    content: close-quote;
-    font-size: 4em;
-    line-height: 0.1em;
-    margin-left: 0.25em;
-    vertical-align: -0.4em;
   }
 }
 
