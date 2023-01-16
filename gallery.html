@@ -31,6 +31,7 @@
 		<script src="js/bootstrap.bundle.min.js"></script>
 		<script src="js/template.js" type="text/javascript" defer></script>
 		<script src="js/gallery.js"></script>
+		<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
 		{% seo %}
 	</head>
@@ -47,7 +48,7 @@
 				<div class="container">
 
 					<center>
-						<h1 class="title-btn">My Gallery</h1></a>
+						<h1 class="title-btn" data-aos="fade-in" data-aos-duration="1000">My Gallery</h1></a>
 					</center>
 					<hr>
 					<br>
@@ -72,7 +73,7 @@
 						</div>
 					</div>
 
-					<div class="projectContainer row" data-toggle="modal" data-target="#exampleModal">
+					<div class="projectContainer row" data-toggle="modal" data-target="#exampleModal" data-aos="fade-up" data-aos-duration="800">
 
 						<div class="land col-6 col-lg-3 col-md-4 col-sm-4 portfolio-item">
 							<div class="portfolio h-100">
@@ -424,6 +425,12 @@
 		
 		</div>
 		<footer-component></footer-component>
+
+		<!-- aos script -->
+		<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+		<script>
+			AOS.init({once: true});
+		</script>
 	</body>
 </html>
 

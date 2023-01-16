@@ -31,6 +31,7 @@
 		<script src="js/bootstrap.bundle.min.js"></script>
 		<script src="js/template.js" type="text/javascript" defer></script>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 		{% seo %}
 	</head>
 
@@ -78,7 +79,7 @@
 			<div class="container">
 
 				<center>
-					<h1 class="title-btn">My Portfolio</h1>
+					<h1 class="title-btn" data-aos="fade-in" data-aos-duration="1000">My Portfolio</h1>
 				</center>
 
 				<hr>
@@ -100,7 +101,7 @@
 
 				<div class="row"><div class="projectContainer"></div></div>
 
-				<div class="projectContainer row">
+				<div class="projectContainer row" data-aos="fade-up" data-aos-duration="800">
 					<div class="py html col-lg-3 col-md-4 col-sm-6 portfolio-item">
 						<div class="card h-100">
 							<a href="projects/slc-zillow-analysis">
@@ -479,6 +480,12 @@
 			</div>
 		</section>
 		
+		<!-- aos script -->
+		<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+		<script>
+			AOS.init({once: true});
+		</script>
+
 	</body>
 
 	<footer-component></footer-component>
