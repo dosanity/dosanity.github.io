@@ -5,12 +5,12 @@
 /* ==================================================================================== */
 
 .btn-primary{
-  background-color: dodgerblue !important;
-  border: 2px solid dodgerblue !important;
+  background-color: black !important;
+  border: 2px solid black !important;
   cursor: pointer;
   font-weight: bold;
   font-size: 15px;
-  border-radius: 10px;
+  border-radius: 30px;
   padding: 10px;
   width: 200px;
   margin-top: 30px;
@@ -28,15 +28,15 @@
 }
 .contact-card {
   background-color: white;
-  border: 3px solid #d1d1d1;
+  /* border: 3px solid #d1d1d1; */
   padding: 30px;
   margin-bottom: 100px;
 }
 .form-group{
-  background-color: #d1d1d1 !important;
+  background-color: #f6f8fa !important;
   border: 1px solid black !important;
   border-radius: 0px !important;
-  margin-top: 40px;
+  margin-top: 20px;
 }
 .input-left {
   text-align: left;
@@ -55,7 +55,7 @@ input:focus, textarea {
 /* Mobile */
 @media only screen and (max-width:599px) {
   .form-group {
-    width: 80% !important;
+    width: 100% !important;
   }
 }
 

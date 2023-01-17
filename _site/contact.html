@@ -88,9 +88,6 @@
 				=======================================================================
 			-->
 			<div class="container contact-card">
-				<h3 align="center">
-					Leave a Message
-				</h3>
 				<div class="col-sm-12">
 					<form action="https://api.web3forms.com/submit" method="POST" id="form">
 						<input type="hidden" name="access_key" value="2c36977b-14b6-4715-ab24-22ae9b2462bc"/>
@@ -100,19 +97,22 @@
 							<div class="form-group">
 								<div class="input-left">
 									<label class="input-label">Name *</label>
-									<input type="text" name="name" id="name" placeholder="" required class="form-control"/>
+									<input type="text" name="name" id="name" placeholder="" required class="form-control" oninvalid="this.setCustomValidity('Please Enter Name')"
+									oninput="this.setCustomValidity('')"/>
 								</div>
 							</div>
 							<div class="form-group">
 								<div class="input-left">
 									<label class="input-label">Email *</label>
-									<input type="email" name="email" id="email" placeholder="" required class="form-control"/>
+									<input type="email" name="email" id="email" placeholder="" required class="form-control" oninvalid="this.setCustomValidity('Please Enter Email')"
+									oninput="this.setCustomValidity('')"/>
 								</div>
 							</div>
 							<div class="form-group">
 								<div class="input-left">
 									<label class="input-label">Message *</label>
-									<textarea rows="10" name="message" id="message" placeholder="" class="form-control" required></textarea>
+									<textarea rows="10" name="message" id="message" placeholder="" class="form-control" required oninvalid="this.setCustomValidity('Please Enter Message')"
+									oninput="this.setCustomValidity('')"></textarea>
 								</div>
 							</div>
 							
