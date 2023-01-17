@@ -4,107 +4,54 @@
 
 /* ==================================================================================== */
 
-#last{
-  width: 100%;
-  height: auto;
-  justify-content: center;
-  background-color: white;
-  }
-  .full{
-  width: 80%;
-  display: inline-block;
-  margin:2%;
-  margin-left: 10%;
-  text-align: center;
-  color: black;
-  background-color: white;;
-  border: 3px solid #d1d1d1;
-  border-radius: 5px;
-  margin-bottom: 8%;
-  margin-top: 8%;
-  }
-  .full h3{
-  font-size: 2rem;
-  display:block;
-  margin: 2%;
-  margin-bottom: 0;
-  }
-  .lt{
-    padding: 2%;
-    margin: 2%;
-  }
-  .rt{
-  padding: 2%;
-  margin: 2%;
-  }
-  .lt textarea{
-  width: 100%;
-  }
-  .btn-primary{
+.btn-primary{
   background-color: dodgerblue !important;
   border: 2px solid dodgerblue !important;
   cursor: pointer;
   font-weight: bold;
   font-size: 20px;
-  border-radius: 5%;
+  border-radius: 10px;
+  padding: 10px;
   width: 130px;
-  margin-top: 15px;
+  margin-top: 30px;
+}
+.btn-primary:hover {
+  background-color: black !important;
+  border: 2px solid black !important;
+}
+.form-control{
+  background-color: #f2f2f2 !important;
+  border: 2px solid black !important;
+  border-radius: 0px !important;
+  margin-top: 20px;
+}
+.contact-card {
+  background-color: white;
+  border: 3px solid #d1d1d1;
+  padding: 30px;
+  margin-bottom: 100px;
+}
+
+  /* ======================================== */
+/* Mobile */
+@media only screen and (max-width:599px) {
+  .form-control {
+    width: 80% !important;
   }
-  .list-item{
-  margin-bottom: 2%;
-  list-style-type: none;
+}
+
+/* ======================================== */
+/* Tablets */
+@media (min-width: 600px) and (max-width: 1049px) {
+  .form-control {
+    width: 80% !important;
   }
-  .list-item span{
-  margin-left: 10px;
-  font-size: 1.4rem;
+}
+
+/* ======================================== */
+/* Desktop */
+@media (min-width: 1050px) {
+  .form-control {
+    width: 50% !important;
   }
-  .list-item a{
-  color: white;
-  display: inline-block;
-  }
-  .list-item a:hover{
-  text-decoration: underline;
-  }
-  .form-control{
-    background-color: #f2f2f2 !important;
-    border: 2px solid black !important;
-    border-radius: 0px !important;
-  }
-  
-    
-  @media screen and (min-width: 770px){
-  .full{
-    width: 70%;
-    margin-left: 15%;
-  }
-  }
-    
-  @media screen and (min-width: 1100px){
-  .full{
-    width: 65%;
-    margin-left: 17%;
-    margin-top: 5%;
-  }
-  .lt{
-    width: 55%;
-    display: inline-block;
-    margin-right: 0;
-  }
-  .rt{
-    width: 35%;
-    display: inline-block;
-    margin-left: 0;
-  }
-  .list-item{
-  margin-bottom: 10%;
-  }
-  .contact-list{
-    margin-top: 22%;
-    padding-right: 8%;
-  }
-  .fa-envelope, .gmail{
-    display: inline-block;
-    width: auto;
-  }
-  }
-  
+}
