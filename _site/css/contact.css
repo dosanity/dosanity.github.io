@@ -29,14 +29,15 @@
 .contact-card {
   background-color: white;
   /* border: 3px solid #d1d1d1; */
+  margin-top: 0 !important;
   padding: 30px;
-  margin-bottom: 100px;
+  margin-bottom: -80px;
 }
 .form-group{
   background-color: #f6f8fa !important;
   border: 1px solid black !important;
   border-radius: 0px !important;
-  margin-top: 20px;
+  margin-bottom: 20px;
 }
 .input-left {
   text-align: left;
@@ -51,11 +52,23 @@ input:focus, textarea {
   outline: none !important;
 }
 
+.contact-section-card {
+  background-color: white;
+  border: 3px solid transparent;
+}
+
+
   /* ======================================== */
 /* Mobile */
 @media only screen and (max-width:599px) {
   .form-group {
     width: 100% !important;
+  }
+  .contact-column-one {
+    width: 100%;
+  }
+  .contact-column-two {
+    visibility: hidden;
   }
 }
 
@@ -65,12 +78,24 @@ input:focus, textarea {
   .form-group {
     width: 80% !important;
   }
+  .contact-column-one {
+    width: 75%;
+  }
+  .contact-column-two {
+    width: 25%;
+  }
 }
 
 /* ======================================== */
 /* Desktop */
 @media (min-width: 1050px) {
   .form-group {
-    width: 60% !important;
+    width: 80% !important;
+  }
+  .contact-column-one {
+    width: 75%;
+  }
+  .contact-column-two {
+    width: 25%;
   }
 }
