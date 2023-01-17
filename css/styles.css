@@ -387,14 +387,22 @@ img {
 .section-two-card {
   background-color: white;
   border: 3px solid transparent;
+  margin-bottom: 100px;
 }
 .section-two-card .row {
   margin: 15px;
 }
 
 .section-three-card {
-  background-color: white;
+  background-color: transparent;
   border: 3px solid transparent;
+  margin-top: 0 !important;
+}
+
+.home-background {
+  background-color: #1da0f283;
+  padding-bottom: 60px;
+  padding-top: 60px;
 }
 
 .blockquote {
@@ -409,10 +417,22 @@ img {
 
 .featured-projects {
   margin: 10px;
-  /* background-color: rgb(29, 161, 242, 0.3) !important;
-  border: 3px solid black !important; */
+  background-color: white !important;
+  border: 3px solid black !important;
 }
 
+/* ======================================== */
+@media only screen and (max-width: 767px) {
+  .column-3 {
+    width: 100%;
+  }
+}
+/* ======================================== */
+@media (min-width: 768px) {
+  .column-3 {
+    width: 33.33%;
+  }
+}
 
 /* ======================================== */
 /* Mobile */
@@ -444,9 +464,6 @@ img {
     font-size: 2vh;
     text-align: center;
   }
-  .column-3 {
-    width: 100%;
-  }
   .section-three-font {
     font-family: 'Hurricane', sans-serif;
     font-size: 7vh;
@@ -472,9 +489,6 @@ img {
   .home-quote-author {
     font-size: 2vmax;
     text-align: center;
-  }
-  .column-3 {
-    width: 100%;
   }
   .section-three-font {
     font-family: 'Hurricane', sans-serif;
@@ -519,9 +533,6 @@ img {
   .home-quote-author {
     font-size: 2vh;
     text-align: center;
-  }
-  .column-3 {
-    width: 33.33%;
   }
   .section-three-font {
     font-family: 'Hurricane', sans-serif;

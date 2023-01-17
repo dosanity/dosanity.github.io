@@ -173,6 +173,8 @@ class Header5 extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
 
+      <button onclick="topFunction()" id="myBtn" title="Back to top">▲</button>
+
       <link href="../css/bootstrap.min.css" rel="stylesheet">
       <link href="../css/styles.css" rel="stylesheet">
 
