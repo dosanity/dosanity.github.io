@@ -57,6 +57,30 @@ input:focus, textarea {
   border: 3px solid transparent;
 }
 
+/* ======================================== */
+/* Mobile */
+@media only screen and (max-width:599px) {
+  .button {
+    width: 80px;
+  }
+}
+
+/* ======================================== */
+/* Tablets */
+@media (min-width: 600px) and (max-width: 1049px) {
+  .button {
+    width: 100px;
+  }
+}
+
+/* ======================================== */
+/* Desktop */
+@media (min-width: 1050px) {
+  .button {
+    width: 100px;
+  }
+}
+
 
   /* ======================================== */
 /* Mobile */
