@@ -32,14 +32,16 @@ form.addEventListener("submit", function (e) {
         result.classList.add("text-red-500");
       }
     })
-    .catch((error) => {
-      console.log(error);
-      result.innerHTML = "Something went wrong!";
+    fetch(url).then((response) => {
+      if (response.ok) {
+        return response.json();
+      }
+      throw new Error('Something went wrong');
     })
-    .then(function () {
-      form.reset();
-      setTimeout(() => {
-        result.style.display = "none";
-      }, 5000);
+    .then((responseJson) => {
+      // Do something with the response
+    })
+    .catch((error) => {
+      console.log(error)
     });
 });
