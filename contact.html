@@ -24,12 +24,14 @@
 
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<link href="css/styles.css" rel="stylesheet">
+		<link href="css/contact.css" rel="stylesheet">
 
 		<script src="https://code.jquery.com/jquery-latest.js" type="text/javascript"></script>
 		<script src="js/jquery.isotope.js" type="text/javascript"></script>
 		<script src="js/filter.js" type="text/javascript"></script>
 		<script src="js/bootstrap.bundle.min.js"></script>
 		<script src="js/template.js" type="text/javascript" defer></script>
+		
 		<!-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> -->
 		{% seo %}
 	</head>
@@ -58,6 +60,97 @@
 				</div>
 			</div>
 		</section>
+
+		<section id="last">
+			<!-- heading -->
+			<div class="full">
+			  <h3>Leave a Message</h3>
+	   
+			  <div class="lt">
+	   
+				<!-- form starting  -->
+				<form class="form-horizontal"
+					  method="post" action="contact.php">
+				  <div class="form-group center">
+					<div class="col-sm-12">
+					  <!-- name  -->
+					  <input
+						type="text"
+						class="form-control"
+						id="name"
+						placeholder="Name"
+						name="name"
+						value=""
+					  />
+					</div>
+				  </div>
+	   
+				  <div class="form-group center">
+					<div class="col-sm-12">
+					  <!-- email  -->
+					  <input
+						type="email"
+						class="form-control"
+						id="email"
+						placeholder="Email"
+						name="email"
+						value=""
+					  />
+					</div>
+				  </div>
+	   
+				  <div class="col-sm-12">
+					<!-- message  -->
+					<textarea
+						class="form-control center"
+						rows="10"
+						placeholder="Message"
+						name="message"></textarea>
+					</div>
+	   
+				  <button
+					class="btn-primary send-button center"
+					id="submit"
+					type="submit"
+					value="SEND">
+					<i class="fa fa-paper-plane"></i>
+					<span class="send-text">SEND</span>
+				  </button>
+				</form>
+				<!-- end of form -->
+			  </div>
+	   
+			  <!-- Contact information -->
+			  <!-- <div class="rt">
+				<ul class="contact-list">
+				  <li class="list-item">
+					<i class="fa fa-map-marker fa-1x">
+					  <span class="contact-text place">
+						your address
+					  </span>
+				   </i>
+				  </li>
+	   
+				  <li class="list-item">
+					<i class="fa fa-envelope fa-1x">
+					  <span class="contact-text gmail">
+						<a href="mailto:yourmail@gmail.com" title="Send me an email">
+						  email@gmail.com</a>
+					  </span>
+					</i>
+				  </li>
+	   
+				  <li class="list-item">
+					<i class="fa fa-phone fa-1x">
+					  <span class="contact-text phone">
+						(033) 12345678
+					  </span>
+					</i>
+				  </li>
+				</ul>
+			  </div> -->
+			</div>
+		  </section>
 
 		<br>
 		<br>
