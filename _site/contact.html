@@ -29,7 +29,6 @@
 		<script src="js/filter.js" type="text/javascript"></script>
 		<script src="js/bootstrap.bundle.min.js"></script>
 		<script src="js/template.js" type="text/javascript" defer></script>
-		<script src="js/contact.js" type="text/javascript" defer></script>
 		
 		<!-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> -->
 		<!-- Begin Jekyll SEO tag v2.8.0 -->
@@ -92,24 +91,20 @@
 					Leave a Message
 				</h3>
 				<div class="col-sm-12 full">
-					<form action="https://api.web3forms.com/submit" method="POST" id="form">
-						<input type="hidden" name="access_key" value="2c36977b-14b6-4715-ab24-22ae9b2462bc" />
-						<input type="hidden" name="subject" value="www.dosanity.com" />
-						<input type="checkbox" name="botcheck" id="" style="display: none;" />
+					<form action="https://api.web3forms.com/submit" method="POST">
+						<input type="hidden" name="access_key" value="2c36977b-14b6-4715-ab24-22ae9b2462bc"/>
+						<input type="hidden" name="subject" value="Message" />
 			
 						<div align="center">
 							<input type="text" name="name" id="name" placeholder="Full Name" required class="form-control"/>
 							<input type="email" name="email" id="email" placeholder="Email" required class="form-control"/>
 							<textarea rows="10" name="message" id="message" placeholder="Your Message" class="form-control" required></textarea>
-							<input type="hidden" name="redirect" value="https://web3forms.com/success">
+							<!-- <input type="hidden" name="redirect" value="https://web3forms.com/success"> -->
 						</div>
 
-						<div class="mb-6">
 						<button type="submit" class="btn-primary center">
 							SEND
 						</button>
-						</div>
-						<p class="text-base text-center text-gray-400" id="result"></p>
 					</form>
 				</div>
 			</div>
