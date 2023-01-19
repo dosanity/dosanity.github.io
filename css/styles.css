@@ -275,7 +275,6 @@ img {
   text-align: center;
   text-decoration: none;
   width: 200px;
-  z-index: 99;
 }
 
 .home-btn:hover {
@@ -434,7 +433,6 @@ img {
   border-radius: 2px;
   animation: jumpInfinite 1.5s infinite;
   color: white;
-  z-index: 0;
 }
 
 .down-arrow:after {
@@ -448,7 +446,6 @@ img {
   border-right: 4px solid;
   /* border-radius: 4px; */
   transform: rotateZ(45deg);
-  z-index: 0;
 }
 
 @keyframes jumpInfinite {
@@ -546,7 +543,7 @@ img {
     font-size: 90px;
   }
   .down-arrow {
-    top: calc(100vh - 150px);
+    top: calc(100vh - 80px);
   }
 }
 
