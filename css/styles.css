@@ -434,6 +434,7 @@ img {
   border-radius: 2px;
   animation: jumpInfinite 1.5s infinite;
   color: white;
+  z-index: 0;
 }
 
 .down-arrow:after {
@@ -447,6 +448,7 @@ img {
   border-right: 4px solid;
   /* border-radius: 4px; */
   transform: rotateZ(45deg);
+  z-index: 0;
 }
 
 @keyframes jumpInfinite {
