@@ -514,6 +514,7 @@ img {
     font-size: 7.5vh;
   }
   .down-arrow {
+    display: hidden;
     top: calc(100vh - 130px);
   }
 }
@@ -543,6 +544,7 @@ img {
     font-size: 90px;
   }
   .down-arrow {
+    display: hidden;
     top: calc(100vh - 80px);
   }
 }
