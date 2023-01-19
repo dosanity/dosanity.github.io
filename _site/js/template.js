@@ -428,13 +428,13 @@ function closeNav2() {
 
 function toggleNav3(){
   navSize = document.getElementById("mySidenav3").style.width;
-  if (navSize === "100%" | navSize === "450px") {
-    return closeNav3();
-  }
-  else {
+  // if (navSize === "100%" | navSize === "450px") {
+  //   return closeNav3();
+  // }
+  // else {
     return openNav3();
     
-  }
+  // }
 }
 function openNav3() {
   if( screen.width <= 599 ) {
