@@ -35,7 +35,7 @@ class Header1 extends HTMLElement {
                         <a href="../gallery"><b>Gallery</b></a>
                         <a href="../about"><b>About</b></a>
                         <a href="../contact"><b>Contact</b></a>
-                        <a href="../assets/pdf/Anthony_ResumeATS.pdf"><b>Resume</b></a>
+                        <a href="../assets/pdf/Anthony_ResumeATS.pdf" target="_blank" rel="noopener noreferrer"><b>Resume</b></a>
                     </ul>
                 </div>
             </div>
@@ -76,7 +76,7 @@ class Header2 extends HTMLElement {
                       <a class="active" href="../gallery"><b>Gallery</b></a>
                       <a href="../about"><b>About</b></a>
                       <a href="../contact"><b>Contact</b></a>
-                      <a href="../assets/pdf/Anthony_ResumeATS.pdf"><b>Resume</b></a>
+                      <a href="../assets/pdf/Anthony_ResumeATS.pdf" target="_blank" rel="noopener noreferrer"><b>Resume</b></a>
                   </ul>
               </div>
           </div>
@@ -115,7 +115,7 @@ class Header3 extends HTMLElement {
                       <a href="../gallery"><b>Gallery</b></a>
                       <a class="active" href="../about.html"><b>About</b></a>
                       <a href="../contact"><b>Contact</b></a>
-                      <a href="../assets/pdf/Anthony_ResumeATS.pdf"><b>Resume</b></a>
+                      <a href="../assets/pdf/Anthony_ResumeATS.pdf" target="_blank" rel="noopener noreferrer"><b>Resume</b></a>
                   </ul>
               </div>
           </div>
@@ -154,7 +154,7 @@ class Header4 extends HTMLElement {
                       <a href="../gallery"><b>Gallery</b></a>
                       <a href="../about"><b>About</b></a>
                       <a class="active" href="../contact"><b>Contact</b></a>
-                      <a href="../assets/pdf/Anthony_ResumeATS.pdf"><b>Resume</b></a>
+                      <a href="../assets/pdf/Anthony_ResumeATS.pdf" target="_blank" rel="noopener noreferrer"><b>Resume</b></a>
                   </ul>
               </div>
           </div>
@@ -195,7 +195,7 @@ class Header5 extends HTMLElement {
                       <a href="../gallery"><b>Gallery</b></a>
                       <a href="../about"><b>About</b></a>
                       <a href="../contact"><b>Contact</b></a>
-                      <a href="../assets/pdf/Anthony_ResumeATS.pdf"><b>Resume</b></a>
+                      <a href="../assets/pdf/Anthony_ResumeATS.pdf" target="_blank" rel="noopener noreferrer"><b>Resume</b></a>
                   </ul>
               </div>
           </div>
@@ -234,7 +234,7 @@ class Header6 extends HTMLElement {
                       <a href="../gallery"><b>Gallery</b></a>
                       <a href="../about"><b>About</b></a>
                       <a href="../contact"><b>Contact</b></a>
-                      <a href="../assets/pdf/Anthony_ResumeATS.pdf"><b>Resume</b></a>
+                      <a href="../assets/pdf/Anthony_ResumeATS.pdf" target="_blank" rel="noopener noreferrer"><b>Resume</b></a>
                   </ul>
               </div>
           </div>
