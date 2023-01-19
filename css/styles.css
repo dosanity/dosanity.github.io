@@ -430,7 +430,7 @@ img {
   width: 0;
   height: 30px;
   border: 2px solid;
-  border-radius: 2px;
+  /* border-radius: 2px; */
   animation: jumpInfinite 1.5s infinite;
   color: white;
 }

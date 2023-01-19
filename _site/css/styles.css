@@ -430,7 +430,7 @@ img {
   width: 0;
   height: 30px;
   border: 2px solid;
-  border-radius: 2px;
+  /* border-radius: 2px; */
   animation: jumpInfinite 1.5s infinite;
   color: white;
 }
@@ -491,7 +491,7 @@ img {
     position: absolute;
     bottom: 190px;
     left: 0;
-    right: 0
+    right: 0;
   }
   .section-one-font {
     font-family: 'Hurricane', sans-serif;
@@ -514,8 +514,8 @@ img {
     font-size: 7.5vh;
   }
   .down-arrow {
-    display: none;
-    /* top: calc(100vh - 130px); */
+    /* display: none; */
+    top: calc(100vh - 140px);
   }
 }
 
