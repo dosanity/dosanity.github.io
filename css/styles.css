@@ -275,6 +275,7 @@ img {
   text-align: center;
   text-decoration: none;
   width: 200px;
+  z-index: 99;
 }
 
 .home-btn:hover {
