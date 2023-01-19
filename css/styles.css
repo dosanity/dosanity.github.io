@@ -426,8 +426,7 @@ img {
 
 .down-arrow {
   position: absolute;
-  top: calc(100vh - 60px);
-  left: calc(50% - 14px);
+  left: calc(50%);
   width: 0;
   height: 30px;
   border: 2px solid;
@@ -514,6 +513,9 @@ img {
     font-family: 'Hurricane', sans-serif;
     font-size: 7.5vh;
   }
+  .down-arrow {
+    top: calc(100vh - 150px);
+  }
 }
 
 /* ======================================== */
@@ -539,6 +541,9 @@ img {
   .section-three-font {
     font-family: 'Hurricane', sans-serif;
     font-size: 90px;
+  }
+  .down-arrow {
+    top: calc(100vh - 150px);
   }
 }
 
@@ -583,6 +588,9 @@ img {
   .section-three-font {
     font-family: 'Hurricane', sans-serif;
     font-size: 90px;
+  }
+  .down-arrow {
+    top: calc(100vh - 80px);
   }
 }
 
