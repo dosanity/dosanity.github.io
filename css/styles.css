@@ -514,8 +514,8 @@ img {
     font-size: 7.5vh;
   }
   .down-arrow {
-    display: none;
-    /* top: calc(100vh - 130px); */
+    /* display: none; */
+    top: calc(100vh - 140px);
   }
 }
 
