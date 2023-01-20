@@ -32,6 +32,9 @@
 		<script src="js/bootstrap.bundle.min.js"></script>
 		<script src="js/template.js" type="text/javascript" defer></script>
 		<script src="js/contact.js" type="text/javascript" defer></script>
+
+		<!-- Load Stripe.js on your website. -->
+		<script src="https://js.stripe.com/v3"></script>
 		
 		<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 		{% seo %}
@@ -59,7 +62,7 @@
 					<a href="mailto:anthonydo888@gmail.com"><img class="button" src="assets/images/icons/email.png" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400"></a>
 					<a href="https://www.linkedin.com/in/dosanity/"><img class="button" src="assets/images/icons/linkedin.png" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600"></a>
 					<a href="https://github.com/dosanity"><img class="button" src="assets/images/icons/github.png" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="800"></a>
-
+				
 				</div>
 			</div>
 		</section>
@@ -181,6 +184,165 @@
 				<!-- </a> -->
 
 			</div>
+			<section>
+				<div class="container">
+	
+					<div align="center">
+						<!-- <button class="button" id="checkout-button-price_1MSDzYBgLpeh9AGWdXlHfz8W" role="link" type="button">
+							<img src="../assets/images/icons/shopping.png" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+						</button> -->
+					</div>
+				</div>
+				<section class="home-background">
+					<div class="container section-three-card">
+						<div align="center">
+							<h1 class="section-three-font" data-aos="fade-in" data-aos-duration="1000">Freelance Services</h1>
+							<hr>
+						</div>
+						
+						<div class="row" data-aos="fade-up" data-aos-duration="1000">
+							<div class="column-shopping">
+								<button class="shopping" id="checkout-button-price_1MSDzYBgLpeh9AGWdXlHfz8W" role="link" type="button">
+									<div class="card featured-projects">
+										
+											<img class="card-img-top" src="../assets/images/icons/link.png">
+										<div class="card-body">
+											<center>
+												<h4 class="card-title">Content Creator Website</h4>
+											</center>
+											<div class="shopping-card-text">
+												<p>✓ Functional Website</p>
+												<p>✓ Responsive Design</p>
+												<p>✓ Mobile Compatibility</p>
+											</div>
+
+
+											
+										</div>
+									</div>
+								</button>
+							</div>
+							<div class="column-shopping">
+								<button class="shopping" id="checkout-button-price_1MSGNTBgLpeh9AGWds4Bkoq2" role="link" type="button">
+									<div class="card featured-projects">
+										
+											<img class="card-img-top" src="../assets/images/icons/logo.png">
+										<div class="card-body">
+											<center>
+												<h4 class="card-title">New Logo Design</h4>
+											</center>
+											<div class="shopping-card-text">
+												<p>✓ Logo Transparency</p>
+												<p>✓ High-Quality Vector</p>
+												<p>✓ Three Color Concept</p>
+											</div>
+
+
+											
+										</div>
+									</div>
+								</button>
+							</div>
+							<div class="column-shopping">
+								<button class="shopping" id="" role="link" type="button">
+									<div class="card featured-projects">
+										
+											<img class="card-img-top" src="../assets/images/icons/prints.png">
+										<div class="card-body">
+											<center>
+												<h4 class="card-title">Creative Prints</h4>
+											</center>
+											<div class="shopping-card-text">
+												<p>(Coming Soon)</p>
+											</div>
+
+
+											
+										</div>
+									</div>
+								</button>
+							</div>
+						</div>
+		
+					</div>
+				</section>
+			</section>
+
+
+			<div id="error-message"></div>
+
+			<script>
+				(function() {
+				var stripe = Stripe('pk_test_51MS8teBgLpeh9AGW85JCOR4f1AMexg01AhZOMdOpz2QScKTWfE4JAsC3SYf5GNrOeEsBtdD3yYBQtzpDsV9Y7ebe00PSyTptXN');
+
+				var checkoutButton = document.getElementById('checkout-button-price_1MSDzYBgLpeh9AGWdXlHfz8W');
+				checkoutButton.addEventListener('click', function () {
+					/*
+					* When the customer clicks on the button, redirect
+					* them to Checkout.
+					*/
+					stripe.redirectToCheckout({
+					lineItems: [{price: 'price_1MSDzYBgLpeh9AGWdXlHfz8W', quantity: 1}],
+					mode: 'payment',
+					/*
+					* Do not rely on the redirect to the successUrl for fulfilling
+					* purchases, customers may not always reach the success_url after
+					* a successful payment.
+					* Instead use one of the strategies described in
+					* https://stripe.com/docs/payments/checkout/fulfill-orders
+					*/
+					successUrl: 'http://dosanity.com/services/success',
+					cancelUrl: 'http://dosanity.com/contact',
+					})
+					.then(function (result) {
+					if (result.error) {
+						/*
+						* If `redirectToCheckout` fails due to a browser or network
+						* error, display the localized error message to your customer.
+						*/
+						var displayError = document.getElementById('error-message');
+						displayError.textContent = result.error.message;
+					}
+					});
+				});
+				})();
+
+				(function() {
+				var stripe = Stripe('pk_test_51MS8teBgLpeh9AGW85JCOR4f1AMexg01AhZOMdOpz2QScKTWfE4JAsC3SYf5GNrOeEsBtdD3yYBQtzpDsV9Y7ebe00PSyTptXN');
+
+				var checkoutButton = document.getElementById('checkout-button-price_1MSGNTBgLpeh9AGWds4Bkoq2');
+				checkoutButton.addEventListener('click', function () {
+					/*
+					* When the customer clicks on the button, redirect
+					* them to Checkout.
+					*/
+					stripe.redirectToCheckout({
+					lineItems: [{price: 'price_1MSGNTBgLpeh9AGWds4Bkoq2', quantity: 1}],
+					mode: 'payment',
+					/*
+					* Do not rely on the redirect to the successUrl for fulfilling
+					* purchases, customers may not always reach the success_url after
+					* a successful payment.
+					* Instead use one of the strategies described in
+					* https://stripe.com/docs/payments/checkout/fulfill-orders
+					*/
+					successUrl: 'http://dosanity.com/services/success',
+					cancelUrl: 'http://dosanity.com/contact',
+					})
+					.then(function (result) {
+					if (result.error) {
+						/*
+						* If `redirectToCheckout` fails due to a browser or network
+						* error, display the localized error message to your customer.
+						*/
+						var displayError = document.getElementById('error-message');
+						displayError.textContent = result.error.message;
+					}
+					});
+				});
+				})();
+			</script>
+
 		</section>
 
 

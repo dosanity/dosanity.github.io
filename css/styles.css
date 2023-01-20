@@ -903,6 +903,58 @@ img {
   width: 150px;
   border: 4px solid transparent;
   cursor: pointer;
+  outline: none;
+}
+
+.button:hover {
+  border: none;
+  text-decoration: none;
+  outline: none;
+}
+
+button:focus { 
+  outline: none; 
+}
+
+.shopping:focus {
+  outline: none; 
+}
+
+.shopping {
+  border: none !important;
+  background-color: transparent !important;
+  cursor: pointer !important;
+  width: 100%;
+}
+
+.shopping-card-text {
+  /* font-weight: bold; */
+  text-align: center;
+  margin-left: auto;
+}
+
+/* ======================================== */
+/* Mobile */
+@media only screen and (max-width:599px) {
+  .column-shopping {
+    width: 100%;
+  }
+}
+
+/* ======================================== */
+/* Tablets */
+@media (min-width: 600px) and (max-width: 1049px) {
+  .column-shopping {
+    width: 100%;
+  }
+}
+
+/* ======================================== */
+/* Desktop */
+@media (min-width: 1050px) {
+  .column-shopping {
+    width: 33.33%;
+  }
 }
 
 /* ==================================================================================== */

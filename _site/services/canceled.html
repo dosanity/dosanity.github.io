@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link rel="icon" type="image/png" sizes="32x32" href="../favicons/favicon.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="../favicons/favicon.png">
+		<meta name="theme-color" content="#ffffff">
+
+		<script>
+			window.dataLayer = window.dataLayer || [];
+		  	function gtag(){dataLayer.push(arguments);}
+		  	gtag('js', new Date());
+		  	gtag('config', 'UA-110543961-1');
+		</script>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<meta name="description" content="Anthony Do - Portfolio; Machine Learning, Data Analysis">
+		<meta name="keywords" content="Machine Learning, Data Analysis">
+		<meta name="author" content="Anthony Do">
+
+		<title>Anthony Do</title>
+
+		<link href="../css/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/styles.css" rel="stylesheet">
+		<link href="../css/services.css" rel="stylesheet">
+
+		<script src="https://code.jquery.com/jquery-latest.js" type="text/javascript"></script>
+		<script src="../js/jquery.isotope.js" type="text/javascript"></script>
+		<script src="../js/filter.js" type="text/javascript"></script>
+		<script src="../js/bootstrap.bundle.min.js"></script>
+        <script src="../js/template.js" type="text/javascript" defer></script>
+
+        <link rel="stylesheet" href="../css/code-highlight.css">
+        <script src="../js/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+		<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Anthony Do | Data scientist &amp; mathematician knowledgeable in statistical analysis and visualizations to utilize the power of data. &lt;div class=&quot;center&quot;&gt; Resume LinkedIn Profile &lt;/div&gt;</title>
+<meta name="generator" content="Jekyll v4.3.1" />
+<meta property="og:title" content="Anthony Do" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Data scientist &amp; mathematician knowledgeable in statistical analysis and visualizations to utilize the power of data. &lt;div class=&quot;center&quot;&gt; Resume LinkedIn Profile &lt;/div&gt;" />
+<meta property="og:description" content="Data scientist &amp; mathematician knowledgeable in statistical analysis and visualizations to utilize the power of data. &lt;div class=&quot;center&quot;&gt; Resume LinkedIn Profile &lt;/div&gt;" />
+<link rel="canonical" href="http://localhost:4000/services/canceled.html" />
+<meta property="og:url" content="http://localhost:4000/services/canceled.html" />
+<meta property="og:site_name" content="Anthony Do" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Anthony Do" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Data scientist &amp; mathematician knowledgeable in statistical analysis and visualizations to utilize the power of data. &lt;div class=&quot;center&quot;&gt; Resume LinkedIn Profile &lt;/div&gt;","headline":"Anthony Do","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/img/profile2.jpg"}},"url":"http://localhost:4000/services/canceled.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+	</head>
+
+  	<body>
+
+
+
+		<!-- Load Stripe.js on your website. -->
+		<script src="https://js.stripe.com/v3"></script>
+
+		<button
+			class="button"
+			id="checkout-button-price_1MSDzYBgLpeh9AGWdXlHfz8W"
+			role="link"
+			type="button"
+			>
+			<img src="../assets/images/icons/shopping.png" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+		</button>
+
+		<div id="error-message"></div>
+
+		<script>
+			(function() {
+			var stripe = Stripe('pk_test_51MS8teBgLpeh9AGW85JCOR4f1AMexg01AhZOMdOpz2QScKTWfE4JAsC3SYf5GNrOeEsBtdD3yYBQtzpDsV9Y7ebe00PSyTptXN');
+
+			var checkoutButton = document.getElementById('checkout-button-price_1MSDzYBgLpeh9AGWdXlHfz8W');
+			checkoutButton.addEventListener('click', function () {
+				/*
+				* When the customer clicks on the button, redirect
+				* them to Checkout.
+				*/
+				stripe.redirectToCheckout({
+				lineItems: [{price: 'price_1MSDzYBgLpeh9AGWdXlHfz8W', quantity: 1}],
+				mode: 'payment',
+				/*
+				* Do not rely on the redirect to the successUrl for fulfilling
+				* purchases, customers may not always reach the success_url after
+				* a successful payment.
+				* Instead use one of the strategies described in
+				* https://stripe.com/docs/payments/checkout/fulfill-orders
+				*/
+				successUrl: 'http://dosanity.com/services/success',
+				cancelUrl: 'http://dosanity.com/',
+				})
+				.then(function (result) {
+				if (result.error) {
+					/*
+					* If `redirectToCheckout` fails due to a browser or network
+					* error, display the localized error message to your customer.
+					*/
+					var displayError = document.getElementById('error-message');
+					displayError.textContent = result.error.message;
+				}
+				});
+			});
+			})();
+		</script>
+
+
+		<br>
+		<br>
+
+		<div class="static-bottom">
+			<footer-component2></footer-component2>
+		</div>
+
+		<!-- aos script -->
+		<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+		<script>
+			AOS.init({once: true});
+		</script>
+	</body>
+</html>
