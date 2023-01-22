@@ -298,7 +298,7 @@ img {
   }
   .progress-wrap:hover svg.progress-circle path {
     stroke: white;
-    stroke-width: 5;
+    stroke-width: 10;
     box-sizing:border-box;
   }
 }
