@@ -227,7 +227,7 @@ img {
 	font-size: 18px;
 	color: rgba(0, 0, 0);
 	left: 0;
-	top: 0;
+	top: -1px;
 	height: 59px;
 	width: 49px;
 	cursor: pointer;
@@ -247,7 +247,7 @@ img {
 	background: white;
 	-webkit-background-clip: text;
 	left: 0;
-	top: 0;
+	top: -1px;
 	height: 59px;
 	width: 49px;
 	cursor: pointer;
@@ -260,8 +260,9 @@ img {
 	fill: none; 
 }
 .progress-wrap svg.progress-circle path {
-	stroke: rgba(0, 0, 0, 0.2);
-	stroke-width: 5;
+	/* stroke: rgba(0, 0, 0, 0.2); */
+  stroke: #1DA1F2;
+	stroke-width: 10;
 	/* box-sizing:border-box; */
 }
 
@@ -354,7 +355,7 @@ img {
 }
 
 .background {
-  background-image: url("../assets/images/photos/background.jpg");
+  background-image: url("../assets/images/photos/background.webp");
   background-repeat: no-repeat; 
   background-position-y: 65%;
   background-position-x: center;
