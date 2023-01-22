@@ -658,6 +658,10 @@ img {
   opacity: 0.7;
 }
 
+.carousel-item img {
+  vertical-align: middle;
+}
+
 .close {
   cursor: pointer;
 }
@@ -681,7 +685,9 @@ img {
 /* ======================================== */
 /* Desktop */
 @media (min-width: 1050px) {
-  
+  .modal {
+    margin-top:3%;
+  }
 }
 
 /* ==================================================================================== */
