@@ -183,22 +183,6 @@ img {
   max-width: 100%;
 }
 
-#myBtn {
-  display: none; /* Hidden by default */
-  border: 3px solid black;
-  outline: none; /* Remove outline */
-  background-color: white; /* Set a background color */
-  color: black; /* Text color */
-  cursor: pointer; /* Add a mouse pointer on hover */
-  border-radius: 10px; /* Rounded corners */
-  font-size: 18px; /* Increase font size */
-  padding: 0;
-  transition-duration: 0.2s;
-  height: 65px;
-  width: 55px;
-  text-align: center;
-}
-
 /* Style the header: fixed position (always stay at the top) */
 .header {
   position: fixed;
@@ -213,46 +197,109 @@ img {
   height: 100%;
 }
 
+/* Back To Top */
+
+.progress-wrap {
+  position: fixed;
+	height: 65px;
+	width: 55px;
+	cursor: pointer;
+	display: block;
+	border-radius: 10px;
+	z-index: 10000;
+	opacity: 0;
+	visibility: hidden;
+	transform: translateY(15px);
+  background-color: white;
+  border: 3px solid black;
+}
+
+.progress-wrap.active-progress {
+	opacity: 1;
+	visibility: visible;
+	transform: translateY(0);
+}
+.progress-wrap::after {
+	position: absolute;
+	content: '▲';
+	text-align: center;
+	line-height: 59px;
+	font-size: 18px;
+	color: rgba(0, 0, 0);
+	left: 0;
+	top: 0;
+	height: 59px;
+	width: 49px;
+	cursor: pointer;
+	display: block;
+	z-index: 1;
+}
+.progress-wrap:hover::after {
+	opacity: 0;
+}
+.progress-wrap::before {
+	position: absolute;
+	content: '▲';
+	text-align: center;
+	line-height: 59px;
+	font-size: 18px;
+	opacity: 0;
+	background: white;
+	-webkit-background-clip: text;
+	left: 0;
+	top: 0;
+	height: 59px;
+	width: 49px;
+	cursor: pointer;
+	z-index: 2;
+}
+.progress-wrap:hover::before {
+	opacity: 1;
+}
+.progress-wrap svg path { 
+	fill: none; 
+}
+.progress-wrap svg.progress-circle path {
+	stroke: rgba(0, 0, 0, 0.2);
+	stroke-width: 5;
+	/* box-sizing:border-box; */
+}
+
+
 /* ======================================== */
 /* Mobile */
 @media only screen and (max-width:599px) {
-  #myBtn {
-    position: fixed; /* Fixed/sticky position */
+  .progress-wrap {
     bottom: 28px; /* Place the button at the bottom of the page */
     right: 20px; /* Place the button 30px from the right */
-    z-index: 99; /* Make sure it does not overlap */
   }
 }
 
 /* ======================================== */
 /* Tablets */
 @media (min-width: 600px) and (max-width: 1049px) {
-  #myBtn {
-    position: fixed; /* Fixed/sticky position */
+  .progress-wrap {
     bottom: 28px; /* Place the button at the bottom of the page */
     right: 20px; /* Place the button 30px from the right */
-    z-index: 99; /* Make sure it does not overlap */
   }
 }
 
 /* ======================================== */
 /* Desktop */
 @media (min-width: 1050px) {
-  #myBtn {
-    position: fixed; /* Fixed/sticky position */
-    bottom: 40px; /* Place the button at the bottom of the page */
-    right: 30px; /* Place the button 30px from the right */
-    z-index: 99; /* Make sure it does not overlap */
+  .progress-wrap {
+    bottom: 40px;
+    right: 30px;
   }
-  #myBtn:hover {
-    background-color: black;
+  .progress-wrap:hover{
     color: white;
-    border: 3px solid black;
-    border-radius: 10px;
+    background-color: black;
   }
-  /* .navbar .container {
-    max-width: 100%;
-  } */
+  .progress-wrap:hover svg.progress-circle path {
+    stroke: white;
+    stroke-width: 5;
+    box-sizing:border-box;
+  }
 }
 
 /* ==================================================================================== */
@@ -1644,19 +1691,17 @@ td {
 
 /* ==================================================================================== */
 
+/* #Progress
+================================================== */
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* Desktop */
+@media (min-width: 1050px) {
+  #myBtn {
+    position: fixed; /* Fixed/sticky position */
+    bottom: 40px; /* Place the button at the bottom of the page */
+    right: 30px; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+  }
+}

@@ -12,7 +12,11 @@ class Header1 extends HTMLElement {
     connectedCallback() {
       this.innerHTML = `
 
-        <button onclick="topFunction()" id="myBtn" title="Back to top">▲</button>
+        <div class="progress-wrap" onclick="topFunction()">
+            <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+                <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"/>
+            </svg>
+        </div>
 
         <link href="../css/bootstrap.min.css" rel="stylesheet">
         <link href="../css/styles.css" rel="stylesheet">
@@ -54,7 +58,11 @@ class Header2 extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
 
-      <button onclick="topFunction()" id="myBtn" title="Back to top">▲</button>
+      <div class="progress-wrap" onclick="topFunction()">
+          <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+              <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"/>
+          </svg>
+      </div>
 
       <link href="../css/bootstrap.min.css" rel="stylesheet">
       <link href="../css/styles.css" rel="stylesheet">
@@ -173,7 +181,11 @@ class Header5 extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
 
-      <button onclick="topFunction()" id="myBtn" title="Back to top">▲</button>
+      <div class="progress-wrap" onclick="topFunction()">
+          <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+              <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"/>
+          </svg>
+      </div>
 
       <link href="../css/bootstrap.min.css" rel="stylesheet">
       <link href="../css/styles.css" rel="stylesheet">
@@ -313,32 +325,72 @@ customElements.define('footer-component2', Footer2);
 
 // ====================================================================================
 
-let mybutton = document.getElementById("myBtn");
-let downarrow = document.getElementById("down-arrow")
+// let mybutton = document.getElementById("myBtn");
+// let downarrow = document.getElementById("down-arrow")
 
-// When the user scrolls down 20px from the top of the document, show the button
-window.onscroll = function() {scrollFunction()};
+// // When the user scrolls down 20px from the top of the document, show the button
+// window.onscroll = function() {scrollFunction()};
 
-function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    mybutton.style.display = "block";
-    // downarrow.style.display = "none";
-  } else {
-    mybutton.style.display = "none";
-    // downarrow.style.display = "block";
+// function scrollFunction() {
+//   if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+//     mybutton.style.display = "block";
+//     // downarrow.style.display = "none";
+//   } else {
+//     mybutton.style.display = "none";
+//     // downarrow.style.display = "block";
 
-  }
-  var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-  var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-  var scrolled = (winScroll / height) * 100;
-  document.getElementById("myBar").style.width = scrolled + "%";
-}
+//   }
+//   var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+//   var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+//   var scrolled = (winScroll / height) * 100;
+//   document.getElementById("myBar").style.width = scrolled + "%";
+// }
 
 // When the user clicks on the button, scroll to the top of the document
 function topFunction() {
   document.body.scrollTop = 0; // For Safari
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
+
+//Scroll back to top
+
+(function($) { "use strict";
+
+	$(document).ready(function(){"use strict";
+		
+		var progressPath = document.querySelector('.progress-wrap path');
+		var pathLength = progressPath.getTotalLength();
+		progressPath.style.transition = progressPath.style.WebkitTransition = 'none';
+		progressPath.style.strokeDasharray = pathLength + ' ' + pathLength;
+		progressPath.style.strokeDashoffset = pathLength;
+		progressPath.getBoundingClientRect();
+		progressPath.style.transition = progressPath.style.WebkitTransition = 'stroke-dashoffset 10ms linear';		
+		var updateProgress = function () {
+			var scroll = $(window).scrollTop();
+			var height = $(document).height() - $(window).height();
+			var progress = pathLength - (scroll * pathLength / height);
+			progressPath.style.strokeDashoffset = progress;
+		}
+		updateProgress();
+		$(window).scroll(updateProgress);	
+		var offset = 50;
+		jQuery(window).on('scroll', function() {
+			if (jQuery(this).scrollTop() > offset) {
+				jQuery('.progress-wrap').addClass('active-progress');
+			} else {
+				jQuery('.progress-wrap').removeClass('active-progress');
+			}
+		});				
+		// jQuery('.progress-wrap').on('click', function(event) {
+		// 	event.preventDefault();
+		// 	jQuery('html, body').animate({scrollTop: 0});
+		// 	return false;
+		// })
+		
+		
+	});
+	
+})(jQuery); 
 
 // ====================================================================================
 
