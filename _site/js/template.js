@@ -20,6 +20,7 @@ class Header1 extends HTMLElement {
 
         <link href="../css/bootstrap.min.css" rel="stylesheet">
         <link href="../css/styles.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
 
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
 
@@ -40,6 +41,7 @@ class Header1 extends HTMLElement {
                         <a href="../about"><b>About</b></a>
                         <a href="../contact"><b>Contact</b></a>
                         <a href="../assets/pdf/Anthony_ResumeATS.pdf" target="_blank" rel="noopener noreferrer"><b>Resume</b></a>
+                        <a href="../shop"><i class="fa fa-shopping-bag"></i></a>
                     </ul>
                 </div>
             </div>
@@ -66,6 +68,7 @@ class Header2 extends HTMLElement {
 
       <link href="../css/bootstrap.min.css" rel="stylesheet">
       <link href="../css/styles.css" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
 
       <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
           <div class="container">
@@ -85,6 +88,7 @@ class Header2 extends HTMLElement {
                       <a href="../about"><b>About</b></a>
                       <a href="../contact"><b>Contact</b></a>
                       <a href="../assets/pdf/Anthony_ResumeATS.pdf" target="_blank" rel="noopener noreferrer"><b>Resume</b></a>
+                      <a href="../shop"><i class="fa fa-shopping-bag"></i></a>
                   </ul>
               </div>
           </div>
@@ -105,6 +109,7 @@ class Header3 extends HTMLElement {
 
       <link href="../css/bootstrap.min.css" rel="stylesheet">
       <link href="../css/styles.css" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
 
       <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
           <div class="container">
@@ -124,6 +129,7 @@ class Header3 extends HTMLElement {
                       <a class="active" href="../about.html"><b>About</b></a>
                       <a href="../contact"><b>Contact</b></a>
                       <a href="../assets/pdf/Anthony_ResumeATS.pdf" target="_blank" rel="noopener noreferrer"><b>Resume</b></a>
+                      <a href="../shop"><i class="fa fa-shopping-bag"></i></a>
                   </ul>
               </div>
           </div>
@@ -144,6 +150,7 @@ class Header4 extends HTMLElement {
 
       <link href="../css/bootstrap.min.css" rel="stylesheet">
       <link href="../css/styles.css" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
 
       <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
           <div class="container">
@@ -163,6 +170,7 @@ class Header4 extends HTMLElement {
                       <a href="../about"><b>About</b></a>
                       <a class="active" href="../contact"><b>Contact</b></a>
                       <a href="../assets/pdf/Anthony_ResumeATS.pdf" target="_blank" rel="noopener noreferrer"><b>Resume</b></a>
+                      <a href="../shop"><i class="fa fa-shopping-bag"></i></a>
                   </ul>
               </div>
           </div>
@@ -189,6 +197,7 @@ class Header5 extends HTMLElement {
 
       <link href="../css/bootstrap.min.css" rel="stylesheet">
       <link href="../css/styles.css" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
 
       <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
           <div class="container">
@@ -208,6 +217,7 @@ class Header5 extends HTMLElement {
                       <a href="../about"><b>About</b></a>
                       <a href="../contact"><b>Contact</b></a>
                       <a href="../assets/pdf/Anthony_ResumeATS.pdf" target="_blank" rel="noopener noreferrer"><b>Resume</b></a>
+                      <a href="../shop"><i class="fa fa-shopping-bag"></i></a>
                   </ul>
               </div>
           </div>
@@ -228,6 +238,7 @@ class Header6 extends HTMLElement {
 
       <link href="../css/bootstrap.min.css" rel="stylesheet">
       <link href="../css/styles.css" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
 
       <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
           <div class="container">
@@ -247,6 +258,7 @@ class Header6 extends HTMLElement {
                       <a href="../about"><b>About</b></a>
                       <a href="../contact"><b>Contact</b></a>
                       <a href="../assets/pdf/Anthony_ResumeATS.pdf" target="_blank" rel="noopener noreferrer"><b>Resume</b></a>
+                      <a href="../shop"><i class="fa fa-shopping-bag"></i></a>
                   </ul>
               </div>
           </div>

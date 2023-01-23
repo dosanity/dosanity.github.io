@@ -7,6 +7,7 @@
 @import url('https://fonts.cdnfonts.com/css/amperzand');
 @import url('https://fonts.googleapis.com/css?family=Hurricane&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Acme&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Birthstone&display=swap');
 
 /* ==================================================================================== */
 
@@ -52,7 +53,7 @@
   color: #f2f2f2 !important;
 }
 .navbar-title {
-  font-family: 'Hurricane', sans-serif;
+  font-family: 'Birthstone', sans-serif;
 }
 
 @media (min-width: 0px) and (max-width: 991px) {
@@ -134,8 +135,8 @@ hr {
 }
 
 .title-btn {
-  font-family: 'Hurricane', sans-serif;
-  font-size: 80px;
+  font-family: 'Birthstone', sans-serif;
+  font-size: 90px;
   font-weight: 500;
   background-color: transparent; 
   border-radius: 4px;
@@ -310,7 +311,7 @@ img {
 /* ==================================================================================== */
 
 .home-btn {
-  font-family: 'Hurricane', sans-serif;
+  font-family: 'Birthstone', sans-serif;
   font-size: 30px;
   background-color: black;
   border: 3px solid black;
@@ -531,7 +532,7 @@ img {
 /* Mobile */
 @media only screen and (max-width:599px) {
   .home-title {
-    font-family: 'Hurricane', sans-serif;
+    font-family: 'Birthstone', sans-serif;
     font-size: 100px;
     text-align: center;
   }
@@ -542,7 +543,7 @@ img {
     right: 0;
   }
   .section-one-font {
-    font-family: 'Hurricane', sans-serif;
+    font-family: 'Birthstone', sans-serif;
     font-size: 6vh;
   }
   .section-one-card {
@@ -558,7 +559,7 @@ img {
     text-align: center;
   }
   .section-three-font {
-    font-family: 'Hurricane', sans-serif;
+    font-family: 'Birthstone', sans-serif;
     font-size: 7.5vh;
   }
   .down-arrow {
@@ -571,11 +572,11 @@ img {
 /* Tablets */
 @media (min-width: 600px) and (max-width: 1049px) {
   .home-title {
-    font-family: 'Hurricane', sans-serif;
+    font-family: 'Birthstone', sans-serif;
     font-size: 120px;
   }
   .section-one-font {
-    font-family: 'Hurricane', sans-serif;
+    font-family: 'Birthstone', sans-serif;
     font-size: 80px;
   }
   .home-quote {
@@ -588,7 +589,7 @@ img {
     text-align: center;
   }
   .section-three-font {
-    font-family: 'Hurricane', sans-serif;
+    font-family: 'Birthstone', sans-serif;
     font-size: 90px;
   }
   .down-arrow {
@@ -601,11 +602,11 @@ img {
 /* Desktop */
 @media (min-width: 1050px) {
   .home-title {
-    font-family: 'Hurricane', sans-serif;
+    font-family: 'Birthstone', sans-serif;
     font-size: 120px;
   }
   .section-one-font {
-    font-family: 'Hurricane', sans-serif;
+    font-family: 'Birthstone', sans-serif;
     font-size: 80px;
   }
   .blockquote:before {
@@ -636,7 +637,7 @@ img {
     text-align: center;
   }
   .section-three-font {
-    font-family: 'Hurricane', sans-serif;
+    font-family: 'Birthstone', sans-serif;
     font-size: 90px;
   }
   .down-arrow {
