@@ -1064,6 +1064,59 @@ button:focus {
   }
 }
 
+
+/* ==================================================================================== */
+
+/* Shop Page */
+
+/* ==================================================================================== */
+
+.shop-details li {
+  list-style: none;
+}
+
+.shop-details {
+  margin-top: -15px;
+}
+
+.shop-item {
+  margin-top: -20px;
+}
+
+.shop-price {
+  font-weight: bold;
+  color: gray;
+  font-size: 20px;
+}
+
+/* ======================================== */
+/* Mobile */
+@media only screen and (max-width:599px) {
+  .shop-item {
+    font-family: 'Birthstone', sans-serif;
+    font-size: 6vh;
+  }
+}
+
+/* ======================================== */
+/* Tablets */
+@media (min-width: 600px) and (max-width: 1049px) {
+  .shop-item {
+    font-family: 'Birthstone', sans-serif;
+    font-size: 80px;
+  }
+}
+
+/* ======================================== */
+/* Desktop */
+@media (min-width: 1050px) {
+  .shop-item {
+    font-family: 'Birthstone', sans-serif;
+    font-size: 80px;
+  }
+}
+
+
 /* ==================================================================================== */
 
 /* Portfolio Page */
