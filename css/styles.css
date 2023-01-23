@@ -1094,7 +1094,7 @@ button:focus {
 @media only screen and (max-width:599px) {
   .shop-item {
     font-family: 'Birthstone', sans-serif;
-    font-size: 6vh;
+    font-size: 52px;
   }
 }
 
