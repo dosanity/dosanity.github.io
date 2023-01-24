@@ -1081,6 +1081,7 @@ button:focus {
 
 .shop-item {
   margin-top: -20px;
+  text-align: center;
 }
 
 .shop-price {
@@ -1103,7 +1104,7 @@ button:focus {
 @media (min-width: 600px) and (max-width: 1049px) {
   .shop-item {
     font-family: 'Birthstone', sans-serif;
-    font-size: 70px;
+    font-size: 75px;
   }
 }
 
@@ -1112,7 +1113,7 @@ button:focus {
 @media (min-width: 1050px) {
   .shop-item {
     font-family: 'Birthstone', sans-serif;
-    font-size: 70px;
+    font-size: 74px;
   }
 }
 
