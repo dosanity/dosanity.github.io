@@ -1090,6 +1090,14 @@ button:focus {
   font-size: 20px;
 }
 
+.shop-row {
+  display: flex;
+}
+
+.shop-row:nth-of-type(even) {
+  flex-direction: row-reverse;
+}
+
 /* ======================================== */
 /* Mobile */
 @media only screen and (max-width:599px) {
