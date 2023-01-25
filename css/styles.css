@@ -629,11 +629,11 @@ img {
   }
   .home-quote {
     font-family: 'Acme', sans-serif;
-    font-size: 3.2vh;
+    font-size: 30px;
     text-align: center;
   }
   .home-quote-author {
-    font-size: 2vh;
+    font-size: 20px;
     text-align: center;
   }
   .section-three-font {
