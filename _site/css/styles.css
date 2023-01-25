@@ -1075,12 +1075,12 @@ button:focus {
   list-style: none;
 }
 
-.shop-details {
+/* .shop-details {
   margin-top: -15px;
-}
+} */
 
 .shop-item {
-  margin-top: -20px;
+  /* margin-top: -20px; */
   text-align: center;
 }
 
