@@ -784,7 +784,7 @@ function BasicWeb() {
   if (item1.innerHTML === "✓ 3 Main Webpages") {
     item1.innerHTML = "✓ 1 Main Webpage";
   }
-  else if (item1.innerHTML === "✓ 5 Main Webpages") {
+  else if (item1.innerHTML === "✓ 5 Total Webpages") {
     item1.innerHTML = "✓ 1 Main Webpage";
   }
 
@@ -812,7 +812,7 @@ function StandardWeb() {
   if (item1.innerHTML === "✓ 1 Main Webpage") {
     item1.innerHTML = "✓ 3 Main Webpages";
   }
-  else if (item1.innerHTML === "✓ 5 Main Webpages") {
+  else if (item1.innerHTML === "✓ 5 Total Webpages") {
     item1.innerHTML = "✓ 3 Main Webpages";
   }
 
@@ -839,10 +839,10 @@ function PremiumWeb() {
   var price = document.getElementById("price-1");
 
   if (item1.innerHTML === "✓ 1 Main Webpage") {
-    item1.innerHTML = "✓ 5 Main Webpages";
+    item1.innerHTML = "✓ 5 Total Webpages";
   }
   else if (item1.innerHTML === "✓ 3 Main Webpages") {
-    item1.innerHTML = "✓ 5 Main Webpages";
+    item1.innerHTML = "✓ 5 Total Webpages";
   }
 
   if (item2.innerHTML === "<br>") {
