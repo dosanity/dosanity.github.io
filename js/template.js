@@ -674,3 +674,189 @@ if ($('#myMenu').is(':visible')) {
   $('body').removeClass("fixed-position");
 }
 
+// ====================================================================================
+
+// Change Text (Services)
+
+// ====================================================================================
+
+function BasicService() {
+  var item2 = document.getElementById("shop-item-5");
+  var item3 = document.getElementById("shop-item-6");
+  var price = document.getElementById("price-3");
+
+  if (item2.innerHTML === "✓ Removing People") {
+    item2.innerHTML = "<br>";
+  }
+  if (item3.innerHTML === "✓ Changing Backgrounds") {
+    item3.innerHTML = "<br>";
+  }
+
+  if (price.innerHTML === "$150.00") {
+    price.innerHTML = "$50.00";
+  } 
+  else if (price.innerHTML === "$100.00") {
+    price.innerHTML = "$50.00";
+  } 
+}
+
+function StandardService() {
+  var item2 = document.getElementById("shop-item-5");
+  var item3 = document.getElementById("shop-item-6");
+  var price = document.getElementById("price-3");
+
+  if (item2.innerHTML === "<br>") {
+    item2.innerHTML = "✓ Removing People";
+  }
+
+  if (item3.innerHTML === "✓ Changing Backgrounds") {
+    item3.innerHTML = "<br>";
+  }
+
+  if (price.innerHTML === "$150.00") {
+    price.innerHTML = "$100.00";
+  } 
+  else if (price.innerHTML === "$50.00") {
+    price.innerHTML = "$100.00";
+  } 
+}
+
+function PremiumService() {
+  var item2 = document.getElementById("shop-item-5");
+  var item3 = document.getElementById("shop-item-6");
+  var price = document.getElementById("price-3");
+
+  if (item2.innerHTML === "<br>") {
+    item2.innerHTML = "✓ Removing People";
+  }
+
+  if (item3.innerHTML === "<br>") {
+    item3.innerHTML = "✓ Changing Backgrounds";
+  }
+
+  if (price.innerHTML === "$100.00") {
+    price.innerHTML = "$150.00";
+  } 
+  else if (price.innerHTML === "$50.00") {
+    price.innerHTML = "$150.00";
+  } 
+}
+
+function NormalPrint() {
+  var price = document.getElementById("price-2");
+
+  if (price.innerHTML === "$150.00") {
+    price.innerHTML = "$50.00";
+  } 
+  else if (price.innerHTML === "$180.00") {
+    price.innerHTML = "$50.00";
+  } 
+}
+
+function FramedPrint() {
+  var price = document.getElementById("price-2");
+
+  if (price.innerHTML === "$50.00") {
+    price.innerHTML = "$150.00";
+  } 
+  else if (price.innerHTML === "$180.00") {
+    price.innerHTML = "$150.00";
+  } 
+}
+
+function MetalPrint() {
+  var price = document.getElementById("price-2");
+
+  if (price.innerHTML === "$50.00") {
+    price.innerHTML = "$180.00";
+  } 
+  else if (price.innerHTML === "$150.00") {
+    price.innerHTML = "$180.00";
+  } 
+}
+
+function BasicWeb() {
+  var item1 = document.getElementById("shop-item-1");
+  var item2 = document.getElementById("shop-item-2");
+  var item3 = document.getElementById("shop-item-3");
+  var price = document.getElementById("price-1");
+
+  if (item1.innerHTML === "✓ 3 Main Webpages") {
+    item1.innerHTML = "✓ 1 Main Webpage";
+  }
+  else if (item1.innerHTML === "✓ 5 Main Webpages") {
+    item1.innerHTML = "✓ 1 Main Webpage";
+  }
+
+  if (item2.innerHTML === "✓ Home, About, &amp; Contact") {
+    item2.innerHTML = "<br>";
+  }
+  if (item3.innerHTML === "✓ 2 Additional Pages") {
+    item3.innerHTML = "<br>";
+  }
+
+  if (price.innerHTML === "$800.00") {
+    price.innerHTML = "$200.00";
+  } 
+  else if (price.innerHTML === "$500.00") {
+    price.innerHTML = "$200.00";
+  } 
+}
+
+function StandardWeb() {
+  var item1 = document.getElementById("shop-item-1");
+  var item2 = document.getElementById("shop-item-2");
+  var item3 = document.getElementById("shop-item-3");
+  var price = document.getElementById("price-1");
+
+  if (item1.innerHTML === "✓ 1 Main Webpage") {
+    item1.innerHTML = "✓ 3 Main Webpages";
+  }
+  else if (item1.innerHTML === "✓ 5 Main Webpages") {
+    item1.innerHTML = "✓ 3 Main Webpages";
+  }
+
+  if (item2.innerHTML === "<br>") {
+    item2.innerHTML = "✓ Home, About, &amp; Contact";
+  }
+
+  if (item3.innerHTML === "✓ 2 Additional Pages") {
+    item3.innerHTML = "<br>";
+  }
+
+  if (price.innerHTML === "$800.00") {
+    price.innerHTML = "$500.00";
+  } 
+  else if (price.innerHTML === "$200.00") {
+    price.innerHTML = "$500.00";
+  } 
+}
+
+function PremiumWeb() {
+  var item1 = document.getElementById("shop-item-1");
+  var item2 = document.getElementById("shop-item-2");
+  var item3 = document.getElementById("shop-item-3");
+  var price = document.getElementById("price-1");
+
+  if (item1.innerHTML === "✓ 1 Main Webpage") {
+    item1.innerHTML = "✓ 5 Main Webpages";
+  }
+  else if (item1.innerHTML === "✓ 3 Main Webpages") {
+    item1.innerHTML = "✓ 5 Main Webpages";
+  }
+
+  if (item2.innerHTML === "<br>") {
+    item2.innerHTML = "✓ Home, About, & Contact";
+  }
+
+  if (item3.innerHTML === "<br>") {
+    item3.innerHTML = "✓ 2 Additional Pages";
+  }
+
+  if (price.innerHTML === "$500.00") {
+    price.innerHTML = "$800.00";
+  } 
+  else if (price.innerHTML === "$200.00") {
+    price.innerHTML = "$800.00";
+  } 
+}
