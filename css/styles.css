@@ -1107,6 +1107,7 @@ button:focus {
   background-color: white;
   color: #74767e;
   cursor: pointer;
+  text-align: center;
 }
 
 .column button.current {
