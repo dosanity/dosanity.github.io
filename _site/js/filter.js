@@ -68,4 +68,19 @@ $(window).load(function(){
          });
          return false;
     });
+
+    $('#data-analysis button').click(function(){
+        $('#data-analysis button').removeClass('current');
+        $(this).addClass('current');
+        // var selector = $(this).attr('filter');
+        $container.isotope({
+            filter: selector,
+            animationOptions: {
+                duration: 750,
+                easing: 'linear',
+                queue: false
+            }
+         });
+         return false;
+    });
 });

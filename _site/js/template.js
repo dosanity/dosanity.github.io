@@ -325,6 +325,12 @@ class Header8 extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
 
+      <div class="progress-wrap" onclick="topFunction()">
+          <svg class="progress-circle svg-content center" width="49px" height="59px" viewBox="-4 -2 108 102">
+              <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"/>
+          </svg>
+      </div>
+
       <link href="../css/bootstrap.min.css" rel="stylesheet">
       <link href="../css/styles.css" rel="stylesheet">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
@@ -742,6 +748,8 @@ function PremiumService() {
   } 
 }
 
+// ====================================================================================
+
 function NormalPrint() {
   var price = document.getElementById("price-2");
 
@@ -774,6 +782,8 @@ function MetalPrint() {
     price.innerHTML = "$180.00";
   } 
 }
+
+// ====================================================================================
 
 function BasicWeb() {
   var item1 = document.getElementById("shop-item-1");
@@ -846,7 +856,7 @@ function PremiumWeb() {
   }
 
   if (item2.innerHTML === "<br>") {
-    item2.innerHTML = "✓ Home, About, & Contact";
+    item2.innerHTML = "✓ Home, About, &amp; Contact";
   }
 
   if (item3.innerHTML === "<br>") {
@@ -858,5 +868,69 @@ function PremiumWeb() {
   } 
   else if (price.innerHTML === "$200.00") {
     price.innerHTML = "$800.00";
+  } 
+}
+
+// ====================================================================================
+
+function BasicData() {
+  var item2 = document.getElementById("shop-item-8");
+  var item3 = document.getElementById("shop-item-9");
+  var price = document.getElementById("price-4");
+
+  if (item2.innerHTML === "✓ Webscraping &amp; API Integration") {
+    item2.innerHTML = "<br>";
+  }
+  if (item3.innerHTML === "✓ Machine Learning Algorithms") {
+    item3.innerHTML = "<br>";
+  }
+
+  if (price.innerHTML === "$200.00") {
+    price.innerHTML = "$100.00";
+  } 
+  else if (price.innerHTML === "$300.00") {
+    price.innerHTML = "$100.00";
+  } 
+}
+
+function StandardData() {
+  var item2 = document.getElementById("shop-item-8");
+  var item3 = document.getElementById("shop-item-9");
+  var price = document.getElementById("price-4");
+
+  if (item2.innerHTML === "<br>") {
+    item2.innerHTML = "✓ Webscraping &amp; API Integration";
+  }
+
+  if (item3.innerHTML === "✓ Machine Learning Algorithms") {
+    item3.innerHTML = "<br>";
+  }
+
+  if (price.innerHTML === "$100.00") {
+    price.innerHTML = "$200.00";
+  } 
+  else if (price.innerHTML === "$300.00") {
+    price.innerHTML = "$200.00";
+  } 
+}
+
+function PremiumData() {
+  var item2 = document.getElementById("shop-item-8");
+  var item3 = document.getElementById("shop-item-9");
+  var price = document.getElementById("price-4");
+
+  if (item2.innerHTML === "<br>") {
+    item2.innerHTML = "✓ Webscraping &amp; API Integration";
+  }
+
+  if (item3.innerHTML === "<br>") {
+    item3.innerHTML = "✓ Machine Learning Algorithms";
+  }
+
+  if (price.innerHTML === "$100.00") {
+    price.innerHTML = "$300.00";
+  } 
+  else if (price.innerHTML === "$200.00") {
+    price.innerHTML = "$300.00";
   } 
 }

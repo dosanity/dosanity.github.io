@@ -1094,6 +1094,10 @@ button:focus {
   display: flex;
 }
 
+.shop-row hr {
+  margin-top: -10px;
+}
+
 .shop-row:nth-of-type(even) {
   flex-direction: row-reverse;
 }
