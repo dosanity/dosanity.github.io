@@ -759,6 +759,8 @@ function NormalPrint() {
   else if (price.innerHTML === "$180.00") {
     price.innerHTML = "$50.00";
   } 
+
+  document.getElementById("theImage").src="assets/images/photos/normal-prints.webp";
 }
 
 function FramedPrint() {
@@ -770,6 +772,8 @@ function FramedPrint() {
   else if (price.innerHTML === "$180.00") {
     price.innerHTML = "$150.00";
   } 
+
+  document.getElementById("theImage").src="assets/images/photos/framed-prints.webp";
 }
 
 function MetalPrint() {
@@ -781,6 +785,8 @@ function MetalPrint() {
   else if (price.innerHTML === "$150.00") {
     price.innerHTML = "$180.00";
   } 
+
+  document.getElementById("theImage").src="assets/images/photos/metal-prints.webp";
 }
 
 // ====================================================================================
