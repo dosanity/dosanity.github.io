@@ -1121,6 +1121,18 @@ button:focus {
   color: #1DA1F2;
 }
 
+.mobile-price {
+  position: absolute;
+  text-align: center;
+  left: 50%;
+  bottom: 65px;
+  transform: translate(-50%);
+  max-width: 100%;
+  color: black;
+  font-weight: bold;
+  font-size: 20px;
+}
+
 /* ======================================== */
 /* Mobile */
 @media only screen and (max-width:599px) {
@@ -1145,6 +1157,10 @@ button:focus {
   .shop-item {
     font-family: 'Birthstone', sans-serif;
     font-size: 74px;
+  }
+
+  .mobile-price {
+    visibility: hidden;
   }
 }
 
