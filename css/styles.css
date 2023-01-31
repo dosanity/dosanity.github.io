@@ -1280,7 +1280,7 @@ button:focus {
   cursor: pointer;
 }
 .card:hover {
-  background-color: rgb(29, 161, 242, 0.3);
+  background-color: rgba(0, 140, 255, 0.3);
   border: 3px solid black;
 }
 .card-body {
