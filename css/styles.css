@@ -1162,6 +1162,11 @@ button:focus {
   flex-direction: row-reverse;
 }
 
+.shop-photo {
+  border: 2px solid transparent;
+  margin-bottom: 0%;
+}
+
 .service-btn {
   width: 30%;
   height: 35px;
