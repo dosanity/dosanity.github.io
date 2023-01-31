@@ -332,14 +332,14 @@ function PremiumWeb() {
         price.innerHTML = "$600.00";
     } 
     else if (price.innerHTML === "$150.00") {
-        price.innerHTML = "$400.00";
+        price.innerHTML = "$600.00";
     } 
 
     if (price2.innerHTML === "$400.00") {
         price2.innerHTML = "$600.00";
     } 
     else if (price2.innerHTML === "$150.00") {
-        price2.innerHTML = "$400.00";
+        price2.innerHTML = "$600.00";
     } 
 
     document.getElementById("WebImage").src="../assets/images/photos/shop/premium-web.webp";
