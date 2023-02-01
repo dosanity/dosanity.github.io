@@ -114,7 +114,7 @@ ul li:nth-child(odd) {
 
 /* When clicked on, add a background color and strike out text */
 ul li.checked {
-  background: #2563EB;
+  background: #0088ff;
   color: #fff;
   text-decoration: line-through;
   text-decoration-thickness: 2px;
@@ -158,7 +158,7 @@ ul li.checked::before {
 }
 
 .save-btn {
-  background-color: #2563EB;
+  background-color: #0088ff;
   color: white;
   text-align: center;
   padding: 10px;

@@ -30,7 +30,7 @@
 }
 
 .topnav a.active {
-  background-color: #0071ce;
+  background-color: #0088ff;
   color: white;
 }
 
@@ -262,7 +262,7 @@ img {
 }
 .progress-wrap svg.progress-circle path {
 	/* stroke: rgba(0, 0, 0, 0.2); */
-  stroke: #0071ce;
+  stroke: #0088ff;
 	stroke-width: 10;
 	box-sizing:border-box;
 }
@@ -301,7 +301,7 @@ img {
 
 #linkedin {
   top: 250px;
-  background-color: #0071ce;
+  background-color: #0088ff;
   vertical-align: middle;
 }
 
@@ -850,7 +850,7 @@ img {
 }
 .bar{
   position: relative;
-  border: 2px solid #0071ce;
+  border: 2px solid #0088ff;
   border-radius: 20px;
   margin-bottom: 11.4px;
   margin-top: -5px;
@@ -860,7 +860,7 @@ img {
   width: 0;
   height: 9px;
   border-radius: 10px;
-  background-color: #0071ce;
+  background-color: #0088ff;
 }
 
 .secret-door {
@@ -963,7 +963,7 @@ img {
 /* The progress bar (scroll indicator) */
 .progress-bar {
   height: 8px;
-  background: #0071ce;
+  background: #0088ff;
   width: 0%;
 }
 
@@ -996,7 +996,7 @@ img {
     width: 50%;
   }
   .collapsible:hover {
-    background-color: #0071ce;
+    background-color: #0088ff;
   }
 }
 
@@ -1182,9 +1182,9 @@ button:focus {
 
 .column button.current {
   font-weight: bold;
-  border: 4px solid #0071ce;
-  color: #0071ce;
-  /* background-color: #0071ce; */
+  border: 4px solid #0088ff;
+  color: #0088ff;
+  /* background-color: #0088ff; */
 }
 
 .mobile-price {
@@ -1333,7 +1333,7 @@ button:focus {
 }
 .projectFilter a.current {
     font-weight: bold;
-    border: 4px solid #0071ce;
+    border: 4px solid #0088ff;
 }
 
 /* Style the navigation menu */
@@ -1348,7 +1348,7 @@ button:focus {
   transition: none;
 }
 #myMenu li a:hover {
-  background-color: #0071ce;
+  background-color: #0088ff;
   color: white;
 }
 
@@ -1541,7 +1541,7 @@ input[type=search]::-webkit-search-cancel-button {
   }
   .section-nav li a:hover {
     color: white;
-    background-color: #0071ce;
+    background-color: #0088ff;
   }
 
   /* Tooltip text 3 */
