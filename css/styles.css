@@ -557,6 +557,10 @@ img {
   transform: rotateZ(45deg);
 }
 
+.down-btn{
+  color: black;
+}
+
 @keyframes jumpInfinite {
   0% {
     margin-top: 0;
@@ -702,6 +706,9 @@ img {
   }
   .down-arrow {
     top: calc(100vh - 80px);
+  }
+  .down-btn svg:hover {
+    fill: white;
   }
 }
 
