@@ -140,6 +140,13 @@ ul li.checked::before {
   font-size: 11px;
 }
 
+table {
+  margin-right: auto;
+  margin-left: auto;
+  display: inline-block !important;
+  margin-bottom: 30px;
+}
+
 .reset-btn {
   background-color: #fc0000;
   color: white;
