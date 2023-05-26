@@ -27,7 +27,7 @@
 		<script src="js/jquery.isotope.js" type="text/javascript"></script>
 		<script src="js/filter.js" type="text/javascript"></script>
 		<script src="js/bootstrap.bundle.min.js"></script>
-		<script src="js/template.js" type="text/javascript" defer></script>
+		<!-- <script src="js/template.js" type="text/javascript" defer></script> -->
 		<script src="js/shop.js" type="text/javascript" defer></script>
 		
 
@@ -63,134 +63,186 @@
 
 				<div align="center">
 					
-					<h1 class="title-btn">My Services</h1>
+					<h1 class="title-btn">My Shop</h1>
 
 					<hr>
 
 				</div>
 
-				<div class="section-two-card" data-aos="fade-up" data-aos-duration="1000">
+
+
+				<div class="section-two-card">
+
+					<div class="collapsible"><b>Professional Website</b></div>
+					<div class="content">
+						<br>
+						<div class="row shop-row">
+							<div class="column">
 		
-					<div class="row shop-row">
-						<div class="column" id="professional-website">
+								<center>
+									
+									<img id="WebImage" class="profile" src="assets/images/photos/shop/premium-web.webp" alt="profile">
+									<div class="mobile-price" id="mobile-price-1"></div>
+
+									<br>
+									<br>
 	
-							<center data-aos="fade-in"  data-aos-easing="ease-in">
+								</center>
+		
+							</div>
+							<div class="column" id="professional-website">
+
+								<center>
+									<button class="service-btn" onclick="BasicWeb()">Basic</button>
+									<button class="service-btn" onclick="StandardWeb()">Standard</button>
+									<button class="service-btn current" onclick="PremiumWeb()">Premium</button>
+								</center>
+
+								<!-- <p class="shop-item">Professional Website</p> -->
+								<br>
+								<br>
+
+								<div>
+									<div class="shop-details">
+										<li id="shop-item-1">✓ 5 Total Webpages</li>
+										<li id="shop-item-2">✓ Home, About, &amp; Contact</li>
+										<li id="shop-item-3">✓ 2 Additional Pages</li>
+									</div>
+									
+									<br>
+			
+									<b>Message me if you are interested.</b>
+									<p>
+										Content creators and small businesses tend to pay subscription based plans to host their websites.  
+										I understand that this can be very costly. With my knowledge in web development and programming, I can help build you a fully customizable 
+										professional static website with no subscriptions or hosting costs. Additionally, the webpage will have a responsive design and mobile compatible.
+									</p>
+		
+									<!-- The website design includes 3 main pages (Home, About, & Contact) plus 2 additional pages. -->
+			
+									<center>
+										<p class="shop-price" id="price-1">$600.00</p>
+										<a href="../contact" class="home-about-btn">Purchase Service</a>
+									</center>
+
+								</div>
+	
+
+		
+							</div>
+						</div>
+					</div>
+
+					<div class="collapsible"><b>Photoshop Editing</b></div>
+					<div class="content">
+						<br>
+						<div class="row shop-row">
+							<div class="column" id="photoshop-editing">
+		
+								<center>
+									<img id="PhotoshopImage" class="profile" src="assets/images/photos/shop/premium-photoshop.webp" alt="profile">
+									<div class="mobile-price" id="mobile-price-3"></div>
+
+									<br>
+									<br>
+	
+								</center>
+		
+							</div>
+							<div class="column">
+								<!-- <p class="shop-item">Photoshop Editing</p>-->
+
+								<center>
+									<button class="service-btn" onclick="BasicService()">Basic</button>
+									<button class="service-btn" onclick="StandardService()">Standard</button>
+									<button class="service-btn current" onclick="PremiumService()">Premium</button>
+
+								</center>
+		
+								<br>
+								<br>
+	
+								<div class="shop-details">
+									<li id="shop-item-4">✓ Removing Basic Objects</li>
+									<li id="shop-item-5">✓ Removing People</li>
+									<li id="shop-item-6">✓ Changing Backgrounds</li>
+								</div>		
+
+								<br>
+	
+								<b>Message me if you are interested.</b>
+	
+								<p>
+									Do you have people you don't want in your wedding or family photos? Or do you want to delete unnecessary objects from your favorite image? 
+									As an experienced photoshop editor, I can help edit your photos! This service includes changes to one image. Based on the complexity of the task, 
+									price will be quoted differently on every edit.
+								</p>
+		
+								<center>
+									<p class="shop-price" id="price-3">$150.00</p>
+									<a href="../contact" class="home-about-btn">Purchase Service</a>
+								</center>
+		
+							</div>
+						</div>
+
+					</div>
+
+		
+					<div class="collapsible"><b>Gallery Prints</b></div>
+					<div class="content" style="border-bottom: 2px solid black;">
+						<br>
+						<div class="row shop-row">
+							<div class="column" id="gallery-prints">
+		
+								<center>
+									<img id="theImage" class="profile" src="assets/images/photos/shop/framed-prints.webp" alt="profile">
+									<div class="mobile-price" id="mobile-price-2"></div>
+
+									<br>
+									<br>
+
+								</center>
+		
+							</div>
+							<div class="column">
+								<!-- <p class="shop-item">Gallery Prints</p>		 -->
+
+								<center>
+									<button class="service-btn" onclick="PaperPrint()">Paper</button>
+									<button class="service-btn current" onclick="FramedPrint()">Framed</button>
+									<button class="service-btn" onclick="MetalPrint()">Metal</button>
+
+								</center>
 								
-								<img id="WebImage" class="profile" src="assets/images/photos/shop/premium-web.webp" alt="profile">
-								<div class="mobile-price" id="mobile-price-1">$600.00</div>
-
 								<br>
 								<br>
-								<button class="service-btn" onclick="BasicWeb()">Basic</button>
-								<button class="service-btn" onclick="StandardWeb()">Standard</button>
-								<button class="service-btn current" onclick="PremiumWeb()">Premium</button>
-							</center>
-	
-						</div>
-						<div class="column">
-							<p class="shop-item">Professional Website</p>
-							<hr>
+		
+								<p>
+									Photography has been an artistic way of documenting life and expressing beauty. Styles of photography range from documentary to fashion to casual snapshots. 
+									As you already know, my style of photography mixes in minimalism and beauty. It wraps in the sense of adventure and artistic lifestyle.
+									Sophisticated digital technology and advanced printing techniques mean photographs may be printed and still have the same incredible detail as the 
+									original. This makes decorating with photography easy.
+								</p>
+		
+								<center>
+									<p class="shop-price" id="price-2">$150.00</p>
+									<a href="https://dosanity.darkroom.com/" class="home-about-btn" target="_blank" rel="noopener noreferrer">Shop Prints</a>
+								</center>
 
-							<ul class="shop-details">
-								<li id="shop-item-1">✓ 5 Total Webpages</li>
-								<li id="shop-item-2">✓ Home, About, &amp; Contact</li>
-								<li id="shop-item-3">✓ 2 Additional Pages</li>
-							</ul>					
-	
-							<b>Message me if you are interested.</b>
-							<p>
-								Content creators and small businesses tend to pay subscription based plans to host their websites.  
-								I understand that this can be very costly. With my knowledge in web development and programming, I can help build you a fully customizable 
-								professional static website with no subscriptions or hosting costs. Additionally, the webpage will have a responsive design and mobile compatible.
-							</p>
-
-							<!-- The website design includes 3 main pages (Home, About, & Contact) plus 2 additional pages. -->
-	
-							<center>
-								<p class="shop-price" id="price-1">$600.00</p>
-								<a href="../contact" class="home-about-btn">Purchase Service</a>
-							</center>
-	
+		
+							</div>
 						</div>
+
 					</div>
-					<div class="row shop-row">
-						<div class="column" id="gallery-prints">
-	
-							<center data-aos="fade-in"  data-aos-easing="ease-in">
-								<img id="theImage" class="profile" src="assets/images/photos/shop/framed-prints.webp" alt="profile">
-								<div class="mobile-price" id="mobile-price-2">$150.00</div>
-								<br>
-								<br>
-								<button class="service-btn" onclick="PaperPrint()">Paper</button>
-								<button class="service-btn current" onclick="FramedPrint()">Framed</button>
-								<button class="service-btn" onclick="MetalPrint()">Metal</button>
-							</center>
-	
-						</div>
-						<div class="column">
-							<p class="shop-item">Gallery Prints</p>		
-							
-							<hr>
-	
-							<p>
-								Photography has been an artistic way of documenting life and expressing beauty. Styles of photography range from documentary to fashion to casual snapshots. 
-								As you already know, my style of photography mixes in minimalism and beauty. It wraps in the sense of adventure and artistic lifestyle.
-								Sophisticated digital technology and advanced printing techniques mean photographs may be printed and still have the same incredible detail as the 
-								original. This makes decorating with photography easy.
-							</p>
-	
-							<center>
-								<p class="shop-price" id="price-2">$150.00</p>
-								<a href="https://dosanity.darkroom.com/" class="home-about-btn" target="_blank" rel="noopener noreferrer">Shop Prints</a>
-							</center>
-	
-						</div>
-					</div>
-					<div class="row shop-row">
-						<div class="column" id="photoshop-editing">
-	
-							<center data-aos="fade-in"  data-aos-easing="ease-in">
-								<img id="PhotoshopImage" class="profile" src="assets/images/photos/shop/premium-photoshop.webp" alt="profile">
-								<div class="mobile-price" id="mobile-price-3">$150.00</div>
-								<br>
-								<br>
-								<button class="service-btn" onclick="BasicService()">Basic</button>
-								<button class="service-btn" onclick="StandardService()">Standard</button>
-								<button class="service-btn current" onclick="PremiumService()">Premium</button>
 
-							</center>
-	
-						</div>
-						<div class="column">
-							<p class="shop-item">Photoshop Editing</p>					
-	
-							<hr>
 
-							<ul class="shop-details">
-								<li id="shop-item-4">✓ Removing Basic Objects</li>
-								<li id="shop-item-5">✓ Removing People</li>
-								<li id="shop-item-6">✓ Changing Backgrounds</li>
-							</ul>		
 
-							<b>Message me if you are interested.</b>
 
-							<p>
-								Do you have people you don't want in your wedding or family photos? Or do you want to delete unnecessary objects from your favorite image? 
-								As an experienced photoshop editor, I can help edit your photos! This service includes changes to one image. Based on the complexity of the task, 
-								price will be quoted differently on every edit.
-							</p>
-	
-							<center>
-								<p class="shop-price" id="price-3">$150.00</p>
-								<a href="../contact" class="home-about-btn">Purchase Service</a>
-							</center>
-	
-						</div>
-					</div>
-					<div class="row shop-row">
+					<!-- <div class="row shop-row">
 						<div class="column" id="data-analysis">
 	
-							<center data-aos="fade-in"  data-aos-easing="ease-in">
+							<center>
 								<img class="profile" src="assets/images/photos/shop/premium-data.webp" alt="profile">
 								<div class="mobile-price" id="mobile-price-4">$300.00</div>
 								<br>
@@ -227,7 +279,7 @@
 							</center>
 	
 						</div>
-					</div>
+					</div> -->
 
 				</div>
 			</div>
