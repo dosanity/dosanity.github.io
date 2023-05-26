@@ -33,7 +33,7 @@ class Header6 extends HTMLElement {
                       <a href="../about"><b>About</b></a>
                       <a href="../contact"><b>Contact</b></a>
                       <!-- <a href="../assets/pdf/Anthony_ResumeATS.pdf" target="_blank" rel="noopener noreferrer"><b>Resume</b></a> -->
-                      <a href="../shop"><b>Shop</b></a>
+                      <!-- <a href="../shop"><b>Shop</b></a> -->
                   </ul>
               </div>
           </div>
