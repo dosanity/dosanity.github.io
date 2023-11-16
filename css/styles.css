@@ -1614,9 +1614,9 @@ code {
 }
 pre {
   padding: 8px 15px;
-  background: #f6f8fa;
+  background: #ebedf0;
   border-radius: 5px;
-  border: 1px solid #e5e5e5;
+  border: 1px solid #cfd4db;
   overflow-x: auto; 
 }
 blockquote {
