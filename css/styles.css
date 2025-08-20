@@ -530,7 +530,7 @@ img {
 .featured-projects {
   margin: 10px;
   background-color: white !important;
-  border: 3px solid black !important;
+  /* border: 3px solid black !important; */
 }
 
 .down-arrow {
